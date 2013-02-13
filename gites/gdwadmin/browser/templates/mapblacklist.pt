@@ -1,0 +1,31 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xml:lang="en" lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="cerise">
+<head></head>
+<body>
+<div metal:fill-slot="main"
+     i18n:domain="gites">
+<H1>Blacklisting g&eacute;olocalisation</H1>
+<div class="content">
+
+    <!-- Show map -->
+    MAP
+    <hr />
+
+    <!-- Blacklister des informations -->
+    <h2>Blacklister des informations</h2>
+    <input type="text" name="blacklist_search_value" id="blacklist_search_value" />
+    <input type="button" id="blacklist_search_button" value="Rechercher" />
+
+    <div id="blacklist_search_result"></div>
+
+    <hr />
+
+    <!-- Whitelister des informations -->
+    <div id="blacklist_table"></div>
+
+</div><!--content-->
+</div><!--main-->
+</body>
+</html>

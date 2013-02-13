@@ -1,0 +1,19 @@
+- Map blacklist
+
+    - Creer la template
+        - visuel, formulaire sans fonctionnalité
+            + preparer divs et inputs
+            - Show map (actuellement un viewlet)
+
+    - Creer javascript
+        - live search
+            + ajouter jquery-ui
+            - implementer le livesearch en appelant une browserview avec données en dur
+                (cf vacations js/vt-livesearch.js, veterinarylivesearch.py, templates_prestation/prestation-listing.pt)
+
+    - Creer nouvelle table
+        - mapblacklist
+
+    - Creer code python
+        - recuperation des informations actuellement blacklistées
+        - inserer des nouvelles informations dans la blacklist

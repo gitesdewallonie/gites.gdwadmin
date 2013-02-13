@@ -1,0 +1,18 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:browser="http://namespaces.zope.org/browser"
+           i18n_domain="gites">
+
+    <browser:page
+      for="*"
+      name="mapBlacklist"
+      permission="zope2.View"
+      class=".mapblacklist.MapBlacklist"
+      template="templates/mapblacklist.pt"
+      />
+
+    <browser:resource
+      file="js/mapblacklist.js"
+      name="gdwadmin-mapblacklist.js"
+      />
+
+</configure>
