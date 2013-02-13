@@ -5,7 +5,7 @@ import json
 from Products.Five.browser import BrowserView
 
 
-class MapBlacklist(BrowserView):
+class MapBlacklistLiveSearch(BrowserView):
     """
     Map blacklist view
     """

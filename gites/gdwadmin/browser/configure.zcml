@@ -10,9 +10,17 @@
       template="templates/mapblacklist.pt"
       />
 
-    <browser:resource
-      file="js/mapblacklist.js"
-      name="gdwadmin-mapblacklist.js"
+    <browser:page
+      for="*"
+      name="mapBlacklistLiveSearch"
+      permission="zope2.View"
+      class=".mapblacklistlivesearch.MapBlacklistLiveSearch"
+      />
+
+    <browser:resourceDirectory
+      name="gdwadminJS"
+      directory="js/"
+      permission="zope2.View"
       />
 
 </configure>

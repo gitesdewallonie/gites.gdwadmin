@@ -1,9 +1,8 @@
 jQuery(function($){
-
-    $("input[name='blacklist_search_value']").autocomplete({
+    $("input[id='blacklist_search_value']").autocomplete({
         source: function(request, response) {
             $.ajax({
-                url: "mapBlacklist-livesearch",
+                url: "mapBlacklistLiveSearch",
                 dataType: "json",
                 data: {
                     featureClass: "P",

@@ -2,7 +2,14 @@
       xml:lang="en" lang="en"
       metal:use-macro="here/main_template/macros/master"
       i18n:domain="cerise">
-<head></head>
+
+<head>
+  <metal:addRemoveWidget fill-slot="javascript_head_slot">
+    <script type="text/javascript"
+            tal:attributes="src string:$portal_url/++resource++gdwadminJS/mapblacklist.js"></script>
+  </metal:addRemoveWidget>
+</head>
+
 <body>
 <div metal:fill-slot="main"
      i18n:domain="gites">

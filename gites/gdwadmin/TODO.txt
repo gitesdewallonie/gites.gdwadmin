@@ -6,10 +6,11 @@
             - Show map (actuellement un viewlet)
 
     - Creer javascript
-        - live search
+        + live search
             + ajouter jquery-ui
-            - implementer le livesearch en appelant une browserview avec données en dur
+            + implementer le livesearch en appelant une browserview avec données en dur
                 (cf vacations js/vt-livesearch.js, veterinarylivesearch.py, templates_prestation/prestation-listing.pt)
+        - tableau des resultats
 
     - Creer nouvelle table
         - mapblacklist
