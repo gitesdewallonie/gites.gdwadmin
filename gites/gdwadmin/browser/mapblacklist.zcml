@@ -14,14 +14,14 @@
       for="*"
       name="mapBlacklistLiveSearch"
       permission="zope2.View"
-      class=".mapblacklistlivesearch.MapBlacklistLiveSearch"
+      class=".mapblacklist.MapBlacklistLiveSearch"
       />
 
     <browser:page
       for="*"
       name="mapBlacklistSearchResult"
       permission="zope2.View"
-      class=".mapblacklistsearchresult.MapBlacklistSearchResult"
+      class=".mapblacklist.MapBlacklistSearchResult"
       template="templates/mapblacklist_searchresult.pt"
       />
 
