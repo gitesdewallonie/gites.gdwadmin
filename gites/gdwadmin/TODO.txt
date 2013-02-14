@@ -1,3 +1,7 @@
+- Add security on browser views
+- Add .new-line class in CSS (see XXX)
+
+
 - Map blacklist
 
     - Creer la template

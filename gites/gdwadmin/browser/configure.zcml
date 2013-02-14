@@ -4,6 +4,9 @@
 
     <include file="mapblacklist.zcml" />
 
+
+    <!-- Metadata -->
+
     <browser:page
       for="*"
       name="metadataEdition"
@@ -19,6 +22,20 @@
       class=".metadata.MetadataView"
       attribute="updateMetadata"
       />
+
+
+    <!-- Hebs criteria values -->
+
+    <browser:page
+      for="*"
+      name="hebCriteriaEdition"
+      permission="zope2.View"
+      class=".hebcriteria.HebCriteriaView"
+      template="templates/hebcriteria.pt"
+      />
+
+
+    <!-- Resources -->
 
     <browser:resourceDirectory
       name="gdwadminJS"
