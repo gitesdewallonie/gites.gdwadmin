@@ -1,6 +1,6 @@
-    <tr tal:content="
-    <td><image style="cursor:pointer" src="moins.png" name="blacklist_remove_button" tal:attributes="id item/name"/></td>
-    <td><span tal:content="item/name"/></td>
-    <td><span tal:content="item/description"/></td>
-    <td><span tal:content="item/provider"/></td>
-    </tr>
+<tr>
+    <td><image style="cursor:pointer" src="moins.png" name="blacklist_remove_button" tal:attributes="id string:${request/id}_remove_button"/></td>
+    <td><span tal:content="request/name"/></td>
+    <td><span tal:content="request/description"/></td>
+    <td><span tal:content="request/provider"/></td>
+</tr>

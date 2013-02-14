@@ -8,7 +8,7 @@
 </tr>
 <tal:boucle tal:repeat="item view/searchData">
     <tr>
-    <td><image style="cursor:pointer" src="plus.png" name="blacklist_add_button" tal:attributes="id item/name"/></td>
+    <td><image style="cursor:pointer" src="plus.png" name="blacklist_add_button" tal:attributes="id item/id"/></td>
     <td><span tal:content="item/name"/></td>
     <td><span tal:content="item/description"/></td>
     <td><span tal:content="item/provider"/></td>

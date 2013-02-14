@@ -9,13 +9,16 @@ class MapBlacklistSearchResult(BrowserView):
     """
     def searchData(self):
         searchValue = self.request.get("searchValue")
-        result = [{'name':"item1"+searchValue,
+        result = [{'id':"id1"+searchValue,
+                   'name':"item1"+searchValue,
                    'description':"descriptionitem1",
                    'provider':"fournisseuritem1"},
-                  {'name':"item2"+searchValue,
+                  {'id':"id2"+searchValue,
+                   'name':"item2"+searchValue,
                    'description':"descriptionitem2",
                    'provider':"fournisseuritem2"},
-                  {'name':"item3"+searchValue,
+                  {'id':"id3"+searchValue,
+                   'name':"item3"+searchValue,
                    'description':"descriptionitem3",
                    'provider':"fournisseuritem3"},
                   ]

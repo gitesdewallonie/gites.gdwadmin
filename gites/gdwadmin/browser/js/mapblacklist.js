@@ -52,43 +52,61 @@ var mapBlackList = {
     },
 
     searchResult : function() {
-            jQuery.ajax({
-
-                    type: "POST",
-                    url: 'mapBlacklistSearchResult',
-                    data: "searchValue=" + jQuery("input#blacklist_search_value").val(),
-                    success: function(data) {
-                                             jQuery("div#blacklist_search_result").html(data);
-                                             jQuery("[name='blacklist_add_button']").bind({'click': mapBlackList.addData});
-                                            }
-
-                    });
-    },
-
-    removeData : function(event) {
-            jQuery.ajax({
-
-                    type: "POST",
-                    url: 'mapBlacklistRemoveData',
-                    data: "dataId=" + event.target.id,
-                    success: function(data) {
-                                                jQuery("#"+event.target.id).parent().parent().fadeOut();
-                                            }
-
-                    });
+        jQuery.ajax({
+            type: "POST",
+            url: 'mapBlacklistSearchResult',
+            data: "searchValue=" + jQuery("input#blacklist_search_value").val(),
+            success: function(data) {
+                jQuery("div#blacklist_search_result").html(data);
+                jQuery("[name='blacklist_add_button']").bind({'click': mapBlackList.addData});
+            }
+        });
     },
 
     addData : function(event) {
-            jQuery.ajax({
-
-                    type: "POST",
-                    url: 'mapBlacklistAddData',
-                    data: "dataId=" + event.target.id,
-                    success: function(data) {
-                                                jQuery("#"+event.target.id).parent().parent().fadeOut();
-
-                                            }
-
+        // Insert data in database
+        jQuery.ajax({
+            type: "POST",
+            url: 'mapBlacklistAddData',
+            data: "dataId=" + event.target.id,
+            success: function(data) {
+                // Remove row in html searchResult table
+                jQuery("#"+event.target.id).closest('tr').fadeOut(300,
+                    function(){
+                        jQuery(this).remove();
                     });
-    }
+
+                rowData = JSON.parse(data)
+                // Add row in html blacklist table
+                jQuery.ajax({
+                    type: "POST",
+                    url: 'mapBlacklistRowData',
+                    data: rowData,
+                    success: function(data) {
+                        data = jQuery(data);
+                        jQuery("table#blacklist_table tr:last").after(data);
+                        jQuery("table#blacklist_table tr:last").hide().fadeIn(300,
+                            function(){
+                                jQuery('#' + rowData.id + '_remove_button' + '[name="blacklist_remove_button"]').bind({'click': mapBlackList.removeData});
+                            });
+                    }
+                });
+
+            }
+        });
+    },
+
+    removeData : function(event) {
+        jQuery.ajax({
+            type: "POST",
+            url: 'mapBlacklistRemoveData',
+            data: "dataId=" + event.target.id,
+            success: function(data) {
+                jQuery("#"+event.target.id).closest('tr').fadeOut(300,
+                    function(){
+                        jQuery(this).remove();
+                    });
+            }
+        });
+    },
 }

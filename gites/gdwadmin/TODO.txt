@@ -4,17 +4,29 @@
         - visuel, formulaire sans fonctionnalité
             + preparer divs et inputs
             - Show map (actuellement un viewlet)
+            + afficher liste actuellement blacklistée
 
     - Creer javascript
         + live search
             + ajouter jquery-ui
             + implementer le livesearch en appelant une browserview avec données en dur
                 (cf vacations js/vt-livesearch.js, veterinarylivesearch.py, templates_prestation/prestation-listing.pt)
-        - tableau des resultats
+            + appeler la recherche en appuyant sur Enter
+            + appeler la recherche en cliquant sur le bouton
+
+        + tableau des resultats
+            + recuperer html template quand appuye sur Enter
+            + Creer tableau suivant données envoyées en ajax
+            - quand aucun resultat trouvé: mettre une phrase explicite
+
+        + ajouter element a la blacklist en appuyant sur le '+'
+        + supprimer element de la blacklist en appuyant sur le '-'
 
     - Creer nouvelle table
         - mapblacklist
 
     - Creer code python
+        - recuperation des informations lors de la recherche
+            - Penser a retirer ceux deja blacklisté du resultat
         - recuperation des informations actuellement blacklistées
         - inserer des nouvelles informations dans la blacklist

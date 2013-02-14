@@ -2,6 +2,8 @@
            xmlns:browser="http://namespaces.zope.org/browser"
            i18n_domain="gites">
 
+    <include file="mapblacklist.zcml" />
+
     <browser:page
       for="*"
       name="metadataEdition"
@@ -16,45 +18,6 @@
       permission="zope2.View"
       class=".metadata.MetadataView"
       attribute="updateMetadata"
-      />
-
-    <browser:page
-      for="*"
-      name="mapBlacklist"
-      permission="zope2.View"
-      class=".mapblacklist.MapBlacklist"
-      template="templates/mapblacklist.pt"
-      />
-
-    <browser:page
-      for="*"
-      name="mapBlacklistLiveSearch"
-      permission="zope2.View"
-      class=".mapblacklistlivesearch.MapBlacklistLiveSearch"
-      />
-
-    <browser:page
-      for="*"
-      name="mapBlacklistSearchResult"
-      permission="zope2.View"
-      class=".mapblacklistsearchresult.MapBlacklistSearchResult"
-      template="templates/mapblacklist_searchresult.pt"
-      />
-
-    <browser:page
-      for="*"
-      name="mapBlacklistRemoveData"
-      permission="zope2.View"
-      class=".mapblacklist.MapBlacklist"
-      attribute="removeData"
-      />
-
-    <browser:page
-      for="*"
-      name="mapBlacklistAddData"
-      permission="zope2.View"
-      class=".mapblacklist.MapBlacklist"
-      attribute="addData"
       />
 
     <browser:resourceDirectory
