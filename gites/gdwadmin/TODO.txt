@@ -26,8 +26,8 @@
         + ajouter element a la blacklist en appuyant sur le '+'
         + supprimer element de la blacklist en appuyant sur le '-'
 
-    - Creer nouvelle table
-        - mapblacklist
+    + Creer nouvelle table
+        + mapblacklist
 
     - Creer code python
         - recuperation des informations lors de la recherche
