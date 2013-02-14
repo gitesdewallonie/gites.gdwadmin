@@ -19,10 +19,26 @@
 
     <browser:page
       for="*"
-      name="mapBlacklistResult"
+      name="mapBlacklistSearchResult"
       permission="zope2.View"
       class=".mapblacklistsearchresult.MapBlacklistSearchResult"
       template="templates/mapblacklist_searchresult.pt"
+      />
+
+    <browser:page
+      for="*"
+      name="mapBlacklistRemoveData"
+      permission="zope2.View"
+      class=".mapblacklist.MapBlacklist"
+      attribute="removeData"
+      />
+
+    <browser:page
+      for="*"
+      name="mapBlacklistAddData"
+      permission="zope2.View"
+      class=".mapblacklist.MapBlacklist"
+      attribute="addData"
       />
 
     <browser:resourceDirectory

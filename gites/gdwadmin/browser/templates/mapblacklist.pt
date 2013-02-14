@@ -30,7 +30,23 @@
     <hr />
 
     <!-- Whitelister des informations -->
-    <div id="blacklist_table"></div>
+    <h2>Informations actuellement blacklistées</h2>
+    <table id="blacklistTable">
+        <tr>
+        <th>Blacklister</th>
+        <th>Nom</th>
+        <th>Description</th>
+        <th>Fournisseur</th>
+        </tr>
+        <tal:boucle tal:repeat="item view/getBlacklist">
+            <tr>
+            <td><image style="cursor:pointer" src="moins.png" name="blacklist_remove_button" tal:attributes="id item/name"/></td>
+            <td><span tal:content="item/name"/></td>
+            <td><span tal:content="item/description"/></td>
+            <td><span tal:content="item/provider"/></td>
+            </tr>
+        </tal:boucle>
+    </table>
 
 </div><!--content-->
 </div><!--main-->
