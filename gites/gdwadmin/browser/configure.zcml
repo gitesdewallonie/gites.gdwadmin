@@ -22,7 +22,7 @@
       name="mapBlacklistResult"
       permission="zope2.View"
       class=".mapblacklistsearchresult.MapBlacklistSearchResult"
-      template="templates/mapblacklist_searchresult"
+      template="templates/mapblacklist_searchresult.pt"
       />
 
     <browser:resourceDirectory
