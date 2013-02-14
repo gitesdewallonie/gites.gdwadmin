@@ -1,8 +1,10 @@
 # -*- coding: utf-8 -*-
 
 from z3c.sqlalchemy import getSAWrapper
+from Products.CMFCore.utils import getToolByName
 from Products.Five.browser import BrowserView
 from gites.gdwadmin.table.metadata import MetadataTable
+from gites.db.content import Metadata
 
 
 class MetadataView(BrowserView):
@@ -18,7 +20,7 @@ class MetadataView(BrowserView):
         table.update()
         return table.render()
 
-    def getValuesForIndexAndPk(self, index, pk):
+    def getValuesForIndexAndPk(self, index, pk=None):
         """
         """
         form = self.request.form
@@ -30,6 +32,7 @@ class MetadataView(BrowserView):
         results = {}
         for key in keys:
             results[key] = form.get(key)[index]
+        # if pk is None (for new metadata), filterable should always be False
         results['met_filterable'] = form.get("filterable-%s" % pk, False)
         return results
 
@@ -37,18 +40,32 @@ class MetadataView(BrowserView):
         """
         Updates metadatas
         """
+        pu = getToolByName(self.context, 'plone_utils')
         pks = self.request.form.get('met_pk')
+        titles = self.request.form.get('met_titre_fr')
 
         wrapper = getSAWrapper('gites_wallons')
         session = wrapper.session
         metadataTable = wrapper.getMapper('metadata')
         query = session.query(metadataTable)
 
-        for idx, pk in enumerate(pks):
-            metadata = query.get(pks[idx])
+        for idx in range(0, len(titles)):
+            pk = None
+            metadata = Metadata()
+
+            if idx < len(pks):
+                # existing metadata needs to be changed
+                pk = pks[idx]
+                metadata = query.get(pk)
+
             for key, value in self.getValuesForIndexAndPk(idx, pk).items():
                 setattr(metadata, key, value)
+
+            if not metadata.met_id:
+                metadata.met_id = pu.normalizeString(metadata.met_titre_fr)
+
             session.add(metadata)
+
         session.flush()
 
         cible = "%s/@@metadataEdition" % (self.context.portal_url())

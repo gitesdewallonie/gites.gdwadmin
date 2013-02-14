@@ -52,7 +52,7 @@ class TitreColumn(column.GetAttrColumn):
     cssClasses = {'td': 'center'}
 
     def renderCell(self, item):
-        return u'''<input type="text" name="%s:list" value="%s" />
+        return u'''<input type="text" name="%s:list" value="%s" required />
                 ''' % (self.attrName, getattr(item, self.attrName))
 
 
