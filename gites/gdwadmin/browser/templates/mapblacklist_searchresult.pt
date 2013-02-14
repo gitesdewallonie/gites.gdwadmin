@@ -1,17 +1,24 @@
-<span tal:content="request/searchValue"/>
-<table>
-<tr>
-<th>Blacklister</th>
-<th>Nom</th>
-<th>Description</th>
-<th>Fournisseur</th>
-</tr>
-<tal:boucle tal:repeat="item view/searchData">
-    <tr>
-    <td><image style="cursor:pointer" src="plus.png" name="blacklist_add_button" tal:attributes="id item/id"/></td>
-    <td><span tal:content="item/name"/></td>
-    <td><span tal:content="item/description"/></td>
-    <td><span tal:content="item/provider"/></td>
-    </tr>
-</tal:boucle>
-</table>
+<tal:def define="searchData view/searchData">
+    <tal:if tal:condition="searchData">
+        <table>
+            <tr>
+                <th>Blacklister</th>
+                <th>Nom</th>
+                <th>Description</th>
+                <th>Fournisseur</th>
+            </tr>
+            <tal:boucle tal:repeat="item searchData">
+                <tr>
+                    <td><image style="cursor:pointer" src="plus.png" name="blacklist_add_button" tal:attributes="id item/id"/></td>
+                    <td><span tal:content="item/name"/></td>
+                    <td><span tal:content="item/description"/></td>
+                    <td><span tal:content="item/provider"/></td>
+                </tr>
+            </tal:boucle>
+        </table>
+    </tal:if>
+
+    <tal:if tal:condition="not:searchData">
+        Pas d'information disponible
+    </tal:if>
+</tal:def>

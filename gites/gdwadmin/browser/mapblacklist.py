@@ -57,6 +57,8 @@ class MapBlacklistSearchResult(BrowserView):
     """
     def searchData(self):
         searchValue = self.request.get("searchValue")
+        if searchValue == "":
+            return None
         result = [{'id': "id1" + searchValue,
                    'name': "item1" + searchValue,
                    'description': "descriptionitem1",
