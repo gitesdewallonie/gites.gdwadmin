@@ -13,7 +13,7 @@
 <body>
 <div metal:fill-slot="main"
      i18n:domain="gites">
-<H1>Blacklisting g&eacute;olocalisation</H1>
+<h1>Blacklisting g&eacute;olocalisation</h1>
 <div class="content">
 
     <!-- Show map -->

@@ -4,6 +4,22 @@
 
     <browser:page
       for="*"
+      name="metadataEdition"
+      permission="zope2.View"
+      class=".metadata.MetadataView"
+      template="templates/metadata.pt"
+      />
+
+    <browser:page
+      for="*"
+      name="updateMetadata"
+      permission="zope2.View"
+      class=".metadata.MetadataView"
+      attribute="updateMetadata"
+      />
+
+    <browser:page
+      for="*"
       name="mapBlacklist"
       permission="zope2.View"
       class=".mapblacklist.MapBlacklist"

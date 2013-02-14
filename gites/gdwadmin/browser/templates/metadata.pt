@@ -1,0 +1,25 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xml:lang="en" lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="cerise">
+
+<body>
+<div metal:fill-slot="main"
+     i18n:domain="gites">
+
+<h1>Edition des m&eacute;ta-donn&eacute;es</h1>
+
+<div class="content">
+
+    <form name="edit-metadata" action="updateMetadata" method="post">
+        <span tal:replace="structure view/getTable" />
+
+        <input type="submit" value="Sauvegarder les changements" />
+
+    </form>
+
+</div><!--content-->
+</div><!--main-->
+
+</body>
+</html>
