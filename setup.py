@@ -28,5 +28,6 @@ setup(name='gites.gdwadmin',
           'gites.core',
           'affinitic.db',
           'collective.js.jqueryui',
+          'z3c.table',
       ],
       entry_points={})
