@@ -1,7 +1,27 @@
-jQuery(function($){
-    $("input[id='blacklist_search_value']").autocomplete({
+(function($)
+{
+    $(document).ready(function() {
+        mapBlackList.initialize();
+    });
+})(jQuery);
+
+
+var mapBlackList = {
+
+    initialize : function()
+    {
+        mapBlackList.initHandlers();
+    },
+
+    initHandlers : function()
+    {
+        jQuery("input#blacklist_search_value").autocomplete(mapBlackList.liveSearchOptions);
+        jQuery("input#blacklist_search_value").bind({'keypress': mapBlackList.liveSearchKeyPress});
+    },
+
+    liveSearchOptions : {
         source: function(request, response) {
-            $.ajax({
+            jQuery.ajax({
                 url: "mapBlacklistLiveSearch",
                 dataType: "json",
                 data: {
@@ -11,7 +31,7 @@ jQuery(function($){
                     client_contains: request.term
                 },
                 success: function(data) {
-                    response($.map(data, function(item) {
+                    response(jQuery.map(data, function(item) {
                         return {
                             label: item,
                             value: item
@@ -21,6 +41,11 @@ jQuery(function($){
             });
         },
         minLength: 4
-    });
+    },
 
-});
+    liveSearchKeyPress : function(event) {
+        if(event.which == 13) {
+            alert('You pressed enter!');
+        }
+    },
+}
