@@ -40,7 +40,12 @@
         </tr>
         <tal:boucle tal:repeat="item view/getBlacklist">
             <tr>
-            <td><image style="cursor:pointer" src="moins.png" name="blacklist_remove_button" tal:attributes="id string:${item/id}_remove_button"/></td>
+                <td>
+                    <image style="cursor:pointer" src="moins.png" name="blacklist_remove_button"
+                           tal:attributes="id string:${item/dataId}_${item/provider}_remove_button;
+                                           dataId item/dataId;
+                                           provider item/provider" />
+                </td>
             <td><span tal:content="item/name"/></td>
             <td><span tal:content="item/description"/></td>
             <td><span tal:content="item/provider"/></td>

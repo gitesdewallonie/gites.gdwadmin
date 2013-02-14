@@ -1,5 +1,10 @@
 <tr>
-    <td><image style="cursor:pointer" src="moins.png" name="blacklist_remove_button" tal:attributes="id string:${request/id}_remove_button"/></td>
+    <td>
+        <image style="cursor:pointer" src="moins.png" name="blacklist_remove_button"
+               tal:attributes="id string:${request/dataId}_${request/provider}_remove_button;
+                               dataId request/dataId;
+                               provider request/provider" />
+    </td>
     <td><span tal:content="request/name"/></td>
     <td><span tal:content="request/description"/></td>
     <td><span tal:content="request/provider"/></td>

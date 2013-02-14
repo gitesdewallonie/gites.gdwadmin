@@ -10,18 +10,18 @@ class MapBlacklist(BrowserView):
     Map blacklist view
     """
     def getBlacklist(self):
-        result = [{'id': 'id4',
+        result = [{'dataId': 'id4',
                    'name':"item4",
                    'description':"descriptionitem4",
-                   'provider':"fournisseuritem4"},
-                  {'id': 'id5',
+                   'provider':"quefaire"},
+                  {'dataId': 'id5',
                    'name':"item5",
                    'description':"descriptionitem5",
-                   'provider':"fournisseuritem5"},
-                  {'id': 'id6',
+                   'provider':"resto"},
+                  {'dataId': 'id6',
                    'name':"item6",
                    'description':"descriptionitem6",
-                   'provider':"fournisseuritem6"},
+                   'provider':"google"},
                   ]
         return result
 
@@ -30,15 +30,18 @@ class MapBlacklist(BrowserView):
         return dataId
 
     def addData(self):
-        dataId = self.request.dataId
+        dataId = self.request.get('dataId')
+        provider = self.request.get('provider')
 
         #XXX insert in database
+        import time
+        time.sleep(3)
 
         #return what we inserted in database
-        result = {'id': dataId,
+        result = {'dataId': dataId,
                   'name': dataId + '_name',
                   'description': dataId + '_description',
-                  'provider': dataId + '_provider'}
+                  'provider': provider}
         return json.dumps(result)
 
 
@@ -59,17 +62,17 @@ class MapBlacklistSearchResult(BrowserView):
         searchValue = self.request.get("searchValue")
         if searchValue == "":
             return None
-        result = [{'id': "id1" + searchValue,
+        result = [{'dataId': "id1",
                    'name': "item1" + searchValue,
                    'description': "descriptionitem1",
-                   'provider': "fournisseuritem1"},
-                  {'id': "id2" + searchValue,
+                   'provider': "quefaire"},
+                  {'dataId': "id2",
                    'name': "item2" + searchValue,
                    'description': "descriptionitem2",
-                   'provider': "fournisseuritem2"},
-                  {'id': "id3" + searchValue,
+                   'provider': "google"},
+                  {'dataId': "id3",
                    'name': "item3" + searchValue,
                    'description': "descriptionitem3",
-                   'provider': "fournisseuritem3"},
+                   'provider': "resto"},
                   ]
         return result
