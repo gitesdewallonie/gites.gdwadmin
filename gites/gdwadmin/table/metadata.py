@@ -17,7 +17,7 @@ from gites.gdwadmin.table.interfaces import IMetadataTable
 class MetadataTable(Table):
     implements(IMetadataTable)
 
-    cssClasses = {'table': 'z3c-listing percent100 listing'}
+    cssClasses = {'table': 'z3c-listing percent100 listing nosort'}
     cssClassEven = u'odd'
     cssClassOdd = u'even'
     sortOn = 'table-number-0'
@@ -40,7 +40,37 @@ class MetadataValues(ValuesMixin, grok.MultiAdapter):
         wrapper = getSAWrapper('gites_wallons')
         metadataTable = wrapper.getMapper('metadata')
         query = wrapper.session.query(metadataTable)
+        query = query.order_by(metadataTable.metadata_type_id).order_by(
+            metadataTable.met_titre_fr)
         return query.all()
+
+
+class MetadataType(column.GetAttrColumn, grok.MultiAdapter):
+    grok.provides(IColumn)
+    grok.name('metadata_type')
+    grok.adapts(Interface, Interface, IMetadataTable)
+
+    header = u'Catégorie'
+    cssClasses = {'td': 'center'}
+    weight = 0
+
+    def get_types(self):
+        wrapper = getSAWrapper('gites_wallons')
+        metadataTypeTable = wrapper.getMapper('metadata_type')
+        return wrapper.session.query(metadataTypeTable).all()
+
+    def renderCell(self, item):
+        value = item.type.met_typ_id
+        types = []
+        for type in self.get_types():
+            types.append(u'<option value="%s" %s>%s</option>' % (
+                type.met_typ_id,
+                type.met_typ_id == value and 'selected="selected"' or '',
+                type.met_typ_titre))
+        return u'<select name="metadata_type_id">%s</select>' % ''.join(types)
+
+    def getSortKey(self, item):
+        return item.type.met_typ_id
 
 
 class TitreColumn(column.GetAttrColumn):
@@ -60,7 +90,7 @@ class TitreFR(TitreColumn, grok.MultiAdapter):
     grok.name('titre_fr')
     header = u'Titre (FR)'
     attrName = 'met_titre_fr'
-    weight = 0
+    weight = 10
 
 
 class TitreEN(TitreColumn, grok.MultiAdapter):
@@ -68,7 +98,7 @@ class TitreEN(TitreColumn, grok.MultiAdapter):
     header = u'Titre (EN)'
     attrName = 'met_titre_en'
     cssClasses = {'td': 'center'}
-    weight = 10
+    weight = 20
 
 
 class TitreNL(TitreColumn, grok.MultiAdapter):
@@ -76,7 +106,7 @@ class TitreNL(TitreColumn, grok.MultiAdapter):
     header = u'Titre (NL)'
     attrName = 'met_titre_nl'
     cssClasses = {'td': 'center'}
-    weight = 20
+    weight = 30
 
 
 class TitreIT(TitreColumn, grok.MultiAdapter):
@@ -84,7 +114,7 @@ class TitreIT(TitreColumn, grok.MultiAdapter):
     header = u'Titre (IT)'
     attrName = 'met_titre_it'
     cssClasses = {'td': 'center'}
-    weight = 30
+    weight = 40
 
 
 class TitreDE(TitreColumn, grok.MultiAdapter):
@@ -92,7 +122,7 @@ class TitreDE(TitreColumn, grok.MultiAdapter):
     header = u'Titre (DE)'
     attrName = 'met_titre_de'
     cssClasses = {'td': 'center'}
-    weight = 40
+    weight = 50
 
 
 class Filterable(column.GetAttrColumn, grok.MultiAdapter):
@@ -103,7 +133,7 @@ class Filterable(column.GetAttrColumn, grok.MultiAdapter):
     header = u'Filtre de recherche'
     attrName = 'met_filterable'
     cssClasses = {'td': 'center'}
-    weight = 50
+    weight = 60
 
     def renderCell(self, item):
         value = getattr(item, self.attrName, False)

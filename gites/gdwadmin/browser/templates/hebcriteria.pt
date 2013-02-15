@@ -25,7 +25,7 @@
         tr.not-defined { background-color: #f9e7c6; } /* XXX Must be moved in future css file */
       </style>
 
-      <table align="center" class="listing">
+      <table align="center" class="listing nosort">
            <thead>
                 <tr>
                     <th>#</th>

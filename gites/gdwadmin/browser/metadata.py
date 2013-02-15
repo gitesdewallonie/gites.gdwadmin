@@ -28,7 +28,8 @@ class MetadataView(BrowserView):
                 'met_titre_en',
                 'met_titre_nl',
                 'met_titre_it',
-                'met_titre_de']
+                'met_titre_de',
+                'metadata_type_id']
         results = {}
         for key in keys:
             results[key] = form.get(key)[index]
