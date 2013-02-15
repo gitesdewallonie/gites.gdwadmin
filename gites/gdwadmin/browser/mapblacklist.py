@@ -3,6 +3,7 @@
 import json
 
 from Products.Five.browser import BrowserView
+from z3c.sqlalchemy import getSAWrapper
 
 
 class MapBlacklist(BrowserView):
@@ -34,8 +35,7 @@ class MapBlacklist(BrowserView):
         provider = self.request.get('provider')
 
         #XXX insert in database
-        import time
-        time.sleep(3)
+        insertBlacklistData(dataId, provider)
 
         #return what we inserted in database
         result = {'dataId': dataId,
@@ -76,3 +76,20 @@ class MapBlacklistSearchResult(BrowserView):
                    'provider': "resto"},
                   ]
         return result
+
+
+def insertBlacklistData(dataId, provider):
+    """
+    Insert a new map data in map_blacklist table in database
+    """
+    wrapper = getSAWrapper('gites_wallons')
+    session = wrapper.session
+
+    mapBlacklistTable = wrapper.getMapper('map_blacklist')
+    mapBlacklistRow = mapBlacklistTable()
+    mapBlacklistRow.blacklist_id = dataId
+    mapBlacklistRow.blacklist_provider = provider
+
+    session.add(mapBlacklistRow)
+    session.flush()
+    session.refresh(mapBlacklistRow)

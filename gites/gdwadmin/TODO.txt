@@ -28,6 +28,7 @@
 
     + Creer nouvelle table
         + mapblacklist
+            - ajouter contrainte unique sur id + provider
 
     - Creer code python
         - recuperation des informations lors de la recherche
