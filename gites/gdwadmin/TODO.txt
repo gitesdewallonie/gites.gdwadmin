@@ -27,11 +27,18 @@
         + supprimer element de la blacklist en appuyant sur le '-'
 
     + Creer nouvelle table
-        + mapblacklist
-            - ajouter contrainte unique sur id + provider
+        - map_blacklist
+            + creer la table
+            + ajouter champ 'name' et 'description'
+            + ajouter contrainte unique sur id + provider
+            - creer alembic 'fill map_provider'
+        + map_provider
 
     - Creer code python
         - recuperation des informations lors de la recherche
             - Penser a retirer ceux deja blacklisté du resultat
         - recuperation des informations actuellement blacklistées
-        - inserer des nouvelles informations dans la blacklist
+        + inserer des nouvelles informations dans la blacklist
+        + supprimer des nouvelles informations dans la blacklist
+
+    - Changer code de la map pour qu elle n affiche pas les blacklistés
