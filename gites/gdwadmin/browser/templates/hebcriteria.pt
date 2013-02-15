@@ -2,7 +2,6 @@
       xml:lang="en" lang="en"
       metal:use-macro="here/main_template/macros/master"
       i18n:domain="cerise">
-
 <body>
 <div metal:fill-slot="main"
      i18n:domain="gites">
@@ -22,18 +21,25 @@
 
     <form name="edit-criteria" action="updateHebCriteria" method="post">
 
+      <style>
+        tr.not-defined { background-color: #f9e7c6; } /* XXX Must be moved in future css file */
+      </style>
+
       <table align="center" class="listing">
            <thead>
                 <tr>
                     <th>#</th>
                     <th>Critère</th>
                     <th>Valeur</th>
-                </tr> 
+                </tr>
             </thead>
             <tbody>
                 <tal:bcl tal:repeat="criterion criteria">
-                    <tr tal:define="odd repeat/criterion/odd"
-                        tal:attributes="class python:odd and 'odd' or 'even'">
+                    <tr tal:define="odd repeat/criterion/odd;
+                                    defined criterion/link_met_value;
+                                    odd_class python:odd and 'odd' or 'even';
+                                    defined_class python:defined is None and ' not-defined' or '';"
+                        tal:attributes="class string:${odd_class}${defined_class}">
 
                         <td>
                             <span tal:replace="repeat/criterion/number" />.
@@ -42,9 +48,11 @@
                             <span tal:replace="criterion/metadata/met_titre_fr" />
                         </td>
                         <td align="center">
+                            <input type="hidden" name="metadata_fk:list" value=""
+                                   tal:attributes="value criterion/metadata_fk" />
                             <input type="checkbox" name="" checked="checked"
                                    tal:attributes="checked python: criterion.link_met_value and 'checked' or None;
-                                                   name criterion/link_met_pk" />
+                                                   name criterion/metadata_fk" />
                         </td>
 
                     </tr>
