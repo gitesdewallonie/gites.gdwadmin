@@ -34,6 +34,14 @@
       template="templates/hebcriteria.pt"
       />
 
+    <browser:page
+      for="*"
+      name="updateHebCriteria"
+      permission="zope2.View"
+      class=".hebcriteria.HebCriteriaView"
+      attribute="updateHebCriteria"
+      />
+
 
     <!-- Resources -->
 

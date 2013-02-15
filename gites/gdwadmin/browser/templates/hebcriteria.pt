@@ -13,13 +13,50 @@
      tal:define="heb_pk request/pk | nothing;
                  criteria python: view.getCriteriasValueForHeb(heb_pk)">
 
+
+    <h3 tal:define="hebergement python: criteria[0].hebergement">
+        <span tal:replace="hebergement/heb_nom" />
+    </h3>
+
+    <br />
+
     <form name="edit-criteria" action="updateHebCriteria" method="post">
 
-        <tal:blc tal:repeat="criterion criteria">
-        </tal:blc>
+      <table align="center" class="listing">
+           <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Critère</th>
+                    <th>Valeur</th>
+                </tr> 
+            </thead>
+            <tbody>
+                <tal:bcl tal:repeat="criterion criteria">
+                    <tr tal:define="odd repeat/criterion/odd"
+                        tal:attributes="class python:odd and 'odd' or 'even'">
 
+                        <td>
+                            <span tal:replace="repeat/criterion/number" />.
+                        </td>
+                        <td>
+                            <span tal:replace="criterion/metadata/met_titre_fr" />
+                        </td>
+                        <td align="center">
+                            <input type="checkbox" name="" checked="checked"
+                                   tal:attributes="checked python: criterion.link_met_value and 'checked' or None;
+                                                   name criterion/link_met_pk" />
+                        </td>
+
+                    </tr>
+                </tal:bcl>
+            </tbody>
+        </table>
+
+        <br /><br />
+
+        <input type="hidden" name="hebPk" value=""
+               tal:attributes="value heb_pk" />
         <input type="submit" value="Sauvegarder les changements" />
-
     </form>
 
 </div><!--content-->

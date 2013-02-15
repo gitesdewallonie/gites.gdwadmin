@@ -23,8 +23,10 @@
         <div id="metadata" tal:content="structure view/getTable"></div>
 
         <br />
+
         <img id="add-metadata" style="cursor: pointer;" src=""
              tal:attributes="src string:$portal_url/++resource++gdwadminImages/plus.png" />
+
         <br /><br /><br />
 
         <input type="submit" value="Sauvegarder les changements" />

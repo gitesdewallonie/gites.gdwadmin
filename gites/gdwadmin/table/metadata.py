@@ -17,7 +17,7 @@ from gites.gdwadmin.table.interfaces import IMetadataTable
 class MetadataTable(Table):
     implements(IMetadataTable)
 
-    cssClasses = {'table': 'z3c-listing percent100'}
+    cssClasses = {'table': 'z3c-listing percent100 listing'}
     cssClassEven = u'odd'
     cssClassOdd = u'even'
     sortOn = 'table-number-0'
