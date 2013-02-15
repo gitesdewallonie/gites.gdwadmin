@@ -42,13 +42,13 @@
             <tr>
                 <td>
                     <image style="cursor:pointer" src="moins.png" name="blacklist_remove_button"
-                           tal:attributes="id string:${item/dataId}_${item/provider}_remove_button;
-                                           dataId item/dataId;
-                                           provider item/provider" />
+                           tal:attributes="id string:${item/blacklist_id}_${item/blacklist_provider_pk}_remove_button;
+                                           dataId item/blacklist_id;
+                                           dataprovider item/blacklist_provider_pk" />
                 </td>
-            <td><span tal:content="item/name"/></td>
-            <td><span tal:content="item/description"/></td>
-            <td><span tal:content="item/provider"/></td>
+            <td><span tal:content="item/blacklist_name"/></td>
+            <td><span tal:content="item/blacklist_description"/></td>
+            <td><span tal:content="item/blacklist_provider_pk"/></td>
             </tr>
         </tal:boucle>
     </table>

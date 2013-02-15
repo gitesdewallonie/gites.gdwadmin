@@ -28,6 +28,7 @@ setup(name='gites.gdwadmin',
           'gites.core',
           'affinitic.db',
           'collective.js.jqueryui',
+          'python-google-places',
           'z3c.table',
       ],
       entry_points={})

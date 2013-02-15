@@ -3,8 +3,10 @@
 import json
 
 from Products.Five.browser import BrowserView
+from zope.component import getUtility
 from z3c.sqlalchemy import getSAWrapper
-
+from googleplaces import GooglePlaces, types, lang
+from affinitic.pwmanager.interfaces import IPasswordManager
 
 class MapBlacklist(BrowserView):
     """
@@ -24,6 +26,13 @@ class MapBlacklist(BrowserView):
                    'description':"descriptionitem6",
                    'provider':"google"},
                   ]
+        wrapper = getSAWrapper('gites_wallons')
+        session = wrapper.session
+
+        mapBlacklistTable = wrapper.getMapper('map_blacklist')
+
+        query = session.query(mapBlacklistTable)
+        result = query.all()
         return result
 
     def removeData(self):
@@ -64,22 +73,26 @@ class MapBlacklistSearchResult(BrowserView):
     Map blacklist search result view
     """
     def searchData(self):
+
         searchValue = self.request.get("searchValue")
         if searchValue == "":
             return None
-        result = [{'dataId': "id1",
-                   'name': "item1" + searchValue,
-                   'description': "descriptionitem1",
-                   'provider': "quefaire.be"},
-                  {'dataId': "id2",
-                   'name': "item2" + searchValue,
-                   'description': "descriptionitem2",
-                   'provider': "google"},
-                  {'dataId': "id3",
-                   'name': "item3" + searchValue,
-                   'description': "descriptionitem3",
-                   'provider': "resto.be"},
-                  ]
+        # Google Place API KEY
+        pwManager = getUtility(IPasswordManager, 'googleapi')
+        apiKey = pwManager.password
+        google_places = GooglePlaces(apiKey)
+
+        query_result = google_places.query(
+                location='Région wallonne', keyword=searchValue,
+                radius=50000)
+
+        result = []
+        for place in query_result.places:
+            item = dict(dataId = place.reference,
+                        name = place.name,
+                        description = place.vicinity,
+                        provider = 'google')
+            result.append(item)
         return result
 
 
