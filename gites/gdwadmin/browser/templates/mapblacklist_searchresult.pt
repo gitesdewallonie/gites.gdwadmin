@@ -12,7 +12,9 @@
                     <td>
                         <image style="cursor:pointer" src="plus.png" name="blacklist_add_button"
                                tal:attributes="dataId item/dataId;
-                                               provider item/provider" />
+                                               dataName item/name;
+                                               dataDescription item/description;
+                                               dataProvider item/provider" />
                     </td>
                     <td><span tal:content="item/name"/></td>
                     <td><span tal:content="item/description"/></td>

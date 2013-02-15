@@ -3,7 +3,7 @@
         <image style="cursor:pointer" src="moins.png" name="blacklist_remove_button"
                tal:attributes="id string:${request/dataId}_${request/provider}_remove_button;
                                dataId request/dataId;
-                               provider request/provider" />
+                               dataProvider request/provider" />
     </td>
     <td><span tal:content="request/name"/></td>
     <td><span tal:content="request/description"/></td>

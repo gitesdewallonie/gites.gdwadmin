@@ -65,7 +65,9 @@ var mapBlackList = {
 
     addData : function(event) {
         dataToAdd = {dataId: jQuery(event.target).attr('dataId'),
-                     provider: jQuery(event.target).attr('provider')}
+                     name: jQuery(event.target).attr('dataName'),
+                     description: jQuery(event.target).attr('dataDescription'),
+                     provider: jQuery(event.target).attr('dataProvider')}
         // Insert data in database
         jQuery.ajax({
             type: "POST",
@@ -89,7 +91,8 @@ var mapBlackList = {
                         jQuery("table#blacklist_table tr:last").after(data);
                         jQuery("table#blacklist_table tr:last").hide().fadeIn(300,
                             function(){
-                                jQuery('#' + rowData.dataId + '_' + rowData.provider + '_remove_button' + '[name="blacklist_remove_button"]').bind({'click': mapBlackList.removeData});
+                                dataSelector = '[id="' + rowData.dataId + '_' + rowData.provider + '_remove_button' + '"]' + '[name="blacklist_remove_button"]';
+                                jQuery(dataSelector).bind({'click': mapBlackList.removeData});
                             });
                     }
                 });
@@ -99,12 +102,14 @@ var mapBlackList = {
     },
 
     removeData : function(event) {
+        dataToAdd = {dataId: jQuery(event.target).attr('dataId'),
+                     provider: jQuery(event.target).attr('dataProvider')}
         jQuery.ajax({
             type: "POST",
             url: 'mapBlacklistRemoveData',
-            data: "dataId=" + event.target.id,
+            data: dataToAdd,
             success: function(data) {
-                jQuery("#"+event.target.id).closest('tr').fadeOut(300,
+                jQuery('[id="' + event.target.id + '"]').closest('tr').fadeOut(300,
                     function(){
                         jQuery(this).remove();
                     });
