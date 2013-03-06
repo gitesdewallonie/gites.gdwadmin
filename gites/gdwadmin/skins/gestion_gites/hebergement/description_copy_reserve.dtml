@@ -215,7 +215,6 @@
                <td align="center">
                   <dtml-if "heb_animal=='oui'">
                      <img src="images/picto/c_chien.png"><br>
-                     <dtml-if heb_animal_taxe ><dtml-var heb_animal_taxe> </dtml-if>
                   <dtml-else>
                      <img src="images/picto/c_nochien.png"><br>
                   </dtml-if>
@@ -225,7 +224,6 @@
                <td align="center">
                   <dtml-if "heb_fumeur=='oui'">
                      <img src="images/picto/c_fumeur.png"><br>
-                     <dtml-if heb_animal_taxe ><dtml-var heb_animal_taxe> </dtml-if>
                   <dtml-else>
                      <img src="images/picto/c_non_fumeur.png"><br>
                   </dtml-if>
