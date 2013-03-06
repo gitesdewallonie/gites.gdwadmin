@@ -1,0 +1,6 @@
+<!--dtml-call "admin_base.hebergement.zsql_heb_delete_by_hebpk(fheb_pk=fheb_pk)"-->
+
+<!--dtml-call "RESPONSE.redirect('intro')"-->
+
+Impossible de supprimer un hebergement.<br />
+Il faut le desactiver.

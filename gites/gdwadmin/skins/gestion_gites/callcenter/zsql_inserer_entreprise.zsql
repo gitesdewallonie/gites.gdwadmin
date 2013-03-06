@@ -1,0 +1,46 @@
+ <dtml-comment>
+title:Insérer une nouvelle entreprise
+arguments: CCL_TYPE CCL_SOCIETE CCL_CONTACT CCL_ADRESSE CCL_CP CCL_LOCALITE CCL_TELEPHONE CCL_FAX CCL_EMAIL CCL_RESULTAT CCL_IMPRESSION CCL_SUIVI CCL_USER CCL_ACTIF
+connection_id:Interbase_database_connection
+max_rows:1000
+max_cache:100
+cache_time:0
+class_name:
+class_file:
+</dtml-comment>
+insert into PROSPECT
+(
+CCL_TYPE,
+CCL_SOCIETE,
+CCL_CONTACT,
+CCL_ADRESSE,
+CCL_CP,
+CCL_LOCALITE,
+CCL_TELEPHONE,
+CCL_FAX,
+CCL_EMAIL,
+CCL_RESULTAT,
+CCL_IMPRESSION,
+CCL_SUIVI,
+CCL_USER,
+CCL_ACTIF
+)
+values
+(
+<dtml-sqlvar CCL_TYPE type="string">,
+<dtml-sqlvar CCL_SOCIETE type="string">,
+<dtml-sqlvar CCL_CONTACT type="string">,
+<dtml-sqlvar CCL_ADRESSE type="string">,
+<dtml-sqlvar CCL_CP type="string">,
+<dtml-sqlvar CCL_LOCALITE type="string">,
+<dtml-sqlvar CCL_TELEPHONE type="string">,
+<dtml-sqlvar CCL_FAX type="string">,
+<dtml-sqlvar CCL_EMAIL type="string">,
+<dtml-sqlvar CCL_RESULTAT type="string">,
+<dtml-sqlvar CCL_IMPRESSION type="string">,
+<dtml-sqlvar CCL_SUIVI type="string">,
+<dtml-sqlvar CCL_USER type="string">,
+<dtml-sqlvar CCL_ACTIF type="string">
+)
+
+

@@ -1,0 +1,10 @@
+<!--generation du code gdw par ajout de type + ins commune + compteur :: appel à un code python-->
+
+<dtml-in "zsql_select_type_heb_typehebpk(ftype_heb_pk=fheb_typeheb_fk)">
+   <dtml-in "admin_base.commune.zsql_select_commune_compk(fcom_pk=fheb_com_fk)">	
+      <dtml-call "REQUEST.set('GDW', generer_code_gdw(type_heb_code, com_ins))">      
+   </dtml-in>
+</dtml-in>
+
+<dtml-var GDW>
+

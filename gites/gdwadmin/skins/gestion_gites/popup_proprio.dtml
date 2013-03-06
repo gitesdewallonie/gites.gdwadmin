@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title> Gites wallons : info proprio</TITLE>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<dtml-call "RESPONSE.setHeader('Content-Type', 'text/html;charset=UTF-8')">
+<meta name="Generator" CONTENT="EditPlus">
+<meta name="Author" CONTENT="Affinitic">
+<meta name="Keywords" CONTENT="">
+<meta name="Description" CONTENT="">
+<link href="gites_wallons_style.css" type=text/css rel=stylesheet>
+<script language=JavaScript src="gites_wallons_script.js"></script>
+</head>
+<body>
+<table>
+   <tr>
+      <td colspan="3" align="center">
+         <span class="titre_page">
+            ..:: Information sur le propri&eacute;taire ::..
+         </span>
+      </td>
+   </tr>
+   <dtml-in "admin_base.proprio.zsql_select_proprio_propk(pro_pk=fpro_pk)">
+      <tr height="20" bgcolor="#c7f0ff">
+         <td align="right">Nom </td>
+         <td width="15">&nbsp;</td>
+         <td><b><dtml-var pro_nom1></b></td>
+      </tr>
+      <tr height="20">
+         <td align="right">Prenom </td>
+         <td width="15">&nbsp;</td>
+         <td><b><dtml-var pro_prenom1></b></td>
+      </tr>
+      <tr height="20" bgcolor="#c7f0ff">
+         <td align="right">Adresse </td>
+         <td width="15">&nbsp;</td>
+         <td><b><dtml-var pro_adresse></b></td>
+      </tr>
+      <tr height="20">
+         <td align="right">Commune </td>
+         <td width="15">&nbsp;</td>
+         <td>
+            <dtml-in "admin_base.commune.zsql_select_commune_compk(fcom_pk = pro_com_fk)">
+               <b><dtml-var com_cp> <dtml-var com_nom></b>
+            </dtml-in>
+         </td>
+      </tr>
+      <tr height="20" bgcolor="#c7f0ff">
+         <td align="right">T&eacute;l&eacute;phone </td>
+         <td width="15">&nbsp;</td>
+         <td><b><dtml-var pro_tel_priv></b></td>
+      </tr>
+      <tr height="20">
+         <td align="right">Email </td>
+         <td width="15">&nbsp;</td>
+         <td><a href="mailto:<dtml-var pro_email>"><b><dtml-var pro_email></b></a></td>
+      </tr>
+      <tr height="20" bgcolor="#c7f0ff">
+         <td>&nbsp;</td>
+         <td width="15">&nbsp;</td>
+         <td>&nbsp;</td>
+      </tr
+      <tr height="20">
+         <td align="right">Etat</td>
+         <td width="15">&nbsp;</td>
+         <td align="left">
+               <dtml-if "pro_etat==True">
+                  <img src="images/bleverte.gif">
+               <dtml-else>
+                  <img src="images/blerouge.gif">
+               </dtml-if>
+         </td>
+      </tr>
+      <tr height="20" bgcolor="#c7f0ff">
+         <td align="right">Comptabilit&eacute;</td>
+         <td width="15">&nbsp;</td>
+         <td>XXX</td>
+      </tr>
+   </dtml-in>
+   <tr height="20">
+      <td  colspan="3">
+         <div align="right">
+            <a href="javascript:self.close()">..: FERMER CETTE FENETRE ::..</a>
+          </div>
+      </td>
+    </tr>
+</table>
+
+
+</body>
+</html>

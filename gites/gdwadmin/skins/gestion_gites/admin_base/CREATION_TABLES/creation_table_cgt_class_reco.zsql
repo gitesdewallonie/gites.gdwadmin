@@ -1,0 +1,15 @@
+ <dtml-comment>
+title:
+arguments: 
+connection_id:Psycopg_database_connection
+max_rows:1000
+max_cache:100
+cache_time:0
+class_name:
+class_file:
+</dtml-comment>
+create table cgt_class_reco
+(
+cgt_pk serial PRIMARY KEY,
+cgt_code_reco varchar
+)

@@ -1,0 +1,118 @@
+<dtml-var standard_html_header.html>
+
+<style type="text/css">
+<!--
+a {  text-decoration: none; color: #FF0000}
+a:hover {  text-decoration: underline; color: #0000FF}
+-->
+</style>
+
+<!------------------------------------------------------------------------------------->
+<!-- Tableau affichant le nom et le rôle du client connecté -->
+<font face="verdana" size="2" color="#000000">
+<table align="center" width="75%">
+   <tr>
+       <td align="left">
+          <font face="verdana" size="2" color="#888888">
+          <b><dtml-var "AUTHENTICATED_USER.getUserName()"></b>
+       </td>
+       <td>
+          &nbsp; &nbsp; &nbsp;
+       </td>
+       <td align="right">          
+          <font face="verdana" size="2" color="#888888">
+          <b><dtml-var "AUTHENTICATED_USER.getRoles()[0]"></b>
+       </td>
+   </tr>
+</table>
+<hr size="1">
+<!------------------------------------------------------------------------------------->
+
+<dtml-call "REQUEST.set( 'counter', 0 )">
+<dtml-let bg_color="{ 0 : 'bgcolor=#FFFFFF', 1 : 'bgcolor=#DBF5FD' }">
+
+<font face="verdana" size="2">
+&nbsp;&nbsp;&nbsp;<font color="#4386BC"><b>LISTE DES APPELS 'REUSSIS'</b></font><br>
+<table border="0">
+     <tr>
+        <td align="center" bgcolor="#436695"><font face="verdana" size="1" color="#76A9EE"><b>TYPE</b></font></td>
+        <td align="center" bgcolor="#436695"><font face="verdana" size="1" color="#76A9EE"><b>PK</b></font></td>
+        <td align="center" bgcolor="#436695"><font face="verdana" size="1" color="#76A9EE"><b>SOCIETE</b></font></td>
+        <td align="center" bgcolor="#436695"><font face="verdana" size="1" color="#76A9EE"><b>CONTACT</b></font></td>
+        <td align="center" bgcolor="#436695"><font face="verdana" size="1" color="#76A9EE"><b>ADRESSE</b></font></td>
+        <td align="center" bgcolor="#436695"><font face="verdana" size="1" color="#76A9EE"><b>LOCALITE</b></font></td>
+        <td align="center" bgcolor="#436695"><font face="verdana" size="1" color="#76A9EE"><b>TEL</b></font></td>
+        <td align="center" bgcolor="#436695"><font face="verdana" size="1" color="#76A9EE"><b>FAX</b></font></td>
+        <td align="center" bgcolor="#436695"><font face="verdana" size="1" color="#76A9EE"><b>MAIL</b></font></td>
+        <td align="center" bgcolor="#436695"><font face="verdana" size="1" color="#76A9EE"><b>RESULTAT</b></font></td>
+        <td align="center" bgcolor="#436695"><font face="verdana" size="1" color="#76A9EE"><b>IMPRESSION</b></font></td>
+        <td align="center" bgcolor="#436695"><font face="verdana" size="1" color="#76A9EE"><b>SUIVI</b></font></td>
+     </tr>
+     <dtml-in zsql_select_all_by_reussi>
+         <tr>
+            <td align="center" <dtml-var "bg_color[ REQUEST.counter ]">>
+                <font size="1" color="#3366CC">
+                <dtml-var CCL_TYPE>
+            </td>
+            <td align="center" <dtml-var "bg_color[ REQUEST.counter ]">>
+                <font size="1" color="#FF66CC">                
+                <a href="detail_entreprise.html?CCL_PK=<dtml-var CCL_PK>"><dtml-var CCL_PK></a>
+            </td>
+            <td align="center" <dtml-var "bg_color[ REQUEST.counter ]">>
+                <font size="1" color="#000000">
+                <dtml-var CCL_SOCIETE>
+            </td>
+            <td align="center" <dtml-var "bg_color[ REQUEST.counter ]">>
+                <font size="1" color="#000000">
+                <dtml-var CCL_CONTACT null="">
+            </td>
+            <td align="center" <dtml-var "bg_color[ REQUEST.counter ]">>
+                <font size="1" color="#000000">
+                <dtml-var CCL_ADRESSE>
+            </td>
+            <td align="center" <dtml-var "bg_color[ REQUEST.counter ]">>
+                <font size="1" color="#000000">
+                <dtml-var CCL_CP> <dtml-var CCL_LOCALITE>
+            </td>
+            <td align="center" <dtml-var "bg_color[ REQUEST.counter ]">>
+                <font size="1" color="#000000">
+                <dtml-var CCL_TELEPHONE>
+            </td>
+            <td align="center" <dtml-var "bg_color[ REQUEST.counter ]">>
+                <font size="1" color="#000000">
+                <dtml-var CCL_FAX null="">
+            </td>
+            <td align="center" <dtml-var "bg_color[ REQUEST.counter ]">>
+                <font size="1" color="#000000">
+                <a href="mailto:<dtml-var CCL_EMAIL>?subject=Serveur d'accès à Internet LIXEO"><dtml-var CCL_EMAIL null=""></a>
+            </td>
+            <td align="center" <dtml-var "bg_color[ REQUEST.counter ]">>
+                <font size="1" color="#000000">
+               <dtml-var CCL_RESULTAT>
+            </td>           
+            <td align="left" <dtml-var "bg_color[ REQUEST.counter ]">>
+                <font size="1" color="#000000">
+               <dtml-var CCL_IMPRESSION null="">
+            </td>
+            <td align="left" <dtml-var "bg_color[ REQUEST.counter ]">>
+                <font size="1" color="#000000">
+                <dtml-var CCL_SUIVI null="">
+            </td>
+       </tr>
+       <dtml-call "REQUEST.set( 'counter', (REQUEST.counter + 1) % 2 )">
+    </dtml-in>
+	<tr>
+		<td colspan="12">
+			<hr size="1">
+		<td>
+	</tr>
+	<tr>
+		<td colspan="12" align="center">
+			<a href="inserer_entreprise.html"><img src="images/btn_nouveau_on.gif" border="0"></a>
+		</td>
+	</tr>
+</table>
+<hr size="1">
+
+</dtml-let>
+<dtml-var standard_html_footer.html>

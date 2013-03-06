@@ -1,0 +1,61 @@
+<html>
+<head>
+<title> Gites wallons : gestion table theme gite </TITLE>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" >
+<dtml-call "RESPONSE.setHeader('Content-Type', 'text/html;charset=UTF-8')">
+<meta name="generator" content="Bluefish 1.0.7">
+<meta name="author" content="alain">
+<meta name="Keywords" CONTENT="">
+<meta name="Description" CONTENT="">
+<link href="gites_wallons_style.css" type=text/css rel=stylesheet>
+</head>
+<body>
+<fieldset>
+<legend class="legende">Une erreur est survenue</legend>
+Poufffff, on est dans la merde !
+
+<dtml-if error_message>
+ <dtml-var error_message>
+<dtml-else>
+
+ 
+
+  <p>On a une couille en publiant cette ressource.
+  </p>
+  
+  <p>
+      <strong>Error Type: &dtml-error_type;</strong><br/>
+      <strong>Error Value: &dtml-error_value;</strong><br/> 
+  </p>
+ 
+  <hr noshade="noshade" />
+ 
+  <p>Possibilités d'erreurs</p>
+
+  <ul>
+      <dtml-if "error_type in ('KeyError','NameError')">
+      <li>This resource may be trying to reference a
+      nonexistent object or variable <strong>&dtml-error_value;</strong>.</li>
+      </dtml-if>
+      <li>The URL may be incorrect.</li>
+      <li>The parameters passed to this resource may be incorrect.</li>
+      <li>A resource that this resource relies on may be encountering
+          an error.</li>
+  </ul>
+
+  <p>For more detailed information about the error, please
+  refer to the error log.
+  </p>
+
+  <p>Si le problème persiste : alain.meurant@skynet.be - jfroche@pyxel.be
+  </p>
+
+  <dtml-comment>
+   Here, events like logging and other actions may also be performed, such as
+   sending mail automatically to the administrator.
+  </dtml-comment>
+
+</dtml-if>
+</fieldset>
+</body>
+</html>

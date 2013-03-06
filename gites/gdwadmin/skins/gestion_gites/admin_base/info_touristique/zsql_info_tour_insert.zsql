@@ -1,0 +1,50 @@
+ <dtml-comment>
+title:table info_touristique
+arguments: infotour_nom infotour_adresse infotour_url infotour_gps_long infotour_gps_lat infotour_localite infotour_commune_fk infotour_type_infotour_fk
+connection_id:Psycopg_database_connection
+max_rows:1000
+max_cache:100
+cache_time:0
+class_name:
+class_file:
+</dtml-comment>
+insert into info_touristique
+(
+infotour_nom,
+infotour_adresse,
+infotour_url,
+infotour_gps_long,
+infotour_gps_lat,
+infotour_localite,
+infotour_commune_fk,
+infotour_type_infotour_fk
+)
+values
+(
+<dtml-sqlvar infotour_nom type="string" optional>,
+<dtml-sqlvar infotour_adresse type="string" optional>,
+<dtml-sqlvar infotour_url type="string" optional>,
+<dtml-sqlvar infotour_gps_long type="float" optional>,
+<dtml-sqlvar infotour_gps_lat type="float" optional>,
+<dtml-sqlvar infotour_localite type="string" optional>,
+<dtml-sqlvar infotour_commune_fk type="int" optional>,
+<dtml-sqlvar infotour_type_infotour_fk type="int" optional>
+)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

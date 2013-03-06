@@ -1,0 +1,18 @@
+ <dtml-comment>
+title:table hebergement
+arguments: 
+connection_id:Psycopg_database_connection
+max_rows:1000
+max_cache:100
+cache_time:0
+class_name:
+class_file:
+</dtml-comment>
+select 
+   heb_pk, 
+   heb_code_cgt, 
+   heb_code_gdw 
+from 
+   hebergement 
+order by 
+   heb_code_gdw

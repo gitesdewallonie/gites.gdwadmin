@@ -1,0 +1,24 @@
+ <dtml-comment>
+title:
+arguments: etat
+connection_id:Psycopg_database_connection
+max_rows:1000
+max_cache:100
+cache_time:0
+class_name:
+class_file:
+</dtml-comment>
+select 
+  count(*) 
+from 
+  hebergement,
+  proprio
+where 
+  heb_typeheb_fk in (1,2,3,4,7,10,11)
+  and
+  proprio.pro_pk = hebergement.heb_pro_fk
+  and
+  proprio.pro_etat = True
+  and
+  heb_site_public = <dtml-sqlvar etat type="string">
+ 

@@ -1,0 +1,20 @@
+ <dtml-comment>
+title:
+arguments: freg_nom freg_num
+connection_id:Psycopg_database_connection
+max_rows:1000
+max_cache:100
+cache_time:0
+class_name:
+class_file:
+</dtml-comment>
+insert into region_guide
+(
+reg_nom,
+reg_num
+)
+values
+(
+<dtml-sqlvar freg_nom type="string">,
+<dtml-sqlvar freg_num type="string">
+)

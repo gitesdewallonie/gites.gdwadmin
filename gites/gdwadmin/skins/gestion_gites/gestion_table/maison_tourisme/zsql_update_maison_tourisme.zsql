@@ -1,0 +1,22 @@
+ <dtml-comment>
+title:
+arguments: mais_pk mais_nom mais_url mais_code mais_gps_long mais_gps_lat mais_id
+connection_id:Psycopg_database_connection
+max_rows:1000
+max_cache:100
+cache_time:0
+class_name:
+class_file:
+</dtml-comment>
+update maison_tourisme
+
+set
+
+mais_nom=<dtml-sqlvar mais_nom type="string">,
+mais_url=<dtml-sqlvar mais_url type="string">,
+mais_code=<dtml-sqlvar mais_code type="string">,
+mais_gps_long=<dtml-sqlvar mais_gps_long type="float">,
+mais_gps_lat=<dtml-sqlvar mais_gps_lat type="float">,
+mais_id=<dtml-sqlvar mais_id type="string">
+
+where mais_pk=<dtml-sqlvar mais_pk type="int">

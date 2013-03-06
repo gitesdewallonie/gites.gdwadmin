@@ -1,0 +1,1047 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title> Gites wallons : cr&eacute;ation h&eacute;bergement </TITLE>
+<meta http-equiv="content-type" content="="text/ht; charset=UTF-8" >
+<dtml-call "RESPONSE.setHeader('Content-Type', 'text/html;charset=UTF-8')">
+<meta name="generator" content="vim">
+<meta name="author" content="affinitic">
+<meta name="Keywords" CONTENT="">
+<meta name="Description" CONTENT="">
+<link href="gites_wallons_style.css" type=text/css rel=stylesheet>
+<script language=JavaScript src="gites_wallons_script.js"></script>
+</head>
+<body>
+<span class="titre_page">Descriptif d'un h&eacute;bergement</span><br />
+
+
+<dtml-in "zsql_select_heb_hebpk(heb_pk=fheb_pk)">
+<fieldset class="fieldsetdescription">
+   <legend class="legende">Infos bases </legend>
+   ::: <b>PK</b> : <b class="choixinfogid"><dtml-var heb_pk></b><br/>
+   ::: <b>Type</b> : <b class="choixinfogid">
+   <dtml-in "zsql_select_type_heb_typehebpk(ftype_heb_pk=heb_typeheb_fk)"><dtml-var type_heb_nom></dtml-in></b><br/>
+   ::: <b>ID Google</b> : <b class="choixinfogid"> <dtml-var heb_id></b><br/>
+   ::: <b>Code GDW</b> : <b class="choixinfogid"><dtml-var heb_code_gdw></b><br/>
+   ::: <b>Position sur carte</b> : <b class="choixinfogid"><dtml-var heb_coordonnee></b><br/>
+   ::: <b>Coordonn&eacute;es GPS</b> : Long: <b class="choixinfogid"><dtml-var heb_gps_long></b> - Lat : <b class="choixinfogid"><dtml-var heb_gps_lat></b><br />
+
+   <dtml-in "zsql_select_maison_tourisme_maispk(fmais_pk=heb_maison_tourisme_fk)">
+       ::: <b>Maison du tourisme</b> : <b class="choixinfogid"><dtml-var mais_nom></b>
+   </dtml-in>
+   <br />
+   ::: <b>ECR : date</b> : <b class="choixinfogid"><dtml-var heb_ecr_date_ouverture></b><br />
+   ::: <b>ECR : remarque</b> : <b class="choixinfogid"><dtml-var heb_ecr_remarque></b>
+   <br /><br />
+   ::: <b> Visible sur le portail </b> :
+       <dtml-if "heb_site_public=='1'">
+          <img src="images/bleverte.gif">
+       <dtml-else>
+          <img src="images/blerouge.gif">
+       </dtml-if>
+</fieldset>
+
+
+
+<table border ="1" width="560" align="center" cellspacing="0" cellpadding="0" bordercolor="#EEEEEE">
+
+   <!--debut gestion du bgcolor selon le type d'heb-->
+   <dtml-in "zsql_select_type_heb_typehebpk(ftype_heb_pk=heb_typeheb_fk)">
+      <dtml-if "type_heb_code=='CH'">
+         <tr bgcolor="#82a7ea">
+            <td align="left" colspan="5">
+               <dtml-if "heb_cgt_nbre_chmbre > 1">
+                  <b>:: <dtml-var heb_cgt_nbre_chmbre> chambres d'h&ocirc;tes ::</b>
+               <dtml-else>
+                  <b>:: <dtml-var heb_cgt_nbre_chmbre> chambre d'h&ocirc;tes ::</b>
+               </dtml-if>
+             </td>
+      <dtml-else>
+         <tr bgcolor="#66FF99">
+            <td align="left" colspan="5">
+               <dtml-in "zsql_select_type_heb_typehebpk(ftype_heb_pk=heb_typeheb_fk)">
+                  <b>:: <dtml-var type_heb_nom> ::</b>
+               </dtml-in>
+            </td>
+      </dtml-if>
+   </dtml-in>
+   </tr>
+   <!--fin gestion du bgcolor selon le type d'heb-->
+
+
+   <tr>
+      <td width="30%">
+         <dtml-var heb_localite>  
+         <dtml-in "admin_base.commune.zsql_select_commune_compk(fcom_pk=heb_com_fk)"><!--debut zsql commune-->
+            (<dtml-var com_nom>)
+            </td>
+            <td width="29" align="center">
+            </td>
+            <td align="center" valign="middle" colspan="2">
+<!-- NOMBRE EPIS -->
+               <dtml-var "getIconeNbreEpis(heb_pk=heb_pk)">
+            </td>
+            <td align="center" valign="middle">
+<!-- CAPACITE -->
+               <img src="images/picto/capacite.png" />
+               <dtml-var  heb_cgt_cap_min> / <dtml-var heb_cgt_cap_max> p.
+            </td>
+            </tr>
+            <tr>
+               <td>
+                  <!-- DEBUT TABLE PHOTO ET ADRESSE-->
+                  <table border="0" wdith="150" cellspacing="0">
+                     <tr>
+                        <td colspan="2" align="center"><!-- Photo du gites-->
+                           <img src="photos_heb/<dtml-var heb_code_gdw>00.jpg">
+                        </td>
+                     </tr>
+                     <dtml-in "zsql_select_type_heb_typehebpk(ftype_heb_pk=heb_typeheb_fk)"><!--Adresse du gite-->
+                        <dtml-if "type_heb_code=='CH'">
+                           <tr bgcolor="#c6d4ea">
+                        <dtml-else>
+                           <tr bgcolor="#EEFFEE">
+                        </dtml-if>
+                     </dtml-in>
+                        <td>
+                           <b>
+                           <br>
+                             <dtml-var heb_nom></b><br>
+                             <dtml-var heb_adresse><br>
+                             <dtml-var com_cp>  <dtml-var com_nom><br><br>
+
+                        </td>
+                        <td>
+                           <div align="center">
+                              <a href="gallerie?heb_pk=<dtml-var heb_pk>&gdw=<dtml-var heb_code_gdw>">
+                                 <img src="images/picto/o_photo.png"
+                                      border="0"/></a>
+                           </div>
+                        </td>
+                     </tr>
+                  </table>
+                <!--FIN TABLE PHOTO ET ADRESSE-->
+         </dtml-in><!--fin zsql commune-->
+      </td>
+      <td width="29" align="center" valign="top">
+         <!-- DEBUT TABLE DES PICTO-->
+         <table border="0" width="29" align="center">
+            <tr>
+               <td colspan="2" align="center"><b>Activit&eacute;s</b></td>
+            </tr>
+            <tr>
+               <td align="center"><!--gestion des picto activité-->
+                  <dtml-if "heb_tenis=='oui'">
+                     <img src="images/picto/a_tennis.png"><br>
+                     <dtml-var heb_tenis_distance>km
+                  </dtml-if>
+                  <dtml-if "heb_nautisme=='oui'">
+                     <img src="images/picto/a_voile.png"><br>
+                     <dtml-var heb_nautisme_distance>km
+                  </dtml-if>
+                  <dtml-if "heb_sky=='oui'">
+                     <img src="images/picto/a_sky.png"><br>
+                     <dtml-var heb_sky_distance>km
+                  </dtml-if>
+                  <dtml-if "heb_rando=='oui'">
+                     <img src="images/picto/a_rando.png"><br>
+                     <dtml-var heb_rando_distance>km
+                  </dtml-if>
+                  <dtml-if "heb_piscine=='oui'">
+                     <img src="images/picto/a_piscine.png"><br>
+                     <dtml-var heb_piscine_distance>km
+                  </dtml-if>
+                  <dtml-if "heb_peche=='oui'">
+                     <img src="images/picto/a_peche.png"><br>
+                     <dtml-var heb_peche_distance>km
+                  </dtml-if>
+                  <dtml-if "heb_equitation=='oui'">
+                     <img src="images/picto/a_cheval.png"><br>
+                     <dtml-var heb_equitation_distance>km
+                  </dtml-if>
+                  <dtml-if "heb_velo=='oui'">
+                     <img src="images/picto/a_velo.png"><br>
+                     <dtml-var heb_velo_distance>km
+                  </dtml-if>
+                  <dtml-if "heb_vtt=='oui'">
+                     <img src="images/picto/a_vtt.png"><br>
+                     <dtml-var heb_vtt_distance>km
+                  </dtml-if>
+                  <dtml-if "heb_ravel=='oui'">
+                     <img src="images/picto/a_ravel.png"><br>
+                     <dtml-var heb_ravel_distance>km
+                  </dtml-if>
+               </td>
+            </tr>
+            <tr>
+               <td align="center">
+                  <!--theme du gite-->
+                  <div align="center">
+                  <dtml-if "heb_gid_activite_nature=='oui'">
+                     <img src="images/picto/t_nature.png"
+                               alt="Gite Activites decouverte nature"
+                               title="Gite Activites decouverte nature" />
+                  </dtml-if>
+                  <dtml-if "heb_gid_panda=='oui'">
+                     <img src="images/picto/t_panda.png"
+                               alt="Gite Panda"
+                               title="Gite Panda" />
+                  </dtml-if>
+                  <dtml-if "heb_gid_theme_equestre=='oui'">
+                     <img src="images/picto/t_equestre.png"
+                               alt="Gite equestre"
+                               title="Gite equestre" />
+                  </dtml-if>
+                  <dtml-if "heb_gid_patrimoine=='oui'">
+                     <img src="images/picto/t_patrimoine.png"
+                               alt="Gite patrimoine"
+                               title="Gite patrimoine" />
+                  </dtml-if>
+                  <dtml-if "heb_gid_peche=='oui'">
+                     <img src="images/picto/t_peche.png"
+                               alt="Gite peche"
+                               title="Gite peche" />
+                  </dtml-if>
+                  </div>
+               </td>
+            </tr>
+            <tr>
+               <td align="center">
+                  <!--Gites +-->
+                  <dtml-if "heb_gid_bebe_tendresse=='oui'">
+                     <img src="images/l_bebe_tendresse.gif"
+                          title="Gite bebe tendresse" 
+                          alt="Gite bebe tendresse">
+                  </dtml-if>
+                  <dtml-if "heb_gid_access_tous=='oui'">
+                     <img src="images/l_access_tous.gif"
+                          title="Gite accessible a tous" 
+                          alt="Gite accessible a tous">
+                  </dtml-if>
+                  <dtml-if "heb_gid_antiallergique=='oui'">
+                     <img src="images/l_anti_allergie.gif"
+                          title="Gite anti-allergique" 
+                          alt="Gite anti-allergique">
+                  </dtml-if>
+                  <dtml-if "heb_gid_beau_jardin=='oui'">
+                     <img src="images/l_nain.jpg"
+                          alt="Beau jardin" 
+                          title="Beau jardin">
+                  </dtml-if>
+                  <dtml-if "heb_gid_eco_gite=='oui'">
+                     <img src="images/l_eco_gite.gif" 
+                          title="Eco gite"
+                          alt="Eco gite">
+                  </dtml-if>
+               </td>
+            </tr>
+            <tr>
+               <td><br><br></td>
+            </tr>
+            <tr>
+               <td align="center">
+                  <dtml-if "heb_animal=='oui'">
+                     <img src="images/picto/c_chien.png"><br>
+                     <dtml-if heb_animal_taxe ><dtml-var heb_animal_taxe> </dtml-if>
+                  <dtml-else>
+                     <img src="images/picto/c_nochien.png"><br>
+                  </dtml-if>
+               </td>
+            </tr>
+            <tr>
+               <td align="center">
+                  <dtml-if "heb_fumeur=='oui'">
+                     <img src="images/picto/c_fumeur.png"><br>
+                     <dtml-if heb_animal_taxe ><dtml-var heb_animal_taxe> </dtml-if>
+                  <dtml-else>
+                     <img src="images/picto/c_non_fumeur.png"><br>
+                  </dtml-if>
+               </td>
+            </tr>
+         </table>
+         <!-- FIN TABLE DES PICTO-->
+      </td>
+
+      <td>
+         <!--DEBUT TABLE ICONE CONFORT-->
+         <table>
+            <tr>
+               <td colspan="2" align="center"><b>Confort</b></td>
+            </tr>
+            <tr>
+               <td class="infogid"><img src="images/picto/c_tv.png" /></td>
+               <td class="choixinfogid">
+                  <dtml-if heb_confort_tv>
+                     <dtml-var heb_confort_tv>
+                  <dtml-else>
+                     <span class="tiret_None">-</span>
+                  </dtml-if>
+               </td>
+            </tr>
+            <tr>
+               <td class="infogid"><img src="images/picto/c_feu_ouvert.png" /></td>
+               <td class="choixinfogid">
+                  <dtml-if heb_confort_feu_ouvert>
+                     <dtml-var heb_confort_feu_ouvert >
+                  <dtml-else>
+                     <span class="tiret_None">-</span>
+                  </dtml-if>
+               </td>
+            </tr>
+            <tr>
+               <td class="infogid"><img src="images/picto/c_lave_vaisselle.png" /></td>
+               <td class="choixinfogid">
+                  <dtml-if heb_confort_lave_vaiselle>
+                     <dtml-var  heb_confort_lave_vaiselle>
+                  <dtml-else>
+                     <span class="tiret_None">-</span>
+                  </dtml-if>
+               </td>
+            </tr>
+            <tr>
+               <td class="infogid"><img src="images/picto/c_micro_onde.png" /></td>
+               <td class="choixinfogid">
+                  <dtml-if heb_confort_micro_onde>
+                     <dtml-var heb_confort_micro_onde>
+                  <dtml-else>
+                     <span class="tiret_None">-</span>
+                  </dtml-if>
+               </td>
+            </tr>
+            <tr>
+               <td class="infogid"><img src="images/picto/c_lave_linge.png" /></td>
+               <td class="choixinfogid">
+                  <dtml-if heb_confort_lave_linge>
+                     <dtml-var heb_confort_lave_linge>
+                  <dtml-else>
+                     <span class="tiret_None">-</span>
+                  </dtml-if>
+               </td>
+            </tr>
+            <tr>
+               <td class="infogid"><img src="images/picto/c_seche_linge.png" /></td>
+               <td class="choixinfogid">
+                  <dtml-if heb_confort_seche_linge>
+                     <dtml-var heb_confort_seche_linge>
+                  <dtml-else>
+                     <span class="tiret_None">-</span>
+                  </dtml-if>
+               </td>
+            </tr>
+            <tr>
+               <td class="infogid"><img src="images/picto/c_congelateur.png" /></td>
+               <td class="choixinfogid">
+                  <dtml-if heb_confort_congelateur>
+                     <dtml-var heb_confort_congelateur>
+                  <dtml-else>
+                     <span class="tiret_None">-</span>
+                  </dtml-if>
+               </td>
+            </tr>
+            <tr>
+               <td class="infogid"><img src="images/picto/c_internet.png" /></td>
+               <td class="choixinfogid">
+                  <dtml-if heb_confort_internet>
+                     <dtml-var heb_confort_internet>
+                  <dtml-else>
+                     <span class="tiret_None">-</span>
+                  </dtml-if>
+               </td>
+            </tr>
+            <tr>
+               <td class="infogid"><img src="images/picto/i_commerce.png" /></td>
+               <td class="choixinfogid">
+                  <dtml-if heb_commerce>
+                     <dtml-var heb_commerce><br/>
+                     <dtml-var heb_commerce_distance> km
+                  <dtml-else>
+                     <span class="tiret_None">-</span>
+                  </dtml-if>
+               </td>
+            </tr>
+            <tr>
+               <td class="infogid"><img src="images/picto/i_restaurant.png" /></td>
+               <td class="choixinfogid">
+                  <dtml-if heb_restaurant>
+                     <dtml-var heb_restaurant><br/>
+                     <dtml-var heb_restaurant_distance> km
+                  <dtml-else>
+                     <span class="tiret_None">-</span>
+                  </dtml-if>
+               </td>
+            </tr>
+            <tr>
+               <td class="infogid"><img src="images/picto/i_gare.png" /></td>
+               <td class="choixinfogid">
+                  <dtml-if heb_gare>
+                     <dtml-var heb_gare><br/>
+                     <dtml-var heb_gare_distance> km
+                  <dtml-else>
+                     <span class="tiret_None">-</span>
+                  </dtml-if>
+               </td>
+            </tr>
+         </table>
+      </td>
+      <td valign="top">
+         <!--DEBUT TABLE ICONE SEMINAIRE VERT-->
+         <table>
+            <tr>
+               <td colspan="2" align="center"><b>S&eacute;minaire vert</b></td>
+            </tr>
+            <tr>
+               <td class="infogid"><img src="images/picto/c_projecteur.png" /></td>
+               <td class="choixinfogid">
+                  <dtml-if heb_confort_projecteur>
+                     <dtml-var heb_confort_projecteur>
+                  <dtml-else>
+                     non
+                  </dtml-if>
+               </td>
+            </tr>
+            <tr>
+               <td class="infogid"><img src="images/picto/c_ecran.png" /></td>
+               <td class="choixinfogid">
+                  <dtml-if heb_confort_ecran>
+                     <dtml-var heb_confort_ecran>
+                  <dtml-else>
+                     non
+                  </dtml-if>
+               </td>
+            </tr>
+            <tr>
+               <td class="infogid"><img src="images/picto/c_flipchart.png" /></td>
+               <td class="choixinfogid">
+                  <dtml-if heb_confort_flipchart>
+                     <dtml-var heb_confort_flipchart>
+                  <dtml-else>
+                     non
+                  </dtml-if>
+               </td>
+            </tr>
+            <tr>
+               <td class="infogid"><img src="images/picto/c_terrasse.png" /></td>
+               <td class="choixinfogid">
+                  <dtml-if heb_confort_terrasse>
+                     <dtml-var heb_confort_terrasse>
+                  <dtml-else>
+                     non
+                  </dtml-if>
+               </td>
+            </tr>
+            <tr>
+               <td class="infogid"><img src="images/picto/c_jardin.png" /></td>
+               <td class="choixinfogid">
+                  <dtml-if heb_confort_jardin>
+                     <dtml-var heb_confort_jardin>
+                  <dtml-else>
+                     non
+                  </dtml-if>
+               </td>
+            </tr>
+            <tr>
+               <td class="infogid"><img src="images/picto/c_sauna.png" /></td>
+               <td class="choixinfogid">
+                  <dtml-if heb_confort_sauna>
+                     <dtml-var heb_confort_sauna>
+                  <dtml-else>
+                     non
+                  </dtml-if>
+               </td>
+            </tr>
+            <tr>
+               <td class="infogid"><img src="images/picto/c_jacuzzi.png" /></td>
+               <td class="choixinfogid">
+                  <dtml-if heb_confort_jacuzzi>
+                     <dtml-var heb_confort_jacuzzi>
+                  <dtml-else>
+                     non
+                  </dtml-if>
+               </td>
+            </tr>
+         </table>
+      </td>
+      <td valign="top" align="center">
+         <!-- DEBUT TABLE DESCRIPTIF-->
+         <br /><br />
+         <dtml-in "zsql_select_type_heb_typehebpk(ftype_heb_pk=heb_typeheb_fk)">
+            <dtml-if "type_heb_code=='CH'">
+               <table  bgcolor="#c6d4ea">
+                  <tr><td bgcolor="#82a7ea"><b>POINT FORT</b></td></tr>
+                  <tr><td><dtml-var heb_pointfort_fr></td></tr>
+                  <tr><td bgcolor="#82a7ea"><b>DESCRIPTIF</b></td></tr>
+                  <tr><td><dtml-var heb_descriptif_fr></td></tr>
+                  <tr><td bgcolor="#82a7ea"><b>DISTRIBUTION</b></td></tr>
+                  <tr><td><dtml-var heb_distribution_fr></td></tr>
+                  <tr><td bgcolor="#82a7ea"><b>SEMINAIRE VERT</b></td></tr>
+                  <tr><td><dtml-var heb_seminaire_vert_fr></td></tr>
+               </table>
+            <dtml-else>
+               <table  bgcolor="#EEFFEE">
+                  <tr><td bgcolor="#CCFFCC"><b>POINT FORT</b></td></tr>
+                  <tr><td><dtml-var heb_pointfort_fr></td></tr>
+                  <tr><td bgcolor="#CCFFCC"><b>DESCRIPTIF</b></td></tr>
+                  <tr><td><dtml-var heb_descriptif_fr></td></tr>
+                  <tr><td bgcolor="#CCFFCC"><b>DISTRIBUTION</b></td></tr>
+                  <tr><td><dtml-var heb_distribution_fr></td></tr>
+                  <tr><td bgcolor="#CCFFCC"><b>SEMINAIRE VERT</b></td></tr>
+                  <tr><td><dtml-var heb_seminaire_vert_fr></td></tr>
+               </table>
+            </dtml-if>
+         </dtml-in>
+         <!-- FIN TABLE DESCRIPTIF-->
+      </td>
+   </tr>
+   <tr>
+      <td colspan="3">
+         <dtml-in "zsql_select_type_heb_typehebpk(ftype_heb_pk=heb_typeheb_fk)">
+            <dtml-if "type_heb_code=='CH'">
+               <!--DEBUT TABLE TARIFICATION CHAMBRE-->
+               <table border="0" cellpadding="0" cellspacing="0" align="center">
+                  <tr>
+                     <td bgcolor="#82a7ea">
+                        Nuit&eacute;e <dtml-var heb_chmbre_tarif> <br>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td bgcolor="#c6d4ea">
+                        <br>
+                        <dtml-var heb_chmbre_divers>
+                        <br><br><br>
+                     </td>
+                  </tr>
+               </table>
+
+                  <hr>
+
+                  
+                  <table border="0" cellpadding="0" cellspacing="0" align="center"  bgcolor="#c6d4ea">
+                     <tr  bgcolor="#82a7ea">
+                        <td><b>Nouvelle tarification</b></td>
+                        <td align="center"> 1 personne</td>
+                        <td align="center"> 2 personnes</td>
+                        <td align="center"> 3&egrave; personne</td>
+                     </tr>
+                     <tr>
+                        <td  bgcolor="#82a7ea">
+                           Avec petit d&eacute;jeuner
+                        </td>
+                        <td align="center">
+                           <dtml-var heb_tarif_chmbr_avec_dej_1p>
+                        </td>
+                        <td align="center">
+                           <dtml-var heb_tarif_chmbr_avec_dej_2p>
+                        </td>
+                        <td align="center">
+                           <dtml-var heb_tarif_chmbr_avec_dej_3p>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td  bgcolor="#82a7ea">
+                           D&eacute;duction si pas petit d&eacute;jeuner
+                        </td>
+                        <td align="center">
+                           <dtml-if heb_tarif_chmbr_sans_dej_1p>
+                              <dtml-var heb_tarif_chmbr_sans_dej_1p>
+                           <dtml-else>
+                              <span class="tiret_None">-</span>
+                           </dtml-if>
+                        </td>
+                        <td align="center">
+                           <dtml-if heb_tarif_chmbr_sans_dej_2p>
+                              <dtml-var heb_tarif_chmbr_sans_dej_2p>
+                           <dtml-else>
+                              <span class="tiret_None">-</spstring:${codegdw}0${cpt}.jpg;an>
+                           </dtml-if>
+                        </td>
+                        <td align="center">
+                           <dtml-if heb_tarif_chmbr_sans_dej_3p>
+                              <dtml-var heb_tarif_chmbr_sans_dej_3p>
+                           <dtml-else>
+                              <span class="tiret_None">-</span>
+                           </dtml-if>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td  bgcolor="#82a7ea">
+                           Petit d&eacute;jeuner
+                        </td>
+                        <td align="center">
+                           <dtml-if heb_tarif_chmbr_dej_1p>
+                              <dtml-var heb_tarif_chmbr_dej_1p>
+                           <dtml-else>
+                              <span class="tiret_None">-</span>
+                           </dtml-if>
+                        </td>
+                        <td align="center">
+                           <dtml-if heb_tarif_chmbr_dej_2p>
+                              <dtml-var heb_tarif_chmbr_dej_2p>
+                           <dtml-else>
+                              <span class="tiret_None">-</span>
+                           </dtml-if>
+                        </td>
+                        <td align="center">
+                           <dtml-if heb_tarif_chmbr_dej_3p>
+                              <dtml-var heb_tarif_chmbr_dej_3p>
+                           <dtml-else>
+                              <span class="tiret_None">-</span>
+                           </dtml-if>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td  bgcolor="#82a7ea">
+                           Table d'h&ocirc;te
+                        </td>
+                        <td align="center">
+                           <dtml-if heb_tarif_chmbr_table_hote_1p>
+                              <dtml-var heb_tarif_chmbr_table_hote_1p>
+                           <dtml-else>
+                              <span class="tiret_None">-</span>
+                           </dtml-if>
+                        </td>
+                        <td align="center">
+                           <dtml-if heb_tarif_chmbr_table_hote_2p>
+                              <dtml-var heb_tarif_chmbr_table_hote_2p>
+                           <dtml-else>
+                              <span class="tiret_None">-</span>
+                           </dtml-if>
+                        </td>
+                        <td align="center">
+                           <dtml-if heb_tarif_chmbr_table_hote_3p>
+                              <dtml-var heb_tarif_chmbr_table_hote_3p>
+                           <dtml-else>
+                              <span class="tiret_None">-</span>
+                           </dtml-if>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td  bgcolor="#82a7ea">
+                           Autre
+                        </td>
+                        <td align="center">
+                           <dtml-if heb_tarif_chmbr_autre_1p>
+                              <dtml-var heb_tarif_chmbr_autre_1p>
+                           <dtml-else>
+                              <span class="tiret_None">-</span>
+                           </dtml-if>
+                        </td>
+                        <td align="center">
+                           <dtml-if heb_tarif_chmbr_autre_2p>
+                              <dtml-var heb_tarif_chmbr_autre_2p>
+                           <dtml-else>
+                              <span class="tiret_None">-</span>
+                           </dtml-if>
+                        </td>
+                        <td align="center">
+                           <dtml-if heb_tarif_chmbr_autre_3p>
+                              <dtml-var  heb_tarif_chmbr_autre_3p>
+                           <dtml-else>
+                              <span class="tiret_None">-</span>
+                           </dtml-if>
+                        </td>
+                     </tr>
+                  </table>
+                  <!--FIN TABLE TARIFICATION CHAMBRE-->
+               <dtml-else>
+                  <!--DEBUT TARIFICATION <> CHAMBRE-->
+                  <table border="0" cellspacing="0" bgcolor="#EEFFEE" align="center">
+                     <tr bgcolor="#CCFFCC">
+                        <td align="center">P&eacute;riode</td>
+                        <td align="center">WE</td>
+                        <td align="center">Semaine</td>
+                     </tr>
+                     <tr>
+                        <td>   Basse Saison</td>
+                        <td align="center" bgcolor="#ACE087">
+                           <dtml-if heb_tarif_we_bs>
+                              <dtml-var heb_tarif_we_bs>
+                           <dtml-else>
+                              <span class="tiret_None">-</span>
+                           </dtml-if>
+                        </td>
+                        <td align="center" bgcolor="#8BBE67">
+                           <dtml-if heb_tarif_sem_bs>
+                              <dtml-var heb_tarif_sem_bs>
+                           <dtml-else>
+                              <span class="tiret_None">-</span>
+                           </dtml-if>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td>   Moyenne Saison</td>
+                        <td align="center" bgcolor="#ACE087">
+                           <dtml-if heb_tarif_we_ms>
+                              <dtml-var heb_tarif_we_ms>
+                           <dtml-else>
+                              <span class="tiret_None">-</span>
+                           </dtml-if>
+                        </td>
+                        <td align="center" bgcolor="#8BBE67">
+                           <dtml-if heb_tarif_sem_ms>
+                              <dtml-var heb_tarif_sem_ms>
+                           <dtml-else>
+                              <span class="tiret_None">-</span>
+                           </dtml-if>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td>   Haute Saison</td>
+                        <td align="center" bgcolor="#ACE087">
+                           <dtml-if heb_tarif_we_hs>
+                              <dtml-var heb_tarif_we_hs>
+                           <dtml-else>
+                              <span class="tiret_None">-</span>
+                           </dtml-if>
+                        </td>
+                        <td align="center" bgcolor="#8BBE67">
+                           <dtml-if heb_tarif_sem_hs>
+                              <dtml-var heb_tarif_sem_hs>
+                           <dtml-else>
+                              <span class="tiret_None">-</span>
+                           </dtml-if>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td colspan="3"> </td>
+                     </tr>
+                     <tr>
+                        <td> WE f&ecirc;te 3 nuits</td>
+                        <td align="center" bgcolor="#ACE087">
+                           <dtml-if heb_tarif_we_3n>
+                              <dtml-var heb_tarif_we_3n>
+                           <dtml-else>
+                              <span class="tiret_None">-</span>
+                           </dtml-if>
+                        </td>
+                        <td align="center" bgcolor="#8BBE67">-</td>
+                     </tr>
+                     <tr>
+                        <td> WE f&ecirc;te 4 nuits</td>
+                        <td align="center" bgcolor="#ACE087">
+                           <dtml-if heb_tarif_we_4n>
+                              <dtml-var heb_tarif_we_4n>
+                           <dtml-else>
+                              <span class="tiret_None">-</span>
+                           </dtml-if>
+                        </td>
+                        <td align="center" bgcolor="#8BBE67">-</td>
+                     </tr>
+                     <tr>
+                        <td colspan="3"> </td>
+                     </tr>
+                     <tr>
+                        <td>   Fin d'ann&eacute;e</td>
+                        <td align="center" bgcolor="#ACE087">-</td>
+                        <td align="center" bgcolor="#8BBE67">
+                           <dtml-if heb_tarif_semaine_fin_annee>
+                              <dtml-var heb_tarif_semaine_fin_annee>
+                           <dtml-else>
+                              <span class="tiret_None">-</span>
+                           </dtml-if>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td colspan="3"> </td>
+                     </tr>
+                     <tr>
+                        <td>   Garantie</td>
+                        <td colspan="2"  align="center">
+                           <dtml-if heb_tarif_garantie>
+                              <dtml-var heb_tarif_garantie>
+                           <dtml-else>
+                              <span class="tiret_None">-</span>
+                           </dtml-if>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td>   Charge</td>
+                        <td colspan="2"  align="center">
+                           <dtml-in "admin_base.charge.zsql_select_charge_by_pk(fcha_pk=heb_charge_fk)">
+                                 <dtml-var cha_type_fr>
+                           </dtml-in>
+                           <dtml-if "heb_charge_fk==3">
+                              <dtml-var heb_forfait_montant>
+                           </dtml-if>
+                           <br/>
+                           <dtml-if heb_tarif_charge>
+                              <dtml-var heb_tarif_charge>
+                           </dtml-if>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td>   Divers</td>
+                        <td colspan="2"  align="center"><dtml-var heb_tarif_divers></td>
+                     </tr>
+                  </table>
+                  <!--FIN TARIFICATION <> CHAMBRE-->
+               </dtml-if>
+            </dtml-in>
+      </td>
+      <td valign="top" colspan="2">
+         <!--DEBUT INFOS LITERIE-->
+         <br />
+         <dtml-in "zsql_select_type_heb_typehebpk(ftype_heb_pk=heb_typeheb_fk)">
+            <dtml-if "type_heb_code=='CH'">
+               <table border="0" cellspacing="0" align="center" bgcolor="#c6d4ea">
+                  <tr>
+                     <td colspan="2" align="left" width="100" bgcolor="#82a7ea"><b>Literie</b></td>
+                  </tr>
+                  <tr>
+                     <td align="center"  width="100">
+                        <img src="images/picto/lit_1p.png" />
+                     </td>
+                     <td>
+                        <dtml-if "heb_lit_1p > '0'">
+                           <dtml-var  heb_lit_1p>
+                        <dtml-else>
+                           0
+                        </dtml-if>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td align="center">
+                        <img src="images/picto/lit_double.png" />
+                     </td>
+                     <td>
+                        <dtml-if "heb_lit_2p > '0'">
+                          <dtml-var  heb_lit_2p>
+                        <dtml-else>
+                          0
+                        </dtml-if>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td align="center">
+                        <img src="images/picto/lit_superpose.png" />
+                     </td>
+                     <td>
+                        <dtml-if "heb_lit_sup > '0'">
+                           <dtml-var  heb_lit_sup>
+                        <dtml-else>
+                           0
+                        </dtml-if>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td align="center">
+                        <img src="images/picto/lit_enfant.png" />
+                     </td>
+                     <td>
+                        <dtml-if "heb_lit_enf > '0'">
+                          <dtml-var  heb_lit_enf>
+                        <dtml-else>
+                          0
+                        </dtml-if>
+                     </td>
+                  </tr>
+               </table>
+            <dtml-else>
+               <table border="0" cellspacing="0" align="center" bgcolor="#EEFFEE">
+                  <tr>
+                     <td colspan="2" align="left" width="100" bgcolor="#CCFFCC"><b>Literie</b></td>
+                  </tr>
+                  <tr>
+                     <td align="center"  width="100">
+                        <img src="images/picto/lit_1p.png" />
+                     </td>
+                     <td>
+                  <dtml-if "heb_lit_1p > '0'">
+                     <dtml-var  heb_lit_1p>
+                  <dtml-else>
+                     0
+                  </dtml-if>
+               </td>
+            </tr>
+            <tr>
+               <td align="center">
+                  <img src="images/picto/lit_double.png" />
+               </td>
+               <td>
+                  <dtml-if "heb_lit_2p > '0'">
+                     <dtml-var  heb_lit_2p>
+                  <dtml-else>
+                     0
+                  </dtml-if>
+               </td>
+            </tr>
+            <tr>
+               <td align="center">
+                  <img src="images/picto/lit_superpose.png" />
+               </td>
+               <td>
+                  <dtml-if "heb_lit_sup > '0'">
+                     <dtml-var  heb_lit_sup>
+                  <dtml-else>
+                     0
+                  </dtml-if>
+               </td>
+            </tr>
+            <tr>
+               <td align="center">
+                  <img src="images/picto/lit_enfant.png" />
+               </td>
+               <td>1
+                  <dtml-if "heb_lit_enf > '0'">
+                     <dtml-var  heb_lit_enf>
+                  <dtml-else>
+                     0
+                  </dtml-if>
+                  </td>
+               </tr>
+             </table>
+          </dtml-if>
+       </dtml-in>
+       <!--FIN INFOS LITERIE-->
+      </td>
+   </tr>
+
+
+
+<dtml-if DISPO>
+   <tr>
+      <td>
+         <br>
+         <!--DEBUT CALENDRIER DIPONIBILITE-->
+         <table border="0" cellspacing="0" align="center">
+            <dtml-in "zsql_select_type_heb_typehebpk(ftype_heb_pk=heb_typeheb_fk)">
+               <dtml-if "type_heb_code=='CH'">
+                  <tr bgcolor="#FFD84C">
+               <dtml-else>
+                  <tr bgcolor="#CCFFCC">
+               </dtml-if>
+               <td>
+                  Disponibilités
+               </td>
+            </tr>
+            <tr>
+               <td>
+                  <!--dtml-in "zsql_select_reservation_by_hebfk(fres_heb_fk=fheb_pk)"-->
+                     <!--dtml-var res_date-->
+                  <!--/dtml-in-->
+                   
+               </td>
+            </tr>
+            <tr>
+               <td>
+                  <xxdtml-call "REQUEST.set('list_res',[])"><!--liste qui reçoit les dates réservées-->
+                  <xxdtml-calendar controls="yes" bgcolor="#cccccc" lang="fr">
+                     <xxdtml-call "setCalendar('valign','top')">
+                     <xxdtml-call "setCalendar('daybgcolor','6a8ea2')">
+                     <xxdtml-call "setCalendar('leftfgcolor','FFAA77')">
+                     <xxdtml-call "setCalendar('leftbgcolor','556677')">
+                     <font face="verdana, arial, helvetica, sans-serif" size="2" color="#008800">
+                        <!--dtml-var date fmt="%d"-->
+                     </font>
+
+
+                        <!-- debut lecture dans la base des dates réservées-->
+                        <xxdtml-in "zsql_select_reservation_by_hebfk(fres_heb_fk=fheb_pk)">
+                           <xxdtml-call "REQUEST.set('the_date', _['sequence-item'].to_char)">
+                           <xxdtml-call "list_res.append(the_date)"><!--ajout de la date réservée &#65533;  la liste-->
+                        <xx/dtml-in>
+                        <!-- fin lecture dans la base des dates réservées-->
+
+                              <xxdtml-if "date.strftime('%Y-%m-%d') in list_res"><!--cas ou il y a des réservations dans la base-->
+
+                                 <xxdtml-if "date.strftime('%Y-%m-%d') == ZopeTime().strftime('%Y-%m-%d')"><!--jour courant-->
+                                    <font  face="verdana, arial, helvetica, sans-serif" size="1" color="#0000FF">
+                                       <xxdtml-var date fmt="%d"><!--date courante-->
+                                    </font>
+                                 <xxdtml-else>
+                                    <font face="verdana, arial, helvetica, sans-serif" size="1" color="#FF0000">
+                                       <xxdtml-var date fmt="%d"> <!--date réservée-->
+                                    </font>
+                                 <xx/dtml-if>
+
+                              <xxdtml-else><!--date libre-->
+
+                                 <xxdtml-if "date.strftime('%Y-%m-%d') == ZopeTime().strftime('%Y-%m-%d')"><!--date courante-->
+                                    <font face="verdana, arial, helvetica, sans-serif" size="1" color="#0000FF">
+                                       <xxdtml-var date fmt="%d">
+                                    </font>
+                                 <xxdtml-else>
+                                    <font face="verdana, arial, helvetica, sans-serif" size="1" color="#008800">
+                                       <b><xxdtml-var date fmt="%d"></b><!--autre dates libres-->
+                                    </font>
+                                 <xx/dtml-if>
+
+                              <xx/dtml-if>
+
+                  <xx/dtml-calendar>
+               </td>
+            </tr>
+         </table>
+         <!--FIN CALENDRIER DIPONIBILITE-->
+      </td>
+      <td colspan="2" valign="top">
+         <br>
+         <!--DEBUT MOT DU PROPRIO-->
+         <table border="0" cellspacing="0"  align="center" width="85%">
+            <dtml-if "type_heb_code=='CH'">
+                  <tr bgcolor="#FFD84C">
+               <dtml-else>
+                  <tr bgcolor="#CCFFCC">
+               </dtml-if>
+               <td>
+                  Le mot du proprio
+               </td>
+            </tr>
+            <tr>
+               <td>
+                  <br>
+                  <dtml-var heb_comment_by_proprio>
+               </td>
+            </tr>
+            </dtml-in><!--zsql_select_type_heb_typehebpk-->
+         </table>
+         <!--FIN MOT DU PROPRIO-->
+      </td>
+   </tr>
+</dtml-if> <!-- fin if DISPO-->
+</table>
+
+
+
+
+<!--DEBUT INFOS PROPRIETAIRE-->
+<fieldset class="fieldsetdescription">
+   <legend class="legende">Infos propri&eacute;taire</legend>
+      <ul>
+      <dtml-in "zsql_select_proprio_propk(pro_pk=heb_pro_fk)">
+         <dtml-in "zsql_select_civilite_civpk(fciv_pk=pro_civ_fk)">
+            <li><b><dtml-var civ_titre></b></li>
+         </dtml-in>
+         <li><b><dtml-var pro_prenom1>  <dtml-var pro_nom1> <dtml-var pro_nom2></b></li>
+         <li><dtml-var pro_langue missing=""></li>
+         <li>Tel : <dtml-var pro_tel_priv missing=""></li>
+         <li>Fax : <dtml-var pro_fax_priv missing=""></li>
+         <li>GSM : <dtml-var pro_gsm1 missing=""></li>
+         <li><a href="mailto:<dtml-var pro_email>"><dtml-var pro_email missing=""></a></li>
+         <li><a href="http://<dtml-var pro_url>" target="_blank"><dtml-var pro_url missing=""></a></li>
+      </dtml-in>
+      </ul>
+</fieldset>
+<!--FIN INFOS PROPRIETAIRE-->
+
+
+
+<fieldset class="fieldsetdescription">
+    <legend class="legende">Type de table d'h&ocirc;te</legend>
+    <ul>
+    <dtml-in "admin_base.table_hote.zsql_table_hote_select_by_hebpk(heb_pk=fheb_pk)">
+        <li><dtml-var tabho_type_fr></li>
+    </dtml-in>
+    </ul>
+</fieldset>
+
+<fieldset class="fieldsetdescription">
+   <legend class="legende">Info ECR</legend>
+   <ul>
+      <li>Date d'ouverture : <dtml-var heb_ecr_date_ouverture></li>
+      <li>Remarque         : <dtml-var heb_ecr_remarque></li>
+   </ul>
+</fieldset>
+
+</dtml-in>
+</body>
+</html>

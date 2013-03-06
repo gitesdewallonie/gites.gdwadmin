@@ -1,0 +1,93 @@
+<html>
+<head>
+<title> Gites wallons : sÃ©lection d'un hÃ©bergement par le proprio</TITLE>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" >
+<meta name="generator" content="Zope">
+<meta name="author" content="Affinitic">
+<meta name="Keywords" CONTENT="">
+<meta name="Description" CONTENT="">
+<link href="gites_wallons_style.css" type=text/css rel=stylesheet>
+<script language=JavaScript src="gites_wallons_script.js"></script>
+</head>
+<body>
+<fieldset class="fieldsetprive">
+   <legend class="legende">BuzzNoël :: listing des participants</legend>
+   <tal:requete tal:define="Players python:here.admin_base.buzz.zsql_player_buzz_select_all()">
+       <div>
+        Nombre de joueurs : <span tal:content="python:len(Players)" class="grasorange" />
+        <br />
+        <tal:score tal:define="Score python:here.admin_base.buzz.zsql_player_buzz_select_max_score()">
+            <tal:boucle tal:repeat="score Score">   
+                Max Score : <span tal:content="score/max" class="grasorange"/>
+            </tal:boucle>
+        </tal:score>
+        <br />
+        <tal:abonne tal:define="Abonne  python:here.admin_base.buzz.zsql_player_buzz_select_nbre_abonne_newsletter()">
+            <tal:boucle tal:repeat="abonne Abonne">   
+                Nbre Abonnés : <span tal:content="abonne/count" class="grasorange"/>
+            </tal:boucle>
+        </tal:abonne>
+
+        <br />
+        <tal:fr tal:define="FR  python:here.admin_base.buzz.zsql_player_buzz_select_nbre_fr()">
+            <tal:boucle tal:repeat="fr FR">   
+               Joueurs FR : <span tal:content="fr/count" class="grasorange"/>
+            </tal:boucle>
+        </tal:fr>
+        <br />
+        <tal:fr tal:define="NL  python:here.admin_base.buzz.zsql_player_buzz_select_nbre_nl ()">
+            <tal:boucle tal:repeat="nl NL">   
+                Joueurs NL : <span tal:content="nl/count" class="grasorange"/>
+            </tal:boucle>
+        </tal:fr>
+
+       </div>
+       <br /><br />
+       <table>
+           <tr>
+                <th>PK</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Localité</th>
+                <th>Langue</th>
+                <th>Date</th>
+                <th>Heure</th>
+                <th>Score</th>
+                <th>E-Mail</th>
+           </tr>
+            <tal:boucle tal:repeat="player Players">         
+                <tr>
+                    <td>
+                        <span tal:content="player/player_pk" />
+                    </td>
+                    <td>
+                        <span tal:content="player/player_nom" />
+                    </td>
+                    <td>
+                        <span tal:content="player/player_prenom" />
+                    </td>    
+                    <td>
+                        <span tal:content="player/player_localite" class="grasorange" />
+                    </td>
+                    <td>
+                        <span tal:content="player/player_langue" class="grasorange" />
+                    </td>
+                    <td>
+                        <span tal:content="python: DateTime(str(player.player_date)).strftime('%d-%m-%Y')" class="grasorange" />
+                    </td>
+                    <td>
+                        <span tal:content="python: DateTime(str(player.player_date)).strftime('%Hh%M')" class="grasorange" />
+                    </td>
+                    <td>
+                        <span tal:content="player/player_score" class="grasorange" />
+                    </td>
+                    <td>
+                        <span tal:content="player/player_email" class="grasorange" />
+                    </td>
+                </tr>
+            </tal:boucle>
+       </table>
+   </tal:requete>
+</fieldset>
+</body>
+</html>

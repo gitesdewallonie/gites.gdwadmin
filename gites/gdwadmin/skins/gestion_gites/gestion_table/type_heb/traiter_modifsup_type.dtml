@@ -1,0 +1,159 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title> Gites wallons : gestion table type hébergement </TITLE>
+<meta http-equiv="content-type" content=""text/htm; charset=UTF-8" >
+<dtml-call "RESPONSE.setHeader('Content-Type', 'text/html;charset=UTF-8')">
+<meta name="generator" content="Bluefish 1.0.7">
+<meta name="author" content="alain">
+<meta name="Keywords" CONTENT="">
+<meta name="Description" CONTENT="">
+<link href="gites_wallons_style.css" type=text/css rel=stylesheet>
+<script language=JavaScript src="gites_wallons_script.js"></script>
+</head>
+
+<body>
+<span class="titre_page">Gestion de la table type d'hébergement</span><br><br>
+
+
+<!---[gestion de la suppression d'une type hébergement]--->
+<dtml-if "operation == 'supprimer'">   
+   <dtml-call zsql_delete_type>
+   <dtml-call "RESPONSE.redirect('type')">
+</dtml-if>
+
+
+
+<!---[Gestion de la modification d'une type hébergement]--->
+<dtml-if "operation == 'modifier'">   
+<form name="formulaire" action="traiter_modification_type" method="get">
+
+ <table width="95%" border="1" cellspacing="0" bordercolor="#EEEFEE">
+	<tr>
+		<td colspan="7" align="left" bgcolor="#006666">
+			<span class="titre_encodage">
+			Type d'hébergement à modifier
+			</span>
+			</font>
+		</td>
+	</tr>
+	
+     <dtml-in "admin_base.type_heb.zsql_select_type_heb_typehebpk(type_heb_pk=type_heb_pk)">
+     <tr>
+        <td><b>Code</b></td>                      
+        <td>
+           <input type="text" 
+                  name="type_heb_code" 
+                  value="<dtml-var type_heb_code>" 
+                  size="50" />
+        </td>
+     </tr>
+     <tr>
+        <td><b>Dénomination FR</b></td>
+        <td>
+           <input type="text" 
+                  name="type_heb_nom" 
+                  value="<dtml-var type_heb_nom>" 
+                  size="50" />
+        </td>
+     </tr>
+     <tr>
+        <td><b>Dénomination NL</b></td>
+	     <td>
+	        <input type="text" 
+	               name="type_heb_nom_nl" 
+	               value="<dtml-var type_heb_nom_nl>" 
+	               size="50" />
+	     </td>
+     </tr>
+     <tr>
+        <td><b>Dénomination EN</b></td>
+        <td>
+           <input type="text" 
+                  name="type_heb_nom_uk" 
+                  value="<dtml-var type_heb_nom_uk>" 
+                  size="50" />
+        </td>
+     </tr>
+     <tr>
+        <td><b>Dénomination DE</b></td>
+	     <td>
+	        <input type="text" 
+	               name="type_heb_nom_de" 
+	               value="<dtml-var type_heb_nom_de>" 
+	               size="50" />
+	     </td>
+     </tr>
+     <tr>
+        <td><b>Dénomination IT</b></td>
+	     <td>
+	        <input type="text" 
+	               name="type_heb_nom_it" 
+	               value="<dtml-var type_heb_nom_it>" 
+	               size="50" />
+	     </td>
+     </tr>     
+     <tr>
+        <td><b>ID Google FR</b></td>
+        <td>
+           <input type="text" 
+                  name="type_heb_id" 
+                  value="<dtml-var type_heb_id>" 
+                  size="50" />
+        </td>
+     </tr>
+     <tr>
+        <td><b>ID Google NL</b></td>
+	     <td>
+	        <input type="text" 
+	               name="type_heb_id_nl" 
+	               value="<dtml-var type_heb_id_nl>" 
+	               size="50" />
+	     </td>
+     </tr>
+     <tr>
+        <td><b>ID Google EN</b></td>
+        <td>
+           <input type="text" 
+                  name="type_heb_id_uk" 
+                  value="<dtml-var type_heb_id_uk>" 
+                  size="50" />
+        </td>
+     </tr>
+     <tr>
+        <td><b>ID Google DE</b></td>
+	     <td>
+	        <input type="text" 
+	               name="type_heb_id_de" 
+	               value="<dtml-var type_heb_id_de>" 
+	               size="50" />
+	     </td>
+     </tr>
+     <tr>
+        <td><b>ID Google IT</b></td>
+	     <td>
+	        <input type="text" 
+	               name="type_heb_id_it" 
+	               value="<dtml-var type_heb_id_it>" 
+	               size="50" />
+	     </td>
+     </tr>
+     <tr>
+        <td colspan="7" align="center">
+			<input type="hidden" 
+			       name="type_heb_pk" 
+			       value="<dtml-var type_heb_pk>" />
+			<dtml-var bouton_modifier>
+		</td>        
+     </tr>
+     
+     </dtml-in>
+  </table>
+  <input type="hidden" 
+         name="operation" 
+         value="" />
+</form>  
+</dtml-if>
+
+</body>
+</html>

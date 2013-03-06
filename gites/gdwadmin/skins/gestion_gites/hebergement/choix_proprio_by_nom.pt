@@ -1,0 +1,40 @@
+<html>
+<head>
+<title> Gites wallons : sélection d'un hébergement par le proprio</TITLE>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" >
+<meta name="generator" content="Bluefish 1.0.7">
+<meta name="author" content="alain">
+<meta name="Keywords" CONTENT="">
+<meta name="Description" CONTENT="">
+<link href="gites_wallons_style.css" type=text/css rel=stylesheet>
+<script language=JavaScript src="gites_wallons_script.js"></script>
+</head>
+<body>
+<fieldset class="fieldsetprive">
+   <legend class="legende">Résultat de votre recherche dont le critère est <b><span tal:content="python: request.pro_nom.upper()" /></b></legend>
+   <tal:requete tal:define="Proprietaires python:here.admin_base.zsql_proprio_select_like_nom(pro_nom=request.pro_nom)">
+      <div class="div_resultat">
+         <br />
+         <tal:boucle tal:repeat="proprio Proprietaires">         
+            <fieldset class="fieldset_resultat">
+               <img src="images/flch_orange_pt.gif" />
+               <b><span tal:content="proprio/pro_nom1" /></b>
+               <span tal:content="proprio/pro_prenom1" />
+               <br />
+               <span tal:content="proprio/pro_email" />
+               <br />
+               <span tal:content="proprio/com_cp" />
+               <span tal:content="proprio/com_nom" />
+               <br />
+               <a href=""
+                  tal:attributes="href string: modification?fheb_pk=${proprio/heb_pk}"
+                  tal:content="proprio/heb_nom" /><br />
+               <span tal:content="proprio/heb_code_gdw" />
+            </fieldset>                 
+         </tal:boucle>
+         <br />
+      </div>
+   </tal:requete>
+</fieldset>
+</body>
+</html>

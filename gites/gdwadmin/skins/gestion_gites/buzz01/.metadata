@@ -1,0 +1,14 @@
+[default]
+title=Buzz Noel 2008
+
+[Objects]
+OLD_listing_participant:Page Template
+encoder_gites_confirm:Page Template
+encoder_gites_form:Page Template
+listing_gagnant:Page Template
+listing_hebergement_buzz:Page Template
+listing_participant:Page Template
+listing_winner_info:Page Template
+traiter_insertion_gites_buzz:DTML Method
+traiter_modification_gites_buzz:DTML Method
+zsql_gite_buzz_insert:Z SQL Method

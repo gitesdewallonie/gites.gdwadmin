@@ -1,0 +1,56 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title> Gites wallons : commande boutique</TITLE>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta name="generator" content="Bluefish 1.0.7">
+<meta name="author" content="alain">
+<meta name="Keywords" CONTENT="">
+<meta name="Description" CONTENT="">
+<link href="gites_wallons_style.css" type=text/css rel=stylesheet>
+<script language=JavaScript src="gites_wallons_script.js"></script>
+</head>
+<body>
+   <span class="titre_page">Formulaire de commande pour la boutique</span><br><br>
+   <tal:requete tal:define="Commandes python:here.gestion_table.boutique.zsql_commande_ogone_select_all()">
+      <table>
+         <tr class="table_titre">
+            <td>pk</td>
+            <td>numero</td>
+            <td>produit</td>
+            <td>quantite</td>
+            <td>prix total</td>
+            <td>mode paiement</td>
+            <td>date commande</td>
+            <td>date validation</td>
+            <td>date envoi</td>
+            <td>etat</td>
+            <td>&nbsp;</td>
+         </tr>
+         <tal:boucle tal:repeat="com Commandes">
+            <span tal:define="odd repeat/com/odd">
+               <tr tal:attributes="class python:test(odd, 'list_odd', 'list_even')">
+                  <td><span tal:content="python: com.com_pk" /></td>
+                  <td><span tal:content="python: com.com_numero" /></td>
+                  <td><span tal:content="python: com.com_produit" /></td>
+                  <td><span tal:content="python: com.com_quantite" /></td>
+                  <td><span tal:content="python: com.com_prix_total" /></td>
+                  <td><span tal:content="python: com.com_mode_paiement" /></td>
+                  <td><span tal:content="python: com.com_date_commande.strftime('%d-%m-%Y')" /></td>
+                  <td><span tal:content="python: com.com_date_validation.strftime('%d-%m-%Y')" /></td>
+                  <td><span tal:content="python: com.com_date_envoi" /></td>
+                  <td><span tal:content="python: com.com_etat" /></td>
+                  <td>
+                     <a href=""
+                        tal:attributes="href string: detail_commande_ogone?com_pk=${com/com_pk}">
+                        <img src="images/detailler.png"
+                             border="0" />
+                     </a>
+                 </td>
+               </tr>
+            </span>
+         </tal:boucle>
+      </table>
+   </tal:requete>
+</body>
+</html>

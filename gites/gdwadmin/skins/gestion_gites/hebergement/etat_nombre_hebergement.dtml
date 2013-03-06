@@ -1,0 +1,74 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title> Gites wallons : création hébergement </TITLE>
+<meta name="generator" content="Bluefish 1.0.7">
+<meta name="author" content="alain">
+<meta name="Keywords" CONTENT="">
+<meta name="Description" CONTENT="">
+<link href="gites_wallons_style.css" type=text/css rel=stylesheet>
+<script language=JavaScript src="gites_wallons_script.js"></script>
+<dtml-call "RESPONSE.setHeader('Content-Type', 'text/html;charset=UTF-8')">
+</head>
+<body>
+<span class="titre_page">Nombre des hébergements par type</span><br><br>
+   <table border="1" cellspacing="0" bordercolor="#EEEFEE" width="35%" align="center">
+      <tr class="titre_encodage" bgcolor="#006666">
+         <td>TYPE</td>
+         <td align="center">CODE</td>
+         <td align="center">NOMBRE</td>
+      </tr>
+      <dtml-in "admin_base.hebergement.zsql_select_all_type_heb()">
+         <dtml-if sequence-even>
+            <tr bgcolor="#D2F7C1">
+         <dtml-else>
+            <tr>
+         </dtml-if>
+         <td>
+            &nbsp;&nbsp;
+            <a href="etat_nombre_hebergement_detail?type_heb_pk=<dtml-var type_heb_pk>&type_heb_nom=<dtml-var type_heb_nom>">
+               <dtml-var type_heb_nom>
+            </a>
+         </td>
+         <td align="center">
+            <dtml-var type_heb_code>
+         </td>
+         <td align="right">
+            <dtml-in "admin_base.hebergement.zsql_compte_hebergement_by_type(fheb_type=type_heb_pk)">
+               <dtml-var count>
+            </dtml-in>
+         </td>
+      </tr>
+      </dtml-in>
+      <tr bgcolor="#fff1f0">
+         <td colspan="2" align="right">
+           <span class="grasrouge">TOTAL</span>
+         </td>
+         <td align="right">
+            <dtml-in "admin_base.hebergement.zsql_compte_hebergement()">
+               <span class="grasrouge"><dtml-var count></span>
+            </dtml-in>        
+         </td>      
+      </tr>
+      <tr>
+         <td colspan="3">
+            <br /><br />
+            <fieldset>
+               <legend class="legende">Nombre de CH et de MH</legend>
+               <dtml-in "admin_base.hebergement.zsql_compte_hebergement_by_ch_mh()">
+                  <b><dtml-var count></b>
+               </dtml-in>   
+            </fieldset>
+            <br />
+            <fieldset>
+               <legend class="legende">Nombre de GR GC GF MT MV</legend>
+               <dtml-in "admin_base.hebergement.zsql_compte_hebergement_by_gr_gc_gf_mt_mv()">
+                  <b><dtml-var count></b>
+               </dtml-in>   
+            </fieldset>
+         </td>
+      </tr>
+   </table>
+</body>
+</html>

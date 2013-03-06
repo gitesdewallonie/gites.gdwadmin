@@ -1,0 +1,42 @@
+<html>
+<head>
+<title> Gites wallons : sélection d'un hébergement par le proprio</TITLE>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" >
+<meta name="generator" content="Zope">
+<meta name="author" content="Affinitic">
+<meta name="Keywords" CONTENT="">
+<meta name="Description" CONTENT="">
+<link href="gites_wallons_style.css" type=text/css rel=stylesheet>
+<script language=JavaScript src="gites_wallons_script.js"></script>
+</head>
+<body>
+<fieldset class="fieldsetprive">
+   <legend class="legende">Listing des h&eacute;bergements s&eacute;lectionn&eacute;s pour le Buzz de Noel</legend>
+   <tal:requete tal:define="Gites python:here.admin_base.buzz.zsql_gite_buzz_select_all()">
+     
+         <table>    
+            <tr align="center">
+                <th>PK</th>
+                <th>Heb</th>
+                <th>Localite</th>
+                <th>Proprio</th>
+                <th>Etat</th>
+                <th>Modification</th>
+            </tr>
+            <tal:boucle tal:repeat="gite Gites">         
+                <tr align="center">
+                    <td><span tal:content="gite/gite_heb_fk" /></td>
+                    <td><span tal:content="gite/heb_nom" /></td>
+                    <td><span tal:content="gite/pro_nom1" /></td>
+                    <td><span tal:content="gite/heb_localite" /></td>
+                    <td><span tal:content="gite/gite_etat" /></td>
+                    <td><span tal:content="python:gite.gite_date.strftime('%d-%m-%Y')" /></td>
+                </tr>            
+            </tal:boucle>
+         </table>
+      
+   </tal:requete>
+   <div align="center"><a href="encoder_gites_form">Encoder un g�te pour le buzz</a></div>
+</fieldset>
+</body>
+</html>

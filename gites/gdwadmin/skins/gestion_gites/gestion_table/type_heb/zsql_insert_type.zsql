@@ -1,0 +1,38 @@
+ <dtml-comment>
+title:
+arguments: type_heb_code type_heb_nom type_heb_nom_nl type_heb_nom_it type_heb_nom_de type_heb_nom_uk type_heb_id type_heb_id_nl type_heb_id_it type_heb_id_de type_heb_id_uk
+connection_id:Psycopg_database_connection
+max_rows:1000
+max_cache:100
+cache_time:0
+class_name:
+class_file:
+</dtml-comment>
+insert into type_heb
+(
+type_heb_code,
+type_heb_nom,
+type_heb_nom_nl,
+type_heb_nom_it,
+type_heb_nom_de,
+type_heb_nom_uk,
+type_heb_id,
+type_heb_id_nl,
+type_heb_id_it,
+type_heb_id_de,
+type_heb_id_uk
+)
+values
+(
+<dtml-sqlvar type_heb_code type="string">,
+<dtml-sqlvar type_heb_nom type="string">,
+<dtml-sqlvar type_heb_nom_nl type="string">,
+<dtml-sqlvar type_heb_nom_it type="string">,
+<dtml-sqlvar type_heb_nom_de type="string">,
+<dtml-sqlvar type_heb_nom_uk type="string">,
+<dtml-sqlvar type_heb_id type="string">,
+<dtml-sqlvar type_heb_id_nl type="string">,
+<dtml-sqlvar type_heb_id_it type="string">,
+<dtml-sqlvar type_heb_id_de type="string">,
+<dtml-sqlvar type_heb_id_uk type="string">
+)

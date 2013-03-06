@@ -1,0 +1,18 @@
+ <dtml-comment>
+title:
+arguments: freg_pk freg_nom freg_num
+connection_id:Psycopg_database_connection
+max_rows:1000
+max_cache:100
+cache_time:0
+class_name:
+class_file:
+</dtml-comment>
+update region_guide
+
+set
+
+reg_nom = <dtml-sqlvar freg_nom type="string">,
+reg_num = <dtml-sqlvar freg_num type="string">
+
+where  reg_pk = <dtml-sqlvar freg_pk type="int">

@@ -1,0 +1,1891 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title> Gites wallons : modification d'un hébergement</TITLE>
+<meta http-equiv="content-type" content=""text/htm; charset=UTF-8" >
+<dtml-call "RESPONSE.setHeader('Content-Type', 'text/html;charset=UTF-8')">
+<meta name="generator" content="Bluefish 1.0.7">
+<meta name="author" content="AFFINITIC">
+<meta name="Keywords" CONTENT="">
+<meta name="Description" CONTENT="">
+<link href="gites_wallons_style.css" type=text/css rel=stylesheet>
+<script language=JavaScript src="gites_wallons_script.js"></script>
+</head>
+<body>
+<span class="titre_page">Modification d'un hébergement</span><br><br>
+<!-- prevoir recherche par GDW-->
+<dtml-in "zsql_select_heb_hebpk(heb_pk=fheb_pk)">
+
+<!---[DEBUT INFORMATION PROPRIETAIRE]--->
+<dtml-in "zsql_select_proprio_propk(pro_pk=heb_pro_fk)">
+<table border="1" cellspacing="0" bordercolor="#EEEFEE">
+   <tr>
+      <td colspan="2" align="left" bgcolor="#006666">
+         <span class="titre_encodage">
+            INFORMATION PROPRIETAIRE
+         </span>
+     </td>
+   </tr>
+   <tr>
+      <td>Etat du propriétaire</td>
+      <td align="left">
+         <dtml-if "pro_etat=='1'">
+            <img src="images/bleverte.gif">
+         <dtml-else>
+            <img src="images/blerouge.gif">
+         </dtml-if>
+       </td>
+   </tr>
+   <tr>
+      <td>Comptabilité</td>
+      <td>
+         <img src="images/blerouge.gif">pas en ordre&nbsp;&nbsp;
+         <img src="images/bleverte.gif">en ordre&nbsp;&nbsp;
+         (proprio_etat  Prévoir accès en consultation pour voir le problème)
+      </td>
+   </tr>
+   <tr>
+      <td>Code du propriétaire</td>
+      <td><dtml-var pro_pk missing=xx></td>
+   </tr>
+   <tr>
+      <td>Nom 1 du propriétaire</td>
+      <td><a href="#" onClick="ouvrir_fenetre('popup_proprio?fpro_pk=<dtml-var pro_pk>')";><dtml-var pro_nom1></a></td>
+   </tr>
+</table>
+</dtml-in>
+<br><br>
+
+
+<form action="traiter_modification_heb" method="get">
+<table border="1" cellspacing="0" bordercolor="#EEEFEE">
+    <tr>
+        <td colspan="2" align="left" bgcolor="#006666">
+            <span class="titre_encodage">
+            ENCODER PROPRIETAIRE PROVISOIREMENT
+            </span>
+            </font>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <select name="fheb_pro_fk">
+                <option value=0> </option>
+                <dtml-in zsql_select_all_proprio>
+                    <dtml-if  "heb_pro_fk == pro_pk">
+                        <option value="<dtml-var pro_pk>" selected>
+                        <dtml-var pro_pk> :: <dtml-var pro_nom1> <dtml-var pro_nom2> <dtml-var pro_prenom1>
+                        </option>
+                    <dtml-else>
+                        <option value="<dtml-var pro_pk>">
+                        <dtml-var pro_pk> :: <dtml-var pro_nom1> <dtml-var pro_nom2> <dtml-var pro_prenom1>
+                        </option>
+                    </dtml-if>
+                </dtml-in>
+            </select>
+        </td>
+    </tr>
+</table>
+<!---[FIN INFORMATION PROPRIETAIRE]--->
+
+<br><br>
+
+<!---[DEBUT INFORMATION GENERALE]--->
+<input type="hidden" name="fheb_pk" value="<dtml-var fheb_pk>">
+
+<table border="1" cellspacing="0" bordercolor="#EEEFEE" width="560">
+   <tr>
+      <td colspan="2" align="left" bgcolor="#006666">
+         <span class="titre_encodage">
+            INFORMATION GENERALE
+         </span>
+      </td>
+   </tr>
+   <tr>
+           <td>Code GDW</td>
+           <td><input type="text" name="fheb_code_gdw" value="<dtml-var heb_code_gdw>"></td>
+   </tr>
+    <tr>
+       <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+       <td>Type</td>
+       <td>
+          <select name="fheb_typeheb_fk">
+             <dtml-in zsql_select_all_type_heb>
+                <dtml-if "heb_typeheb_fk == type_heb_pk">
+                   <option value="<dtml-var type_heb_pk>" selected>
+                      <dtml-var type_heb_pk> <dtml-var type_heb_code>
+                   </option>
+                <dtml-else>
+                   <option value="<dtml-var type_heb_pk>">
+                      <dtml-var type_heb_pk> <dtml-var type_heb_code>
+                   </option>
+                </dtml-if>
+             </dtml-in>
+          </select>
+       </td>
+    </tr>
+    <tr>
+        <td>Date d'ouverure en cas ECR</td>
+        <td>
+            <input type="text"
+                   name="fheb_ecr_date_ouverture"
+                   value="<dtml-var heb_ecr_date_ouverture>"
+                   size="8"
+                   maxlenght="8">  jj-mm-aaaa
+        </td>
+    </tr>
+    <tr>
+        <td>Remarque en cas de ECR</td>
+        <td>
+            <textarea name="fheb_ecr_remarque"
+                      value="<dtml-var heb_ecr_remarque>"
+                      rows="5"
+                      cols="60"></textarea>
+        </td>
+    </tr>
+    <tr>
+       <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+       <td>Nom de l'hébergement</td>
+       <td>
+          <input type="text" name="fheb_nom" value="<dtml-var heb_nom>" size="50">
+       </td>
+     </tr>
+     <tr>
+        <td>ID Google</td>
+        <td>
+            <input type="text" name="fheb_id" value="<dtml-var heb_id>" size="50">
+        </td>
+     </tr>
+     <tr>
+        <td>Adresse</td>
+        <td>
+           <input type="text" name="fheb_adresse" value="<dtml-var heb_adresse>" size="50">
+        </td>
+      </tr>
+
+
+   <tr>
+      <td>Code postal</td>
+      <td>
+         <select name="fheb_com_fk">
+            <option value=0> </option>
+            <dtml-in "admin_base.commune.zsql_select_all_commune()">
+               <dtml-if "com_pk==heb_com_fk">
+                  <option value="<dtml-var com_pk>" selected> <dtml-var com_cp> <dtml-var com_nom></option>
+               <dtml-else>
+                  <option value="<dtml-var com_pk>"> <dtml-var com_cp> <dtml-var com_nom></option>
+               </dtml-if>
+            </dtml-in>
+         </select>
+      </td>
+   </tr>
+   <!--tr>
+      <td>Commune</td>
+      <td>
+         <b><!--dtml-var com_nom--><!--</b>   :: non modifiable ici
+      </td>
+   </tr-->
+   <tr>
+      <td>Localité</td>
+      <td>
+         <input type="text" name="fheb_localite" value="<dtml-var heb_localite>" size="50">
+      </td>
+   </tr>
+        <tr>
+           <td>Maison du tourisme</td>
+      <td>
+         <dtml-in "admin_base.zsql_maison_tourisme_select_by_com_fk(com_pk=heb_com_fk)">
+            <dtml-var mais_nom>
+         </dtml-in>
+      </td>
+   </tr>
+
+   <dtml-in "admin_base.commune.zsql_select_commune_compk(fcom_pk=heb_com_fk)">
+      <tr>
+         <td>Province</td>
+         <td><dtml-var prov_nom></td>
+      </tr>
+      <tr>
+         <td>Région guide</td>
+         <td></td>
+      </tr>
+   </dtml-in>
+
+   <tr>
+      <td colspan="2"></td>
+      <!--
+      <td>
+         <select name="fheb_theme_fk">
+            <option value="0"> Aucun</option>
+            <dtml-in zsql_select_all_theme>
+               <dtml-if "heb_theme_fk==git_them_pk">
+                  <option value="<dtml-var git_them_pk>" selected> <dtml-var git_them_type></option>
+               <dtml-else>
+                  <option value="<dtml-var git_them_pk>"> <dtml-var git_them_type></option>
+               </dtml-if>
+            </dtml-in>
+         </select>
+      </td>
+      -->
+   </tr>
+   <tr>
+      <td rowspan="4">Théme de l'hébergement</td>
+      <td>
+         <dtml-if "heb_gid_panda=='oui'">
+            <input type="checkbox" name="fheb_gid_panda" value="oui" checked>
+         <dtml-else>
+            <input type="checkbox" name="fheb_gid_panda" value="oui">
+         </dtml-if>
+         &nbsp;
+         Thème Panda
+      </td>
+   </tr>
+   <tr>
+      <td>
+         <dtml-if "heb_gid_theme_equestre=='oui'">
+            <input type="checkbox" name="fheb_gid_theme_equestre" value="oui" checked>
+         <dtml-else>
+            <input type="checkbox" name="fheb_gid_theme_equestre" value="oui">
+         </dtml-if>
+         &nbsp;
+         Thème équestre
+      </td>
+   </tr>
+   <tr>
+      <td>
+         <dtml-if "heb_gid_theme_peche=='oui'">
+            <input type="checkbox" name="fheb_gid_theme_peche" value="oui" checked>
+         <dtml-else>
+            <input type="checkbox" name="fheb_gid_theme_peche" value="oui">
+         </dtml-if>
+         &nbsp;
+         Thème pêche
+      </td>
+   </tr>
+   <tr>
+      <td>
+
+         <dtml-if "heb_gid_activite_nature=='oui'">
+            <input type="checkbox" name="fheb_gid_activite_nature" value="oui" checked>
+         <dtml-else>
+            <input type="checkbox" name="fheb_gid_activite_nature" value="oui">
+         </dtml-if>
+         &nbsp;
+         Activité découverte nature
+      </td>
+   </tr>
+   <!-- ancien système de liste déroulante
+   <tr>
+      <td colspan="2"></td>
+
+      <td>
+         <select name="fheb_label_fk">
+            <option value="0"> Aucun</option>
+            < dtml-in zsql_select_all_label >
+               < dtml-if "heb_label_fk==git_lab_pk">
+                  <option value="< dtml-var git_lab_pk >" selected> < dtml-var git_lab_type ></option>
+               < dtml-else >
+                  <option value="< dtml-var git_lab_pk >"> < dtml-var git_lab_type ></option>
+               < /dtml-if >
+            < /dtml-in >
+         </select>
+      </td>
+   </tr>
+   -->
+   <tr>
+      <td rowspan="4">Gites +</td>
+      <td>
+         <dtml-if "heb_gid_antiallergique=='oui'">
+            <input type="checkbox" name="fheb_gid_antiallergique" value="oui" checked>
+         <dtml-else>
+            <input type="checkbox" name="fheb_gid_antiallergique" value="oui">
+         </dtml-if>
+         &nbsp;
+         Antiallergique (labelisé)
+      </td>
+   </tr>
+   <tr>
+      <td>
+         <dtml-if "heb_gid_access_tous=='oui'">
+            <input type="checkbox" name="fheb_gid_access_tous" value="oui" checked>
+         <dtml-else>
+            <input type="checkbox" name="fheb_gid_access_tous" value="oui">
+         </dtml-if>
+         &nbsp;
+         Accessible �  tous (indicé par Gamah)
+      </td>
+   </tr>
+   <tr>
+      <td>
+         <dtml-if "heb_gid_bebe_tendresse=='oui'">
+            <input type="checkbox" name="fheb_gid_bebe_tendresse" value="oui" checked>
+         <dtml-else>
+            <input type="checkbox" name="fheb_gid_bebe_tendresse" value="oui">
+         </dtml-if>
+         &nbsp;
+         Bébé tendresse
+      </td>
+   </tr>
+   <tr>
+      <td>
+         <dtml-if "heb_gid_beau_jardin=='oui'">
+            <input type="checkbox" name="fheb_gid_beau_jardin" value="oui" checked>
+         <dtml-else>
+            <input type="checkbox" name="fheb_gid_beau_jardin" value="oui">
+         </dtml-if>
+         &nbsp;
+         Beau jardin plein de nains de combat
+      </td>
+   </tr>
+   <tr>
+      <td colspan="2"></td>
+   </tr>
+   <tr>
+      <td valign="center">Type de table d'hôte</td>
+      <td>
+         <dtml-var "getTypeTableHote(heb_pk=fheb_pk)">
+      </td>
+   </tr>
+   <tr>
+      <td colspan="2"></td>
+   </tr>
+   <tr>
+      <td>Nombre d'épis</td>
+      <td>
+         <dtml-if "heb_typeheb_fk in [1,2,3,4,7,10]"><!--cas des GR GF MT GC MV GRECR-->
+            <span class="grasorange"><dtml-var "getNbreEpis(heb_pk=heb_pk)"></span>
+
+            <dtml-if "heb_nbre_epis=='0'">
+                <input type="checkbox" name="fheb_nbre_epis" value="0" checked>
+            <dtml-else>
+                <input type="checkbox" name="fheb_nbre_epis" value="0">
+            </dtml-if>
+            <img src="images/0_epis.gif">
+            &nbsp;&nbsp;&nbsp;
+
+            <dtml-if "heb_nbre_epis=='1'">
+                <input type="checkbox" name="fheb_nbre_epis" value="1" checked>
+            <dtml-else>
+                <input type="checkbox" name="fheb_nbre_epis" value="1">
+            </dtml-if>
+            <img src="images/1_epis.gif">
+            &nbsp;&nbsp;&nbsp;
+
+            <dtml-if "heb_nbre_epis=='2'">
+                <input type="checkbox" name="fheb_nbre_epis" value="2" checked>
+            <dtml-else>
+                <input type="checkbox" name="fheb_nbre_epis" value="2">
+            </dtml-if>
+            <img src="images/1_epis.gif"><img src="images/1_epis.gif">
+            &nbsp;&nbsp;&nbsp;
+
+            <dtml-if "heb_nbre_epis=='3'">
+                <input type="checkbox" name="fheb_nbre_epis" value="3" checked>
+            <dtml-else>
+                <input type="checkbox" name="fheb_nbre_epis" value="3">
+            </dtml-if>
+            <img src="images/1_epis.gif"><img src="images/1_epis.gif"><img src="images/1_epis.gif">
+            &nbsp;&nbsp;&nbsp;
+
+            <dtml-if "heb_nbre_epis=='4'">
+                <input type="checkbox" name="fheb_nbre_epis" value="4" checked>
+            <dtml-else>
+                <input type="checkbox" name="fheb_nbre_epis" value="4">
+            </dtml-if>
+                <img src="images/1_epis.gif"><img src="images/1_epis.gif"><img src="images/1_epis.gif"><img src="images/1_epis.gif">
+
+<dtml-else>
+
+         <span class="grasorange"><dtml-var "getNbreEpis(heb_pk=heb_pk)"></span>
+
+
+
+<!-- vodka -->
+         <dtml-if "heb_nbre_epis in [5,6,9]"><!-- cas de CH MH CHECR-->
+            <input type="checkbox" name="fheb_nbre_epis" value="0" checked>
+         <dtml-else>
+            <input type="checkbox" name="fheb_nbre_epis" value="0">
+         </dtml-if>
+         <img src="images/0_clef.png">
+         &nbsp;&nbsp;&nbsp;
+
+         <dtml-if "heb_nbre_epis=='1'">
+            <input type="checkbox" name="fheb_nbre_epis" value="1" checked>
+         <dtml-else>
+            <input type="checkbox" name="fheb_nbre_epis" value="1">
+         </dtml-if>
+         <img src="images/1_clef.png">
+         &nbsp;&nbsp;&nbsp;
+
+         <dtml-if "heb_nbre_epis=='2'">
+            <input type="checkbox" name="fheb_nbre_epis" value="2" checked>
+         <dtml-else>
+            <input type="checkbox" name="fheb_nbre_epis" value="2">
+         </dtml-if>
+         <img src="images/1_clef.png"><img src="images/1_clef.png">
+         &nbsp;&nbsp;&nbsp;
+
+         <dtml-if "heb_nbre_epis=='3'">
+            <input type="checkbox" name="fheb_nbre_epis" value="3" checked>
+         <dtml-else>
+            <input type="checkbox" name="fheb_nbre_epis" value="3">
+         </dtml-if>
+         <img src="images/1_clef.png"><img src="images/1_clef.png"><img src="images/1_clef.png">
+         &nbsp;&nbsp;&nbsp;
+
+         <dtml-if "heb_nbre_epis=='4'">
+            <input type="checkbox" name="fheb_nbre_epis" value="4" checked>
+         <dtml-else>
+            <input type="checkbox" name="fheb_nbre_epis" value="4">
+         </dtml-if>
+            <img src="images/1_clef.png"><img src="images/1_clef.png"><img src="images/1_clef.png"><img src="images/1_clef.png">
+</dtml-if><!--chech chambre/gite-->
+      </td>
+   </tr>
+   <tr>
+      <td colspan="2"></td>
+   </tr>
+   <tr>
+      <td>Activités</td>
+      <td valign="middle">
+         <dtml-if "heb_tenis=='oui'">
+            <input type="checkbox" name="fheb_tenis" value="oui" checked>
+         <dtml-else>
+            <input type="checkbox" name="fheb_tenis" value="oui">
+         </dtml-if>
+         <img src="images/picto/a_tennis.png">
+         <input type="text" name="fheb_tenis_distance" value='<dtml-var heb_tenis_distance>' size="3">
+         &nbsp;&nbsp;&nbsp;
+
+         <dtml-if "heb_nautisme=='oui'">
+            <input type="checkbox" name="fheb_nautisme" value="oui" checked>
+         <dtml-else>
+            <input type="checkbox" name="fheb_nautisme" value="oui">
+         </dtml-if>
+         <img src="images/picto/a_voile.png">
+         <input type="text" name="fheb_nautisme_distance" value='<dtml-var heb_nautisme_distance>' size="3">
+         &nbsp;&nbsp;&nbsp;
+
+
+         <dtml-if "heb_sky=='oui'">
+            <input type="checkbox" name="fheb_sky" value="oui" checked>
+         <dtml-else>
+            <input type="checkbox" name="fheb_sky" value="oui">
+         </dtml-if>
+         <img src="images/picto/a_sky.png">
+         <input type="text" name="fheb_sky_distance" value='<dtml-var heb_sky_distance>' size="3">
+         &nbsp;&nbsp;&nbsp;
+         <br/>
+         <dtml-if "heb_rando=='oui'">
+            <input type="checkbox" name="fheb_rando" value="oui" checked>
+         <dtml-else>
+            <input type="checkbox" name="fheb_rando" value="oui">
+         </dtml-if>
+         <img src="images/picto/a_rando.png">
+         <input type="text" name="fheb_rando_distance" value='<dtml-var heb_rando_distance>' size="3">
+         &nbsp;&nbsp;&nbsp;
+
+         <dtml-if "heb_piscine=='oui'">
+            <input type="checkbox" name="fheb_piscine" value="oui" checked>
+         <dtml-else>
+            <input type="checkbox" name="fheb_piscine" value="oui">
+         </dtml-if>
+         <img src="images/picto/a_piscine.png">
+         <input type="text" name="fheb_piscine_distance" value='<dtml-var heb_piscine_distance>' size="3">
+         &nbsp;&nbsp;&nbsp;
+
+         <dtml-if "heb_peche=='oui'">
+            <input type="checkbox" name="fheb_peche" value="oui" checked>
+         <dtml-else>
+            <input type="checkbox" name="fheb_peche" value="oui">
+         </dtml-if>
+         <img src="images/picto/a_peche.png">
+         <input type="text" name="fheb_peche_distance" value='<dtml-var heb_peche_distance>' size="3">
+         &nbsp;&nbsp;&nbsp;
+         <br/>
+
+         <dtml-if "heb_equitation=='oui'">
+            <input type="checkbox" name="fheb_equitation" value="oui" checked>
+         <dtml-else>
+            <input type="checkbox" name="fheb_equitation" value="oui">
+         </dtml-if>
+         <img src="images/picto/a_cheval.png">
+         <input type="text" name="fheb_equitation_distance" value='<dtml-var heb_equitation_distance>' size="3">
+         &nbsp;&nbsp;&nbsp;
+
+         <dtml-if "heb_velo=='oui'">
+            <input type="checkbox" name="fheb_velo" value="oui" checked>
+         <dtml-else>
+            <input type="checkbox" name="fheb_velo" value="oui">
+         </dtml-if>
+         <img src="images/picto/a_velo.png">
+         <input type="text" name="fheb_velo_distance" value='<dtml-var heb_velo_distance>' size="3">
+         &nbsp;&nbsp;&nbsp;
+
+         <dtml-if "heb_vtt=='oui'">
+            <input type="checkbox" name="fheb_vtt" value="oui" checked>
+         <dtml-else>
+            <input type="checkbox" name="fheb_vtt" value="oui">
+         </dtml-if>
+         <img src="images/picto/a_vtt.png">
+         <input type="text" name="fheb_vtt_distance" value='<dtml-var heb_vtt_distance>' size="3">
+         &nbsp;&nbsp;&nbsp;
+
+
+         <dtml-if "heb_ravel=='oui'">
+            <input type="checkbox" name="fheb_ravel" value="oui" checked>
+         <dtml-else>
+               <input type="checkbox" name="fheb_ravel" value="oui">
+         </dtml-if>
+         <img src="images/picto/a_ravel.png">
+         <input type="text" name="fheb_ravel_distance" value='<dtml-var heb_ravel_distance>' size="3">
+         &nbsp;&nbsp;&nbsp;
+         <br/>
+         </td>
+         </tr>
+         <tr>
+            <td>
+            Informations
+            </td>
+            <td>
+         <dtml-if "heb_commerce=='oui'">
+            <input type="checkbox" name="fheb_commerce" value="oui" checked>
+         <dtml-else>
+            <input type="checkbox" name="fheb_commerce" value="oui">
+         </dtml-if>
+         <img src="images/picto/i_commerce.png" title="COMMERCE" />
+         <input type="text" name="fheb_commerce_distance" value='<dtml-var heb_commerce_distance>' size="3">
+         &nbsp;&nbsp;&nbsp;
+
+         <dtml-if "heb_restaurant=='oui'">
+            <input type="checkbox" name="fheb_restaurant" value="oui" checked>
+         <dtml-else>
+            <input type="checkbox" name="fheb_restaurant" value="oui">
+         </dtml-if>
+         <img src="images/picto/i_restaurant.png" title="RESTAURANT" />
+         <input type="text" name="fheb_restaurant_distance" value='<dtml-var heb_restaurant_distance>' size="3">
+         &nbsp;&nbsp;&nbsp;
+
+         <dtml-if "heb_gare=='oui'">
+            <input type="checkbox" name="fheb_gare" value="oui" checked>
+         <dtml-else>
+            <input type="checkbox" name="fheb_gare" value="oui">
+         </dtml-if>
+         <img src="images/picto/i_gare.png" title="GARE" />
+         <input type="text" name="fheb_gare_distance" value='<dtml-var heb_gare_distance>' size="3">
+         &nbsp;&nbsp;&nbsp;
+      </td>
+   </tr>
+   <tr>
+      <td colspan="2"></td>
+   </tr>
+   <tr>
+      <td>Animaux</td>
+      <td>
+         <img src="images/picto/c_chien.png">
+         <dtml-if "heb_animal=='oui'">
+            <input type="radio" name="fheb_animal" value="oui" checked>Oui
+            &nbsp;&nbsp;&nbsp;
+            <input type="radio" name="fheb_animal" value="non">Non
+         <dtml-else>
+            <input type="radio" name="fheb_animal" value="oui">
+            &nbsp;&nbsp;&nbsp;
+            <input type="radio" name="fheb_animal" value="non" checked>Non
+         </dtml-if>
+            &nbsp;&nbsp;&nbsp;
+         </td>
+   </tr>
+   <tr>
+      <td colspan="2"></td>
+   </tr>
+   <tr>
+      <td>Fumeur</td>
+      <td>
+         <img src="images/picto/c_fumeur.png">
+         <dtml-if "heb_fumeur=='oui'">
+            <input type="radio" name="fheb_fumeur" value="oui" checked>Oui
+            &nbsp;&nbsp;&nbsp;
+            <input type="radio" name="fheb_fumeur" value="non">Non
+         <dtml-else>
+            <input type="radio" name="fheb_fumeur" value="oui">
+            &nbsp;&nbsp;&nbsp;
+            <input type="radio" name="fheb_fumeur" value="non" checked>Non
+         </dtml-if>
+            &nbsp;&nbsp;&nbsp;
+         </td>
+   </tr>
+   
+</table>
+<!---[FIN INFORMATION GENERALE]--->
+
+<!-/--[DEBUT COORDONNEE HEB]--->
+<table border="1" cellspacing="0" bordercolor="#EEEFEE">
+   <tr>
+      <td colspan="2" align="left" bgcolor="#006666">
+         <span class="titre_encodage">
+         COORDONNEE DE L'HEBERGEMENT
+         </span>
+         </font>
+      </td>
+   </tr>
+
+   <tr>
+      <td>
+         Entrez la position de l'hébergement sur la carte :<br />
+         <input type="text" name="fheb_coordonnee" value="<dtml-var heb_coordonnee>">
+         <br /><br />
+         Entrez la coordonnées GPS longitude : 00.0000  <br />
+         <input type="text" name="fheb_gps_long" value="<dtml-var heb_gps_long>">
+         <br />
+         Entrez la coordonnées GPS latitude : 00.0000 <br />
+         <input type="text" name="fheb_gps_lat" value="<dtml-var heb_gps_lat>">
+         <br /><br />
+         Recherche coordonnées <a href="http://www.gpsfrance.net/articles/adresse2gps.html" target="_blank">ici</a>
+         <br />
+      </td>
+   </tr>
+</table>
+<!---[FIN COORDONNEE HEB]--->
+
+<!---[DEBUT NOUVELLE NORME HEB]--->
+<table border="1" cellspacing="0" bordercolor="#EEEFEE">
+   <tr>
+      <td colspan="2" align="left" bgcolor="#006666">
+         <span class="titre_encodage">
+         NOUVELLE NORME
+         </span>
+         </font>
+      </td>
+   </tr>
+   <tr>
+      <td>
+         Nouvelle norme :
+         &nbsp;&nbsp;
+         <select name="fheb_nouvelle_norme">
+            <option value="non">....</option>
+                <dtml-if "heb_nouvelle_norme=='oui'">
+                    <option value="oui" selected> Oui</option>
+                <option value="non"> Non</option>
+                 <dtml-else>
+                    <option value="oui"> Oui</option>
+                <option value="non" selected> Non</option>
+                 </dtml-if>
+         </select>
+      </td>
+   </tr>
+</table>
+<!---[FIN NOUVELLE NORME HEB]--->
+
+<!---[DEBUT NOUVEL HEB]--->
+<table border="1" cellspacing="0" bordercolor="#EEEFEE">
+   <tr>
+      <td colspan="2" align="left" bgcolor="#006666">
+         <span class="titre_encodage">
+         NOUVEL HEBERGEMENT
+         </span>
+         </font>
+      </td>
+   </tr>
+   <tr>
+      <td>
+         Nouvel hébergement:
+         &nbsp;&nbsp;
+         <select name="fheb_nouveau">
+            <option>....</option>
+            <option value="oui"> Oui</option>
+            <option value="non"> Non</option>
+         </select>
+      </td>
+   </tr>
+</table>
+<!---[FIN NOUVEL HEB]--->
+
+<!---[DEBUT ANICIENNE TARIFICATION CHAMBRE]--->
+<!--
+<table border="1" cellspacing="0" bordercolor="#EEEFEE">
+   <tr>
+      <td colspan="2" align="left" bgcolor="#006666">
+         <span class="titre_encodage">
+         <font color="#FF0000">!!!!</font> <font color="#00FF00"> ANCIENNE</b> TARIFICATION DES CHAMBRES</font> <font color="#FF0000">!!!!</font>
+         </span>
+         </font>
+      </td>
+   </tr>
+   <tr>
+      <td>Tarif d'une chambre</td>
+      <td>
+         <input type="text" name="fheb_chmbre_tarif" value="<dtml-var heb_chmbre_tarif missing=xx>">
+      </td>
+   </tr>
+   <tr>
+      <td>Tarif divers d'une chambre</td>
+      <td>
+         <textarea name="fheb_chmbre_divers" value="<dtml-var heb_chmbre_divers missing=xx>" cols="30" rows="5"><dtml-var heb_chmbre_divers missing=xx></textarea>
+      </td>
+   </tr>
+</table>
+-->
+<!---[FIN ANCIENNE TARIFICATION CHAMBRE]--->
+
+
+
+<!---[DEBUT TARIFICATION CHAMBRE]--->
+<table border="1" cellspacing="0" bordercolor="#EEEFEE">
+   <tr>
+      <td colspan="4" align="left" bgcolor="#006666">
+         <span class="titre_encodage">
+         TARIFICATION DES CHAMBRES
+         </span>
+         </font>
+      </td>
+   </tr>
+   <tr>
+      <td>&nbsp;</td>
+      <td align="center"><b>1 pers</b></td>
+      <td align="center"><b>2 pers</b></td>
+      <td align="center"><b>3 pers</b></td>
+   <tr bgcolor="#E0FEEA">
+      <td>Chambre avec petit déjeuner</td>
+      <td align="center">
+         <input type="text" name="fheb_tarif_chmbr_avec_dej_1p" value="<dtml-var heb_tarif_chmbr_avec_dej_1p missing=xx>">
+      </td>
+      <td align="center">
+         <input type="text" name="fheb_tarif_chmbr_avec_dej_2p" value="<dtml-var heb_tarif_chmbr_avec_dej_2p missing=xx>">
+      </td>
+      <td align="center">
+         <input type="text" name="fheb_tarif_chmbr_avec_dej_3p" value="<dtml-var heb_tarif_chmbr_avec_dej_3p missing=xx>">
+      </td>
+   </tr>
+   <tr>
+      <td>Déduction si pas petit déjeuner <b>(-)</b></td>
+      <td align="center">
+         <input type="text" name="fheb_tarif_chmbr_sans_dej_1p" value="<dtml-var heb_tarif_chmbr_sans_dej_1p missing=xx>">
+      </td>
+      <td align="center">
+         <input type="text" name="fheb_tarif_chmbr_sans_dej_2p" value="<dtml-var heb_tarif_chmbr_sans_dej_2p missing=xx>">
+      </td>
+      <td align="center">
+         <input type="text" name="fheb_tarif_chmbr_sans_dej_3p" value="<dtml-var heb_tarif_chmbr_sans_dej_3p missing=xx>">
+      </td>
+   </tr>
+   <tr bgcolor="#E0FEEA">
+      <td>Petit déjeuner</td>
+      <td align="center">
+         <input type="text" name="fheb_tarif_chmbr_dej_1p" value="<dtml-var heb_tarif_chmbr_dej_1p missing=xx>">
+      </td>
+      <td align="center">
+         <input type="text" name="fheb_tarif_chmbr_dej_2p" value="<dtml-var heb_tarif_chmbr_dej_2p missing=xx>">
+      </td>
+      <td align="center">
+         <input type="text" name="fheb_tarif_chmbr_dej_3p" value="<dtml-var heb_tarif_chmbr_dej_3p missing=xx>">
+      </td>
+   </tr>
+   <tr>
+      <td>Si table d'hôte, prix</td>
+      <td align="center">
+         <input type="text" name="fheb_tarif_chmbr_table_hote_1p" value="<dtml-var heb_tarif_chmbr_table_hote_1p missing=xx>">
+      </td>
+      <td align="center">
+         <input type="text" name="fheb_tarif_chmbr_table_hote_2p" value="<dtml-var heb_tarif_chmbr_table_hote_2p missing=xx>">
+      </td>
+      <td align="center">
+         <input type="text" name="fheb_tarif_chmbr_table_hote_3p" value="<dtml-var heb_tarif_chmbr_table_hote_3p missing=xx>">
+      </td>
+   </tr>
+   <tr bgcolor="#E0FEEA">
+      <td>Autre</td>
+      <td align="center">
+         <input type="text" name="fheb_tarif_chmbr_autre_1p" value="<dtml-var heb_tarif_chmbr_autre_1p missing=xx>">
+      </td>
+      <td align="center">
+         <input type="text" name="fheb_tarif_chmbr_autre_2p" value="<dtml-var heb_tarif_chmbr_autre_2p missing=xx>">
+      </td>
+      <td align="center">
+         <input type="text" name="fheb_tarif_chmbr_autre_3p" value="<dtml-var heb_tarif_chmbr_autre_3p missing=xx>">
+      </td>
+   </tr>
+</table>
+
+<!---[FIN TARIFICATION CHAMBRE]--->
+
+<!---[DEBUT TARIFICATION GITES]--->
+<table border="1" cellspacing="0" bordercolor="#EEEFEE" cellpading="0">
+   <tr>
+      <td colspan="2" align="left" bgcolor="#006666">
+         <span class="titre_encodage">
+         TARIFICATION DES GITES
+         </span>
+         </font>
+      </td>
+   </tr>
+   <tr>
+      <td>Tarif week-end basse saison</td>
+      <td>
+         <input type="text" name="fheb_tarif_we_bs" value="<dtml-var heb_tarif_we_bs missing=xx>">
+      </td>
+   </tr>
+   <tr bgcolor="#E0FEEA">
+      <td>Tarif week-end moyenne saison</td>
+      <td>
+         <input type="text" name="fheb_tarif_we_ms" value="<dtml-var heb_tarif_we_ms missing=xx>">
+      </td>
+   </tr>
+   <tr>
+      <td>Tarif week-end haute saison</td>
+      <td>
+         <input type="text" name="fheb_tarif_we_hs" value="<dtml-var heb_tarif_we_hs missing=xx>">
+      </td>
+   </tr>
+   <tr bgcolor="#E0FEEA">
+      <td>Tarif semaine basse saison</td>
+      <td>
+         <input type="text" name="fheb_tarif_sem_bs" value="<dtml-var heb_tarif_sem_bs missing=xx>">
+      </td>
+   </tr>
+   <tr>
+      <td>Tarif semaine moyenne saison</td>
+      <td>
+         <input type="text" name="fheb_tarif_sem_ms" value="<dtml-var heb_tarif_sem_ms missing=xx>">
+      </td>
+   </tr>
+   <tr bgcolor="#E0FEEA">
+      <td>Tarif semaine haute saison</td>
+      <td>
+         <input type="text" name="fheb_tarif_sem_hs" value="<dtml-var heb_tarif_sem_hs missing=xx>">
+      </td>
+   </tr>
+   <tr>
+      <td>Tarif week-end fête 3 nuits</td>
+      <td>
+         <input type="text" name="fheb_tarif_we_3n" value="<dtml-var heb_tarif_we_3n missing=xx>">
+      </td>
+   </tr>
+   <tr bgcolor="#E0FEEA">
+      <td>Tarif week-end fête 4 nuits</td>
+      <td>
+         <input type="text" name="fheb_tarif_we_4n" value="<dtml-var heb_tarif_we_4n missing=xx>">
+      </td>
+   </tr>
+   <tr>
+      <td>Tarif Semaine fin d'année</td>
+      <td>
+         <input type="text" name="fheb_tarif_semaine_fin_annee" value="<dtml-var heb_tarif_semaine_fin_annee missing=xx>">
+      </td>
+   </tr>
+   <tr bgcolor="#E0FEEA">
+      <td>Tarif garantie</td>
+      <td>
+         <input type="text" name="fheb_tarif_garantie" value="<dtml-var heb_tarif_garantie missing=xx>">
+      </td>
+   </tr>
+   <tr>
+      <td>Tarif charge</td>
+      <td>
+         <select name="fheb_charge_fk">
+            <option>...</option>
+            <dtml-in zsql_select_all_charge>
+               <dtml-if "heb_charge_fk==cha_pk">
+                  <option value='<dtml-var cha_pk>' selected> <dtml-var cha_type_fr></option>
+               <dtml-else>
+                  <option value='<dtml-var cha_pk>'> <dtml-var cha_type_fr></option>
+               </dtml-if>
+            </dtml-in>
+         </select>
+         <br/>
+         Si charge forfaitaire, encodez le montant ci-dessous:<br/>
+         <input type="text" name="fheb_forfait_montant" value="<dtml-var heb_forfait_montant missing=xx>">
+      </td>
+   </tr>
+   <tr bgcolor="#E0FEEA">
+      <td>Tarif divers</td>
+      <td>
+         <!--input type="text" name="fheb_tarif_divers" value="<dtml-var heb_tarif_divers missing=xx>"-->
+         <textarea name="fheb_tarif_divers" value="<dtml-var heb_tarif_divers missing=xx>" cols="30" rows="5"><dtml-var heb_tarif_divers missing=xx></textarea>
+      </td>
+   </tr>
+
+</table>
+<!---[FIN TARIFICATION GITES]--->
+
+<!---[DEBUT TAXE SEJOUR]--->
+<table border="1" cellspacing="0" bordercolor="#EEEFEE">
+   <tr>
+      <td colspan="2" align="left" bgcolor="#006666">
+         <span class="titre_encodage">
+         TAXE DE SEJOUR
+         </span>
+         </font>
+      </td>
+   </tr>
+   <tr>
+      <td>Taxe de Séjour</td>
+      <td>
+         <select name="fheb_taxe_sejour">
+            <option value="non">...</option>
+                <dtml-if "heb_taxe_sejour=='oui'">
+                <option value="oui" selected> Oui</option>
+                <option value="non"> Non</option>
+                <dtml-else>
+                    <option value="oui"> Oui</option>
+                <option value="non" selected> Non</option>
+                </dtml-if>
+         </select>
+      </td>
+   </tr>
+   <tr>
+      <td>Montant de la taxe</td>
+      <td>
+         <input type="text" name="fheb_taxe_montant" value="<dtml-var heb_taxe_montant>">
+      </td>
+   </tr>
+</table>
+<!---[FIN TAXE SEJOUR]--->
+
+<!---[DEBUT POINTS FORTS HEB]--->
+<table border="1" cellspacing="0" bordercolor="#EEEFEE">
+   <tr>
+      <td colspan="2" align="left" bgcolor="#006666">
+         <span class="titre_encodage">
+         POINT FORT DE L' HEBERGEMENT
+         </span>
+         </font>
+      </td>
+   </tr>
+   <tr>
+      <td>Les points forts <b>FR</b></td>
+      <td>
+         <textarea name="fheb_pointfort_fr" cols="50" rows="9"><dtml-var heb_pointfort_fr missing=''></textarea>
+      </td>
+   </tr>
+   <tr>
+      <td>Les points forts <b>NL</b></td>
+      <td>
+         <textarea name="fheb_pointfort_nl" cols="50" rows="9"><dtml-var heb_pointfort_nl missing=''></textarea>
+      </td>
+   </tr>
+   <tr>
+      <td>Les points forts <b>UK</b></td>
+      <td>
+         <textarea name="fheb_pointfort_uk" cols="50" rows="9"><dtml-var heb_pointfort_uk missing=''></textarea>
+      </td>
+   </tr>
+   <tr>
+      <td>Les points forts <b>DE</b></td>
+      <td>
+         <textarea name="fheb_pointfort_de" cols="50" rows="9"><dtml-var heb_pointfort_de missing=''></textarea>
+      </td>
+   </tr>
+   <tr>
+      <td>Les points forts <b>IT</b></td>
+      <td>
+         <textarea name="fheb_pointfort_it" cols="50" rows="9"><dtml-var heb_pointfort_it missing=''></textarea>
+      </td>
+   </tr>
+</table>
+<!---[FIN POINTS FORTS HEB]--->
+
+<!---[DEBUT DESCRIPTION HEB]--->
+<table border="1" cellspacing="0" bordercolor="#EEEFEE">
+   <tr>
+      <td colspan="2" align="left" bgcolor="#006666">
+         <span class="titre_encodage">
+         DESCRIPTION HEBERGEMENT
+         </span>
+         </font>
+      </td>
+   </tr>
+   <tr>
+      <td>Description de l'hébergement <b>FR</b></td>
+      <td>
+         <textarea name="fheb_descriptif_fr" cols="50" rows="9"><dtml-var heb_descriptif_fr missing=''></textarea>
+      </td>
+   </tr>
+   <tr>
+      <td>Description de l'hébergement <b>NL</b></td>
+      <td>
+         <textarea name="fheb_descriptif_nl" cols="50" rows="9"><dtml-var heb_descriptif_nl missing=''></textarea>
+      </td>
+   </tr>
+   <tr>
+      <td>Description de l'hébergement <b>UK</b></td>
+      <td>
+         <textarea name="fheb_descriptif_uk" cols="50" rows="9"><dtml-var heb_descriptif_uk missing=''></textarea>
+      </td>
+   </tr>
+   <tr>
+      <td>Description de l'hébergement <b>DE</b></td>
+      <td>
+         <textarea name="fheb_descriptif_de" cols="50" rows="9"><dtml-var heb_descriptif_de missing=''></textarea>
+      </td>
+   </tr>
+   <tr>
+      <td>Description de l'hébergement <b>IT</b></td>
+      <td>
+         <textarea name="fheb_descriptif_it" cols="50" rows="9"><dtml-var heb_descriptif_it missing=''></textarea>
+      </td>
+   </tr>
+</table>
+<!---[FIN DESCRIPTION HEB]--->
+
+<!---[DEBUT DISTRIBUTION HEB]--->
+<table border="1" cellspacing="0" bordercolor="#EEEFEE">
+   <tr>
+      <td colspan="2" align="left" bgcolor="#006666">
+         <span class="titre_encodage">
+         DISTRIBUTION HEBERGEMENT
+         </span>
+         </font>
+      </td>
+   </tr>
+   <tr>
+      <td>Distribution de l'hébergement <b>FR</b></td>
+      <td>
+         <textarea name="fheb_distribution_fr" cols="50" rows="9"><dtml-var heb_distribution_fr missing=''></textarea>
+      </td>
+   </tr>
+   <tr>
+      <td>Distribution de l'hébergement <b>NL</b></td>
+      <td>
+         <textarea name="fheb_distribution_nl" cols="50" rows="9"><dtml-var heb_distribution_nl missing=''></textarea>
+      </td>
+   </tr>
+   <tr>
+      <td>Distribution de l'hébergement <b>UK</b></td>
+      <td>
+         <textarea name="fheb_distribution_uk" cols="50" rows="9"><dtml-var heb_distribution_uk missing=''></textarea>
+      </td>
+   </tr>
+   <tr>
+      <td>Distribution de l'hébergement <b>DE</b></td>
+      <td>
+         <textarea name="fheb_distribution_de" cols="50" rows="9"><dtml-var heb_distribution_de missing=''></textarea>
+      </td>
+   </tr>
+   <tr>
+      <td>Distribution de l'hébergement <b>IT</b></td>
+      <td>
+         <textarea name="fheb_distribution_it" cols="50" rows="9"><dtml-var heb_distribution_it missing=''></textarea>
+      </td>
+   </tr>
+</table>
+<!---[FIN DISTRIBUTION HEB]--->
+
+<!---[DEBUT TYPE LIT HEB]--->
+<table border="1" cellspacing="0" bordercolor="#EEEFEE">
+   <tr>
+      <td colspan="2" align="left" bgcolor="#006666">
+         <span class="titre_encodage">
+         LITERIE
+         </span>
+         </font>
+      </td>
+   </tr>
+   <tr>
+      <td>Lit d'une personne</td>
+      <td><input type="text" name="fheb_lit_1p" value="<dtml-var heb_lit_1p>"></td>
+   </tr>
+   <tr>
+      <td>Lit de 2 personnes</td>
+      <td><input type="text" name="fheb_lit_2p" value="<dtml-var  heb_lit_2p>"></td>
+   </tr>
+   <tr>
+      <td>Lit superposé</td>
+      <td><input type="text" name="fheb_lit_sup" value="<dtml-var  heb_lit_sup>"></td>
+   </tr>
+   <tr>
+      <td>Lit pour enfant</td>
+      <td><input type="text" name="fheb_lit_enf" value="<dtml-var  heb_lit_enf>"></td>
+   </tr>
+</table>
+<!---[FIN TYPE LIT HEB]--->
+
+<!---[DEBUT RUBRIQUE INSERTION HEB]--->
+<table border="1" cellspacing="0" bordercolor="#EEEFEE">
+   <tr>
+      <td colspan="2" align="left" bgcolor="#006666">
+         <span class="titre_encodage">
+         RUBRIQUE INSERTION POUR LE GUIDE
+         </span>
+         </font>
+      </td>
+   </tr>
+   <tr>
+      <td>Avec sauna ou jacuzzi</td>
+      <td>
+         <dtml-if "heb_gid_sauna_jacuzzi=='oui'">
+            <input type="checkbox" name="fheb_gid_sauna_jacuzzi" value="oui" checked>
+         <dtml-else>
+            <input type="checkbox" name="fheb_gid_sauna_jacuzzi" value="oui">
+         </dtml-if>
+      </td>
+   </tr>
+   <tr>
+      <td colspan="2" align="center" bgcolor="#55111D">
+         <font color="#FF0000"><b> UNIQUEMENT 2 SELECTIONS</b>
+      </td>
+   </tr>
+
+
+   <tr bgcolor="#E0FEEA">
+      <td>Grande capacité <b>>5</b></td>
+      <td>
+         <dtml-if "heb_gid_sup5=='oui'">
+            <input type="checkbox" name="fheb_gid_sup5" value="oui" checked>
+         <dtml-else>
+            <input type="checkbox" name="fheb_gid_sup5" value="oui">
+         </dtml-if>
+      </td>
+   </tr>
+   <tr>
+      <td>Avec salle de réception</td>
+      <td>
+         <dtml-if "heb_gid_salle_reception=='oui'">
+            <input type="checkbox" name="fheb_gid_salle_reception" value="oui" checked>
+         <dtml-else>
+            <input type="checkbox" name="fheb_gid_salle_reception" value="oui">
+         </dtml-if>
+      </td>
+   </tr>
+   <tr  bgcolor="#E0FEEA">
+      <td>Avec salle de réunion</td>
+      <td>
+         <dtml-if "heb_gid_salle_reunion=='oui'">
+            <input type="checkbox" name="fheb_gid_salle_reunion" value="oui" checked>
+         <dtml-else>
+            <input type="checkbox" name="fheb_gid_salle_reunion" value="oui">
+         </dtml-if>
+      </td>
+   </tr>
+   <tr>
+      <td>Avec pisicine</td>
+      <td>
+         <dtml-if "heb_gid_avec_piscine=='oui'">
+            <input type="checkbox" name="fheb_gid_avec_piscine" value="oui" checked>
+         <dtml-else>
+            <input type="checkbox" name="fheb_gid_avec_piscine" value="oui">
+         </dtml-if>
+      </td>
+   </tr>
+   <tr bgcolor="#E0FEEA">
+      <td>Remise en forme</td>
+      <td>
+         <dtml-if "heb_gid_remise_en_forme=='oui'">
+            <input type="checkbox" name="fheb_gid_remise_en_forme" value="oui" checked>
+         <dtml-else>
+            <input type="checkbox" name="fheb_gid_remise_en_forme" value="oui">
+         </dtml-if>
+      </td>
+   </tr>
+   <tr>
+      <td>Groupés</td>
+      <td>
+         <dtml-if "heb_gid_groupe=='oui'">
+            <input type="checkbox" name="fheb_gid_groupe" value="oui" checked>
+         <dtml-else>
+            <input type="checkbox" name="fheb_gid_groupe" value="oui">
+         </dtml-if>
+      </td>
+   </tr>
+   <tr bgcolor="#E0FEEA">
+      <td>Petite capacité <b><4</b></td>
+      <td>
+         <dtml-if "heb_gid_inf4=='oui'">
+            <input type="checkbox" name="fheb_gid_inf4" value="oui" checked>
+         <dtml-else>
+            <input type="checkbox" name="fheb_gid_inf4" value="oui">
+         </dtml-if>
+      </td>
+   </tr>
+   <tr>
+      <td>Près d'un parc naturel ou d'une réserve</td>
+      <td>
+         <dtml-if "heb_gid_parc_naturel=='oui'">
+            <input type="checkbox" name="fheb_gid_parc_naturel" value="oui" checked>
+         <dtml-else>
+            <input type="checkbox" name="fheb_gid_parc_naturel" value="oui">
+         </dtml-if>
+      </td>
+   </tr>
+   <tr bgcolor="#E0FEEA">
+      <td>Proposant des balades <b>accompagnées</b></td>
+      <td>
+         <dtml-if "heb_gid_balade_accompagnee=='oui'">
+            <input type="checkbox" name="fheb_gid_balade_accompagnee" value="oui" checked>
+         <dtml-else>
+            <input type="checkbox" name="fheb_gid_balade_accompagnee" value="oui">
+         </dtml-if>
+      </td>
+   </tr>
+   <tr>
+      <td>Près d'une rivière</td>
+      <td>
+         <dtml-if "heb_gid_pres_riviere=='oui'">
+            <input type="checkbox" name="fheb_gid_pres_riviere" value="oui" checked>
+         <dtml-else>
+            <input type="checkbox" name="fheb_gid_pres_riviere" value="oui">
+         </dtml-if>
+      </td>
+   </tr>
+   <tr bgcolor="#E0FEEA">
+      <td>Près d'un circuit VTT</td>
+      <td>
+         <dtml-if "heb_gid_pres_circuit_vtt=='oui'">
+            <input type="checkbox" name="fheb_gid_pres_circuit_vtt" value="oui" checked>
+         <dtml-else>
+            <input type="checkbox" name="fheb_gid_pres_circuit_vtt" value="oui">
+         </dtml-if>
+      </td>
+   </tr>
+   <tr>
+      <td>Près d'un RAVEL</td>
+      <td>
+         <dtml-if "heb_gid_pres_ravel=='oui'">
+            <input type="checkbox" name="fheb_gid_pres_ravel" value="oui" checked>
+         <dtml-else>
+            <input type="checkbox" name="fheb_gid_pres_ravel" value="oui">
+         </dtml-if>
+      </td>
+   </tr>
+   <tr bgcolor="#E0FEEA">
+      <td>Près d'une piste de sky</td>
+      <td>
+         <dtml-if "heb_gid_pres_sky=='oui'">
+            <input type="checkbox" name="fheb_gid_pres_sky" value="oui" checked>
+         <dtml-else>
+            <input type="checkbox" name="fheb_gid_pres_sky" value="oui">
+         </dtml-if>
+      </td>
+   </tr>
+   <tr>
+      <td>Aventure Xtrem</td>
+      <td>
+         <dtml-if "heb_gid_xtreme=='oui'">
+            <input type="checkbox" name="fheb_gid_xtreme" value="oui" checked>
+         <dtml-else>
+            <input type="checkbox" name="fheb_gid_xtreme" value="oui">
+         </dtml-if>
+      </td>
+   </tr>
+   <tr bgcolor="#E0FEEA">
+      <td>Près d'une attraction / activité touristique</td>
+      <td>
+         <dtml-if "heb_gid_attrac_tourist=='oui'">
+            <input type="checkbox" name="fheb_gid_attrac_tourist" value="oui" checked>
+         <dtml-else>
+            <input type="checkbox" name="fheb_gid_attrac_tourist" value="oui">
+         </dtml-if>
+      </td>
+   </tr>
+   <tr>
+      <td>Accueil chevaux et cavaliers</td>
+      <td>
+         <dtml-if "heb_gid_chevaux_cavaliers=='oui'">
+            <input type="checkbox" name="fheb_gid_chevaux_cavaliers" value="oui" checked>
+         <dtml-else>
+            <input type="checkbox" name="fheb_gid_chevaux_cavaliers" value="oui">
+         </dtml-if>
+      </td>
+   </tr>
+   <tr bgcolor="#E0FEEA">
+      <td>Propose la pêche</td>
+      <td>
+         <dtml-if "heb_gid_peche=='oui'">
+            <input type="checkbox" name="fheb_gid_peche" value="oui" checked>
+         <dtml-else>
+            <input type="checkbox" name="fheb_gid_peche" value="oui">
+         </dtml-if>
+      </td>
+   </tr>
+   <tr>
+      <td>Près de sports nautique</td>
+      <td>
+         <dtml-if "heb_gid_pres_sport_nautique=='oui'">
+            <input type="checkbox" name="fheb_gid_pres_sport_nautique" value="oui" checked>
+         <dtml-else>
+            <input type="checkbox" name="fheb_gid_pres_sport_nautique" value="oui">
+         </dtml-if>
+      </td>
+   </tr>
+   <tr bgcolor="#E0FEEA">
+      <td>Près d'un golf</td>
+      <td>
+         <dtml-if "heb_gid_pres_golf=='oui'">
+            <input type="checkbox" name="fheb_gid_pres_golf" value="oui" checked>
+         <dtml-else>
+            <input type="checkbox" name="fheb_gid_pres_golf" value="oui">
+         </dtml-if>
+      </td>
+   </tr>
+   <tr>
+      <td>En histoire</td>
+      <td>
+         <dtml-if "heb_gid_histoire=='oui'">
+            <input type="checkbox" name="fheb_gid_histoire" value="oui" checked>
+         <dtml-else>
+            <input type="checkbox" name="fheb_gid_histoire" value="oui">
+         </dtml-if>
+      </td>
+   </tr>
+   <tr bgcolor="#E0FEEA">
+      <td>A la ferme</td>
+      <td>
+         <dtml-if "heb_gid_ala_ferme=='oui'">
+            <input type="checkbox" name="fheb_gid_ala_ferme" value="oui" checked>
+         <dtml-else>
+            <input type="checkbox" name="fheb_gid_ala_ferme" value="oui">
+         </dtml-if>
+      </td>
+   </tr>
+   <tr>
+      <td>Chez le producteur</td>
+      <td>
+         <dtml-if "heb_gid_chez_producteur=='oui'">
+            <input type="checkbox" name="fheb_gid_chez_producteur" value="oui" checked>
+         <dtml-else>
+            <input type="checkbox" name="fheb_gid_chez_producteur" value="oui">
+         </dtml-if>
+      </td>
+   </tr>
+   <tr bgcolor="#E0FEEA">
+      <td>Avec petit élevage</td>
+      <td>
+         <dtml-if "heb_gid_petit_elevage=='oui'">
+            <input type="checkbox" name="fheb_gid_petit_elevage" value="oui" checked>
+         <dtml-else>
+            <input type="checkbox" name="fheb_gid_petit_elevage" value="oui">
+         </dtml-if>
+      </td>
+   </tr>
+</table>
+<!---[FIN RUBRIQUE INSERTION HEB]--->
+
+<!---[DEBUT ACTIVITE PARTICULARITE BY PROPRIO]--->
+<table border="1" cellspacing="0" bordercolor="#EEEFEE">
+   <tr>
+      <td colspan="2" align="left" bgcolor="#006666">
+         <span class="titre_encodage">
+         ACTIVITE PARTICULARITE BY PROPRIO
+         </span>
+         </font>
+      </td>
+   </tr>
+   <tr>
+      <td>La petite gratouille du proprio sur un truc chouette chez lui</td>
+      <td>
+         <textarea name="fheb_pro_comment_particulier" cols="50" rows="9"><dtml-var fheb_pro_comment_particulier missing=-></textarea>
+      </td>
+   </tr>
+</table>
+<!---[FIN ACTIVITE PARTICULARITE BY PROPRIO]--->
+
+
+<!---[DEBUT SEMINAIRE VERT]--->
+<table border="1" cellspacing="0" bordercolor="#EEEFEE">
+   <tr>
+      <td colspan="2" align="left" bgcolor="#006666">
+         <span class="titre_encodage">
+         SEMINAIRE VERT
+         </span>
+         </font>
+      </td>
+   </tr>
+   <tr>
+      <td valign="top">Séminaire au vert</td>
+      <td>
+         <div>
+            <dtml-if "heb_seminaire_vert">
+               <input type="checkbox" 
+                      name="fheb_seminaire_vert"
+                      value="1"
+                      checked />
+            <dtml-else>
+               <input type="checkbox" 
+                      name="fheb_seminaire_vert"
+                      value="1" />
+            </dtml-if>  
+            Oui        
+         </div>
+         <br />
+         <dtml-if "heb_confort_ecran=='oui'">
+            <input type="checkbox" 
+                   name="fheb_confort_ecran" 
+                   value="oui" 
+                   checked>
+         <dtml-else>
+            <input type="checkbox" 
+                   name="fheb_confort_ecran" 
+                   value="oui">
+         </dtml-if>
+         <img src="images/picto/c_ecran.png"
+              title="ECRAN PROJECTION" />       
+         &nbsp;&nbsp;&nbsp;
+         <dtml-if "heb_confort_projecteur=='oui'">
+            <input type="checkbox" 
+                   name="fheb_confort_projecteur" 
+                   value="oui" 
+                   checked>
+         <dtml-else>
+            <input type="checkbox" 
+                   name="fheb_confort_projecteur" 
+                   value="oui">
+         </dtml-if>
+         <img src="images/picto/c_projecteur.png"
+              title="PROJECTEUR" />
+         &nbsp;&nbsp;&nbsp;
+         <dtml-if "heb_confort_flipchart=='oui'">
+            <input type="checkbox" 
+                   name="fheb_confort_flipchart" 
+                   value="oui" 
+                   checked>
+         <dtml-else>
+            <input type="checkbox" 
+                   name="fheb_confort_flipchart" 
+                   value="oui">
+         </dtml-if>
+         <img src="images/picto/c_flipchart.png"
+              title="FLIPCHART" />
+         &nbsp;&nbsp;&nbsp;
+         <dtml-if "heb_confort_terrasse=='oui'">
+            <input type="checkbox" 
+                   name="fheb_confort_terrasse" 
+                   value="oui" 
+                   checked>
+         <dtml-else>
+            <input type="checkbox" 
+                   name="fheb_confort_terrasse" 
+                   value="oui">
+         </dtml-if>
+         <img src="images/picto/c_terrasse.png"
+              title="TERRASSE" />
+         &nbsp;&nbsp;&nbsp;
+         <dtml-if "heb_confort_jardin=='oui'">
+            <input type="checkbox" 
+                   name="fheb_confort_jardin" 
+                   value="oui" 
+                   checked>
+         <dtml-else>
+            <input type="checkbox" 
+                   name="fheb_confort_jardin" 
+                   value="oui">
+         </dtml-if>
+         <img src="images/picto/c_jardin.png"
+              title="JARDIN" />
+         &nbsp;&nbsp;&nbsp;
+         <dtml-if "heb_confort_jacuzzi=='oui'">
+            <input type="checkbox" 
+                   name="fheb_confort_jacuzzi" 
+                   value="oui" 
+                   checked>
+         <dtml-else>
+            <input type="checkbox" 
+                   name="fheb_confort_jacuzzi" 
+                   value="oui">
+         </dtml-if>
+         <img src="images/picto/c_jacuzzi.png"
+              title="JACUZZI" />
+         &nbsp;&nbsp;&nbsp;
+         <dtml-if "heb_confort_sauna=='oui'">
+            <input type="checkbox" 
+                   name="fheb_confort_sauna" 
+                   value="oui" 
+                   checked>
+         <dtml-else>
+            <input type="checkbox" 
+                   name="fheb_confort_sauna" 
+                   value="oui">
+         </dtml-if>
+         <img src="images/picto/c_sauna.png" 
+              title="SAUNA" />
+         &nbsp;&nbsp;&nbsp;
+      </td>
+   </tr> 
+   <tr>
+      <td valign="top">Séminaire au vert <b>FR</b></td>
+      <td>
+         <textarea name="fheb_seminaire_vert_fr" 
+                   cols="50" 
+                   rows="9"><dtml-var heb_seminaire_vert_fr missing=''></textarea>
+      </td>
+   </tr>
+   <tr>
+      <td valign="top">Séminaire au vert <b>NL</b></td>
+      <td>
+         <textarea name="fheb_seminaire_vert_nl" 
+                   cols="50" 
+                   rows="9"><dtml-var heb_seminaire_vert_nl missing=''></textarea>
+      </td>
+   </tr>
+   <tr>
+      <td valign="top">Séminaire au vert <b>UK</b></td>
+      <td>
+         <textarea name="fheb_seminaire_vert_uk" 
+                   cols="50" 
+                   rows="9"><dtml-var heb_seminaire_vert_uk missing=''></textarea>
+      </td>
+   </tr> 
+   <tr>
+      <td valign="top">Séminaire au vert <b>DE</b></td>
+      <td>
+         <textarea name="fheb_seminaire_vert_de" 
+                   cols="50" 
+                   rows="9"><dtml-var heb_seminaire_vert_de missing=''></textarea>
+      </td>
+   </tr>
+   <tr>
+      <td valign="top">Séminaire au vert <b>IT</b></td>
+      <td>
+         <textarea name="fheb_seminaire_vert_it" 
+                   cols="50" 
+                   rows="9"><dtml-var heb_seminaire_vert_it missing=''></textarea>
+      </td>
+   </tr>
+</table>
+<!---[FIN SEMINAIRE VERT]--->
+
+
+<!---[DEBUT CONFORT HEB]--->
+<table border="1" cellspacing="0" bordercolor="#EEEFEE">
+   <tr>
+      <td colspan="2" align="left" bgcolor="#006666">
+         <span class="titre_encodage">
+         CONFORT DE L'HEBERGEMENT
+         </span>
+         </font>
+      </td>
+   </tr>
+   <tr>
+      <td><img src="images/picto/c_tv.png" />&nbsp;&nbsp;&nbsp;&nbsp; TV - VIDEO</td>
+      <td>
+         <dtml-if "heb_confort_tv=='oui'">
+            <input type="checkbox" name="fheb_confort_tv" value="oui" checked>
+         <dtml-else>
+            <input type="checkbox" name="fheb_confort_tv" value="oui">
+         </dtml-if>
+      </td>
+   </tr>
+   <tr bgcolor="#E0FEEA">
+      <td><img src="images/picto/c_feu_ouvert.png" />&nbsp;&nbsp;&nbsp;&nbsp; Feu ouvert</td>
+      <td>
+         <dtml-if "heb_confort_feu_ouvert=='oui'">
+            <input type="checkbox" name="fheb_confort_feu_ouvert" value="oui" checked>
+         <dtml-else>
+            <input type="checkbox" name="fheb_confort_feu_ouvert" value="oui">
+         </dtml-if>
+      </td>
+   </tr>
+   <tr>
+      <td><img src="images/picto/c_lave_vaisselle.png" />&nbsp;&nbsp;&nbsp;&nbsp;Lave-vaisselle</td>
+      <td>
+         <dtml-if "heb_confort_lave_vaiselle=='oui'">
+            <input type="checkbox" name="fheb_confort_lave_vaiselle" value="oui" checked>
+         <dtml-else>
+            <input type="checkbox" name="fheb_confort_lave_vaiselle" value="oui">
+         </dtml-if>
+      </td>
+   </tr>
+   <tr bgcolor="#E0FEEA">
+      <td><img src="images/picto/c_micro_onde.png" />&nbsp;&nbsp;&nbsp;&nbsp;Micro-onde</td>
+      <td>
+         <dtml-if "heb_confort_micro_onde=='oui'">
+            <input type="checkbox" name="fheb_confort_micro_onde" value="oui" checked>
+         <dtml-else>
+            <input type="checkbox" name="fheb_confort_micro_onde" value="oui">
+         </dtml-if>
+      </td>
+   </tr>
+   <tr>
+      <td><img src="images/picto/c_lave_linge.png" />&nbsp;&nbsp;&nbsp;&nbsp;Lave-linge</td>
+      <td>
+         <dtml-if "heb_confort_lave_linge=='oui'">
+            <input type="checkbox" name="fheb_confort_lave_linge" value="oui" checked>
+         <dtml-else>
+            <input type="checkbox" name="fheb_confort_lave_linge" value="oui">
+         </dtml-if>
+      </td>
+   </tr>
+   <tr bgcolor="#E0FEEA">
+      <td><img src="images/picto/c_seche_linge.png" />&nbsp;&nbsp;&nbsp;&nbsp;Sèche-linge</td>
+      <td>
+         <dtml-if "heb_confort_seche_linge=='oui'">
+            <input type="checkbox" name="fheb_confort_seche_linge" value="oui" checked>
+         <dtml-else>
+            <input type="checkbox" name="fheb_confort_seche_linge" value="oui">
+         </dtml-if>
+      </td>
+   </tr>
+   <tr>
+      <td><img src="images/picto/c_congelateur.png" />&nbsp;&nbsp;&nbsp;&nbsp;Congélateur</td>
+      <td>
+         <dtml-if "heb_confort_congelateur=='oui'">
+            <input type="checkbox" name="fheb_confort_congelateur" value="oui" checked>
+         <dtml-else>
+            <input type="checkbox" name="fheb_confort_congelateur" value="oui">
+         </dtml-if>
+      </td>
+   </tr>
+   <tr bgcolor="#E0FEEA">
+      <td><img src="images/picto/c_internet.png" />&nbsp;&nbsp;&nbsp;&nbsp;Accès Internet</td>
+      <td>
+         <dtml-if "heb_confort_internet=='oui'">
+            <input type="checkbox" name="fheb_confort_internet" value="oui" checked>
+         <dtml-else>
+            <input type="checkbox" name="fheb_confort_internet" value="oui">
+         </dtml-if>
+      </td>
+   </tr>
+</table>
+<!---[FIN CONFORT HEB]--->
+
+<!---[DEBUT CGT]--->
+<table border="1" cellspacing="0" bordercolor="#EEEFEE">
+   <tr>
+      <td colspan="2" align="left" bgcolor="#006666">
+         <span class="titre_encodage">CGT</span>
+      </td>
+   </tr>
+   <tr>
+      <td>Reconnaissance & Classification</td>
+      <td>
+         <select name="fheb_cgt_fk">
+            <dtml-in zsql_select_all_cgt>
+               <dtml-if "heb_cgt_fk == cgt_pk">
+                  <option value="<dtml-var cgt_pk>" selected> <dtml-var cgt_code_reco></option>
+               <dtml-else>
+                  <option value="<dtml-var cgt_pk>"> <dtml-var cgt_code_reco></option>
+               </dtml-if>
+            </dtml-in>
+         </select>
+      </td>
+   </tr>
+   <tr>
+      <td>Code CGT</td>
+      <td><input type="text" name="fheb_code_cgt" value="<dtml-var heb_code_cgt missing='XX'>"></td>
+   </tr>
+   <tr>
+      <td rowspan="3">Capacité</td>
+      <td>
+         min : <input type="text" name="fheb_cgt_cap_min" value="<dtml-var heb_cgt_cap_min missing=xx>">
+      </td>
+   <tr>
+      <td>
+         max : <input type="text" name="fheb_cgt_cap_max" value="<dtml-var heb_cgt_cap_max missing=xx>">
+      </td>
+   </tr>
+   <tr>
+      <td>
+         nombre de chambre : <input type="text" name="fheb_cgt_nbre_chmbre" value="<dtml-var heb_cgt_nbre_chmbre missing=xx>">
+      </td>
+   </tr>
+   <tr>
+      <td rowspan="2">Formulaire A</td>
+      <td>
+         <dtml-if "heb_cgt_forma == '1'">
+            <input type="checkbox" name="fheb_cgt_formA" value="1" checked>
+         <dtml-else>
+            <input type="checkbox" name="fheb_cgt_formA" value="1" >
+         </dtml-if>
+      </td>
+   </tr>
+   <tr>
+      <td>
+         Date : <input type="text" name="fheb_cgt_formA_date" value="<dtml-var heb_cgt_forma_date missing=xx>">
+      </td>
+   </tr>
+   <tr>
+      <td rowspan="2">Formulaire P</td>
+      <td>
+         <dtml-if "heb_cgt_formp == '1'">
+            <input type="checkbox" name="fheb_cgt_formP" value="1" checked>
+         <dtml-else>
+            <input type="checkbox" name="fheb_cgt_formP" value="1" >
+         </dtml-if>
+      </td>
+   </tr>
+   <tr>
+      <td>
+         Date : <input type="text" name="fheb_cgt_formP_date" value="<dtml-var heb_cgt_formp_date missing=xx>">
+      </td>
+   </tr>
+</table>
+<!---[FIN CGT]--->
+
+<!---[DEBUT BELSUD]--->
+<table border="1" cellspacing="0" bordercolor="#EEEFEE">
+   <tr>
+      <td colspan="2" align="left" bgcolor="#006666">
+         <span class="titre_encodage">BELSUD</span>
+      </td>
+   </tr>
+   <tr>
+      <td>Code BelSud</td>
+      <td>
+         <dtml-if heb_code_bs>
+            <input type="text" name="fheb_code_bs" value="<dtml-var heb_code_bs missing=xx>">
+         <dtml-else>
+            <input type="text" name="fheb_code_bs" value="">
+         </dtml-if>
+      </td>
+   </tr>
+   <tr>
+      <td>Centrale de réservation</td>
+      <td>
+         <dtml-if "heb_bs_centr_reserv == 'oui'">
+            <input type="checkbox" name="fheb_bs_centr_reserv" value="oui" checked>
+         <dtml-else>
+            <input type="checkbox" name="fheb_bs_centr_reserv" value="oui" >
+         </dtml-if>
+      </td>
+   </tr>
+   <tr>
+      <td>Inscription �  la Centrale par GDW</td>
+      <td>
+         <dtml-if "heb_bs_inscript_gdw == '1'">
+            <input type="checkbox" name="fheb_bs_inscript_gdw" value="1" checked>
+         <dtml-else>
+            <input type="checkbox" name="fheb_bs_inscript_gdw" value="1" >
+         </dtml-if>
+      </td>
+   </tr>
+</table>
+<!---[FIN BELSUD]--->
+
+<!---[DEBUT DIVERS]--->
+<table border="1" cellspacing="0" bordercolor="#EEEFEE">
+   <tr>
+      <td colspan="2" align="left" bgcolor="#006666">
+         <span class="titre_encodage">DIVERS</span>
+      </td>
+   </tr>
+   <tr>
+      <td rowspan="2">Pannonceau  Charte</td>
+      <td>
+         date d'envoi :
+         <input type="text"
+                name="fheb_panneau_date_envoi"
+                value="<dtml-var heb_panneau_date_envoi>">
+      </td>
+   </tr>
+   <tr>
+      <td>
+         date de retour de la convention :
+         <input type="text"
+                name="fheb_date_retour_conv"
+                value="<dtml-var heb_date_retour_conv>">
+      </td>
+   </tr>
+   <tr>
+      <td>Etat de l'hébergement<br>Cas de vente ou de retrait</td>
+      <td>
+         <select name="fheb_etat">
+            <dtml-if "heb_etat == '1'">
+               <option value="1" selected> Activé</option>
+               <option value="0"> Désactivé</option>
+            <dtml-else>
+               <option value="1"> Activé</option>
+               <option value="0" selected> Désactivé</option>
+            </dtml-if>
+         </select>
+      </td>
+   </tr>
+   <tr>
+      <td>Publication sur le site public</td>
+      <td>
+         <select name="fheb_site_public">
+            <dtml-if "heb_site_public == '1'">
+               <option value="1" selected> Publié</option>
+               <option value="0"> Non publié</option>
+            <dtml-else>
+               <option value="1"> Publié</option>
+               <option value="0" selected> Non publié</option>
+            </dtml-if>
+         </select>
+      </td>
+   </tr>
+   <tr>
+      <td>Choix du contact depuis le site</td>
+      <td>
+         <select name="fheb_choix_contact">
+            <dtml-if "heb_choix_contact == 'mail-pro'">
+               <option value="mail-pro" selected> Email au propriétaire</option>
+               <option value="fax-pro"> Fax au propriétaire</option>
+               <option value="mail-belsud"> Email �  Belsud</option>
+            <dtml-elif "heb_choix_contact == 'fax-pro'">
+               <option value="mail-pro"> Email au propriétaire</option>
+               <option value="fax-pro" selected> Fax au propriétaire</option>
+               <option value="mail-belsud"> Email �  Belsud</option>
+            <dtml-else>
+               <option value="mail-pro"> Email au propriétaire</option>
+               <option value="fax-pro"> Fax au propriétaire</option>
+               <option value="mail-belsud" selected> Email �  Belsud</option>
+            </dtml-if>
+         </select>
+      </td>
+   </tr>
+   <tr>
+      <td>Lien vers le site du propriétaire</td>
+      <td>
+         <select name="fheb_lien_site_prop">
+            <dtml-if "heb_lien_site_prop == '1'">
+               <option value="1" selected> Activé</option>
+               <option value="0"> Désactivé</option>
+            <dtml-else>
+               <option value="1"> Activé</option>
+               <option value="0" selected> Désactivé</option>
+            </dtml-if>
+         </select>
+      </td>
+   </tr>
+   <tr>
+      <td>Descriptif dans le guide</td>
+      <td>
+         <select name="fheb_guide">
+            <dtml-if "heb_guide == '1'">
+               <option value="1" selected> Publié</option>
+               <option value="0"> Non publié</option>
+            <dtml-else>
+               <option value="1"> Publié</option>
+               <option value="0" selected> Non publié</option>
+            </dtml-if>
+         </select>
+      </td>
+   </tr>
+   <tr>
+      <td>Remboursement</td>
+      <td>
+         <select name="fheb_remboursement">
+            <dtml-if "heb_remboursement == 'oui'">
+               <option value="oui" selected> Oui</option>
+               <option value="non"> Non</option>
+            <dtml-else>
+               <option value="oui"> Oui</option>
+               <option value="non" selected> Non</option>
+            </dtml-if>
+         </select>
+      </td>
+   </tr>
+   <tr>
+      <td>Hébergement groupé</td>
+      <td>
+         <textarea name="fheb_groupe" cols="50" rows="9"><dtml-var heb_groupe missing=-></textarea>
+      </td>
+   </tr>
+   <tr>
+      <td colspan="2">&nbsp;</td>
+   </tr>
+   <tr>
+      <td colspan="2" align="center">
+         <input type="submit" value="Enregister">
+         &nbsp; :: &nbsp;
+         <input type="reset" value="Effacer">
+      </td>
+   </tr>
+</table>
+</dtml-in>
+</form>
+</body>
+</html>
+

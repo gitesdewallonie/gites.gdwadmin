@@ -1,0 +1,170 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title> Gites wallons : listes des hébergements</TITLE>
+<meta http-equiv="content-type" content=""text/htm; charset=UTF-8" >
+<dtml-call "RESPONSE.setHeader('Content-Type', 'text/html;charset=UTF-8')">
+<meta name="generator" content="Bluefish 1.0.7">
+<meta name="author" content="alain">
+<meta name="Keywords" CONTENT="">
+<meta name="Description" CONTENT="">
+<link href="gites_wallons_style.css" type=text/css rel=stylesheet>
+<script language=JavaScript src="gites_wallons_script.js"></script>
+</head>
+<body>
+
+
+<span class="titre_page">
+   Liste des
+   <dtml-in "admin_base.hebergement.zsql_compte_hebergement()">
+               <span class="grasrouge"><dtml-var count> hébergements</span>
+   </dtml-in> 
+</span>
+
+<!-- info detail des hebergements -->
+<ul>
+   <li>
+      Nombre de CH et de MH
+      <dtml-in "admin_base.hebergement.zsql_compte_hebergement_by_ch_mh_by_EtatProprio()">
+         <b><dtml-var count></b>
+      </dtml-in>
+      dont
+      <dtml-in "admin_base.hebergement.zsql_compte_hebergement_by_ch_mh_by_EtatPublication_EtatProprio(etat=1)">
+         <b><dtml-var count></b> publi&eacute;s
+      </dtml-in>
+   </li>
+   <li>
+      Nombre de GR GC GF GG MT MV</legend>
+      <dtml-in "admin_base.hebergement.zsql_compte_hebergement_by_gr_gc_gf_mt_mv_by_EtatProprio()">
+         <b><dtml-var count></b>
+      </dtml-in>
+      dont
+      <dtml-in "admin_base.hebergement.zsql_compte_hebergement_by_gr_gc_gf_mt_mv_by_EtatPublication_EtatProprio(etat=1)">
+         <b><dtml-var count></b>
+      </dtml-in>
+   </li>   
+</ul>
+<!-- /info detail des hebergements -->
+
+
+<!-- info nouvel hebergment ajoute -->
+<dtml-if code_gdw>
+   <hr>
+   <font color="#0000FF"><b>le nouvel hébergement créé porte le numéro de code GDW :: <font color="#FF0000"><dtml-var code_gdw></font></b></font>
+   <hr><br>
+</dtml-if>
+<!-- /info nouvel hebergment ajoute -->
+
+
+<table border="1" cellspacing="0" bordercolor="#EEEFEE">
+   <tr>
+      <td colspan="19" align="left" bgcolor="#006666">
+         <span class="titre_encodage">
+            INFORMATION GENERALE
+         </span>
+      </td>
+   </tr>
+   <tr>
+      <td align="center"><b>Portail</b></td>
+      <td align="center"><b>Propio</b></td>
+      <td align="center"><b>PK</b></td>
+      <td align="center"><b>Code GDW</b></td>
+      <td align="center"><b>Nom</b></td>
+      <td align="center"><b>Adresse</b></td>
+      <td align="center"><b>Commune</b></td>
+      <td align="center"><b>Province</b></td>
+      <td align="center"><b>Maison tourisme</b></td>
+      <!--td align="center"><b>Maison du tourisme</b></td-->
+      <td align="center"><b>Class CGT</b></td>
+      <td align="center"><b>Type</b></td>
+      <td align="center"><b>Poprio</b></td>
+      <td align="center"><b>Code CGT</b></td>
+      <td align="center"><b>Cap Min</b></td>
+      <td align="center"><b>Cap Max</b></td>
+      <td align="center"><b>Chambres</b></td>
+      <td align="center"><b>Epis</b></td>
+      <td width="30">&nbsp;</td>
+   </tr>
+      <dtml-in "admin_base.hebergement.zsql_heb_select_all_actif()">
+         <dtml-if code_gdw>
+            <!-- modification couleur de fond de l'hebergement ajoute -->
+            <dtml-if "heb_code_gdw==code_gdw">
+               <tr height="40" bgcolor="#FEC2CB">
+            <dtml-else>
+               <tr  height="40">
+            </dtml-if>
+         <dtml-else>
+            <!-- style papier listing -->
+            <dtml-if sequence-even>
+               <tr  height="40" bgcolor="#D2F7C1">
+            <dtml-else>
+               <tr height="40">
+            </dtml-if>
+         </dtml-if>
+         <td align="center">
+            <dtml-if "heb_site_public=='1'">
+                  <img src="images/bleverte.gif">
+            <dtml-else>
+                  <img src="images/blerouge.gif">
+            </dtml-if>
+         </td>
+         <td align="center"><dtml-var heb_pro_fk></td>
+         <td align="center"><dtml-var heb_pk></td>
+         <td align="center"><dtml-var heb_code_gdw missing="-"></td>
+         <td align="center"><dtml-var heb_nom missing="-"></td>
+         <td align="center"><dtml-var heb_adresse missing="-"></td>
+
+         <dtml-in "admin_base.commune.zsql_select_commune_compk(fcom_pk=heb_com_fk)">
+            <td>
+               <dtml-var com_nom missing="-">
+            </td>
+            <td>
+               <dtml-var prov_nom>
+            </td>
+            <td>
+               <dtml-var mais_nom>
+            </td>
+         </dtml-in>
+
+         <td align="center">
+            <dtml-in "zsql_select_cgt_cgtpk(fcgt_pk=heb_cgt_fk)">
+               <dtml-var cgt_code_reco>
+            </dtml-in>
+         </td>
+         <td align="center">
+            <dtml-in "zsql_select_type_heb_typehebpk(ftype_heb_pk=heb_typeheb_fk)">
+               <dtml-var type_heb_code>
+            </dtml-in>
+         </td>
+         <td align="center">
+            <dtml-in "zsql_select_proprio_propk(pro_pk=heb_pro_fk)">
+               <a href="#" onClick="ouvrir_fenetre('popup_proprio?fpro_pk=<dtml-var pro_pk>')";><dtml-var pro_nom1 missing='-'></a>
+            </dtml-in>
+         </td>
+         <td align="center">
+            <dtml-var heb_code_cgt  missing="-">
+         </td>
+         <td align="center">
+            <dtml-var heb_cgt_cap_min  missing="-">
+         </td>
+         <td align="center">
+            <dtml-var heb_cgt_cap_max  missing="-">
+         </td>
+         <td align="center">
+            <dtml-var heb_cgt_nbre_chmbre  missing="-">
+         </td>
+         <td align="center">
+            <dtml-var "getNbreEpis(heb_pk=heb_pk)"  missing="-">
+         </td>
+         <td align="center">
+               <a href="modification?fheb_pk=<dtml-var heb_pk>">
+                  <img src="images/modifier.png" 
+                            border="0"
+                            title="modifier cet h&eacute;bergement"
+                            alt="modifier cet h&eacute;bergement" /></a>
+         </td>
+      </tr>
+   </dtml-in>
+</table>
+</body>
+</html>

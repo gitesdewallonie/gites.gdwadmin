@@ -1,0 +1,82 @@
+<html>
+<head tal:define="dummy python:request.RESPONSE.setHeader('Content-Type','text/html;; charset=utf-8')" >
+<title> Gites wallons : sélection d'un hébergement par le proprio</TITLE>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" >
+<meta name="generator" content="Zope">
+<meta name="author" content="Affinitic">
+<meta name="Keywords" CONTENT="">
+<meta name="Description" CONTENT="">
+<link href="gites_wallons_style.css" type=text/css rel=stylesheet>
+<script language=JavaScript src="gites_wallons_script.js"></script>
+</head>
+<body>
+<fieldset class="fieldsetprive">
+   <legend class="legende">BuzzNo�l : listing des gagnants</legend>
+   <tal:requete tal:define="Gagnants python:here.admin_base.buzz.zsql_winner_buzz_select_all()">
+      <div class="div_resultat">
+         <br />
+         <tal:boucle tal:repeat="gagnant Gagnants">         
+            <fieldset class="fieldset_resultat">
+               <font color="000000"><b><span tal:content="python: DateTime(str(gagnant.winner_date)).strftime('%d-%m-%Y')" /></b></font>
+               <br />
+               <img src="images/flch_orange_pt.gif" />
+               <span class="grasbleu">EMETTEUR</span> :<br />
+               <b>
+               <span tal:content="gagnant/player_prenom" class="choixinfogid" />
+               <span tal:content="gagnant/player_nom" class="choixinfogid" />
+               </b>
+               <br />
+               email : <span tal:content="gagnant/player_email" class="choixinfogid" /> 
+               <br />
+               localite :  <span tal:content="gagnant/player_localite" class="choixinfogid" />
+               <br />
+               langue : <span tal:content="gagnant/player_langue" class="choixinfogid" />
+               <br />
+               <img src="images/flch_orange_pt.gif" />
+               <span class="grasbleu">GITES</span> :
+               <br/>
+               <tal:requete tal:define="Gites python:here.admin_base.buzz.zsql_gite_buzz_select_by_pk(gite_pk=gagnant.winner_player_heb_fk)">
+                  <tal:boucle tal:repeat="gite Gites">
+                     Pk : <span tal:content="gite/heb_pk" class="choixinfogid" />
+                     <br />
+                     Nom : <span tal:content="gite/heb_nom" class="choixinfogid" />
+                     <br />
+                     Localit&eacute; :<span tal:content="gite/heb_localite" class="choixinfogid" />
+                     <br />
+                     Proprio : <span tal:content="gite/pro_nom1" class="choixinfogid" />
+                  </tal:boucle>
+               </tal:requete>
+               <br /><br />
+               <img src="images/flch_orange_pt.gif" />
+               <span class="grasbleu">DESTINATAIRE</span> :<br />
+               <b>
+               <span tal:content="gagnant/dest_prenom" class="choixinfogid" />
+               <span tal:content="gagnant/dest_nom" class="choixinfogid" />
+               </b>
+               <br />
+               email :<span tal:content="gagnant/dest_email" class="choixinfogid" /> 
+               <br />
+               localite : <span tal:content="gagnant/dest_localite" class="choixinfogid" />
+               <br />
+               <img src="images/flch_orange_pt.gif" />
+               <span class="grasbleu">GITES</span> :
+               <br/>
+               <tal:requete tal:define="Gites python:here.admin_base.buzz.zsql_gite_buzz_select_by_pk(gite_pk=gagnant.winner_destinataire_heb_fk)">
+                  <tal:boucle tal:repeat="gite Gites">
+                     Pk : <span tal:content="gite/heb_pk" class="choixinfogid" />
+                     <br />
+                     Nom :<span tal:content="gite/heb_nom" class="choixinfogid" />
+                     <br />
+                     Localit&eacute; : <span tal:content="gite/heb_localite" class="choixinfogid" />
+                     <br />
+                     Proprio : <span tal:content="gite/pro_nom1" class="choixinfogid" />
+                  </tal:boucle>
+               </tal:requete>
+            </fieldset>                 
+         </tal:boucle>
+         <br />
+      </div>
+   </tal:requete>
+</fieldset>
+</body>
+</html>

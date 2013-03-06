@@ -1,0 +1,2 @@
+<dtml-call zsql_insert_region_guide>
+<dtml-call "RESPONSE.redirect('regions_guide')">

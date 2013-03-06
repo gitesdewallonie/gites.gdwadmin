@@ -1,0 +1,25 @@
+ <dtml-comment>
+title:table info_pratique
+arguments: infoprat_pk infoprat_nom infoprat_adresse infoprat_url infoprat_gps_long infoprat_gps_lat infoprat_localite infoprat_commune_fk infoprat_type_infoprat_fk
+connection_id:Psycopg_database_connection
+max_rows:1000
+max_cache:100
+cache_time:0
+class_name:
+class_file:
+</dtml-comment>
+update info_pratique
+
+set
+
+infoprat_nom=<dtml-sqlvar infoprat_nom type="string" optional>,
+infoprat_adresse=<dtml-sqlvar infoprat_adresse type="string" optional>,
+infoprat_url=<dtml-sqlvar infoprat_url type="string" optional>,
+infoprat_gps_long=<dtml-sqlvar infoprat_gps_long type="float" optional>,
+infoprat_gps_lat=<dtml-sqlvar infoprat_gps_lat type="float" optional>,
+infoprat_localite=<dtml-sqlvar infoprat_localite type="string" optional>,
+infoprat_commune_fk=<dtml-sqlvar infoprat_commune_fk type="int" optional>,
+infoprat_type_infoprat_fk=<dtml-sqlvar infoprat_type_infoprat_fk type="int" optional>
+
+
+where  infoprat_pk = <dtml-sqlvar infoprat_pk type="int">

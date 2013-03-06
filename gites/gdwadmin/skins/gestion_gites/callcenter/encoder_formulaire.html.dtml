@@ -1,0 +1,4 @@
+<dtml-if op>
+     <dtml-call zsql_update_by_PK>
+     <dtml-call "RESPONSE.redirect('formulaire.html?CCL_PK=%s' % CCL_PK)">
+</dtml-if>

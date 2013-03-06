@@ -1,0 +1,14 @@
+ <dtml-comment>
+title:
+arguments: 
+connection_id:Psycopg_database_connection
+max_rows:1000
+max_cache:100
+cache_time:0
+class_name:
+class_file:
+</dtml-comment>
+update hebergement
+set
+heb_animal='non'
+where heb_animal = NULL

@@ -1,0 +1,18 @@
+ <dtml-comment>
+title:table type_info_pratique
+arguments: 
+connection_id:Psycopg_database_connection
+max_rows:1000
+max_cache:100
+cache_time:0
+class_name:
+class_file:
+</dtml-comment>
+create table type_info_pratique(
+typinfoprat_pk serial primary key,
+typinfoprat_nom_fr varchar,
+typinfoprat_nom_nl varchar,
+typinfoprat_nom_en varchar,
+typinfoprat_nom_it varchar,
+typinfoprat_nom_de varchar
+)

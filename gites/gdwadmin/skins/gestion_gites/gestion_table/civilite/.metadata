@@ -1,0 +1,11 @@
+[default]
+title=
+
+[Objects]
+civilite:DTML Method
+traiter_insertion_civilite:DTML Method
+traiter_modification_civilite:DTML Method
+traiter_modifsup_civilite:DTML Method
+zsql_delete_civilite:Z SQL Method
+zsql_insert_civilite:Z SQL Method
+zsql_update_civilite:Z SQL Method

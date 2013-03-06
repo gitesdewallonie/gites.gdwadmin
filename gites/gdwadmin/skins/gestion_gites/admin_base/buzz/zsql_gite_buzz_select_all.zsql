@@ -1,0 +1,28 @@
+ <dtml-comment>
+title:buzz.gite
+arguments: 
+connection_id:Psycopg_database_connection
+max_rows:1000
+max_cache:100
+cache_time:0
+class_name:
+class_file:
+</dtml-comment>
+select
+   gite_heb_fk,
+   heb_nom,
+   pro_nom1,
+   heb_localite,
+   gite_etat,
+   gite_date
+from
+   hebergement,
+   proprio,
+   buzz.gite
+where
+   heb_pk=gite_heb_fk
+   and
+   pro_pk=heb_pro_fk
+order by 
+   gite_heb_fk
+  

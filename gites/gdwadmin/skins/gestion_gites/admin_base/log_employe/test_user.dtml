@@ -1,0 +1,3 @@
+
+
+<dtml-var AUTHENTICATED_USER>

@@ -1,0 +1,26 @@
+[default]
+title=
+
+[Objects]
+CREATION_TABLES:Folder
+buzz:Folder
+charge:Folder
+civilite:Folder
+commune:Folder
+epis:Folder
+hebergement:Folder
+info_pratique:Folder
+info_touristique:Folder
+label:Folder
+log_employe:Folder
+maison_tourisme:Folder
+proprio:Folder
+table_hote:Folder
+theme:Folder
+type_heb:Folder
+zsql_heb_select_all_by_cp:Z SQL Method
+zsql_heb_select_all_gdw:Z SQL Method
+zsql_heb_select_all_hebcomfk:Z SQL Method
+zsql_heb_select_like_by_code_gdw:Z SQL Method
+zsql_maison_tourisme_select_by_com_fk:Z SQL Method
+zsql_proprio_select_like_nom:Z SQL Method

@@ -1,0 +1,71 @@
+<html>
+<head tal:define="dummy python:request.RESPONSE.setHeader('Content-Type','text/html;; charset=utf-8')" >
+<title> Gites wallons : sélection d'un hébergement par le proprio</TITLE>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" >
+<meta name="generator" content="Zope">
+<meta name="author" content="Affinitic">
+<meta name="Keywords" CONTENT="">
+<meta name="Description" CONTENT="">
+<link href="gites_wallons_style.css" type=text/css rel=stylesheet>
+<script language=JavaScript src="gites_wallons_script.js"></script>
+</head>
+<body>
+<fieldset class="fieldsetprive">
+   <legend class="legende">BuzzNoel :: listing des participants</legend>
+   <tal:requete tal:define="Winners python:here.admin_base.buzz.zsql_winner_info_select_all()">
+       Ce listing reprend tous les joeurs qui ont gagn&eacute; et qui sont revenus s'identifier compl&egrave;tement.
+       <br /><br />
+       <div>
+        Nombre de gagnants identifi&eacute;s: <span tal:content="python:len(Winners)" class="grasorange" />
+        <br />
+       </div>
+       <br /><br />
+       <table>
+           <tr>
+                <th>PK</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Adresse</th>
+                <th>CP - Localité</th>
+                <th>Tel</th>
+                <th>E-Mail</th>
+                <th>Langue</th>
+                <th>Date</th>
+           </tr>
+            <tal:boucle tal:repeat="win Winners">         
+                <tr>
+                    <td>
+                        <span tal:content="win/infowin_pk" />
+                    </td>
+                    <td>
+                        <span tal:content="win/infowin_nom" />
+                    </td>
+                    <td>
+                        <span tal:content="win/infowin_prenom" />
+                    </td>
+                    <td>
+                        <span tal:content="win/infowin_adresse" />
+                    </td> 
+                    <td>
+                        <span tal:content="win/infowin_cp" class="grasorange" />
+                        <span tal:content="win/infowin_localite" class="grasorange" />
+                    </td>
+                    <td>
+                        <span tal:content="win/infowin_tel" class="grasorange" />
+                    </td>
+                    <td>
+                        <span tal:content="win/infowin_email" class="grasorange" />
+                    </td>
+                    <td>
+                        <span tal:content="win/infowin_langue" class="grasorange" />
+                    </td>
+                    <td>
+                        <span tal:content="python: DateTime(str(win.infowin_date)).strftime('%d-%m-%Y')" class="grasorange" />
+                    </td>
+                </tr>
+            </tal:boucle>
+       </table>
+   </tal:requete>
+</fieldset>
+</body>
+</html>

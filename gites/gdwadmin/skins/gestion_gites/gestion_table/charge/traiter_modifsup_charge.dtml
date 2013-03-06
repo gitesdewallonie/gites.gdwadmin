@@ -1,0 +1,102 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title> Gites wallons : gestion table province </TITLE>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" >
+<dtml-call "RESPONSE.setHeader('Content-Type', 'text/html;charset=UTF-8')">
+<meta name="generator" content="Bluefish 1.0.7">
+<meta name="author" content="alain">
+<meta name="Keywords" CONTENT="">
+<meta name="Description" CONTENT="">
+<link href="gites_wallons_style.css" type=text/css rel=stylesheet>
+<script language=JavaScript src="gites_wallons_script.js"></script>
+</head>
+
+<body>
+<span class="titre_page">Gestion de la table charge</span><br><br>
+
+
+<!---[gestion de la suppression d'une charge]--->
+<dtml-if "operation == 'supprimer'">
+   <dtml-call "admin_base.charge.zsql_delete_charge(cha_pk=fcha_pk)">
+   <dtml-call "RESPONSE.redirect('charge')">
+</dtml-if>
+
+
+
+<!---[Gestion de la modification d'une charge]--->
+<dtml-if "operation == 'modifier'">
+    <form name="formulaire" action="traiter_modification_charge" method="get">
+        <table width="95%" border="1" cellspacing="0" bordercolor="#EEEFEE">
+            <tr>
+                <td colspan="2" align="left" bgcolor="#006666">
+                    <span class="titre_encodage">
+                    Charge à modifier
+                    </span>
+                    </font>
+                </td>
+            </tr>
+            <dtml-in "admin_base.charge.zsql_select_charge_by_pk(fcha_pk=fcha_pk)">
+                <tr>
+                    <td align="right">FR</td>
+                    <td>
+                        <input type="text"
+                               name="cha_type_fr"
+                               value="<dtml-var cha_type_fr>"
+                               size="50">
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">EN</td>
+                    <td>
+                        <input type="text"
+                               name="cha_type_en"
+                               value="<dtml-var cha_type_en>"
+                               size="50">
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">NL</td>
+                    <td>
+                        <input type="text"
+                               name="cha_type_nl"
+                               value="<dtml-var cha_type_nl>"
+                               size="50">
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">IT</td>
+                    <td>
+                        <input type="text"
+                               name="cha_type_it"
+                               value="<dtml-var cha_type_it>"
+                               size="50">
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">DE</td>
+                    <td>
+                        <input type="text"
+                               name="cha_type_de"
+                               value="<dtml-var cha_type_de>"
+                               size="50">
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center">
+                        <input type="hidden"
+                               name="cha_pk"
+                               value="<dtml-var cha_pk>">
+                        <dtml-var bouton_modifier>
+                    </td>
+                </tr>
+            </dtml-in>
+        </table>
+        <input type="hidden"
+               name="operation"
+               value="">
+    </form>
+</dtml-if>
+
+</body>
+</html>

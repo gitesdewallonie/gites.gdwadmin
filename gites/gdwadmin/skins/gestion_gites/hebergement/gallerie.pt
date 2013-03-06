@@ -1,0 +1,40 @@
+<html>
+  <head>
+    <title tal:content="template/title">The title</title>
+  </head>
+  <body>
+    <div align="center">		
+		<fieldset>
+		<div align="left">
+			<a href="javascript:history.go(-1)"> <img src="images/flechebulleretour.gif" border="0"></a>
+		</div>
+        <br />
+		<!--boucle sur le nombre image dans la galerie-->
+		<tal:gallerie tal:repeat="cpt python:range(7)">
+			<!--recup du code gdw qui arrive depuis la page descriptif-->
+			<!--création d'une var image qui contient le nom de l'image.jpg-->
+			<span tal:define="codegdw python:request.gdw;
+			                  image string:${codegdw}0${cpt}.jpg">
+				<!--vérification de la présence de image dans le dossier photos_heb afin d'éviter-->
+				<!--les crois quand il n'y a pas 7 images-->
+				<span tal:condition="python: image in here.photos_heb.fileIds()">					
+					<!--construction du nom de l'image avec le code  et le compteur de la boucle et affichage de l'image-->
+					<img src="" 
+                                             alt=""
+                                             title=""
+                                             tal:attributes="src string:photos_heb/${codegdw}0${cpt}.jpg;
+                                                             alt string:${codegdw}0${cpt}.jpg;
+                                                             title string:${codegdw}0${cpt}.jpg;" />
+                                        <br /><br />
+				</span>
+			</span>
+		</tal:gallerie>
+		<br />
+		<div align="left">
+			<a href="javascript:history.go(-1)"> <img src="images/flechebulleretour.gif" border="0"></a>
+		</div>
+		</fieldset>		
+	</div>
+   
+  </body>
+</html>

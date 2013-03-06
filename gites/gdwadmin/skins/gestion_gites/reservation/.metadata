@@ -1,0 +1,8 @@
+[default]
+title=
+
+[Objects]
+liste:DTML Method
+zsql_delete_by_pk:Z SQL Method
+zsql_select_all_demande_reservation:Z SQL Method
+zsql_select_reservation_by_hebfk:Z SQL Method

@@ -1,0 +1,11 @@
+[default]
+title=
+
+[Objects]
+label:DTML Method
+traiter_insertion_label:DTML Method
+traiter_modification_label:DTML Method
+traiter_modifsup_label:DTML Method
+zsql_delete_label:Z SQL Method
+zsql_insert_label:Z SQL Method
+zsql_update_label:Z SQL Method

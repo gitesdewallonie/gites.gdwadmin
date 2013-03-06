@@ -1,0 +1,36 @@
+ <dtml-comment>
+title:table type_info_touristique
+arguments: typinfotour_nom_fr typinfotour_nom_nl typinfotour_nom_it typinfotour_nom_de typinfotour_nom_en
+connection_id:Psycopg_database_connection
+max_rows:1000
+max_cache:100
+cache_time:0
+class_name:
+class_file:
+</dtml-comment>
+insert into type_info_touristique
+(
+typinfotour_nom_fr,
+typinfotour_nom_nl,
+typinfotour_nom_it,
+typinfotour_nom_de,
+typinfotour_nom_en
+)
+values
+(
+<dtml-sqlvar typinfotour_nom_fr type="string" optional>,
+<dtml-sqlvar typinfotour_nom_nl type="string" optional>,
+<dtml-sqlvar typinfotour_nom_it type="string" optional>,
+<dtml-sqlvar typinfotour_nom_de type="string" optional>,
+<dtml-sqlvar typinfotour_nom_en type="string" optional>
+)
+
+
+
+
+
+
+
+
+
+

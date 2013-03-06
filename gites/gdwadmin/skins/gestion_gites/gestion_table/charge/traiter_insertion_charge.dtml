@@ -1,0 +1,3 @@
+<dtml-call "admin_base.charge.zsql_insert_charge()">
+
+<dtml-call "RESPONSE.redirect('charge')">

@@ -1,0 +1,11 @@
+[default]
+title=
+
+[Objects]
+theme:DTML Method
+traiter_insertion_theme:DTML Method
+traiter_modification_theme:DTML Method
+traiter_modifsup_theme:DTML Method
+zsql_delete_theme:Z SQL Method
+zsql_insert_theme:Z SQL Method
+zsql_update_theme:Z SQL Method

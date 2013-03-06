@@ -1,0 +1,2 @@
+<dtml-call zsql_insert_cgt>
+<dtml-call "RESPONSE.redirect('cgt')">

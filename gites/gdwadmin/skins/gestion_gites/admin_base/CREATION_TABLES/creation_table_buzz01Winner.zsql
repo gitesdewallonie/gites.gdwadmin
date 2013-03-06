@@ -1,0 +1,19 @@
+ <dtml-comment>
+title:buzz01Winner
+arguments: 
+connection_id:Psycopg_database_connection
+max_rows:1000
+max_cache:100
+cache_time:0
+class_name:
+class_file:
+</dtml-comment>
+create table buzz01Winner
+(
+buzz01_winner_pk serial PRIMARY KEY,
+buzz01_winner_player_fk integer,
+buzz01_winner_destinataire_fk integer,
+buzz01_winner_player_heb_fk integer,
+buzz01_winner_destinataire_heb_fk integer,
+buzz01_date timestamp not null default current_timestamp
+)

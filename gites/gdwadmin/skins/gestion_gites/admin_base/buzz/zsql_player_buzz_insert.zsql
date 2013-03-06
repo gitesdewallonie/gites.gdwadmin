@@ -1,0 +1,44 @@
+ <dtml-comment>
+title:buzz.player
+arguments: player_nom player_prenom player_email player_localite player_langue
+connection_id:Psycopg_database_connection
+max_rows:1000
+max_cache:100
+cache_time:0
+class_name:
+class_file:
+</dtml-comment>
+insert into buzz.player
+(
+player_nom,
+player_prenom,
+player_email,
+player_localite,
+player_langue
+)
+values
+(
+<dtml-sqlvar player_nom type="string">,
+<dtml-sqlvar player_prenom type="string">,
+<dtml-sqlvar player_email type="string">,
+<dtml-sqlvar player_localite type="string">,
+<dtml-sqlvar player_langue type="string">
+)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,17 @@
+ <dtml-comment>
+title:
+arguments: 
+connection_id:Psycopg_database_connection
+max_rows:1000
+max_cache:100
+cache_time:0
+class_name:
+class_file:
+</dtml-comment>
+create table maison_tourisme
+(
+mais_pk serial PRIMARY KEY,
+mais_nom varchar,
+mais_url varchar,
+mais_code varchar
+)

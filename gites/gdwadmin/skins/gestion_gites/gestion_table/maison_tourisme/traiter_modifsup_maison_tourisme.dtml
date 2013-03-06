@@ -1,0 +1,106 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title> Gites wallons : gestion table maison du tourisme </TITLE>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" >
+<dtml-call "RESPONSE.setHeader('Content-Type', 'text/html;charset=UTF-8')">
+<meta name="generator" content="Bluefish 1.0.7">
+<meta name="author" content="alain">
+<meta name="Keywords" CONTENT="">
+<meta name="Description" CONTENT="">
+<link href="gites_wallons_style.css" type=text/css rel=stylesheet>
+<script language=JavaScript src="gites_wallons_script.js"></script>
+</head>
+
+<body>
+<span class="titre_page">Gestion de la table maison du tourisme</span><br><br>
+
+
+<!---[gestion de la suppression d'une maison du tourisme]--->
+<dtml-if "operation == 'supprimer'">   
+   <dtml-call zsql_delete_maison_tourisme>
+   <dtml-call "RESPONSE.redirect('maison_tourisme')">
+</dtml-if>
+
+
+
+<!---[Gestion de la modification d'une maison_tourisme]--->
+<dtml-if "operation == 'modifier'">   
+   <form name="formulaire" action="traiter_modification_maison_tourisme" method="get">
+      <table width="95%" border="1" cellspacing="0" bordercolor="#EEEFEE">
+         <tr>
+            <td colspan="4" align="left" bgcolor="#006666">
+               <span class="titre_encodage">
+                  Maison du tourisme à modifier
+               </span>
+            </td>
+         </tr>
+            <dtml-in "admin_base.maison_tourisme.zsql_select_maison_tourisme_maispk(mais_pk=mais_pk)">
+               <tr>
+                  <td align="right">Nom</td>
+                  <td>
+                     <input type="text" 
+                            name="mais_nom" 
+                            size="75"
+                            value="<dtml-var mais_nom>" />
+                  </td>
+               </tr>
+               <tr>
+                  <td align="right">URL</td>
+                  <td>
+                     <input type="text" 
+                            name="mais_url" 
+                            size="75"
+                            value="<dtml-var mais_url>" />
+                  </td>
+               </tr>
+               <tr>
+                  <td align="right">Code</td>
+                  <td>
+                     <textarea name="mais_code"
+                               value="<dtml-var mais_code>"
+                               rows="5"
+                               cols="75"></textarea>
+                  </td>        
+               </tr>
+               <tr>
+                  <td align="right">GPS Long  00.00</td>
+                  <td>
+                     <input type="text" 
+                            name="mais_gps_long" 
+                            value="<dtml-var mais_gps_long>" />
+                  </td>
+               </tr>  
+               <tr>
+                  <td align="right">GPS Lat  00.00</td>
+                  <td>
+                     <input type="text" 
+                            name="mais_gps_lat" 
+                            value="<dtml-var mais_gps_lat>" />
+                  </td>
+               </tr>
+               <tr>
+                  <td align="right">ID Google</td>
+                  <td>
+                     <input type="text" 
+                            name="mais_id" 
+                            value="<dtml-var mais_id>" 
+                            size="75" />
+                  </td>
+               </tr>     
+               <tr>
+                  <td colspan="4" align="center">
+                     <input type="hidden" 
+                            name="mais_pk" 
+                            value="<dtml-var mais_pk>" />
+                     <dtml-var bouton_modifier>
+                  </td>        
+               </tr>
+            </dtml-in>
+      </table>
+   <input type="hidden" name="operation" value="">
+   </form>  
+</dtml-if>
+
+</body>
+</html>

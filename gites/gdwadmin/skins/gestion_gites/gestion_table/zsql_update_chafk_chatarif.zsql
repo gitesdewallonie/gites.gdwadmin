@@ -1,0 +1,14 @@
+ <dtml-comment>
+title:
+arguments: heb_pk val
+connection_id:Psycopg_database_connection
+max_rows:1000
+max_cache:100
+cache_time:0
+class_name:
+class_file:
+</dtml-comment>
+update hebergement
+set
+heb_charge_fk=<dtml-sqlvar val type="string">
+where heb_pk=<dtml-sqlvar heb_pk type="int">

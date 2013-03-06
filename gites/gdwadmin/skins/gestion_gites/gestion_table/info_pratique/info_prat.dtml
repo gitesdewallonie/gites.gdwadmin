@@ -1,0 +1,198 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title> Gites wallons : gestion table theme gite </TITLE>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" >
+<dtml-call "RESPONSE.setHeader('Content-Type', 'text/html;charset=UTF-8')">
+<meta name="generator" content="Bluefish 1.0.7">
+<meta name="author" content="alain">
+<meta name="Keywords" CONTENT="">
+<meta name="Description" CONTENT="">
+<link href="gites_wallons_style.css" type=text/css rel=stylesheet>
+<script language=JavaScript src="gites_wallons_script.js"></script>
+</head>
+<body>
+<span class="titre_page">Gestion de la table des infos pratiques</span>
+<br /><br />
+<form name="formulaire" action="mod_sup_info_prat" method="get">
+   <input type="hidden" name="operation" value="">
+   <table width="95%" border="1" cellspacing="0" bordercolor="#EEEFEE">
+      <tr>
+         <td colspan="10" align="left" bgcolor="#006666">
+         <span class="titre_encodage">
+            Liste des infos_pratiques
+         </span>
+         </font>
+         </td>
+      </tr>
+      <tr align="center">
+         <td width="15">&nbsp;</td>
+         <td><b>Nom</b></td>
+         <td><b>Adresse</b></td>
+         <td><b>CP Communes</b></td>
+         <td><b>Localité</b></td>
+         <td><b>URL</b></td>
+         <td><b>Coord GSP Long</b></td>
+         <td><b>Coord GSP Lat</b></td>
+         <td><b>Type</b></td>
+         <td><b>Maison du tourisme</b></td>
+      </tr>
+         <dtml-in "admin_base.info_pratique.zsql_info_prat_select_all()">
+            <dtml-if sequence-odd>
+               <tr>
+            <dtml-else>
+               <tr bgcolor="#E6FED9">
+            </dtml-if>
+            <td width="15">
+               <input type="radio" 
+                      name="infoprat_pk" 
+                      value="<dtml-var infoprat_pk>">
+            </td>		
+            <td>
+               <dtml-var infoprat_nom>
+            </td>
+            <td>
+               <dtml-var infoprat_adresse>
+            </td>
+            <td>               
+               <dtml-in "admin_base.commune.zsql_select_commune_compk(fcom_pk=infoprat_commune_fk)">
+                  <dtml-var com_cp> - <dtml-var com_nom>
+               </dtml-in> 
+            </td>
+            <td>
+               <dtml-var infoprat_localite>
+            </td>
+            <td>
+               <a href="http://<dtml-var infoprat_url>" 
+                  target="_blank"><dtml-var infoprat_url></a>
+            </td>
+            <td>
+               <dtml-var infoprat_gps_long>
+            </td>
+            <td>
+               <dtml-var infoprat_gps_lat>
+            </td>
+            <td>
+               <dtml-var infoprat_type_infoprat_fk>
+            </td>
+            <td>
+               <dtml-in "admin_base.zsql_maison_tourisme_select_by_com_fk(com_pk=infoprat_commune_fk)">
+                  <dtml-var mais_nom>
+               </dtml-in>  
+            </td>            
+            </tr>
+         </dtml-in>
+      <tr>
+         <td colspan="9" align="center">
+            <dtml-var bouton_modifier>
+            &nbsp;&nbsp;&nbsp;
+            <dtml-var bouton_supprimer>
+         </td>
+      </tr>
+   </table>
+</form>
+
+<br /><br />
+
+<form name="formulaire_creation" 
+      action="traiter_insertion_info_prat" 
+      method="get">
+   <table border="1" 
+          cellspacing="0" 
+          cellpadding="0" 
+          width="75%" 
+          bordercolor="#EEEFEE">
+      <tr>
+         <td colspan="3" align="left" bgcolor="#006666">
+            <span class="titre_encodage">
+               Créer une nouvelle information pratique
+            </span>
+         </td>
+      </tr>	
+      <tr>
+         <td>Nom</td>
+         <td>
+            <input type="text" 
+                   name="infoprat_nom" 
+                   value=""
+                   size="50">
+         </td>
+      </tr>
+      <tr>
+         <td>Adresse</td>
+         <td>
+            <input type="text" 
+                   name="infoprat_adresse" 
+                   value=""
+                   size="50">
+         </td>
+      </tr>
+      <tr>
+         <td>CP Commune</td>
+         <td>
+            <select name="infoprat_commune_fk">
+               <option value=0> </option>
+               <dtml-in zsql_select_all_commune>
+                  <option value="<dtml-var com_pk>" selected> <dtml-var com_cp> <dtml-var com_nom></option>                    
+               </dtml-in>
+            </select>
+         </td>
+      </tr>
+      <tr>
+         <td>Localité</td>
+         <td>
+            <input type="text" 
+                   name="infoprat_localite" 
+                   value=""
+                   size="50">
+         </td>
+      </tr>
+      <tr>
+         <td>URL</td>
+         <td>
+            <input type="text" 
+                   name="infoprat_url" 
+                   value=""
+                   size="50">
+         </td>
+      </tr>
+      <tr>
+         <td>Coord GPS Long</td>
+         <td>
+            <input type="text" 
+                   name="infoprat_gps_long" 
+                   value=""
+                   size="50">
+         </td>
+      </tr>
+      <tr>
+         <td>Coord GPS Lat</td>
+         <td>
+            <input type="text" 
+                   name="infoprat_gps_lat" 
+                   value=""
+                   size="50">
+         </td>
+      </tr>
+      <tr>
+         <td>Type</td>
+         <td>
+            <select name="infoprat_type_infoprat_fk">
+	         <dtml-in "admin_base.info_pratique.zsql_type_info_prat_select_all()">
+                    <option value="<dtml-var typinfoprat_pk>">
+                       <dtml-var "typinfoprat_nom_fr">
+                    </option>                  
+                 </dtml-in>
+           </select>      
+         </td>
+      </tr>      
+      <tr>
+         <td colspan="2" align="left">
+            &nbsp;&nbsp;&nbsp;<dtml-var bouton_creer>
+         </td>
+      </tr>
+   </table>
+</form>	
+
+</body>
+</html>

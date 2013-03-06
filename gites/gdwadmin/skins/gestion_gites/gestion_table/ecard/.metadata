@@ -1,0 +1,7 @@
+[default]
+title=
+
+[Objects]
+consulter_liste_ecard:DTML Method
+zsql_insert_ecard:Z SQL Method
+zsql_select_all_ecard:Z SQL Method

@@ -1,0 +1,30 @@
+ <dtml-comment>
+title:
+arguments: 
+connection_id:Psycopg_database_connection
+max_rows:1000
+max_cache:100
+cache_time:0
+class_name:
+class_file:
+</dtml-comment>
+create table enquete_namur(
+enqnam_pk serial primary key,
+enqnam_provenance varchar,
+enqnam_typeheb varchar,
+enqnam_sejourprecedent varchar,
+enqnam_sejourtype varchar,
+enqnam_interet varchar,
+enqnam_tarif varchar,
+enqnam_epi varchar,
+enqnam_equipement varchar,
+enqnam_proprio varchar,
+enqnam_divers varchar,
+enqnam_date timestamp not null  default current_timestamp
+)
+
+
+
+
+
+

@@ -1,0 +1,12 @@
+ <dtml-comment>
+title:sélectionne where resultat = <var passée>
+arguments: RESULTAT
+connection_id:Interbase_database_connection
+max_rows:1000
+max_cache:100
+cache_time:0
+class_name:
+class_file:
+</dtml-comment>
+select * from PROSPECT
+where CCL_RESULTAT=<dtml-sqlvar RESULTAT type="string">

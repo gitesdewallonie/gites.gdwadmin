@@ -1,0 +1,20 @@
+ <dtml-comment>
+title:buzz01Player
+arguments: 
+connection_id:Psycopg_database_connection
+max_rows:1000
+max_cache:100
+cache_time:0
+class_name:
+class_file:
+</dtml-comment>
+create table buzz01Player
+(
+buzz01_player_pk serial PRIMARY KEY,
+buzz01_player_nom varchar,
+buzz01_player_email varchar,
+buzz01_player_localite varchar,
+buzz01_player_score integer default 0,
+buzz01_player_langue varchar,
+buzz01_player_date timestamp not null default current_timestamp
+)

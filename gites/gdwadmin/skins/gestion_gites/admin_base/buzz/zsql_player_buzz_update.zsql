@@ -1,0 +1,19 @@
+ <dtml-comment>
+title:buzz.player
+arguments: buzz_player_pk buzz_player_score
+connection_id:Psycopg_database_connection
+max_rows:1000
+max_cache:100
+cache_time:0
+class_name:
+class_file:
+</dtml-comment>
+update 
+   buzz.player
+set
+   buzz_player_score=<dtml-sqlvar buzz_player_score type="int">
+where  
+   buzz_player_pk = <dtml-sqlvar buzz_player_pk type="int">
+
+
+

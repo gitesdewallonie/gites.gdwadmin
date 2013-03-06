@@ -1,0 +1,8 @@
+[default]
+title=
+
+[Objects]
+charge:DTML Method
+traiter_insertion_charge:DTML Method
+traiter_modification_charge:DTML Method
+traiter_modifsup_charge:DTML Method

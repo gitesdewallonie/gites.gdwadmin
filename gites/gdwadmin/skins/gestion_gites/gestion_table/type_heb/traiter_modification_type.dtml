@@ -1,0 +1,2 @@
+<dtml-call zsql_update_type>
+<dtml-call "RESPONSE.redirect('type')">

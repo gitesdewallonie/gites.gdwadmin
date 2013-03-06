@@ -1,0 +1,15 @@
+ <dtml-comment>
+title:jointure heb et type table hote  heb_tab_hote
+arguments: hebhot_heb_fk
+connection_id:Psycopg_database_connection
+max_rows:1000
+max_cache:100
+cache_time:0
+class_name:
+class_file:
+</dtml-comment>
+delete 
+from 
+   heb_tab_hote
+where 
+   hebhot_heb_fk = <dtml-sqlvar hebhot_heb_fk type="string">

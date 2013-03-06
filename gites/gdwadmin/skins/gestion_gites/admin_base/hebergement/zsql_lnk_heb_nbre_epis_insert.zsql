@@ -1,0 +1,20 @@
+ <dtml-comment>
+title:table link_hebergement_epis
+arguments: heb_pk heb_nombre_epis
+connection_id:Psycopg_database_connection
+max_rows:1000
+max_cache:100
+cache_time:0
+class_name:
+class_file:
+</dtml-comment>
+insert into link_hebergement_epis
+(
+heb_pk,
+heb_nombre_epis
+)
+values
+(
+<dtml-sqlvar heb_pk type="int">,
+<dtml-sqlvar heb_nombre_epis type="int">
+)

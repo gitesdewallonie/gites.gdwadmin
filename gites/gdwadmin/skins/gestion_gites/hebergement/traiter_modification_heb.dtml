@@ -1,0 +1,33 @@
+<!--dtml-var REQUEST-->
+
+
+<!-- 
+        appel à un script python pour insérer la clé de l'heb heb_pk 
+         et les différents type de table d'hote hebhot_tabho_fk
+-->
+<dtml-if hebhot_tabho_fk>
+  <dtml-call "insert_heb_table_hote(heb_pk=fheb_pk, hebhot_tabho_fk=hebhot_tabho_fk)">
+<dtml-else>
+  <dtml-call "insert_heb_table_hote(heb_pk=fheb_pk, hebhot_tabho_fk=-1)">
+</dtml-if>
+
+
+<!-- mise à jour de la table hebergement -->
+<dtml-call "admin_base.hebergement.zsql_heb_update()">
+
+
+
+
+<!-- 
+   mise à jour de la table link_hebergement_epis :: un heb peu avoir plusieurs nombre d'epis
+   exemple heb_pk=1  possede 2 et 3 epis
+   script python qui delete toutes les infos et reinsere les nouvelles infos
+-->
+<dtml-if fheb_nbre_epis>
+    <dtml-var "traiter_modification_lnk_heb_epis(heb_pk=fheb_pk, heb_nombre_epis=fheb_nbre_epis)">
+<dtml-else>
+    pas de classification
+</dtml-if>
+
+
+<dtml-call "RESPONSE.redirect('description?fheb_pk='+fheb_pk)">

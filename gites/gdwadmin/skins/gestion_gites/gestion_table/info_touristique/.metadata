@@ -1,0 +1,8 @@
+[default]
+title=
+
+[Objects]
+info_tour:DTML Method
+mod_sup_info_tour:DTML Method
+traiter_insertion_info_tour:DTML Method
+traiter_modification_info_tour:DTML Method

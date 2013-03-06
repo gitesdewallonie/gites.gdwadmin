@@ -1,0 +1,287 @@
+body{
+font-family: verdana, tahoma, helvetica, sans serif; 
+font-size: 10pt;
+ color: #666677;	
+}
+
+a{	 
+font-size: 10;
+font-weight: bold;
+color: #2d701c;
+text-decoration: none;
+}
+
+a:hover{	 
+font-size: 10;
+font-weight: bold;
+color: #FFFF00;
+background-color: #006600;
+/*text-decoration: underline;*/
+}
+
+
+table{
+font-family: verdana, tahoma, helvetica, sans serif; 
+font-size: 10;
+color: #666677;
+width: 95%;
+border-collapse:collapse;
+border:1px solid #999999;	
+}
+
+td{
+border:1px solid #999999;
+}
+
+fieldset {    	
+}
+
+legend {
+background: transparent;
+padding: 0em 0.3em 0em 0.3em;
+font-size: 90%;
+font-weight: bold;
+color: #FFFFFF;	
+}
+
+form {
+border: none;
+ margin: 0;
+}
+
+textarea {
+font: 110% "Courier New", Courier, monospace; 
+border: 1px solid #FF9900;  
+color: #3300CC;
+background-color: white;
+width: 100%;
+}
+
+input {
+font-family: verdana, tahoma, helvetica, sans serif;
+visibility: visible;
+border: 1px solid #FF9900;  
+color: #3300CC;
+background-color: white;
+vertical-align: middle;
+}
+
+select {
+border: 1px solid #FF9900;  
+color: #3300CC;
+vertical-align: top;
+}
+
+.grasrouge{
+color:#FF0000;
+font-weight:bold;
+}
+
+.grasorange{
+color:#ff7d04;
+font-weight:bold;
+}
+
+.grasbleu{
+color:#00F;
+font-weight:bold;
+}
+
+.grasnoir{
+color:#333;
+font-weight:bold;
+}
+
+
+.donnees_base{
+color: #FF6600;
+font-weight: bold;
+text-align: center;
+}
+
+.menu_titre{
+font-family: verdana, tahoma, helvetica, sans serif; 
+font-size: 12;
+font-weight: bold;
+text-decoration: none;
+color: #FF3C00;
+}
+
+
+.menu{
+font-family: verdana, tahoma, helvetica, sans serif; 
+font-size: 10;
+text-decoration: none;
+color: #007700;
+font-weight: bold;
+}
+
+.titre_page{
+font-family: verdana, tahoma, helvetica, sans serif; 
+font-size: 12;
+font-weight: bold;
+text-decoration: none;
+color: #FF3C00;
+}
+	
+.titre_encodage{
+font-family: verdana, tahoma, helvetica, sans serif; 
+font-size: 10;
+font-weight: bold;
+text-decoration: none;
+color: #33FFCC;
+}
+
+.divmenu{
+/*background-color: #eef;*/
+padding: 0.5em 0em 0.5em 0.8em;
+/*line-height: 1.5em;*/
+}
+
+.divmenu a{	 
+font-size: 10;
+font-weight: bold;
+color: #66FF00;
+text-decoration: none;
+}
+
+.divmenu a:hover{	 
+font-size: 10;
+font-weight: bold;
+color: #FFFF00;
+background-color: #006600;
+/*text-decoration: underline;*/
+}
+
+.fieldsetprive {    
+border: 1px solid #336600;
+margin: 1em 0.7em 1em 2em;
+padding: 0em 0em 0.5em 2em;
+line-height: 1.5em;
+width: 75%;
+text-align: left;
+font-family: verdana; 
+font-size: 10;
+}
+
+.fieldsetdescription {    
+border: 1px solid #999999;
+margin: 1em 0.7em 1em 2em;
+padding: 0em 0em 0.5em 2em;
+line-height: 1.5em;
+width: 80%;
+text-align: left;
+font-family: verdana, arial, sans-serif; 
+font-size: 10;
+}
+
+.fieldsetdescription legend{
+font-family:verdana, arial, sans-serif;
+font-variant: small-caps;
+font-size: 1.2em;
+color: #308030;
+}
+
+.table_info{
+font-family: verdana, tahoma, helvetica, sans serif; 
+font-size: 10;
+color: #666677;
+width: 50%;	
+}
+
+.list_even{
+background-color: #E2F3DE;
+}
+
+.list_odd{
+background-color: #FFFFFF;
+}
+
+.table_resultat{
+background-color: #EEEEEE;
+font-weight: bold;
+text-align: center;
+}
+
+.table_titre{
+background-color: #DDDDDD;
+color: #FF6600;
+font-weight: bold;
+text-align: center;
+}
+
+.table_literie_gite{
+font-family: verdana, tahoma, helvetica, sans serif; 
+font-size: 10;
+color: #666677;
+width: 50%;	
+text-align: center;
+border: 0;	
+background-color:#EEFFEE;
+}
+
+.legende {
+background: transparent;
+padding: 0em 0.3em 0em 0.3em;
+font-size: 90%;
+font-weight: bold;
+color: #339933;	
+}
+
+.legende_menu {
+background: transparent;
+padding: 0em 0.3em 0em 0.3em;
+font-size: 90%;
+font-weight: bold;
+color: #FFFF00;	
+}
+
+.infogid{
+color: #339900;
+text-align: right;
+}
+
+.choixinfogid{
+color: #FF6600;
+text-align: left;
+}
+
+.tiret_None {
+font-family: verdana, tahoma, helvetica, sans serif; 
+font-size: 10pt;
+color: #666677;
+font-weight: bold;
+}
+
+.commune_mais_tour{
+font-size:0.5em;
+color:#999;
+}
+
+/* resultat des recherches sur les heb et proprio dans la partie privees */
+.div_resultat{
+padding: 0 0 0 2em;   
+background-color: #dddddd;
+line-height: 1.8em;
+width: 92%;
+}
+.div_resultat a{
+font-size: 1.2em;
+color: #569418;
+}
+
+.div_resultat a:hover{
+font-size: 1.2em;
+color: #ffd755;
+background-color:#555555;
+text-decoration: underline overline;
+}
+
+.fieldset_resultat{
+border: 1px dashed #555555;
+margin: 1em 1em 1em 0.7em;
+/*padding: 0em 0em 0em 0em;*/
+/*line-height: 1.5em;*/
+width: auto;
+text-align: left;	
+}

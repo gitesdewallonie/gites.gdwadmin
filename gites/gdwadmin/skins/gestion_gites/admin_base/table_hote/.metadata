@@ -1,0 +1,18 @@
+[default]
+title=
+
+[Objects]
+zsql_delete_heb_tab_hote_maj:Z SQL Method
+zsql_heb_tab_hote_delete:Z SQL Method
+zsql_heb_tab_hote_insert:Z SQL Method
+zsql_heb_tab_hote_select_all:Z SQL Method
+zsql_heb_tab_hote_update:Z SQL Method
+zsql_heb_table_hote_select_by_hebpk:Z SQL Method
+zsql_table_hote_delete:Z SQL Method
+zsql_table_hote_insert:Z SQL Method
+zsql_table_hote_maj_select_by_hebpk:Z SQL Method
+zsql_table_hote_select_all:Z SQL Method
+zsql_table_hote_select_by_hebpk:Z SQL Method
+zsql_table_hote_select_by_pk:Z SQL Method
+zsql_table_hote_update:Z SQL Method
+zsql_type_table_hote_select_by_hebpk:Z SQL Method

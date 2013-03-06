@@ -1,0 +1,99 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title> Gites wallons : gestion table theme gite </TITLE>
+<meta http-equiv='Content-Type' content='text/html; charset=utf-8'>
+<meta name="generator" content="Bluefish 1.0.4">
+<meta name="author" content="ame">
+<meta name="Keywords" CONTENT="">
+<meta name="Description" CONTENT="">
+<link href="gites_wallons_style.css" type=text/css rel=stylesheet>
+<script language=JavaScript src="gites_wallons_script.js"></script>
+</head>
+
+<body>
+<span class="titre_page">Gestion de la table des types d'informations pratiques</span><br><br>
+
+
+<!---[gestion de la suppression d'un type de table]--->
+<dtml-if "operation == 'supprimer'">
+   <dtml-call "admin_base.info_pratique.zsql_type_info_prat_delete (typinfoprat_pk=typinfoprat_pk)" >
+   <dtml-call "RESPONSE.redirect('type_info_prat')" >
+</dtml-if>
+
+
+
+<!---[Gestion de la modification d'un type de table]--->
+<dtml-if "operation == 'modifier'">   
+   <form name="formulaire" action="traiter_modification_type_info_prat" method="get">
+      <table width="95%" border="1" cellspacing="0" bordercolor="#EEEFEE">
+         <tr>
+            <td colspan="4" align="left" bgcolor="#006666">
+            <span class="titre_encodage">
+            Type d'informations pratiques
+            </span>	
+            </td>
+         </tr>
+         <dtml-in "admin_base.info_pratique.zsql_type_info_prat_select_by_pk(typinfoprat_pk=typinfoprat_pk)">
+            <tr>           
+               <td align="right">Type FR</td>
+               <td>
+                  <input type="text" 
+                         name="typinfoprat_nom_fr" 
+                         value="<dtml-var typinfoprat_nom_fr>" 
+                         size="50">
+               </td>        
+            </tr>
+            <tr>           
+               <td align="right">Type NL</td>
+               <td>
+                  <input type="text" 
+                         name="typinfoprat_nom_nl" 
+                         value="<dtml-var typinfoprat_nom_nl>" 
+                         size="50">
+               </td>        
+            </tr> 
+            <tr>           
+               <td align="right">Type DE</td>
+               <td>
+                  <input type="text" 
+                         name="typinfoprat_nom_de" 
+                         value="<dtml-var typinfoprat_nom_de>" 
+                         size="50">
+               </td>        
+            </tr>  
+            <tr>           
+               <td align="right">Type IT</td>
+               <td>
+                  <input type="text" 
+                         name="typinfoprat_nom_it" 
+                         value="<dtml-var typinfoprat_nom_it>" 
+                         size="50">
+               </td>        
+            </tr> 
+            <tr>           
+               <td align="right">Type EN</td>
+               <td>
+                  <input type="text" 
+                         name="typinfoprat_nom_en" 
+                         value="<dtml-var typinfoprat_nom_en>" 
+                         size="50">
+               </td>        
+            </tr>               
+            <tr>
+               <td colspan="4" align="center">
+                  <input type="hidden" 
+                         name="typinfoprat_pk" 
+                         value="<dtml-var typinfoprat_pk>">
+
+                  <dtml-var bouton_modifier>
+               </td>        
+            </tr>
+         </dtml-in>
+      </table>
+   <input type="hidden" name="operation" value="">
+   </form>  
+</dtml-if>
+
+</body>
+</html>

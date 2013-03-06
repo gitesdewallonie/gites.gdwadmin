@@ -1,0 +1,6 @@
+[default]
+title=
+
+[Objects]
+select_all_demande_reservation_par_site:Z SQL Method
+select_all_fax_demande_reservation:Z SQL Method

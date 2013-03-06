@@ -1,0 +1,14 @@
+ <dtml-comment>
+title:jointure hebergement type table hote   heb_tab_hote
+arguments: 
+connection_id:Psycopg_database_connection
+max_rows:1000
+max_cache:100
+cache_time:0
+class_name:
+class_file:
+</dtml-comment>
+create table heb_tab_hote(
+hebhot_heb_fk int,
+hebhot_tabho_fk int
+)

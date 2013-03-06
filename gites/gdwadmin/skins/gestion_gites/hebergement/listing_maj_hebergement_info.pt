@@ -1,0 +1,50 @@
+<html>
+<head>
+<title> Gites wallons : listes des proprietaires</title>
+<meta http-equiv="content-type" content="text/htm; charset=UTF-8" >
+<meta name="generator" content="vim">
+<meta name="author" content="AFFINITIC">
+<meta name="Keywords" CONTENT="">
+<meta name="Description" CONTENT="Listing des hebergements en attente de mise à jour">
+<link href="gites_wallons_style.css" type=text/css rel=stylesheet>
+<script language=JavaScript src="gites_wallons_script.js"></script>
+</head>
+
+<body>
+
+<span class="titre_page">Liste des h&eacute;bergements en attente de confirmation</span>
+
+<div tal:define="hebergements python:here.admin_base.hebergement.zsql_maj_hebergement_select_all()">
+   <table wiidth="85%" align="center">
+      <tr class="titre_encodage" bgcolor="#006666" align="center">
+         <td>&nbsp;</td>
+         <td>Pk</td>
+         <td>Nom</td>
+         <td>Localit&eacute;</td>
+         <td>En attente depuis</td>
+         <td>&nbsp;</td>
+      </tr> 
+      <span tal:repeat="heb hebergements">
+          <span tal:define="odd repeat/heb/odd">
+              <tr tal:attributes="class python:odd and 'list_odd' or 'list_even'">
+                 <td><span tal:content="heb/heb_maj_pk" /></td>
+                 <td align="center"><span tal:content="heb/heb_maj_hebpk" /></td>
+                 <td align="center"><span tal:content="heb/heb_maj_nom" /></td>
+                 <td align="center"><span tal:content="heb/heb_maj_localite" /></td>
+                 <td align="center"><span tal:content="python:DateTime(str(heb.heb_maj_date_crea)).strftime('%d-%m-%Y %H:%M')" /></td>
+                 <td align="center">
+                     <a href=""
+                        tal:attributes="href string:form_valider_maj_hebergement_info?heb_maj_pk=${heb/heb_maj_pk}&heb_maj_hebpk=${heb/heb_maj_hebpk}">
+                        <img src="images/modifier.png"
+                             border="0"
+                             alt="modifier - valider l'h&eacute;bergement"
+                             title="modifier - valider l'h&eacute;bergement" />
+                     </a>
+                 </td>
+              </tr>
+          </span>
+      </span>
+   </table> 
+</div><!--taldefine-->
+</body>
+</html>

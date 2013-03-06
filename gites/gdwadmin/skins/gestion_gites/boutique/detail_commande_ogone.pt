@@ -1,0 +1,45 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title> Gites wallons : commande boutique</TITLE>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" >
+<meta name="generator" content="Bluefish 1.0.7">
+<meta name="author" content="alain">
+<meta name="Keywords" CONTENT="">
+<meta name="Description" CONTENT="">
+<link href="gites_wallons_style.css" type=text/css rel=stylesheet>
+<script language=JavaScript src="gites_wallons_script.js"></script>
+</head>
+<body>
+   <span class="titre_page">Détail de la commandes OGONE</span><br><br>
+   <tal:requete tal:define="Commandes python:here.gestion_table.boutique.zsql_commande_ogone_select_by_pk()">
+      <ul tal:repeat="com Commandes">
+         <li>PK : <span tal:content="com/com_pk" class="donnees_base" /></li>
+         <li>Numéro : <span tal:content="com/com_numero" class="donnees_base" /></li>
+         <li>Produit : <span tal:content="com/com_produit" class="donnees_base" /></li>
+         <li>Quantité : <span tal:content="com/com_quantite" class="donnees_base" /></li>
+         <li>Prix unitaire : <span tal:content="com/com_prix_unitaire" class="donnees_base" /></li>
+         <li>Frais de port : <span tal:content="com/com_frais_port" class="donnees_base" /></li>
+         <li>Montant du chèque : <span tal:content="com/com_montant_cheque" class="donnees_base" /></li>
+         <li>Prix total : <span tal:content="com/com_prix_total" class="donnees_base" /></li>
+         <li>Devise : <span tal:content="com/com_devise" class="donnees_base" /></li>
+         <li>Nom : <span tal:content="com/com_nom" class="donnees_base" /></li>
+         <li>Prénom : <span tal:content="com/com_prenom" class="donnees_base" /></li>
+         <li>Adresse : <span tal:content="com/com_adresse" class="donnees_base" /></li>
+         <li>Localité : <span tal:content="com/com_cp" class="donnees_base" /> <span tal:content="com/com_localite" class="donnees_base" /></li>
+         <li>Pays : <span tal:content="com/com_pays" class="donnees_base" /></li>
+         <li>E-Mail : <span tal:content="com/com_email" class="donnees_base" /></li>
+         <li>Langue : <span tal:content="com/com_langue" class="donnees_base" /></li>
+         <li>Destinatire : <span tal:content="com/com_nom_destinataire" class="donnees_base" /> <span tal:content="com/com_prenom_destinataire" class="donnees_base" /></li>
+         <li>Société : <span tal:content="com/com_nom_societe" class="donnees_base" /></li>
+         <li>TVA : <span tal:content="com/com_num_tva" class="donnees_base" /></li>
+         <li>Facturation : <span tal:content="com/com_facturation" class="donnees_base" /></li>
+         <li>Mode de paiement : <span tal:content="com/com_mode_paiement" class="donnees_base" /></li>
+         <li>Date de commande : <span tal:content="com/com_date_commande" class="donnees_base" /></li>
+         <li>Date de validation : <span tal:content="com/com_date_validation" class="donnees_base" /></li>
+         <li>Date d'envoi : <span tal:content="com/com_date_envoi" class="donnees_base" /></li>
+         <li>Etat : <span tal:content="com/com_etat" class="donnees_base" /></li>         
+      </ul>
+   </tal:requete>
+</body>
+</html>

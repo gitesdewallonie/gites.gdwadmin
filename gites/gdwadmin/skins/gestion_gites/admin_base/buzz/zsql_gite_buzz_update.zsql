@@ -1,0 +1,19 @@
+ <dtml-comment>
+title:buzz.gite
+arguments: buzz_gite_pk buzz_gite_etat
+connection_id:Psycopg_database_connection
+max_rows:1000
+max_cache:100
+cache_time:0
+class_name:
+class_file:
+</dtml-comment>
+update 
+   buzz.gite
+set
+   buzz_gite_etat=<dtml-sqlvar buzz_gite_etat type="string">
+where  
+   buzz_gite_pk = <dtml-sqlvar buzz_gite_pk type="int">
+
+
+

@@ -1,0 +1,2 @@
+<dtml-call zsql_insert_maison_tourisme>
+<dtml-call "RESPONSE.redirect('maison_tourisme')">

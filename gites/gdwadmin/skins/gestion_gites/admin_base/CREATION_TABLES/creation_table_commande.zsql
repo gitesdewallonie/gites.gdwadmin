@@ -1,0 +1,39 @@
+ <dtml-comment>
+title:
+arguments: 
+connection_id:Psycopg_database_connection
+max_rows:1000
+max_cache:100
+cache_time:0
+class_name:
+class_file:
+</dtml-comment>
+create table commande(
+com_pk serial PRIMARY KEY,
+com_numero varchar,
+com_produit varchar,
+com_quantite integer default 0,
+com_prix_unitaire float default 0,
+com_frais_port float default 0,
+com_montant_cheque float default 0, 
+com_prix_total float default 0,
+com_devise varchar,
+com_nom varchar,
+com_prenom varchar,
+com_adresse varchar,
+com_cp varchar,
+com_localite varchar,
+com_pays varchar,
+com_email varchar,
+com_langue varchar,
+com_nom_destinataire varchar,
+com_prenom_destinataire varchar,
+com_nom_societe varchar,
+com_num_tva varchar,
+com_facturation varchar default 'non',
+com_mode_paiement varchar,
+com_date_commande timestamp not null default current_timestamp,
+com_date_validation timestamp not null default current_timestamp,
+com_date_envoi varchar,
+com_etat varchar default 'attente'
+)

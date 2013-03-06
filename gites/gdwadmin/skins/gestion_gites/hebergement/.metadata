@@ -1,0 +1,48 @@
+[default]
+title=
+
+[Objects]
+choix_heberg_descript:DTML Method
+choix_heberg_descript_copy_reserve:DTML Method
+choix_heberg_modif:DTML Method
+choix_heberg_suppression:DTML Method
+choix_hebergement_by_code_gdw:Page Template
+choix_hebergement_by_commune:Page Template
+choix_proprio:DTML Method
+choix_proprio_by_nom:Page Template
+creation:DTML Method
+description:DTML Method
+description_copy_reserve:DTML Method
+etat_nombre_hebergement:DTML Method
+etat_nombre_hebergement_detail:Page Template
+form_valider_maj_hebergement_info:Page Template
+gallerie:Page Template
+gare_commerce_resto:DTML Method
+generer_code_gdw:External Method
+getIconeNbreEpis:Script (Python)
+getNbreEpis:Script (Python)
+getTypeTableHote:Script (Python)
+getTypeTableHoteByHebPk:Script (Python)
+getTypeTableHoteMajByHebPk:Script (Python)
+insert_heb_table_hote:Script (Python)
+liste_actif:DTML Method
+liste_non_actif:DTML Method
+listing_comparatif_cgt:DTML Method
+listing_maj_hebergement_info:Page Template
+modification:DTML Method
+modification_copy_reserve:DTML Method
+photo_gestion:DTML Method
+photo_result:DTML Method
+testDate:Script (Python)
+theme_label_nombre_hebergement_detail:Page Template
+traiter_insertion_heb:DTML Method
+traiter_insertion_heb2:Script (Python)
+traiter_modification_heb:DTML Method
+traiter_modification_lnk_heb_epis:Script (Python)
+traiter_suppression_heb:DTML Method
+valider_maj_info_hebergement:Script (Python)
+zsql_heb_update_by_animal:Z SQL Method
+zsql_select_all_heb:Z SQL Method
+zsql_select_heb_by_profk:Z SQL Method
+zsql_select_heb_for_XML:Z SQL Method
+zsql_select_hebergement_by_codegdw:Z SQL Method

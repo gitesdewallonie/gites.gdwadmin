@@ -1,0 +1,22 @@
+ <dtml-comment>
+title:buzz.gite
+arguments: buzz_dest_pk buzz_dest_nom buzz_dest_email buzz_dest_localite buzz_dest_player_fk
+connection_id:Psycopg_database_connection
+max_rows:1000
+max_cache:100
+cache_time:0
+class_name:
+class_file:
+</dtml-comment>
+update 
+   buzz.destinataire
+set
+   buzz_dest_nom=<dtml-sqlvar buzz_dest_nom type="string">,
+   buzz_dest_email=<dtml-sqlvar buzz_dest_email type="string">,
+   buzz_dest_localite=<dtml-sqlvar buzz_dest_localite type="string">,
+   buzz_dest_player_fk=<dtml-sqlvar buzz_dest_player_fk type="string">
+where  
+   buzz_dest_pk = <dtml-sqlvar buzz_dest_pk type="int">
+
+
+

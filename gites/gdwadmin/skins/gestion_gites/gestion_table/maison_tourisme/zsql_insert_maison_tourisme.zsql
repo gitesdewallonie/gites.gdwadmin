@@ -1,0 +1,29 @@
+ <dtml-comment>
+title:
+arguments: mais_nom mais_url mais_code mais_gps_long mais_gps_lat mais_id
+connection_id:Psycopg_database_connection
+max_rows:1000
+max_cache:100
+cache_time:0
+class_name:
+class_file:
+</dtml-comment>
+insert into maison_tourisme
+(
+mais_nom,
+mais_url,
+mais_code,
+mais_gps_long,
+mais_gps_lat,
+mais_id
+)
+values
+(
+<dtml-sqlvar mais_nom type="string">,
+<dtml-sqlvar mais_url type="string">,
+<dtml-sqlvar mais_code type="string">,
+<dtml-sqlvar mais_gps_long type="string">,
+<dtml-sqlvar mais_gps_lat type="string">,
+<dtml-sqlvar mais_id type="string">
+
+)

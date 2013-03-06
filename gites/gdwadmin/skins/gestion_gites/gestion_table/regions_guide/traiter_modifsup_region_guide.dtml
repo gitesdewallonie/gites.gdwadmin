@@ -1,0 +1,59 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title> Gites wallons : gestion table région guide </TITLE>
+<meta http-equiv="content-type" content=""text/htm; charset=UTF-8" >
+<dtml-call "RESPONSE.setHeader('Content-Type', 'text/html;charset=UTF-8')">
+<meta name="generator" content="Bluefish 1.0.7">
+<meta name="author" content="alain">
+<meta name="Keywords" CONTENT="">
+<meta name="Description" CONTENT="">
+<link href="gites_wallons_style.css" type=text/css rel=stylesheet>
+<script language=JavaScript src="gites_wallons_script.js"></script>
+</head>
+
+<body>
+<span class="titre_page">Gestion de la table régions du guide</span><br><br>
+
+
+<!---[gestion de la suppression d'une region guide]--->
+<dtml-if "operation == 'supprimer'">   
+   <dtml-call zsql_delete_region_guide>
+   <dtml-call "RESPONSE.redirect('regions_guide')">
+</dtml-if>
+
+
+
+<!---[Gestion de la modification d'une region guide]--->
+<dtml-if "operation == 'modifier'">   
+<form name="formulaire" action="traiter_modification_region_guide" method="get">
+ <table width="95%" border="1" cellspacing="0" bordercolor="#EEEFEE">
+	<tr>
+		<td colspan="4" align="left" bgcolor="#006666">
+			<span class="titre_encodage">
+			Région du guide à modifier
+			</span>
+			</font>
+		</td>
+	</tr>
+     <dtml-in zsql_select_region_guide_regpk>
+     <tr>
+        <td align="right">Nom</td>
+        <td><input type="text" name="freg_nom" value="<dtml-var reg_nom>"></td>        
+        <td align="right">Code</td>
+        <td><input type="text" name="freg_num" value="<dtml-var reg_num>"></td>        
+     </tr>     
+     <tr>
+        <td colspan="4" align="center">
+			<input type="hidden" name="freg_pk" value="<dtml-var reg_pk>">
+			<dtml-var bouton_modifier>
+		</td>        
+     </tr>
+     </dtml-in>
+  </table>
+  <input type="hidden" name="operation" value="">
+</form>  
+</dtml-if>
+
+</body>
+</html>

@@ -1,0 +1,13 @@
+ <dtml-comment>
+title:
+arguments: fprov_pk
+connection_id:Psycopg_database_connection
+max_rows:1000
+max_cache:100
+cache_time:0
+class_name:
+class_file:
+</dtml-comment>
+select * from provinces
+where prov_pk = <dtml-sqlvar fprov_pk type="int">
+

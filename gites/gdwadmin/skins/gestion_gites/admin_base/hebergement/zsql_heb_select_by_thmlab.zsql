@@ -1,0 +1,28 @@
+ <dtml-comment>
+title:table hebergement
+arguments: thmlab
+connection_id:Psycopg_database_connection
+max_rows:1000
+max_cache:100
+cache_time:0
+class_name:
+class_file:
+</dtml-comment>
+select 
+   heb_pk, 
+   heb_nom,
+   heb_cgt_cap_min, 
+   heb_cgt_cap_max, 
+   com_cp, 
+   com_nom, 
+   prov_nom  
+from 
+   hebergement, 
+   commune, 
+   provinces
+where 
+   <dtml-var thmlab> = 'oui'
+   and 
+   com_pk=heb_com_fk 
+   and 
+   prov_pk=com_prov_fk;

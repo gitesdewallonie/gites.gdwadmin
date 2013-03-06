@@ -1,0 +1,24 @@
+ <dtml-comment>
+title:
+arguments: 
+connection_id:Psycopg_database_connection
+max_rows:1000
+max_cache:100
+cache_time:0
+class_name:
+class_file:
+</dtml-comment>
+create table ecard(
+ecard_pk serial primary key,
+ecard_nom_destinataire varchar,
+ecard_mail_destinataire varchar,
+ecard_nom_envoyeur varchar,
+ecard_mail_envoyeur varchar,
+ecard_date timestamp not null  default current_timestamp
+)
+
+
+
+
+
+

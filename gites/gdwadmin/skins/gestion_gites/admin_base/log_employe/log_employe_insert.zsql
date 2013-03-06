@@ -1,0 +1,21 @@
+ <dtml-comment>
+title:
+arguments: login log_heb_fk log_info
+connection_id:Psycopg_database_connection
+max_rows:1000
+max_cache:100
+cache_time:0
+class_name:
+class_file:
+</dtml-comment>
+insert into log_employe(
+log_nom,
+log_heb_fk,
+log_info
+)
+values
+(
+<dtml-sqlvar login type="string">,
+<dtml-sqlvar log_heb_fk type="int" optional>,
+<dtml-sqlvar log_info type="string" optional>
+)

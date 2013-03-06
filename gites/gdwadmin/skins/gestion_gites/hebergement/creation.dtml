@@ -1,0 +1,169 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title> Gites wallons : création hébergement </TITLE>
+<meta http-equiv="content-type" content="="text/ht; charset=UTF-8" >
+<dtml-call "RESPONSE.setHeader('Content-Type', 'text/html;charset=UTF-8')">
+<meta name="generator" content="TextMate">
+<meta name="author" content="Affinitic">
+<meta name="Keywords" CONTENT="">
+<meta name="Description" CONTENT="">
+<link href="gites_wallons_style.css" type=text/css rel=stylesheet>
+<script language=JavaScript src="gites_wallons_script.js"></script>
+</head>
+<body>
+<span class="titre_page">Création d'un hébergement</span><br><br>
+
+<form action="traiter_insertion_heb2" 
+      method="post">
+<input type="hidden" 
+            name="fheb_pro_fk" 
+            value="<dtml-var fpro_pk>" />
+<table border="1" cellspacing="0" bordercolor="#EEEFEE">
+    <tr>
+        <td colspan="2" align="left" bgcolor="#006666">
+            <span class="titre_encodage">
+            INFORMATION PROPRIETAIRE
+            </span>
+            </font>
+        </td>
+    </tr>
+    <dtml-in "zsql_select_proprio_propk(pro_pk=fpro_pk)">
+    <tr>
+        <td>Code du propriétaire</td>
+        <td><dtml-var pro_pk></td>
+    </tr>
+    <tr>
+        <td>Nom 1 du propriétaire</td>
+        <td><a href="#" onClick="ouvrir_fenetre('popup_proprio?fpro_pk=<dtml-var pro_pk>')";><dtml-var pro_nom1></a></td>
+    </tr>
+</dtml-in>
+</table>
+
+<br>
+
+<table border="1" cellspacing="0" bordercolor="#EEEFEE">
+   <tr>
+      <td colspan="2" align="left" bgcolor="#006666">
+         <span class="titre_encodage">
+         INFORMATION GENERALE SUR L'HEBERGEMENT
+         </span>
+         </font>
+      </td>
+   </tr>
+   <tr>
+      <td>Nom de l'hébergement</td>
+      <td>
+         <input type="text" 
+                name="fheb_nom" 
+                value=""
+                size="60" />
+      </td>
+   </tr>
+   <tr>
+      <td>Province</td>
+      <td>        
+         <select name="fheb_prov_fk">
+            <dtml-in zsql_select_all_province>
+               <option value="<dtml-var prov_pk>"> <dtml-var prov_nom></option>
+            </dtml-in>                    
+         </select>
+      </td>
+   </tr>
+   <tr>
+      <td>Adresse</td>
+      <td>
+         <input type="text" 
+                   name="fheb_adresse" 
+                   value=""
+                   size="60" />
+      </td>
+   </tr>
+   <tr>
+      <td>Code postal et Commune</td>
+      <td>
+         <select name="fheb_com_fk">
+            <dtml-in zsql_select_all_commune>
+               <option value="<dtml-var com_pk>"> <dtml-var com_cp>&nbsp;&nbsp;<dtml-var com_nom></option>
+            </dtml-in>                       
+         </select>
+      </td>
+   </tr> 
+   <tr>
+      <td>Région guide</td>
+      <td>
+         <select name="fheb_reg_fk">
+            <dtml-in zsql_select_all_region_guide>
+               <option value="<dtml-var reg_pk>"> <dtml-var reg_num>. <dtml-var reg_nom></option>
+            </dtml-in>
+         </select>
+      </td>
+   </tr>
+</table>
+
+<br><br>
+
+<table border="1" cellspacing="0" bordercolor="#EEEFEE">
+   <tr>
+      <td colspan="2" align="left" bgcolor="#006666">
+         <span class="titre_encodage">CGT</span>
+      </td>    
+   </tr>
+   <tr>
+      <td>Reconnaissance<br>Classification
+      </td>
+      <td>
+         <select name="fheb_cgt_fk">
+            <dtml-in zsql_select_all_cgt>
+               <option value="<dtml-var cgt_pk>"> <dtml-var cgt_code_reco></option>
+            </dtml-in>
+         </select>
+      </td>
+   </tr>
+   <tr>
+      <td>Type</td>
+      <td>
+         <select name="fheb_typeheb_fk">
+            <dtml-in zsql_select_all_type_heb>
+               <option value="<dtml-var type_heb_pk>"> <dtml-var type_heb_code></option>
+            </dtml-in>           
+         </select>
+      </td>
+   </tr> 
+   <tr>
+      <td>Code CGT</td>
+      <td><input type="text" name="fheb_code_cgt" value=""></td>
+   </tr>
+   <tr>
+      <td rowspan="3">Capacité</td>
+      <td>
+         min : <input type="text" name="fheb_cgt_cap_min" value="">  
+      </td>
+   <tr>
+      <td>
+         max : <input type="text" name="fheb_cgt_cap_max" value="">  
+      </td>
+   </tr>
+   <tr>
+      <td>
+         nombre de chambre : <input type="text" name="fheb_cgt_nbre_chmbre" value="">
+      </td>
+   </tr>
+   <tr>
+      <td colspan="2" align="center">
+         <input type="hidden"
+                name="fheb_employe_creation"
+                value="<dtml-var "AUTHENTICATED_USER.getUserName()">" />
+         <input type="submit" 
+                value="Enregister" />
+         &nbsp; :: &nbsp;
+         <input type="reset"
+                value="Effacer" />
+      </td>
+   </tr> 
+</table>
+
+</form>
+</body>
+</html>
+

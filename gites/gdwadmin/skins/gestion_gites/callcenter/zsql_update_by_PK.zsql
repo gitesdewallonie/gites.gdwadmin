@@ -1,0 +1,26 @@
+ <dtml-comment>
+title:modification des données selon CCL_PK
+arguments: CCL_PK CCL_SOCIETE CCL_CONTACT CCL_ADRESSE CCL_CP CCL_LOCALITE CCL_TELEPHONE CCL_FAX CCL_EMAIL CCL_RESULTAT CCL_IMPRESSION CCL_SUIVI CCL_USER
+connection_id:Interbase_database_connection
+max_rows:1000
+max_cache:100
+cache_time:0
+class_name:
+class_file:
+</dtml-comment>
+UPDATE PROSPECT
+set
+CCL_SOCIETE = <dtml-sqlvar CCL_SOCIETE type="string">,
+CCL_CONTACT = <dtml-sqlvar CCL_CONTACT type="string">,
+CCL_ADRESSE = <dtml-sqlvar CCL_ADRESSE type="string">,
+CCL_CP = <dtml-sqlvar CCL_CP type="string">,
+CCL_LOCALITE = <dtml-sqlvar CCL_LOCALITE type="string">,
+CCL_TELEPHONE = <dtml-sqlvar CCL_TELEPHONE type="string">,
+CCL_FAX = <dtml-sqlvar CCL_FAX type="string">,
+CCL_EMAIL = <dtml-sqlvar CCL_EMAIL type="string">,
+CCL_RESULTAT = <dtml-sqlvar CCL_RESULTAT type="string" optional>,
+CCL_IMPRESSION = <dtml-sqlvar CCL_IMPRESSION type="string">,
+CCL_SUIVI = <dtml-sqlvar CCL_SUIVI type="string">,
+CCL_USER = <dtml-sqlvar CCL_USER type="string">
+
+where  CCL_PK = <dtml-sqlvar CCL_PK type="string">

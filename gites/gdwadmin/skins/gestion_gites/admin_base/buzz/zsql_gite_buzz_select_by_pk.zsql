@@ -1,0 +1,25 @@
+ <dtml-comment>
+title:buzz.gite
+arguments: gite_pk
+connection_id:Psycopg_database_connection
+max_rows:1000
+max_cache:100
+cache_time:0
+class_name:
+class_file:
+</dtml-comment>
+select
+   heb_pk,
+   heb_nom,
+   heb_localite,
+   pro_nom1
+from
+   buzz.gite,
+   hebergement,
+   proprio
+where
+   gite_pk=<dtml-sqlvar gite_pk type="int">
+   and
+   hebergement.heb_pk=buzz.gite.gite_heb_fk
+   and
+   proprio.pro_pk=hebergement.heb_pro_fk

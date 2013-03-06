@@ -1,0 +1,2 @@
+<dtml-call "admin_base.info_touristique.zsql_info_tour_update()">
+<dtml-call "RESPONSE.redirect('info_tour')">

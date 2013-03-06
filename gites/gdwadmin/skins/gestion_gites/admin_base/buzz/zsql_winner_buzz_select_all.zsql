@@ -1,0 +1,31 @@
+ <dtml-comment>
+title:buzz.info_winner
+arguments: 
+connection_id:Psycopg_database_connection
+max_rows:1000
+max_cache:100
+cache_time:0
+class_name:
+class_file:
+</dtml-comment>
+select
+   player_nom,
+   player_prenom,   
+   player_email, 
+   player_localite,
+   player_langue,
+   dest_prenom,
+   dest_nom,
+   dest_email,
+   dest_localite,
+   winner_player_heb_fk,
+   winner_destinataire_heb_fk,
+   winner_date
+from
+   buzz.player,
+   buzz.destinataire,
+   buzz.winner
+where
+   player_pk=winner_player_fk
+   and
+   dest_pk=winner_destinataire_fk

@@ -1,0 +1,51 @@
+ <dtml-comment>
+title:table hebergement
+arguments: GDW fheb_nom fheb_adresse fheb_code_cgt fheb_cgt_cap_min fheb_cgt_cap_max fheb_cgt_nbre_chmbre fheb_com_fk fheb_cgt_fk fheb_typeheb_fk fheb_pro_fk fheb_charge_fk fheb_site_public fheb_date_creation fheb_employe_creation
+connection_id:Psycopg_database_connection
+max_rows:1000
+max_cache:100
+cache_time:0
+class_name:
+class_file:
+</dtml-comment>
+insert into hebergement
+
+(
+heb_code_gdw,
+heb_nom,
+heb_adresse,
+heb_com_fk,
+heb_cgt_fk,
+heb_typeheb_fk,
+heb_pro_fk,
+heb_charge_fk,
+heb_code_cgt,
+heb_cgt_cap_min,
+heb_cgt_cap_max,
+heb_cgt_nbre_chmbre,
+heb_ecr_remarque,
+heb_site_public,
+heb_date_creation,
+heb_employe_creation
+)
+
+values
+
+(
+<dtml-sqlvar GDW type="string">,
+<dtml-sqlvar fheb_nom type="string">,
+<dtml-sqlvar fheb_adresse type="string">,
+<dtml-sqlvar fheb_com_fk type="int">,
+<dtml-sqlvar fheb_cgt_fk type="int">,
+<dtml-sqlvar fheb_typeheb_fk type="int">,
+<dtml-sqlvar fheb_pro_fk type="int">,
+<dtml-sqlvar fheb_charge_fk type="int">,
+<dtml-sqlvar fheb_code_cgt type="string">,
+<dtml-sqlvar fheb_cgt_cap_min type="int">,
+<dtml-sqlvar fheb_cgt_cap_max type="int">,
+<dtml-sqlvar fheb_cgt_nbre_chmbre type="int">,
+'-',
+<dtml-sqlvar fheb_site_public type="string">,
+<dtml-sqlvar fheb_date_creation type="string">,
+<dtml-sqlvar fheb_employe_creation type="string">
+)

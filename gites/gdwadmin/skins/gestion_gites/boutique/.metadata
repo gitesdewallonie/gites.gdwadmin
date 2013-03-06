@@ -1,0 +1,15 @@
+[default]
+title=
+
+[Objects]
+chercher_proprietaire:DTML Method
+commande:DTML Method
+creation:DTML Method
+detail_commande_ogone:Page Template
+gestion:DTML Method
+listing_ogone:Page Template
+modification_suppression:DTML Method
+zsql_commande_in:DTML Method
+zsql_gestion_delete:DTML Method
+zsql_gestion_insert:DTML Method
+zsql_gestion_update:DTML Method

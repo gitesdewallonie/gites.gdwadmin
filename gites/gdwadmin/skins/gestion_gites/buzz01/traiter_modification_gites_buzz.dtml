@@ -1,0 +1,4 @@
+<dtml-call zsql_update_proprio>
+<dtml-call "RESPONSE.redirect('liste')">
+
+

@@ -1,0 +1,12 @@
+[default]
+title=
+
+[Objects]
+traiter_insertion_type:DTML Method
+traiter_modification_type:DTML Method
+traiter_modifsup_type:DTML Method
+type:DTML Method
+zsq_select_all_type:Z SQL Method
+zsql_delete_type:Z SQL Method
+zsql_insert_type:Z SQL Method
+zsql_update_type:Z SQL Method

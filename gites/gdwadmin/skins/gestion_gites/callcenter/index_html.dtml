@@ -1,0 +1,142 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title> Gites wallons : CallCenter </TITLE>
+<meta name="Generator" CONTENT="EditPlus">
+<meta name="Author" CONTENT="3lug.be">
+<meta name="Keywords" CONTENT="">
+<meta name="Description" CONTENT="">
+<link href="gites_wallons_style.css" type=text/css rel=stylesheet>
+<script language=JavaScript src="gites_wallons_script.js"></script>
+
+<script>
+function Envoyer(cle, sens){
+   if (sens=='precedent'){
+      cle=cle-1; 
+      document.formulaire.CCL_PK.value=cle;
+      document.formulaire.action='formulaire.html';
+      document.formulaire.submit();
+   }
+   if (sens=='suivant'){
+      cle=cle+1;
+      document.formulaire.CCL_PK.value=cle;
+      document.formulaire.action='formulaire.html';
+      document.formulaire.submit();      
+   }
+}
+</script>
+
+</head>
+<body>
+<span class="titre_page">CallCenter</span><br><br>
+
+
+	<form name="formulaire" action="encoder_formulaire.html" method="get" >
+				
+			<table width="95%" border="1" cellspacing="0" bordercolor="#EEEFEE">
+					<tr>
+						<td colspan="2" align="left" bgcolor="#006666">
+							<span class="titre_encodage">
+								Gestion des appels
+							</span>						
+						</td>
+					</tr>
+					<tr>
+						<td align="right"><font  size="2">Nom de l'hébergement </td>
+						<td>&nbsp;<input type="text" size="65" name="fgwc_nom_heb" value=""></td>
+					</tr>
+					<tr>
+						<td align="right"><font  size="2">Nom du propriétaire</td>
+						<td>&nbsp;<input type="text" size="65" name="fgwc_nom_contact" value=""></td>
+					</tr>
+					<tr>
+						<td align="right"><font  size="2">Prénom du propriétaire</td>
+						<td>&nbsp;<input type="text" size="65" name="fgwc_prenom_contact" value=""></td>
+					</tr>
+					<tr>
+						<td align="right"><font  size="2">Adresse de l'hébergement</td>
+						<td>&nbsp;<input type="text" size="65" name="fgwc_adresse_heb" value=""></td>
+					</tr>
+					<tr>
+						<td align="right"><font  size="2">Code Postale</td>
+						<td>&nbsp;<input type="text" size="4" name="fgwc_cp" value=""></td>
+					</tr>
+					<tr>
+						<td align="right"><font  size="2">Commune</td>
+						<td>&nbsp;<input type="text" size="65" name="fgwc_commune" value=""></td>
+					</tr>
+					<tr>
+						<td align="right"><font  size="2">Localité</td>
+						<td>&nbsp;<input type="text" size="65" name="fgwc_localite" value=""></td>
+					</tr>
+					<tr>
+						<td align="right"><font  size="2">Téléphone</td>
+						<td>&nbsp;<input type="text" size="12" name="fgwc_tel" value=""></td>
+					</tr>
+					<tr>
+						<td align="right"><font  size="2">Fax</td>
+						<td>&nbsp;<input type="text" size="12" name="fgwc_fax" value=""></td>
+					</tr>
+					<tr>
+						<td align="right"><font  size="2">GSM</td>
+						<td>&nbsp;<input type="text" size="65" name="fgwc_gsm" value=""></td>
+					</tr>
+					<tr>
+						<td align="right"><font  size="2">Type de l'hébergement</td>
+						<td>&nbsp;<input type="text" size="65" name="fgwc_type" value=""></td>
+					</tr>
+					<tr>
+						<td align="right"><font  size="2">Nombre d'hébergement</td>
+						<td>&nbsp;<input type="text" size="65" name="fgwc_nbre_heb" value=""></td>
+					</tr>
+					<tr>
+						<td align="right"><font  size="2">Résultat de l'appel</td>
+						<td>
+							<font  size="1" color="#000099">
+							
+								&nbsp;&nbsp;aboutit<input type="radio" name="gwc_resultat" value="reussi">
+							
+
+							
+								&nbsp;&nbsp;pas aboutit<input type="radio" name="gwc_resultat" value="echec">
+							
+
+							
+								&nbsp;&nbsp;Recontacter<input type="radio" name="gwc_resultat" value="recontacter">
+							
+						</td>
+					</tr>       
+					<tr>
+						<td align="right"><font  size="2">Impression suite au contact</td>
+						<td>&nbsp;<textarea name="gwc_impression" cols="51" rows="3" style="font-family: verdana, Arial, Helvetica; font-size: 11px; color: #800000;"></textarea></td>
+					</tr>
+					<tr>
+						<td align="right"><font  size="2">Suivi commercial</td>
+						<td>&nbsp;<textarea name="fgwc_suivi" cols="51" rows="3" style="font-family: verdana, Arial, Helvetica; font-size: 11px; color: #800000;"></textarea></td>
+					</tr>       
+					<tr>			
+						<td >&nbsp;</td>
+						<td align="center" ><input type="submit"  name="op" value="valider">&nbsp; &nbsp; &nbsp;<input type="reset"  value="Vider"></td>
+					</tr>
+				<tr>
+					<td colspan="2">
+						<hr size="1">
+					</td>
+				</tr>
+				<tr>
+					<td align="left">
+						
+					</td>
+					<td>
+						
+					</td>
+				</tr>
+			</table>    
+          
+		
+	</form>
+
+
+
+</body>
+</html>

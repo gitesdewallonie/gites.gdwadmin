@@ -1,0 +1,19 @@
+[default]
+title=
+
+[Objects]
+changeEtatCalendrierProprio:Script (Python)
+choix_proprio:DTML Method
+confirmation_suppression:DTML Method
+creation:DTML Method
+form_valider_maj_proprio_info:Page Template
+isEtatCalendrierProprioActive:Script (Python)
+liste_actif:DTML Method
+liste_non_actif:DTML Method
+listing_maj_proprio_info:Page Template
+modification:DTML Method
+traiter_insertion_proprio:DTML Method
+traiter_modification_etat_proprio:DTML Method
+traiter_modification_proprio:DTML Method
+traiter_suppression_proprio:DTML Method
+valider_maj_info_proprio:Script (Python)

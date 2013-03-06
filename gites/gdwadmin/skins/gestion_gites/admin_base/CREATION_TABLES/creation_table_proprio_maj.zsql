@@ -1,0 +1,32 @@
+ <dtml-comment>
+title:table proprio_maj
+arguments: 
+connection_id:Psycopg_database_connection
+max_rows:1000
+max_cache:100
+cache_time:0
+class_name:
+class_file:
+</dtml-comment>
+drop table proprio_maj;
+
+create table proprio_maj(
+pro_maj_pk  serial PRIMARY KEY,
+pro_maj_propk integer,
+pro_maj_nom1 varchar,
+pro_maj_nom2 varchar,
+pro_maj_prenom1 varchar,
+pro_maj_prenom2 varchar,
+pro_maj_societe varchar,
+pro_maj_adresse varchar,
+pro_maj_email varchar,
+pro_maj_tel_priv varchar,
+pro_maj_gsm1 varchar,
+pro_maj_fax varchar,
+pro_maj_url varchar,
+pro_maj_tva varchar,
+pro_maj_langue varchar,
+pro_maj_date_crea timestamp not null default current_timestamp,
+pro_maj_com_fk varchar,
+pro_maj_civ_fk varchar
+);

@@ -1,0 +1,46 @@
+ <dtml-comment>
+title:buzz.destinataire
+arguments: dest_nom dest_prenom dest_email dest_localite dest_langue dest_player_fk
+connection_id:Psycopg_database_connection
+max_rows:1000
+max_cache:100
+cache_time:0
+class_name:
+class_file:
+</dtml-comment>
+insert into buzz.destinataire
+(
+dest_nom,
+dest_prenom,
+dest_email,
+dest_localite,
+dest_langue,
+dest_player_fk
+)
+values
+(
+<dtml-sqlvar dest_nom type="string">,
+<dtml-sqlvar dest_prenom type="string">,
+<dtml-sqlvar dest_email type="string">,
+<dtml-sqlvar dest_localite type="string">,
+<dtml-sqlvar dest_langue type="string">,
+<dtml-sqlvar dest_player_fk type="int">
+)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

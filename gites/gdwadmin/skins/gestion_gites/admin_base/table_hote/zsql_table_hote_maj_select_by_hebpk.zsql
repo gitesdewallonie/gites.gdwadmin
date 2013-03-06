@@ -1,0 +1,24 @@
+ <dtml-comment>
+title:MAJ jointure heb et type table hote  heb_tab_hote
+arguments: heb_pk
+connection_id:Psycopg_database_connection
+max_rows:1000
+max_cache:100
+cache_time:0
+class_name:
+class_file:
+</dtml-comment>
+select 
+  hebhot_maj_heb_fk,
+  hebhot_maj_tabho_fk,
+  tabho_type_fr
+from
+  heb_tab_hote_maj,
+  table_hote
+where
+  hebhot_maj_heb_fk=<dtml-sqlvar heb_pk type="int">
+  and
+  tabho_pk=hebhot_maj_tabho_fk;
+
+
+

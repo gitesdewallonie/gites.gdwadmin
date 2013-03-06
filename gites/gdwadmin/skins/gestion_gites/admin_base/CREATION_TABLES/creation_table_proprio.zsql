@@ -1,0 +1,42 @@
+ <dtml-comment>
+title:
+arguments: 
+connection_id:Psycopg_database_connection
+max_rows:1000
+max_cache:100
+cache_time:0
+class_name:
+class_file:
+</dtml-comment>
+create table proprio
+(
+pro_pk serial PRIMARY KEY,
+pro_nom1 varchar,
+pro_nom2 varchar,
+pro_prenom1 varchar,
+pro_prenom2 varchar,
+pro_societe varchar,
+pro_adresse varchar,
+pro_email varchar,
+pro_tel_priv varchar,
+pro_tel_bur varchar,
+pro_fax_priv varchar,
+pro_fax_bur varchar,
+pro_gsm1 varchar,
+pro_gsm2 varchar,
+pro_url varchar,
+pro_tva varchar,
+pro_comment varchar,
+pro_etat varchar,
+pro_desact_comment varchar,
+pro_desact_justif varchar,
+pro_date_in varchar,
+pro_date_out varchar,
+pro_motif_out varchar,
+pro_justif_out varchar,
+pro_langue varchar,
+pro_log varchar,
+pro_pass varchar,
+pro_com_fk int,
+pro_civ_fk int
+)

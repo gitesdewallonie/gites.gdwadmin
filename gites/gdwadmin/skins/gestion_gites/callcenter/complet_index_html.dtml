@@ -1,0 +1,264 @@
+<html>
+<head>
+</head>
+<body>
+
+<script>
+function Envoyer(cle, sens){
+   if (sens=='precedent'){
+      cle=cle-1; 
+      document.formulaire.CCL_PK.value=cle;
+      document.formulaire.action='formulaire.html';
+      document.formulaire.submit();
+   }
+   if (sens=='suivant'){
+      cle=cle+1;
+      document.formulaire.CCL_PK.value=cle;
+      document.formulaire.action='formulaire.html';
+      document.formulaire.submit();      
+   }
+}
+</script>
+
+<!------------------------------------------------------------------------------------->
+<font face="verdana" size="2">
+&nbsp;&nbsp;&nbsp;<font color="#4386BC"><b>DONNEES DES GITES</b></font><br>
+<!-- affichage des données -->
+
+
+<dtml-if gwc_pk><!--Cas du second affichage et suivant -->
+ 
+	<form name="formulaire" action="encoder_formulaire.html" method="get" >      
+		<dtml-in zsql_select_all_by_CCL_PK size=1 >
+			<div align="right">
+				<font size="1" color="#3366CC">
+				<dtml-var CCL_TYPE>
+				</font>
+			</div>
+			<table align="center">
+				<dtml-if "CCL_ACTIF=='oui'"><!--Test pour voir si la donnée est toujours activée et donc visible -->
+					<tr>
+						<td align="right"><font  size="2">Nom de la société <font color="#0000FF"><b><dtml-var CCL_PK></font></b> </td>
+						<td>&nbsp;<input type="text" size="65" name="CCL_SOCIETE" value="<dtml-var CCL_SOCIETE>"></td>
+					</tr>
+					<tr>
+						<td align="right"><font  size="2">Nom de la personne de contact</td>
+						<td>&nbsp;<input type="text" size="65" name="CCL_CONTACT" value="<dtml-var CCL_CONTACT null="">"></td>
+					</tr>
+					<tr>
+						<td align="right"><font  size="2">Adresse de la société</td>
+						<td>&nbsp;<input type="text" size="65" name="CCL_ADRESSE" value="<dtml-var CCL_ADRESSE>"></td>
+					</tr>
+					<tr>
+						<td align="right"><font  size="2">Code Postale</td>
+						<td>&nbsp;<input type="text" size="4" name="CCL_CP" value="<dtml-var CCL_CP>"></td>
+					</tr>
+					<tr>
+						<td align="right"><font  size="2">Localité</td>
+						<td>&nbsp;<input type="text" size="65" name="CCL_LOCALITE" value="<dtml-var CCL_LOCALITE>"></td>
+					</tr>
+					<tr>
+						<td align="right"><font  size="2">Téléphone</td>
+						<td>&nbsp;<input type="text" size="12" name="CCL_TELEPHONE" value="<dtml-var CCL_TELEPHONE null="">" ></td>
+					</tr>
+					<tr>
+						<td align="right"><font  size="2">Fax</td>
+						<td>&nbsp;<input type="text" size="12" name="CCL_FAX" value="<dtml-var CCL_FAX null="">" ></td>
+					</tr>
+					<tr>
+						<td align="right"><font  size="2">E-mail</td>
+						<td>&nbsp;<input type="text" size="65" name="CCL_EMAIL" value="<dtml-var CCL_EMAIL null="">"></td>
+					</tr>
+					<tr>
+						<td align="right"><font  size="2">Résultat de l'appel</td>
+						<td>
+							<font  size="1" color="#000099">
+							<dtml-if "CCL_RESULTAT=='reussi'">
+								&nbsp;&nbsp;aboutit<input type="radio" name="CCL_RESULTAT" value="reussi" CHECKED>
+							<dtml-else>
+								&nbsp;&nbsp;aboutit<input type="radio" name="CCL_RESULTAT" value="reussi">
+							</dtml-if>
+
+							<dtml-if "CCL_RESULTAT=='echec'">
+								&nbsp;&nbsp;pas aboutit<input type="radio" name="CCL_RESULTAT" value="echec" CHECKED>
+							<dtml-else>
+								&nbsp;&nbsp;pas aboutit<input type="radio" name="CCL_RESULTAT" value="echec">
+							</dtml-if>
+
+							<dtml-if "CCL_RESULTAT=='recontacter'">
+								&nbsp;&nbsp;Recontacter<input type="radio" name="CCL_RESULTAT" value="recontacter" CHECKED>
+							<dtml-else>
+								&nbsp;&nbsp;Recontacter<input type="radio" name="CCL_RESULTAT" value="recontacter">
+							</dtml-if>
+						</td>
+					</tr>       
+					<tr>
+						<td align="right"><font  size="2">Impression suite au contact</td>
+						<td>&nbsp;<textarea name="CCL_IMPRESSION" cols="51" rows="3" style="font-family: verdana, Arial, Helvetica; font-size: 11px; color: #800000;"><dtml-var CCL_IMPRESSION null=""></textarea></td>
+					</tr>
+					<tr>
+						<td align="right"><font  size="2">Suivi commercial</td>
+						<td>&nbsp;<textarea name="CCL_SUIVI" cols="51" rows="3" style="font-family: verdana, Arial, Helvetica; font-size: 11px; color: #800000;"><dtml-var CCL_SUIVI null=""></textarea></td>
+					</tr>       
+					<tr>			
+					<td >&nbsp;</td>
+					<td align="center" >
+						<input type="submit" name="op" value="valider">
+						&nbsp; &nbsp; &nbsp;
+						<input type="reset"  value="Vider">
+					</td>
+				</tr>
+			<dtml-else>
+				<tr>
+					<td>
+						<font size="2"> 
+						<b>Les données pour la société <font color="#0000FF"><dtml-var CCL_PK> <font color="#800000"><dtml-var CCL_SOCIETE></font></font> ne sont pas accessibles.</b>
+					</td>
+				</tr>	
+			</dtml-if>
+				<tr>
+					<td colspan="2">
+						<hr size="1">
+					</td>
+				</tr>
+				<tr>
+					<td align="left">			        
+						<input type="hidden" name="CCL_USER" value="<dtml-var "AUTHENTICATED_USER.getUserName()">">
+						<input type="hidden" name="CCL_PK" value="<dtml-var CCL_PK>">
+						<dtml-if "CCL_PK>1"><!-- si enregistrement est sup au  numéro 1 affichage bouton bleu activation lien-->				    
+							<a href="javascript:Envoyer(<dtml-var CCL_PK>,'precedent');"><img  src="images/BtnPrcdnton.gif" border=0></a>
+						<dtml-else><!-- sinon enregistrement est = au  numéro 1 affichage bouton gris désactivation lien-->
+							<img  src="images/BtnPrcdntoff.gif" border=0>
+						</dtml-if>	
+						<a href="javascript:Envoyer(<dtml-var CCL_PK>,'suivant');"><img  src="images/BtnSvnton.gif" border=0></a>						
+					</td>
+					<td>
+						<a href="appel_reussi.html"><img src="images/btn_reussi_on.gif" border="0"></a>
+						<a href="inserer_entreprise.html"><img src="images/btn_nouveau_on.gif" border="0"></a>
+					</td>
+				</tr>
+		</table>
+		<br>
+		</dtml-in>
+	</form>
+
+    
+<dtml-else><!--Cas du premier affichage en entrant dans la page -->
+
+
+	<form name="formulaire" action="encoder_formulaire.html" method="get" >
+		<dtml-in zsql_select_all size=1>			
+			<table align="center">
+					<tr>
+						<td align="right"><font  size="2">Nom de l'hébergement <font color="#0000FF"><b><dtml-var gwc_nom_heb></b></font> </td>
+						<td>&nbsp;<input type="text" size="65" name="fgwc_nom_heb" value="<dtml-var gwc_nom_heb>"></td>
+					</tr>
+					<tr>
+						<td align="right"><font  size="2">Nom du propriétaire</td>
+						<td>&nbsp;<input type="text" size="65" name="fgwc_nom_contact" value="<dtml-var gwc_nom_contact null="">"></td>
+					</tr>
+					<tr>
+						<td align="right"><font  size="2">Prénom du propriétaire</td>
+						<td>&nbsp;<input type="text" size="65" name="fgwc_prenom_contact" value="<dtml-var fgwc_prenom_contact null="">"></td>
+					</tr>
+					<tr>
+						<td align="right"><font  size="2">Adresse de l'hébergement</td>
+						<td>&nbsp;<input type="text" size="65" name="fgwc_adresse_heb" value="<dtml-var gwc_adresse_heb>"></td>
+					</tr>
+					<tr>
+						<td align="right"><font  size="2">Code Postale</td>
+						<td>&nbsp;<input type="text" size="4" name="fgwc_cp" value="<dtml-var gwc_cp>"></td>
+					</tr>
+					<tr>
+						<td align="right"><font  size="2">Commune</td>
+						<td>&nbsp;<input type="text" size="65" name="fgwc_commune" value="<dtml-var gwc_commune>"></td>
+					</tr>
+					<tr>
+						<td align="right"><font  size="2">Localité</td>
+						<td>&nbsp;<input type="text" size="65" name="fgwc_localite" value="<dtml-var gwc_localite>"></td>
+					</tr>
+					<tr>
+						<td align="right"><font  size="2">Téléphone</td>
+						<td>&nbsp;<input type="text" size="12" name="fgwc_tel" value="<dtml-var gwc_tel>"></td>
+					</tr>
+					<tr>
+						<td align="right"><font  size="2">Fax</td>
+						<td>&nbsp;<input type="text" size="12" name="fgwc_fax" value="<dtml-var gwc_fax null="">"></td>
+					</tr>
+					<tr>
+						<td align="right"><font  size="2">GSM</td>
+						<td>&nbsp;<input type="text" size="65" name="fgwc_gsm" value="<dtml-var gwc_gsm null="">"></td>
+					</tr>
+					<tr>
+						<td align="right"><font  size="2">Type de l'hébergement</td>
+						<td>&nbsp;<input type="text" size="65" name="fgwc_type" value="<dtml-var gwc_type null="">"></td>
+					</tr>
+					<tr>
+						<td align="right"><font  size="2">Nombre d'hébergement</td>
+						<td>&nbsp;<input type="text" size="65" name="fgwc_nbre_heb" value="<dtml-var gwc_nbre_heb null="">"></td>
+					</tr>
+					<tr>
+						<td align="right"><font  size="2">Résultat de l'appel</td>
+						<td>
+							<font  size="1" color="#000099">
+							<dtml-if "gwc_resultat=='reussi'">
+								&nbsp;&nbsp;aboutit<input type="radio" name="fgwc_resultat" value="reussi" CHECKED>
+							<dtml-else>
+								&nbsp;&nbsp;aboutit<input type="radio" name="gwc_resultat" value="reussi">
+							</dtml-if>
+
+							<dtml-if "gwc_resultat=='echec'">
+								&nbsp;&nbsp;pas aboutit<input type="radio" name="fgwc_resultat" value="echec" CHECKED>
+							<dtml-else>
+								&nbsp;&nbsp;pas aboutit<input type="radio" name="gwc_resultat" value="echec">
+							</dtml-if>
+
+							<dtml-if "gwc_resultat=='recontacter'">
+								&nbsp;&nbsp;Recontacter<input type="radio" name="fgwc_resultat" value="recontacter" CHECKED>
+							<dtml-else>
+								&nbsp;&nbsp;Recontacter<input type="radio" name="gwc_resultat" value="recontacter">
+							</dtml-if>
+						</td>
+					</tr>       
+					<tr>
+						<td align="right"><font  size="2">Impression suite au contact</td>
+						<td>&nbsp;<textarea name="gwc_impression" cols="51" rows="3" style="font-family: verdana, Arial, Helvetica; font-size: 11px; color: #800000;"><dtml-var gwc_impressionG null=""></textarea></td>
+					</tr>
+					<tr>
+						<td align="right"><font  size="2">Suivi commercial</td>
+						<td>&nbsp;<textarea name="fgwc_suivi" cols="51" rows="3" style="font-family: verdana, Arial, Helvetica; font-size: 11px; color: #800000;"><dtml-var gwc_suivi null=""></textarea></td>
+					</tr>       
+					<tr>			
+						<td >&nbsp;</td>
+						<td align="center" ><input type="submit"  name="op" value="valider">&nbsp; &nbsp; &nbsp;<input type="reset"  value="Vider"></td>
+					</tr>
+s				<tr>
+					<td colspan="2">
+						<hr size="1">
+					</td>
+				</tr>
+				<tr>
+					<td align="left">
+						<input type="hidden" name="gcw_pk" value="<dtml-var gwc_pk>">
+						<dtml-if "gwc_pk>1"><!-- si enregistrement est sup au  numéro 1 affichage bouton bleu activation lien-->
+							<a href="javascript:Envoyer(<dtml-var gwc_pk>,'precedent');"><img  src="images/BtnPrcdnton.gif" border=0></a>
+						<dtml-else><!-- sinon enregistrement est = au  numéro 1 affichage bouton gris désactivation lien-->
+							<img  src="images/BtnPrcdntoff.gif" border=0>
+						</dtml-if>
+						<a href="javascript:Envoyer(<dtml-var gwc_pk>,'suivant');"><img  src="images/BtnSvnton.gif" border=0></a>
+					</td>
+					<td>
+						<a href="appel_reussi.html"><img src="images/btn_reussi_on.gif" border="0"></a>
+						<a href="inserer_entreprise.html"><img src="images/btn_nouveau_on.gif" border="0"></a>
+					</td>
+				</tr>
+			</table>    
+          
+		</dtml-in>
+	</form>
+</dtml-if>
+<hr size="1">
+
+
+</body>
+</html>

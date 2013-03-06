@@ -1,0 +1,26 @@
+ <dtml-comment>
+title:
+arguments: 
+connection_id:Psycopg_database_connection
+max_rows:1000
+max_cache:100
+cache_time:0
+class_name:
+class_file:
+</dtml-comment>
+create table guide_commande(
+guicom_pk serial PRIMARY KEY,
+guicom_nom varchar,
+guicom_prenom varchar,
+guicom_adresse varchar,
+guicom_cp varchar,
+guicom_localite varchar,
+guicom_pays varchar,
+guicom_email varchar,
+guicom_nombre int,
+guicom_langue varchar,
+guicom_paiement varchar,
+guicom_date_commande timestamp not null default current_timestamp,
+guicom_traite varchar,
+guicom_date_envoi varchar
+)

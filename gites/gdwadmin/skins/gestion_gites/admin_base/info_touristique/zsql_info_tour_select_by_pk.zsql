@@ -1,0 +1,38 @@
+ <dtml-comment>
+title:table info_touristique
+arguments: infotour_pk
+connection_id:Psycopg_database_connection
+max_rows:1000
+max_cache:100
+cache_time:0
+class_name:
+class_file:
+</dtml-comment>
+select
+   infotour_pk,
+   infotour_nom,
+   infotour_adresse,
+   infotour_url,
+   infotour_gps_long,
+   infotour_gps_lat,
+   infotour_localite,
+   infotour_commune_fk,
+   infotour_type_infotour_fk,
+   com_nom,
+   com_mais_fk,
+   com_cp,
+   mais_nom,
+   typinfotour_nom_fr
+from
+   info_touristique,
+   commune,
+   maison_tourisme,
+   type_info_touristique
+where
+   com_pk=infotour_commune_fk
+   and
+   mais_pk=com_mais_fk
+   and
+   typinfotour_pk=infotour_type_infotour_fk
+   and
+   infotour_pk=<dtml-sqlvar infotour_pk type="int">

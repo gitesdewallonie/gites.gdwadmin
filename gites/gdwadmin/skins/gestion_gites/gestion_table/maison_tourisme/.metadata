@@ -1,0 +1,11 @@
+[default]
+title=
+
+[Objects]
+maison_tourisme:DTML Method
+traiter_insertion_maison_tourisme:DTML Method
+traiter_modification_maison_tourisme:DTML Method
+traiter_modifsup_maison_tourisme:DTML Method
+zsql_delete_maison_tourisme:Z SQL Method
+zsql_insert_maison_tourisme:Z SQL Method
+zsql_update_maison_tourisme:Z SQL Method

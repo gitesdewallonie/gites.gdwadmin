@@ -1,0 +1,287 @@
+<html>
+<head>
+<title> Gites wallons : listes des proprietaires</title>
+<meta http-equiv="content-type" content="text/htm; charset=UTF-8" >
+<meta name="generator" content="vim">
+<meta name="author" content="AFFINITIC">
+<meta name="Keywords" CONTENT="">
+<meta name="Description" CONTENT="Listing des proprio en attente de mise à jour">
+<link href="gites_wallons_style.css" type=text/css rel=stylesheet>
+<script language=JavaScript src="gites_wallons_script.js"></script>
+</head>
+
+<body>
+
+<span class="titre_page">Liste des propri&eacute;taires en attente de confirmation</span>
+
+<form action="valider_maj_info_proprio"
+      method="post">
+<div tal:define="pro_pk request/pro_maj_propk;
+                 proprios python:here.admin_base.proprio.zsql_proprio_select_by_propk(pro_pk=pro_pk);
+                 pro_maj_pk request/pro_maj_pk;
+                 propriosmaj python:here.admin_base.proprio.zsql_maj_proprio_select_by_pro_maj_pk(pro_maj_pk=pro_maj_pk)">
+    <span tal:repeat="proprio proprios"><!--infos actuelles du proprio-->
+        <span tal:repeat="propriomaj propriosmaj"><!--infos en attente validation-->
+            <table width="95%" align="center">
+                <tr class="titre_encodage" bgcolor="#006666">
+                    <td>Donnees</td>
+                    <td>Donn&eacute;es actuelles</td>
+                    <td>Nouvelles donn&eacute;es &agrave; valider</td>
+                </tr>
+                <tr>
+                    <td class="maj-etiquette">PK Proprio</td>
+                    <td>
+                      <span tal:content="proprio/pro_pk"
+                            class="maj-donnee" />
+                    </td>
+                    <td><span tal:content="propriomaj/pro_maj_propk" /></td>
+                </tr>
+                <tr>
+                    <td class="maj-etiquette">Civilit&eacute;</td>
+                    <td>
+                       <span tal:define="civilites python:here.admin_base.civilite.zsql_select_all_civilite()">
+                            <tal:boucle tal:repeat="civilite civilites">
+                                <span tal:condition="python:proprio.pro_civ_fk == civilite.civ_pk">
+                                    <span tal:content="civilite/civ_titre" />
+                                </span>
+                            </tal:boucle>
+                        </span>
+                    </td>
+                    <td>
+                        <select name="pro_civ_fk"
+                                tal:define="civilites python:here.admin_base.civilite.zsql_select_all_civilite()">
+                            <option>...</option>
+                            <tal:boucle tal:repeat="civilite civilites">
+                                <option value=""
+                                        selected=""
+                                        tal:attributes="value civilite/civ_pk;
+                                                        selected python:int(civilite.civ_pk) == int(propriomaj.pro_maj_civ_fk) and 'SELECTED' or ''">
+                                    <span tal:content="civilite/civ_titre" />
+                                </option>
+                            </tal:boucle>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="maj-etiquette">Nom 1</td>
+                    <td>
+                        <span tal:content="proprio/pro_nom1" />
+                    </td>
+                    <td>
+                        <input type="text"
+                               name="pro_nom1"
+                               size="50"
+                               value=""
+                               tal:attributes="value propriomaj/pro_maj_nom1" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="maj-etiquette">Pr&eacute;nom</td>
+                    <td>
+                        <span tal:content="proprio/pro_prenom1" />
+                    </td>
+                    <td>
+                        <input type="text"
+                               name="pro_prenom1"
+                               size="50"
+                               value=""
+                               tal:attributes="value propriomaj/pro_maj_prenom1" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="maj-etiquette">Nom 2</td>
+                    <td>
+                        <span tal:content="proprio/pro_nom2" />
+                    </td>
+                    <td>
+                        <input type="text"
+                               name="pro_nom2"
+                               value=""
+                               size="50"
+                               tal:attributes="value propriomaj/pro_maj_nom2" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="maj-etiquette">Pr&eacute;nom 2</td>
+                    <td>
+                        <span tal:content="proprio/pro_prenom2" />
+                    </td>
+                    <td>
+                        <input type="text"
+                               name="pro_prenom2"
+                               value=""
+                               size="50"
+                               tal:attributes="value propriomaj/pro_maj_prenom2" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="maj-etiquette">Soci&eacute;t&eacute;</td>
+                    <td>
+                        <span tal:content="proprio/pro_societe" />
+                    </td>
+                    <td>
+                        <input type="text"
+                               name="pro_societe"
+                               value=""
+                               size="50"
+                               tal:attributes="value propriomaj/pro_maj_societe" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="maj-etiquette">Adresse</td>
+                    <td>
+                        <span tal:content="proprio/pro_adresse" />
+                    </td>
+                    <td>
+                        <input type="text"
+                               name="pro_adresse"
+                               value=""
+                               size="50"
+                               tal:attributes="value propriomaj/pro_maj_adresse" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="maj-etiquette">Code postal - Localit&eacute;</td>
+                    <td>
+                        <div tal:define="communes python:here.admin_base.commune.zsql_select_all_commune()">
+                            <span tal:repeat="commune communes">
+                                <span tal:condition="python: commune.com_pk ==  proprio.pro_com_fk">
+                                    <span tal:content="commune/com_cp" /> -
+                                    <span tal:content="commune/com_nom" />
+                                </span>
+                            </span>
+                        </div>
+                    </td>
+                    <td>
+                        <div tal:define="communes python:here.admin_base.commune.zsql_select_all_commune()">
+                            <select name="pro_com_fk">
+                                <span tal:repeat="commune communes">
+                                    <option value=""
+                                            selected=""
+                                            tal:attributes="value commune/com_pk;
+                                                            selected python:int(commune.com_pk) == int(propriomaj.pro_maj_com_fk) and 'SELECTED' or ''">
+                                        <span tal:content="commune/com_cp" /> -
+                                        <span tal:content="commune/com_nom" />
+                                    </option>
+                                </span>
+                            </select>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="maj-etiquette">E-mail</td>
+                    <td>
+                        <span tal:content="proprio/pro_email" />
+                    </td>
+                    <td>
+                        <input type="text"
+                               name="pro_email"
+                               value=""
+                               size="50"
+                               tal:attributes="value propriomaj/pro_maj_email" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="maj-etiquette">T&eacute;l&eacute;phone priv&eacute;</td>
+                    <td>
+                        <span tal:content="proprio/pro_tel_priv" />
+                    </td>
+                    <td>
+                        <input type="text"
+                               name="pro_tel_priv"
+                               value=""
+                               size="10"
+                               tal:attributes="value propriomaj/pro_maj_tel_priv" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="maj-etiquette">Fax priv&eacute;</td>
+                    <td>
+                        <span tal:content="proprio/pro_fax_priv" />
+                    </td>
+                    <td>
+                        <input type="text"
+                               name="pro_fax_priv"
+                               value=""
+                               size="10"
+                               tal:attributes="value propriomaj/pro_maj_fax_priv" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="maj-etiquette">GSM 1</td>
+                    <td>
+                        <span tal:content="proprio/pro_gsm1" />
+                    </td>
+                    <td>
+                        <input type="text"
+                               name="pro_gsm1"
+                               value=""
+                               tal:attributes="value propriomaj/pro_maj_gsm1" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="maj-etiquette">URL du site personnel</td>
+                    <td>
+                        <span tal:content="proprio/pro_url" />
+                    </td>
+                    <td>
+                        <input type="text"
+                               name="pro_url"
+                               value=""
+                               tal:attributes="value propriomaj/pro_maj_url" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="maj-etiquette">Num&eacute;ro de TVA</td>
+                    <td>
+                        <span tal:content="proprio/pro_tva" />
+                    </td>
+                    <td>
+                        <input type="text"
+                               name="pro_tva"
+                               value=""
+                               tal:attributes="value propriomaj/pro_maj_tva" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="maj-etiquette">Langues parl&eacute;es</td>
+                    <td>
+                        <span tal:content="proprio/pro_langue" />
+                    </td>
+                    <td>
+                        <input type="text"
+                               name="pro_langue"
+                               value=""
+                               tal:attributes="value propriomaj/pro_maj_langue" />
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3" align="center">
+                        <br />
+                        <input type="hidden"
+                               name="pro_maj_pk"
+                               value=""
+                               tal:attributes="value propriomaj/pro_maj_pk" />
+                        <input type="hidden"
+                               name="pro_pk"
+                               value=""
+                               tal:attributes="value propriomaj/pro_maj_propk" />                       
+                        <input type="hidden"
+                               name="pro_maj_info_etat"
+                               value="Confirm&eacute;" />
+
+                        <input type="submit"
+                               value="Valider ces donn&eacute;es" />
+                    </td>
+                </tr>
+            </table>
+        </span><!--spanrepeat-->
+    </span><!--spanrepeat-->
+</div><!--divdefine--> 
+</form>
+
+
+<a href="listing_maj_proprio_info">Retour &agrave; la liste</a>
+
+</body>
+</html>

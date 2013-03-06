@@ -1,0 +1,7 @@
+[default]
+title=
+
+[Objects]
+zsql_select_all_commune:Z SQL Method
+zsql_select_commune_by_compk:Z SQL Method
+zsql_select_commune_compk:Z SQL Method

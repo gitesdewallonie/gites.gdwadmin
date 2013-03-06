@@ -1,0 +1,31 @@
+ <dtml-comment>
+title:table proprio
+arguments: pro_pk pro_nom1 pro_nom2 pro_prenom1 pro_prenom2 pro_societe pro_adresse pro_email pro_tel_priv pro_fax_priv pro_gsm1 pro_url pro_langue pro_tva pro_comment pro_maj_info_etat pro_com_fk pro_civ_fk
+connection_id:Psycopg_database_connection
+max_rows:1000
+max_cache:100
+cache_time:0
+class_name:
+class_file:
+</dtml-comment>
+update 
+   proprio
+set
+   pro_nom1 = <dtml-sqlvar pro_nom1 type="string">,
+   pro_nom2 = <dtml-sqlvar pro_nom2 type="string">,
+   pro_prenom1 = <dtml-sqlvar pro_prenom1 type="string">,
+   pro_prenom2 = <dtml-sqlvar pro_prenom2 type="string">,
+   pro_societe = <dtml-sqlvar pro_societe type="string">,
+   pro_adresse = <dtml-sqlvar pro_adresse type="string">,
+   pro_email = <dtml-sqlvar pro_email type="string">,
+   pro_tel_priv = <dtml-sqlvar pro_tel_priv type="string">,
+   pro_fax_priv = <dtml-sqlvar pro_fax_priv type="string">,
+   pro_gsm1 = <dtml-sqlvar pro_gsm1 type="string">,
+   pro_url = <dtml-sqlvar pro_url type="string">,
+   pro_tva = <dtml-sqlvar pro_tva type="string">,
+   pro_langue = <dtml-sqlvar pro_langue type="string">,
+   pro_maj_info_etat = <dtml-sqlvar pro_maj_info_etat type="string">,
+   pro_com_fk = <dtml-sqlvar pro_com_fk type="int">,
+   pro_civ_fk=<dtml-sqlvar pro_civ_fk type="string">
+where  
+   pro_pk  = <dtml-sqlvar pro_pk type="int">

@@ -1,0 +1,7 @@
+[default]
+title=
+
+[Objects]
+log_employe_insert:Z SQL Method
+test_user:DTML Method
+zsql_log_employe_select_all:Z SQL Method

@@ -1,0 +1,20 @@
+ <dtml-comment>
+title:table info_pratique
+arguments: 
+connection_id:Psycopg_database_connection
+max_rows:1000
+max_cache:100
+cache_time:0
+class_name:
+class_file:
+</dtml-comment>
+create table info_pratique(
+infoprat_pk serial primary key,
+infoprat_nom varchar,
+infoprat_adresse varchar,
+infoprat_url varchar,
+infoprat_gps_long float default 0.0,
+infoprat_gps_lat float default 0.0,
+infoprat_commune_fk integer,
+infoprat_maison_tourisme_fk integer,
+infoprat_type_infoprat_fk integer)

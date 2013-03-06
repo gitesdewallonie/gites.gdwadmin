@@ -1,0 +1,20 @@
+ <dtml-comment>
+title:
+arguments: 
+connection_id:Psycopg_database_connection
+max_rows:1000
+max_cache:100
+cache_time:0
+class_name:
+class_file:
+</dtml-comment>
+create table commune
+(
+com_pk serial PRIMARY KEY,
+com_nom varchar,
+com_cp varchar,
+com_ins varchar,
+com_reg_fk int,
+com_prov_fk int,
+com_mais_fk int
+)

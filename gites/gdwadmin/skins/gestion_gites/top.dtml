@@ -1,0 +1,13 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<dtml-call "RESPONSE.setHeader('Content-Type', 'text/html;charset=UTF-8')">
+</head>
+<body leftmargin="0" topmargin="0">
+<table border="0" width="100%" cellpadding="0" cellspacing="0">
+	<tr>
+		<td><img src="images/bandeau_sup.jpg"></td>
+	</tr>
+</table>
+</body>
+</html>

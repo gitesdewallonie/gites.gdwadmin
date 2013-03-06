@@ -1,0 +1,26 @@
+<html>
+<head>
+<title> Gites wallons : sélection d'un hébergement par le proprio</TITLE>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" >
+<meta name="generator" content="Zope">
+<meta name="author" content="Affinitic">
+<meta name="Keywords" CONTENT="">
+<meta name="Description" CONTENT="">
+<link href="gites_wallons_style.css" type=text/css rel=stylesheet>
+<script language=JavaScript src="gites_wallons_script.js"></script>
+</head>
+<body>
+<fieldset class="fieldsetprive">
+   <legend class="legende">Buzz Noel :: Encoder un gite</legend>
+   <form action="encoder_gites_confirm"
+         method="post">
+   PK du gites :
+   <input type="text"
+          name="heb_pk"
+          value="" />
+   <hr />
+   <input type="submit"
+          value="Enregistrer le gites">
+</fieldset>
+</body>
+</html>

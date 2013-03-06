@@ -1,0 +1,18 @@
+ <dtml-comment>
+title:log_employe
+arguments: 
+connection_id:Psycopg_database_connection
+max_rows:1000
+max_cache:100
+cache_time:0
+class_name:
+class_file:
+</dtml-comment>
+create table log_employe
+(
+log_pk serial primary key,
+log_nom varchar,
+log_heb_fk int,
+log_info varchar,
+log_date timestamp not null default current_timestamp
+)

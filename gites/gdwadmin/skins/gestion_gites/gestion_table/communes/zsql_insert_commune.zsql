@@ -1,0 +1,31 @@
+ <dtml-comment>
+title:
+arguments: com_nom com_cp com_ins com_reg_fk com_prov_fk com_mais_fk com_id
+connection_id:Psycopg_database_connection
+max_rows:1000
+max_cache:100
+cache_time:0
+class_name:
+class_file:
+</dtml-comment>
+insert into commune
+(
+com_nom,
+com_cp,
+com_ins,
+com_reg_fk,
+com_prov_fk,
+com_mais_fk,
+com_id
+)
+values
+(
+<dtml-sqlvar com_nom type="string">,
+<dtml-sqlvar com_cp type="string">,
+<dtml-sqlvar com_ins type="string" optional>,
+<dtml-sqlvar com_reg_fk type="int" optional>,
+<dtml-sqlvar com_prov_fk type="int" optional>,
+<dtml-sqlvar com_mais_fk type="int" optional>,
+<dtml-sqlvar com_id type="string" optional>
+
+)

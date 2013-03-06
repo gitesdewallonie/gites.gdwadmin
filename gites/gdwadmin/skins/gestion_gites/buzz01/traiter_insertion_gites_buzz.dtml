@@ -1,0 +1,3 @@
+<dtml-call "admin_base.buzz.zsql_gite_buzz_insert()">
+
+<dtml-call "RESPONSE.redirect('listing_hebergement_buzz')">

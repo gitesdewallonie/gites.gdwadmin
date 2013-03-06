@@ -1,0 +1,19 @@
+ <dtml-comment>
+title:
+arguments: pro_nom
+connection_id:Psycopg_database_connection
+max_rows:1000
+max_cache:100
+cache_time:0
+class_name:
+class_file:
+</dtml-comment>
+select pro_pk, pro_nom1, pro_prenom1, pro_email, com_nom, com_cp, heb_nom, heb_code_gdw, heb_pk 
+from proprio, commune, hebergement
+where 
+pro_nom1 like <dtml-sqlvar "'%'+pro_nom.upper()+'%'" type=string>
+and
+com_pk=pro_com_fk
+and
+heb_pro_fk=pro_pk
+order by pro_nom1

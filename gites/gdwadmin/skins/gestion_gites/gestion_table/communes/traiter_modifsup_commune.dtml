@@ -1,0 +1,140 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title> Gites wallons : gestion table commune</TITLE>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" >
+<dtml-call "RESPONSE.setHeader('Content-Type', 'text/html;charset=UTF-8')">
+<meta name="generator" content="Bluefish 1.0.7">
+<meta name="author" content="alain">
+<meta name="Keywords" CONTENT="">
+<meta name="Description" CONTENT="">
+<link href="gites_wallons_style.css" type=text/css rel=stylesheet>
+<script language=JavaScript src="gites_wallons_script.js"></script>
+</head>
+
+<body>
+<span class="titre_page">Gestion de la table commune</span><br><br>
+
+
+<!---[gestion de la suppression d'une commune]--->
+<dtml-if "operation == 'supprimer'">   
+   <dtml-call zsql_delete_commune>
+   <dtml-call "RESPONSE.redirect('communes')">
+</dtml-if>
+
+
+
+<!---[Gestion de la modification d'une commune]--->
+<dtml-if "operation == 'modifier'">   
+<form name="formulaire" 
+      action="traiter_modification_commune" 
+      method="post">
+
+ <table width="95%" 
+        border="1" 
+        cellspacing="0" 
+        bordercolor="#EEEFEE">
+   <tr>
+      <td colspan="4" align="left" bgcolor="#006666">
+         <span class="titre_encodage">
+            Commune à modifier
+         </span>
+       </td>
+   </tr>
+     <dtml-in "admin_base.commune.zsql_select_commune_by_compk(fcom_pk=com_pk)">
+     <tr>
+        <td align="right">Nom</td>
+        <td>
+           <input type="text" 
+                  name="com_nom" 
+                  value="<dtml-var com_nom>" />
+        </td> 
+	</tr>
+	<tr>
+        <td align="right">CP</td>
+        <td>
+           <input type="text" 
+                  name="com_cp" 
+                  value="<dtml-var com_cp>" />
+        </td>        
+     </tr> 
+	 <tr>
+        <td align="right">INS</td>
+        <td>
+           <input type="text" 
+                  name="com_ins" 
+                  value="<dtml-var com_ins>" />
+        </td>        
+     </tr>
+     <tr>
+        <td align="right">Région du guide</td>
+        <td>
+			<select name="com_reg_fk">
+				<option value="">  </option>
+				<dtml-in zsql_select_all_region_guide>
+					<dtml-if "com_reg_fk==reg_pk">
+						<option value="<dtml-var reg_pk>" selected> <dtml-var reg_nom></option>
+					<dtml-else>
+						<option value="<dtml-var reg_pk>"> <dtml-var reg_nom></option>
+					</dtml-if>
+				</dtml-in>
+			</select>
+		</td>        
+     </tr>
+	 <tr>
+        <td align="right">Province</td>
+        <td>
+			<select name="com_prov_fk">
+				<option value="">  </option>
+				<dtml-in zsql_select_all_province>
+					<dtml-if "com_prov_fk==prov_pk">
+						<option value="<dtml-var prov_pk>" selected> <dtml-var prov_nom></option>
+					<dtml-else>
+						<option value="<dtml-var prov_pk>"> <dtml-var prov_nom></option>
+					</dtml-if>
+				</dtml-in>
+			</select>
+		</td>        
+     </tr>
+	 <tr>
+        <td align="right">Maison du tourisme</td>
+        <td>
+			<select name="com_mais_fk">
+				<option value="">  </option>
+				<dtml-in zsql_select_all_maison_tourisme>
+					<dtml-if "com_mais_fk==mais_pk">
+						<option value="<dtml-var mais_pk>" selected> <dtml-var mais_nom></option>
+					<dtml-else>
+						<option value="<dtml-var mais_pk>"> <dtml-var mais_nom></option>
+					</dtml-if>
+				</dtml-in>
+			</select>
+		</td>        
+     </tr>
+     <tr>
+        <td align="right">ID Google</td>
+        <td>
+           <input type="text" 
+                  name="com_id" 
+                  value="<dtml-var com_id>" />
+        </td>        
+     </tr>
+     <tr>
+        <td colspan="4" align="center">
+			<input type="hidden" 
+			       name="com_pk" 
+			       value="<dtml-var com_pk>" /> 
+			       
+			<dtml-var bouton_modifier>
+		</td>        
+     </tr>
+     </dtml-in>
+  </table>
+  <input type="hidden" 
+         name="operation" 
+         value="" />
+</form>  
+</dtml-if>
+
+</body>
+</html>

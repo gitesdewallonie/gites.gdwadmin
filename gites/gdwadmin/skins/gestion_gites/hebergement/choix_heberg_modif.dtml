@@ -1,0 +1,153 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title> Gites wallons : sélection d'un hébergement</TITLE>
+<meta http-equiv="content-type" content="="text/ht; charset=UTF-8" >
+<dtml-call "RESPONSE.setHeader('Content-Type', 'text/html;charset=UTF-8')">
+<meta name="generator" content="Bluefish 1.0.7">
+<meta name="author" content="alain">
+<meta name="Keywords" CONTENT="">
+<meta name="Description" CONTENT="">
+<link href="gites_wallons_style.css" type=text/css rel=stylesheet>
+<script language=JavaScript src="gites_wallons_script.js"></script>
+</head>
+<body>
+
+
+<!---[DEBUT RECHERCHER]--->
+
+<table>
+   <tr>
+      <td colspan="2" align="left" bgcolor="#006666">
+         <span class="titre_encodage">
+            RECHERCHER UN HEBERGEMENT
+         </span>
+      </td>
+   </tr>
+</table>
+
+
+<fieldset class="fieldsetprive">
+   <legend class="legende">Recherche sur la PK de l'hébergement</legend>
+   <form action="modification" method="get">
+      <table class="table_resultat">	
+         <tr>
+            <td align="center"> 
+               PK de l'hebergement ?
+               <input type="text" name="fheb_pk" value="" />
+            </td>
+         </tr>	
+         <tr>
+            <td align="center">
+               <input type="submit" value="Lancer la recherche">               
+            </td>
+         </tr>
+      </table>
+   </form>
+</fieldset>
+
+
+
+<fieldset class="fieldsetprive">
+   <legend class="legende">Recherche sur le code GDW de l'hébergement</legend>   
+      <table class="table_resultat">
+         <form action="modification" method="get">
+            <tr>
+               <td>                
+                  Voici la liste des code GDW des hébergements encodés.<br />
+                  Sélectionnez un code GDW ?
+                  <br /><br />
+                  <select name="fheb_pk">
+                     <option>...</option>
+                     <dtml-in "admin_base.zsql_heb_select_all_gdw()">   
+                        <option value="<dtml-var heb_pk>"> <dtml-var heb_code_gdw></option>   
+                     </dtml-in>
+                  </select>
+                  <br />
+               </td>
+            </tr>
+            <tr>
+               <td align="center">
+                  <input type="submit" value="Lancer la recherche">               
+               </td>
+            </tr>
+            <tr>
+               <td align="center">
+                  <hr />               
+               </td>
+            </tr>
+         </form>
+         <form action="choix_hebergement_by_code_gdw" method="get">
+            <tr>
+               <td>                             
+                  Ou entrez quelques caractères d'un code GDW ?<br />               
+                  <input type="text" name="heb_code_gdw" value="" size="10">  
+                  <br />              
+               </td>
+            </tr>
+            <tr>
+               <td align="center">
+                  <input type="submit" value="Lancer la recherche">               
+               </td>
+            </tr>
+         </form>
+      </table>
+   </form>
+</fieldset>
+
+
+
+<fieldset class="fieldsetprive">
+   <legend class="legende">Recherche sur le code postal de l'hébergement</legend>
+   <form action="choix_hebergement_by_commune" method="get">
+      <table class="table_resultat">
+         <tr>
+            <td>
+               Voici la liste des codes postaux des communes où se situe un ou plusieurs hébergements.<br />
+               Sélectionez-en un. Il vous donnera la liste des hébergements. Vous ferez alors votre choix.
+               <br /><br />
+               <select name="com_pk">
+                  <dtml-in "admin_base.zsql_heb_select_all_by_cp()">
+                     <option value="<dtml-var com_pk>"> 
+                        <dtml-var com_cp> &nbsp;&nbsp;&nbsp; <dtml-var com_nom>   
+                     </option>
+                  </dtml-in>								
+               </select>
+            </td>
+         </tr>
+         <tr>
+            <td align="center">
+               <input type="submit" value="Lancer la recherche">               
+            </td>
+         </tr>
+      </table>
+   </form>
+</fieldset>
+
+<fieldset class="fieldsetprive">
+   <legend class="legende">Recherche sur le propriétaire de l'hébergement</legend>
+   <form action="choix_proprio_by_nom" method="get">
+      <table class="table_resultat">
+         <tr>
+            <td>
+               Veuillez encoder le nom ou quelques lettres du nom du 
+               propriétaire que vous recherchez<br />
+               Une liste de nom contenant ces lettres vous sera alors proposée.<br />
+               Vous n'aurez plus qu'à effectuer votre sélection.
+               <br /><br />
+               <input type="text" name="pro_nom" value="" size="50" />
+            </td>
+         </tr>
+         <tr>
+            <td align="center">
+               <input type="submit" value="Lancer la recherche">                        
+            </td>
+         </tr>
+      </table>
+   </form>
+</fieldset>
+
+
+</form>
+</body>
+</html>

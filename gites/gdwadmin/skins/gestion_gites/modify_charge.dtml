@@ -1,0 +1,22 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<dtml-call "RESPONSE.setHeader('Content-Type', 'text/html;charset=UTF-8')">
+</head>
+<body>
+<table border="1">
+<tr>
+  <td>heb_pk</td>
+  <td>heb_charge_fk</td>
+  <td>heb_tarif_charge</td>
+</tr>
+<dtml-in zsql_select_all_heb>
+   <tr>
+     <td><dtml-var heb_pk></td>
+     <td><dtml-var heb_charge_fk></td>
+     <td><dtml-var heb_tarif_charge></td>
+   </tr>
+</dtml-in>
+</table>
+</body>
+</html>

@@ -1,0 +1,21 @@
+[default]
+title=
+
+[Objects]
+zsql_compte_maj_proprio_en_attente_confirmation:Z SQL Method
+zsql_maj_proprio_delete_by_pro_maj_pk:Z SQL Method
+zsql_maj_proprio_select_all:Z SQL Method
+zsql_maj_proprio_select_by_pro_maj_pk:Z SQL Method
+zsql_proprio_count_all:Z SQL Method
+zsql_proprio_count_all_active:Z SQL Method
+zsql_proprio_count_all_non_active:Z SQL Method
+zsql_proprio_insert:Z SQL Method
+zsql_proprio_select_all:Z SQL Method
+zsql_proprio_select_all_actif:Z SQL Method
+zsql_proprio_select_all_non_actif:Z SQL Method
+zsql_proprio_select_by_propk:Z SQL Method
+zsql_proprio_select_proprio:Z SQL Method
+zsql_proprio_update:Z SQL Method
+zsql_proprio_update_etat:Z SQL Method
+zsql_proprio_update_with_maj_info:Z SQL Method
+zsql_select_heb_profk:Z SQL Method

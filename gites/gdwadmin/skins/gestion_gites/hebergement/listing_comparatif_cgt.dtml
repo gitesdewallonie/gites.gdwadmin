@@ -1,0 +1,50 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<dtml-call "RESPONSE.setHeader('Content-Type', 'text/html;charset=UTF-8')">
+<title> Gites wallons : création hébergement </TITLE>
+<meta name="generator" content="Bluefish 1.0.7">
+<meta name="author" content="alain">
+<meta name="Keywords" CONTENT="">
+<meta name="Description" CONTENT="">
+<link href="gites_wallons_style.css" type=text/css rel=stylesheet>
+<script language=JavaScript src="gites_wallons_script.js"></script>
+</head>
+<body>
+<table>
+<tr>
+<td>GDW</td>
+<td>Heb</td>
+<td>proprio</td>
+<td>adresse</td>
+<td>epis</td>
+<td>cap min</td>
+<td>cap max</td>
+<td>literie 1</td>
+<td>literie 2</td>
+<td>literie sup</td>
+<td>literie enf</td>
+</tr>
+<dtml-in zsql_select_all_heb>
+<dtml-if sequence-even>
+<tr bgcolor="CCFFCC">
+<dtml-else>
+<tr>
+</dtml-if>
+<td><dtml-var heb_code_gdw></td>
+<td><dtml-var heb_nom></td>
+<td><dtml-var heb_pro_fk></td>
+<td><dtml-var heb_adresse></td>
+<td><dtml-var heb_nbre_epis></td>
+<td><dtml-var heb_cgt_cap_min></td>
+<td><dtml-var heb_cgt_cap_max></td>
+<td><dtml-var heb_lit_1p></td>
+<td><dtml-var heb_lit_2p></td>
+<td><dtml-var heb_lit_sup></td>
+<td><dtml-var heb_lit_enf></td>
+</tr>
+</dtml-in>
+</table>
+</body>
+</html>

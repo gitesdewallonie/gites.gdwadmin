@@ -1,0 +1,7 @@
+<!-- page précédente : inserer_entreprise.html-->
+<!-- appel à la zsql method pour insérer les données dans la base table prospect -->
+<!-- Redirection vers la page inserer_entreprise.html -->
+
+
+<dtml-call zsql_inserer_entreprise>
+<dtml-call "RESPONSE.redirect('inserer_entreprise.html')">

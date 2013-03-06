@@ -1,0 +1,16 @@
+ <dtml-comment>
+title:
+arguments: fpro_pk fpro_etat
+connection_id:Psycopg_database_connection
+max_rows:1000
+max_cache:100
+cache_time:0
+class_name:
+class_file:
+</dtml-comment>
+update 
+   proprio
+set
+   pro_etat = <dtml-sqlvar fpro_etat type="string">
+  where  
+   pro_pk  = <dtml-sqlvar fpro_pk type="int">

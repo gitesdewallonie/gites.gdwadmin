@@ -1,0 +1,53 @@
+<html>
+<head>
+<title> Gites wallons : sélection d'un hébergement par le proprio</TITLE>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" >
+<meta name="generator" content="Zope">
+<meta name="author" content="Affinitic">
+<meta name="Keywords" CONTENT="">
+<meta name="Description" CONTENT="">
+<link href="gites_wallons_style.css" type=text/css rel=stylesheet>
+<script language=JavaScript src="gites_wallons_script.js"></script>
+</head>
+<body>
+<fieldset class="fieldsetprive"
+          tal:define="heb_pk request/heb_pk" >
+
+    <legend class="legende">BuzzNoel :: Confirmer le gite</legend>
+    <tal:requete tal:define="Gites python:here.admin_base.buzz.zsql_select_heb_hebpk(heb_pk=heb_pk)">
+        <tal:boucle tal:repeat="gite Gites">
+            <table border="0">
+                <tr>
+                    <td width="200">
+                        <ul>
+                            <li>Pk : <span tal:content="gite/heb_pk" class="choixinfogid" /></li>
+                            <li>Nom : <span tal:content="gite/heb_nom" class="choixinfogid" /></li>
+                            <li>Localit� : <span tal:content="gite/heb_localite" class="choixinfogid" /></li>
+                            <li>Proprio  : <span tal:content="gite/pro_nom1" class="choixinfogid" />
+                        </ul>
+                    </td>
+                    <td align="center">
+                        <img src=""
+                             width="50%"
+                             tal:attributes="src string:photos_heb/${gite/heb_code_gdw}00.jpg">
+                    </td>   
+                </tr>
+                <tr>
+                    <td colspan="2" align="center">
+                        <form action="traiter_insertion_gites_buzz"
+                              method="post">
+                            <input type="hidden"
+                                   name="heb_pk"
+                                   value=""
+                                   tal:attributes="value heb_pk" />
+                            <input type="submit"
+                                   value="Confirmer le gite">
+                        </form>
+                    </td>
+                </tr>
+            </table>                   
+        </tal:boucle>
+   </tal:requete>
+</fieldset>
+</body>
+</html>

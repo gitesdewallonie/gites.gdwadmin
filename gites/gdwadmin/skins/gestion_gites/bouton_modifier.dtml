@@ -1,0 +1,7 @@
+<a href="javascript:Envoyer('modifier');" 
+   onMouseOver="modification.src='images/btn_modifier_on.gif' " 
+   onMouseOut="modification.src='images/btn_modifier_off.gif' ">
+      <img name="modification" 
+           src="images/btn_modifier_off.gif" 
+           border="0" 
+           onLoad="tempImg=new Image(0,0); tempImg.src='images/btn_modifier_on.gif'"></a> 			

@@ -1,0 +1,11 @@
+[default]
+title=
+
+[Objects]
+regions_guide:DTML Method
+traiter_insertion_region_guide:DTML Method
+traiter_modification_region_guide:DTML Method
+traiter_modifsup_region_guide:DTML Method
+zsql_delete_region_guide:Z SQL Method
+zsql_insert_region_guide:Z SQL Method
+zsql_update_region_guide:Z SQL Method

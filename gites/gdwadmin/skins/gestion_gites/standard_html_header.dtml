@@ -1,0 +1,14 @@
+<html>
+<head>
+
+<dtml-call "RESPONSE.setHeader('Content-Type', 'text/html;charset=UTF-8')">
+<frameset rows="85,*" frameborder="no" border="0">
+	<frame name="top" src="top" scrolling="no">
+	<frameset cols="180,*">
+		<frame name="left" src="menu" >
+		<frame name="principal" src="intro">
+	</frameset>
+<noframes>
+</head>
+<body leftmargin="0" topmargin="0">
+

@@ -1,0 +1,26 @@
+[default]
+title=gestion des tables
+
+[Objects]
+boutique:Folder
+cgt_classement:Folder
+charge:Folder
+civilite:Folder
+communes:Folder
+demande_reservation:Folder
+ecard:Folder
+enquete_namur:Folder
+info_pratique:Folder
+info_touristique:Folder
+label_gite:Folder
+maison_tourisme:Folder
+provinces:Folder
+regions_guide:Folder
+table_hote:Folder
+them_gite:Folder
+type_heb:Folder
+type_info_pratique:Folder
+type_info_touristique:Folder
+zsql_select_for_guide:Z SQL Method
+zsql_update_chafk_chatarif:Z SQL Method
+zsql_update_hebergement_sitepublic:Z SQL Method

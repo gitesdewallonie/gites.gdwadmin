@@ -1,0 +1,22 @@
+ <dtml-comment>
+title:
+arguments: cha_pk cha_type_fr cha_type_en cha_type_nl cha_type_it cha_type_de
+connection_id:Psycopg_database_connection
+max_rows:1000
+max_cache:100
+cache_time:0
+class_name:
+class_file:
+</dtml-comment>
+update charge
+
+set
+
+cha_type_fr = <dtml-sqlvar cha_type_fr type="string">,
+cha_type_en = <dtml-sqlvar cha_type_en type="string">,
+cha_type_nl = <dtml-sqlvar cha_type_nl type="string">,
+cha_type_it = <dtml-sqlvar cha_type_it type="string">,
+cha_type_de = <dtml-sqlvar cha_type_de type="string">
+
+
+where cha_pk = <dtml-sqlvar cha_pk type="string">

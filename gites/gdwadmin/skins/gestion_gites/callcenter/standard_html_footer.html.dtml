@@ -1,0 +1,18 @@
+<table border="0" width="900" align="center">
+   <tr>
+     <td width="300" align="left">	
+	<A HREF="http://www.zopera.org"  target="_blank" onMouseOver="img1.src='images/logozopeon.gif' "  onMouseOut="img1.src='images/logozopeoff.gif' ">
+	<IMG NAME="img1" BORDER=0 SRC="images/logozopeoff.gif" onLoad="tempImg=new Image(0,0); tempImg.src='images/logozopeon.gif'"></A>
+     </td>
+     <td width="300" align="center">
+        <font face="verdana" size="1" color="#000000">
+        <dtml-var ZopeTime fmt="%d-%m-%Y">
+     </td>
+     <td align="right">
+	<a href="http://www.lixeo.com" target="_blank"><img src="images/logo-lixeo.gif" border="0"></a>
+     </td>
+   </tr>
+</table>
+
+</BODY>
+</HTML>

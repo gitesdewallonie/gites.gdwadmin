@@ -1,0 +1,78 @@
+<dtml-var standard_html_header>
+<dtml-in zsql_select_all size=20 start=query_start>
+   <dtml-if sequence-start>
+
+      <dtml-if previous-sequence>
+
+        <a href="<dtml-var URL><dtml-var sequence-query
+                 >query_start=<dtml-var
+                 previous-sequence-start-number>">
+        (Previous <dtml-var previous-sequence-size> results)
+        </a>
+
+      </dtml-if previous-sequence>
+
+      <table border>
+        <tr>
+          <th>CCL PK</th>
+          <th>CCL ACTIF</th>
+          <th>CCL SOCIETE</th>
+          <th>CCL CONTACT</th>
+          <th>CCL ADRESSE</th>
+          <th>CCL CP</th>
+          <th>CCL LOCALITE</th>
+          <th>CCL TELEPHONE</th>
+          <th>CCL FAX</th>
+          <th>CCL EMAIL</th>
+          <th>CCL RESULTAT</th>
+          <th>CCL IMPRESSION</th>
+          <th>CCL SUIVI</th>
+          <th>CCL USER</th>
+          <th>CCL DATE MODIF</th>
+          <th>CCL HEURE MODIF</th>
+          <th>CCL TYPE</th>
+        </tr>
+      
+   </dtml-if sequence-start>
+
+        <tr>
+          <td><dtml-var CCL_PK null=""></td>
+          <td><dtml-var CCL_ACTIF></td>
+          <td><dtml-var CCL_SOCIETE></td>
+          <td><dtml-var CCL_CONTACT></td>
+          <td><dtml-var CCL_ADRESSE></td>
+          <td><dtml-var CCL_CP></td>
+          <td><dtml-var CCL_LOCALITE></td>
+          <td><dtml-var CCL_TELEPHONE></td>
+          <td><dtml-var CCL_FAX></td>
+          <td><dtml-var CCL_EMAIL></td>
+          <td><dtml-var CCL_RESULTAT></td>
+          <td><dtml-var CCL_IMPRESSION></td>
+          <td><dtml-var CCL_SUIVI></td>
+          <td><dtml-var CCL_USER></td>
+          <td><dtml-var CCL_DATE_MODIF null=""></td>
+          <td><dtml-var CCL_HEURE_MODIF null=""></td>
+          <td><dtml-var CCL_TYPE></td>
+        </tr>
+
+   <dtml-if sequence-end>
+
+      </table>
+      <dtml-if next-sequence>
+
+         <a href="<dtml-var URL><dtml-var sequence-query
+            >query_start=<dtml-var
+            next-sequence-start-number>">
+         (Next <dtml-var next-sequence-size> results)
+         </a>
+
+      </dtml-if next-sequence>
+   </dtml-if sequence-end>
+
+<dtml-else>
+
+  There was no data matching this &dtml-title_or_id; query.
+
+</dtml-in>
+
+<dtml-var standard_html_footer>

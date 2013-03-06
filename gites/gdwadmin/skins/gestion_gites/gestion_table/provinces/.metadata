@@ -1,0 +1,11 @@
+[default]
+title=
+
+[Objects]
+provinces:DTML Method
+traiter_insertion_province:DTML Method
+traiter_modification_province:DTML Method
+traiter_modifsup_province:DTML Method
+zsql_delete_province:Z SQL Method
+zsql_insert_province:Z SQL Method
+zsql_update_province:Z SQL Method

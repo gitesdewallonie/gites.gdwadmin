@@ -1,0 +1,6 @@
+[default]
+title=
+
+[Objects]
+zsql_commande_ogone_select_all:Z SQL Method
+zsql_commande_ogone_select_by_pk:Z SQL Method

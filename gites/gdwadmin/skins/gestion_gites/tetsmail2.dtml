@@ -1,0 +1,11 @@
+<dtml-sendmail mailhost="MailHost">
+To: alain.meurant@skynet.be
+Cc: michael.gdw@skynet.be
+Bcc: alain.meurant@skynet.be
+From: gitesdewallonie@skynet.be
+Subject: Commande d'un produit GDW
+
+TEST
+gitesdewallonie@skynet.be
+</dtml-sendmail>
+hop hop

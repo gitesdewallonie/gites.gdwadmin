@@ -1,0 +1,127 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title> Gites wallons : listes des propriétaires</TITLE>
+<meta http-equiv="content-type" content=""text/htm; charset=UTF-8" >
+<dtml-call "RESPONSE.setHeader('Content-Type', 'text/html;charset=UTF-8')">
+<meta name="generator" content="Bluefish 1.0.7">
+<meta name="author" content="alain">
+<meta name="Keywords" CONTENT="">
+<meta name="Description" CONTENT="">
+<link href="gites_wallons_style.css" type=text/css rel=stylesheet>
+<script language=JavaScript src="gites_wallons_script.js"></script>
+</head>
+<body>
+<span class="titre_page">
+   Liste des 
+   <dtml-in "admin_base.proprio.zsql_proprio_count_all()">
+      <dtml-var count>
+   </dtml-in> 
+   propriétaires actifs
+   <ul>
+      <li>
+         <dtml-in "admin_base.proprio.zsql_proprio_count_all_active()">
+            <dtml-var count> activés
+         </dtml-in>
+      </li>
+      <li>
+         <dtml-in "admin_base.proprio.zsql_proprio_count_all_non_active()">
+            <dtml-var count> désactivés
+         </dtml-in>
+      </li>
+   </ul>
+</span>
+
+
+   <table border="1" cellspacing="0" bordercolor="#EEEFEE">
+      <tr>
+         <td colspan="17" align="left" bgcolor="#006666">
+         <span class="titre_encodage">
+         INFORMATION GENERALE
+         </span>
+         </td>
+      </tr>
+      <tr>
+         <td align="center"><b>Etat</b></td>
+         <td align="center"><b>PK</b></td>
+         <td align="center"><b>Civilité</b></td>
+         <td align="center"><b>login</b></td>
+         <td align="center"><b>Pass</b></td>
+         <td align="center"><b>Nom 1</b></td>
+         <td align="center"><b>Nom 2</b></td>
+         <td align="center"><b>Prenom 1</b></td>
+         <td align="center"><b>Prenom 2</b></td>
+         <td align="center"><b>Société</b></td>
+         <td align="center"><b>Adresse</b></td>
+         <td align="center"><b>Localité</b></td>
+         <td align="center"><b>E-Mail</b></td>
+         <td align="center"><b>Activer</b></td>
+         <td></td>
+         <td width="30"></td>
+      </tr>
+         <dtml-in "admin_base.proprio.zsql_proprio_select_all_actif()">
+            <form action="traiter_modification_etat_proprio" 
+                       method="post">
+            <dtml-if sequence-even>
+               <tr bgcolor="#D2F7C1">
+            <dtml-else>
+               <tr>
+            </dtml-if>
+            
+            <td align="center">
+               <dtml-if "pro_etat==True">
+                  <img src="images/bleverte.gif">
+               <dtml-else>
+                  <img src="images/blerouge.gif">
+               </dtml-if>
+            </td>
+            <td><dtml-var pro_pk missing="-"></td>
+            <td>
+               <dtml-in "zsql_select_civilite_civpk(fciv_pk=pro_civ_fk)">				
+                  <dtml-var civ_titre>					
+               </dtml-in>				
+            </td>
+            <td><dtml-var pro_log missing="-"></td>
+            <td><dtml-var pro_pass missing="-"></td>
+            <td><dtml-var pro_nom1 missing="-"></td>
+            <td><dtml-var pro_nom2 missing="-"></td>
+            <td><dtml-var pro_prenom1 missing="-"></td>
+            <td><dtml-var pro_prenom2 missing="-"></td>
+            <td><dtml-var pro_societe missing="-"></td>
+            <td><dtml-var pro_adresse missing="-"></td>			
+            <td align="center">
+               <dtml-in "admin_base.commune.zsql_select_commune_compk(fcom_pk=pro_com_fk)">
+                  <dtml-var com_nom>
+               </dtml-in>
+            </td>
+            <td><a href="mailto:<dtml-var pro_email>"><dtml-var pro_email missing="-"></a></td>
+            <td align="center">
+               <select name="fpro_etat">  
+                  <dtml-if "pro_etat == True">
+                     <option value=True selected="selected"> oui </option>
+                     <option value=False> non </option>
+                  <dtml-else> 
+                     <option value=True> oui </option>
+                     <option value=False selected="selected"> non </option>
+                  </dtml-if>
+               </select>
+            </td>
+            <td>
+               <input type="hidden"
+                          name="fpro_pk"
+                          value="<dtml-var pro_pk>" />
+               <input type="submit"
+                            value="OK" />
+            </td>
+            <td align="center">
+               <a href="modification?fpro_pk=<dtml-var pro_pk>"><img src="images/modifier.png" 
+                                                                     border="0"
+                                                                     title="modifier ce proprio"
+                                                                     alt="modifier ce proprio" /></a>
+            </td>
+         </tr>
+         </form>
+      </dtml-in>
+   </table>
+</body>
+</html>

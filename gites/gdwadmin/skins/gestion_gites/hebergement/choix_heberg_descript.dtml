@@ -1,0 +1,119 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title> Gites wallons : sélection d'un hébergement</TITLE>
+<meta http-equiv="content-type" content="="text/ht; charset=UTF-8" >
+<dtml-call "RESPONSE.setHeader('Content-Type', 'text/html;charset=UTF-8')">
+<meta name="generator" content="TextMate">
+<meta name="author" content="affinitic">
+<meta name="Keywords" CONTENT="">
+<meta name="Description" CONTENT="">
+<link href="gites_wallons_style.css" type=text/css rel=stylesheet>
+<script language=JavaScript src="gites_wallons_script.js"></script>
+</head>
+<body>
+
+
+<!---[DEBUT RECHERCHER]--->
+
+<table>
+   <tr>
+      <td colspan="2" align="left" bgcolor="#006666">
+         <span class="titre_encodage">
+            RECHERCHER UN HEBERGEMENT
+         </span>
+      </td>
+   </tr>
+</table>
+
+
+<fieldset class="fieldsetprive">
+   <legend class="legende">Recherche sur la PK de l'hébergement</legend>
+   <form action="description" method="post">
+      <table class="table_resultat">	
+         <tr>
+            <td align="center"> 
+               PK de l'hebergement ?
+               <input type="text" name="fheb_pk" value="" />
+            </td>
+         </tr>	
+         <tr>
+            <td align="center">
+               <input type="submit" value="Lancer la recherche">               
+            </td>
+         </tr>
+      </table>
+   </form>
+</fieldset>
+<!---[FIN RECHERCHER]--->
+
+<br><br>
+
+<!---[DEBUT LISTING]--->
+
+<table border="1" cellspacing="0" bordercolor="#EEEFEE">
+   <tr>
+      <td colspan="12" align="left" bgcolor="#006666">
+         <span class="titre_encodage">
+         INFORMATION GENERALE
+         </span>
+         </font>
+      </td>
+   </tr>
+   <tr>
+      <td align="center"><b>Sélection</b></td>
+      <td align="center"><b>Code GDW</b></td>
+      <td align="center"><b>PK</b></td>
+      <td align="center"><b>Type</b></td>
+      <td align="center"><b>Nom</b></td>
+      <td align="center"><b>Adresse</b></td>
+      <td align="center"><b>Commune</b></td>
+      <td align="center"><b>Poprio</b></td>              
+   </tr>
+   <dtml-in zsql_select_all_heb>
+      <form action="description" method="post">
+            <!-- style papier listing -->
+            <dtml-if sequence-even>
+               <tr  height="40" bgcolor="#D2F7C1">
+            <dtml-else>
+               <tr height="40">
+            </dtml-if>
+               <td align="center">
+                  <input type="hidden" 
+                              name="fheb_pk" 
+                              value="<dtml-var heb_pk>" />
+                  <input type="submit"
+                              value="GO" />
+               </td>
+               <td align="center"><dtml-var heb_code_gdw missing="-"></td>
+               <td align="center"><dtml-var heb_pk missing="-"></td>
+               <td align="center">
+                  <dtml-in "zsql_select_type_heb_typehebpk(ftype_heb_pk=heb_typeheb_fk)">
+                     <dtml-var type_heb_code>
+                  </dtml-in>
+               </td>       
+               <td align="center"><dtml-var heb_nom missing="-"></td>         
+               <td align="center"><dtml-var heb_adresse missing="-"></td>
+               <td align="center">
+                  <dtml-in "admin_base.commune.zsql_select_commune_compk(fcom_pk=heb_com_fk)">
+                     <dtml-var com_cp> - <dtml-var com_nom>
+                  </dtml-in>
+               </td>
+               <td align="center">
+                  <dtml-in "zsql_select_proprio_propk(pro_pk=heb_pro_fk)">
+                     <a href="#" onClick="ouvrir_fenetre('popup_proprio?fpro_pk=<dtml-var pro_pk>')";><dtml-var pro_nom1 missing='-'></a>
+                  </dtml-in>              
+               </td>
+         </tr>
+      </form>
+   </dtml-in>
+   <tr>
+      <td colspan="8">&nbsp;</td>
+   </tr>
+</table>
+</form>
+<!---[FIN LISTING]--->
+
+</form>
+</body>
+</html>

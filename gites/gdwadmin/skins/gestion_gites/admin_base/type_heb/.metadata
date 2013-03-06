@@ -1,0 +1,5 @@
+[default]
+title=Type d'hebergement
+
+[Objects]
+zsql_select_type_heb_typehebpk:Z SQL Method

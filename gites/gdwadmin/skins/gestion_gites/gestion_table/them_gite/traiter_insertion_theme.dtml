@@ -1,0 +1,2 @@
+<dtml-call zsql_insert_theme>
+<dtml-call "RESPONSE.redirect('theme')">

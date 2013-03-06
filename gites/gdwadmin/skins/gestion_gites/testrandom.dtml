@@ -1,0 +1,9 @@
+<dtml-var standard_html_header>
+
+
+<dtml-var "_.random.randint(1,5)">
+<br />
+<dtml-var "_.random.choice(['nom','gdw','prenom','localite'])">
+
+
+<dtml-var standard_html_footer>

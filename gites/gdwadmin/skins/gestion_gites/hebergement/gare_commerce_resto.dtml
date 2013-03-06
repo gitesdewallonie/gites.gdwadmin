@@ -1,0 +1,36 @@
+<html>
+<body>
+<table border="1">
+<tr>
+<td> heb_pk</td>
+
+<td>Commerce</td>
+<td>Distance</td>
+
+<td>Restaurant</td>
+<td>Distance</td>
+
+<td>Gare</td>
+<td>Distance></td>
+
+</tr>
+<dtml-in zsql_select_all_heb>
+<dtml-if sequence-odd>
+  <tr bgcolor="#AAAAAA">
+<dtml-else>
+  <tr>
+</dtml-if>
+<td><dtml-var heb_pk></td>
+
+<td><dtml-var heb_commerce></td>
+<td><dtml-var heb_commerce_distance></td>
+
+<td><dtml-var heb_restaurant></td>
+<td><dtml-var heb_restaurant_distance></td>
+
+<td><dtml-var heb_gare></td>
+<td><dtml-var heb_gare_distance></td>
+
+</tr>
+</dtml-in>
+</table>

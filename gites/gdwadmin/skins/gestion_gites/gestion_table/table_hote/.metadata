@@ -1,0 +1,8 @@
+[default]
+title=
+
+[Objects]
+mod_sup_table_hote:DTML Method
+table_hote:DTML Method
+traiter_insertion_table_hote:DTML Method
+traiter_modification_table_hote:DTML Method

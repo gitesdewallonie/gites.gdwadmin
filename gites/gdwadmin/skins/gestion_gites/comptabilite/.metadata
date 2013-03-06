@@ -1,0 +1,10 @@
+[default]
+title=
+
+[Objects]
+chercher_proprietaire_creation:DTML Method
+chercher_proprietaire_modification:DTML Method
+creation:DTML Method
+modification:DTML Method
+zsql_compta_insert:DTML Method
+zsql_compta_update:DTML Method

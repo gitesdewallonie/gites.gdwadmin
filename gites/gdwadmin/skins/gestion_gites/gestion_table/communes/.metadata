@@ -1,0 +1,12 @@
+[default]
+title=
+
+[Objects]
+communes:DTML Method
+traiter_insertion_commune:DTML Method
+traiter_modification_commune:DTML Method
+traiter_modifsup_commune:DTML Method
+zsql_delete_commune:Z SQL Method
+zsql_insert_commune:Z SQL Method
+zsql_select_all_commune:Z SQL Method
+zsql_update_commune:Z SQL Method

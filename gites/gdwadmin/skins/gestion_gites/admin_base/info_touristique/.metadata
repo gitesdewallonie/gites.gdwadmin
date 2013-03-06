@@ -1,0 +1,14 @@
+[default]
+title=
+
+[Objects]
+zsql_info_tour_delete:Z SQL Method
+zsql_info_tour_insert:Z SQL Method
+zsql_info_tour_select_all:Z SQL Method
+zsql_info_tour_select_by_pk:Z SQL Method
+zsql_info_tour_update:Z SQL Method
+zsql_type_info_tour_delete:Z SQL Method
+zsql_type_info_tour_insert:Z SQL Method
+zsql_type_info_tour_select_all:Z SQL Method
+zsql_type_info_tour_select_by_pk:Z SQL Method
+zsql_type_info_tour_update:Z SQL Method

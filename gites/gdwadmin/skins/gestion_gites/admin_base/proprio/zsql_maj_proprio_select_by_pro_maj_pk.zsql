@@ -1,0 +1,16 @@
+ <dtml-comment>
+title:table proprio_maj
+arguments: pro_maj_pk
+connection_id:Psycopg_database_connection
+max_rows:1000
+max_cache:100
+cache_time:0
+class_name:
+class_file:
+</dtml-comment>
+select
+   *
+from
+   proprio_maj
+where
+   pro_maj_pk=<dtml-sqlvar pro_maj_pk type="string">

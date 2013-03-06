@@ -1,0 +1,25 @@
+ <dtml-comment>
+title:
+arguments: nom_prenom_dest email_dest nom_prenom_exp email_exp
+connection_id:Psycopg_database_connection
+max_rows:1000
+max_cache:100
+cache_time:0
+class_name:
+class_file:
+</dtml-comment>
+insert into ecard
+(
+ecard_nom_destinataire,
+ecard_mail_destinataire,
+ecard_nom_envoyeur,
+ecard_mail_envoyeur
+)
+values
+(
+<dtml-sqlvar nom_prenom_dest type="string">,
+<dtml-sqlvar email_dest type="string">,
+<dtml-sqlvar nom_prenom_exp type="string">,
+<dtml-sqlvar email_exp type="string">
+)
+

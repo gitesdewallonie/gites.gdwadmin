@@ -1,0 +1,42 @@
+ <dtml-comment>
+title:table info_pratique
+arguments: infoprat_nom infoprat_adresse infoprat_url infoprat_gps_long infoprat_gps_lat infoprat_localite infoprat_commune_fk infoprat_type_infoprat_fk
+connection_id:Psycopg_database_connection
+max_rows:1000
+max_cache:100
+cache_time:0
+class_name:
+class_file:
+</dtml-comment>
+insert into info_pratique
+(
+infoprat_nom,
+infoprat_adresse,
+infoprat_url,
+infoprat_gps_long,
+infoprat_gps_lat,
+infoprat_localite,
+infoprat_commune_fk,
+infoprat_type_infoprat_fk
+)
+values
+(
+<dtml-sqlvar infoprat_nom type="string" optional>,
+<dtml-sqlvar infoprat_adresse type="string" optional>,
+<dtml-sqlvar infoprat_url type="string" optional>,
+<dtml-sqlvar infoprat_gps_long type="float" optional>,
+<dtml-sqlvar infoprat_gps_lat type="float" optional>,
+<dtml-sqlvar infoprat_localite type="string" optional>,
+<dtml-sqlvar infoprat_commune_fk type="int" optional>,
+<dtml-sqlvar infoprat_type_infoprat_fk type="int" optional>
+)
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,25 @@
+[default]
+title=
+
+[Objects]
+zsql_dest_buzz_insert:Z SQL Method
+zsql_dest_buzz_select_all:Z SQL Method
+zsql_dest_buzz_select_by_pk:Z SQL Method
+zsql_dest_buzz_update:Z SQL Method
+zsql_gite_buzz_insert:Z SQL Method
+zsql_gite_buzz_select_all:Z SQL Method
+zsql_gite_buzz_select_by_pk:Z SQL Method
+zsql_gite_buzz_update:Z SQL Method
+zsql_player_buzz_insert:Z SQL Method
+zsql_player_buzz_select_all:Z SQL Method
+zsql_player_buzz_select_by_pk:Z SQL Method
+zsql_player_buzz_select_max_score:Z SQL Method
+zsql_player_buzz_select_nbre_abonne_newsletter:Z SQL Method
+zsql_player_buzz_select_nbre_fr:Z SQL Method
+zsql_player_buzz_select_nbre_nl:Z SQL Method
+zsql_player_buzz_update:Z SQL Method
+zsql_select_heb_hebpk:Z SQL Method
+zsql_winner_buzz_select_all:Z SQL Method
+zsql_winner_buzz_update:Z SQL Method
+zsql_winner_info_select_all:Z SQL Method
+zsql_winnerr_buzz_insert:Z SQL Method

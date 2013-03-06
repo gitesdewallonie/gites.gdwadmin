@@ -1,0 +1,217 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title> Gites wallons : modification comptabilite</TITLE>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" >
+<dtml-call "RESPONSE.setHeader('Content-Type', 'text/html;charset=UTF-8')">
+<meta name="generator" content="Bluefish 1.0.7">
+<meta name="author" content="alain">
+<meta name="Keywords" CONTENT="">
+<meta name="Description" CONTENT="">
+<link href="gites_wallons_style.css" type=text/css rel=stylesheet>
+<script language=JavaScript src="gites_wallons_script.js"></script>
+</head>
+<body>
+<span class="titre_page">Formulaire de modification d'une comptabilité</span><br><br>
+<form action="zsql_compta_update" method="get">
+
+<!---[DEBUT INFORMATION PROPRIETAIRE]--->
+<table border="1" cellspacing="0" bordercolor="#EEEFEE">
+	<tr>
+		<td colspan="2" align="left" bgcolor="#006666">
+			<span class="titre_encodage">
+			INFORMATION PROPRIETAIRE
+			</span>
+			</font>
+		</td>
+	</tr>
+	<tr>
+		<td>Etat du propriétaire</td>
+		<td><img src="images/blerouge.gif">désactivé&nbsp;&nbsp;<img src="images/bleverte.gif">activé&nbsp;&nbsp;proprio_etat</td>
+	</tr>
+	<tr>
+		<td>Code du propriétaire</td>
+		<td>proprio_pk</td>
+	</tr>
+	<tr>
+		<td>Nom 1 du propriétaire</td>
+		<td>proprio_nom&nbsp;&nbsp; :: &nbsp;<a href="#" onClick="ouvrir_fenetre('popup_proprio')";>Cliquez ici</a></td></td>
+	</tr>
+	<tr>
+		<td>Prénom du propriétaire</td>
+		<td>proprio_prenom</td>
+	</tr>
+	<tr>
+		<td>Localité</td>
+		<td>proprio_localité</td>
+	</tr>
+</table>
+<!---[FIN INFORMATION PROPRIETAIRE]--->
+<br><br>
+<!---[DEBUT INFORMATION PROPRIETAIRE]--->
+<table border="1" cellspacing="0" bordercolor="#EEEFEE">
+	<tr>
+		<td colspan="2" align="left" bgcolor="#006666">
+			<span class="titre_encodage">
+			COTISATION
+			</span>
+			</font>
+		</td>
+	</tr>
+	<tr>
+		<td>Montant à payer</td>
+		<td><input type="text" name="comp_mnt_a_pay" value="">comp_mnt_a_payer  :: calcul automatique</td>
+	</tr>
+	<tr>
+		<td>Paiement effectué</td>
+		<td>
+			oui<input type="radio" name="comp_pay_ok" value="0">
+			&nbsp;&nbsp;
+			non<input type="radio" name="comp_pay_ok" value="1"> comp_paye_ok
+		</td>
+	</tr>
+	<tr>
+		<td>Date de paiement</td>
+		<td><input type="text" name="comp_date_pay" value="">comp_date_pay</td>
+	</tr>
+	<tr>
+		<td>Controle</td>
+		<td><input type="text" name="comp_control_pay" value="">comp_control_pay  :: num opération banquaire</td>
+	</tr>
+	<tr>
+		<td>Montant déjà payé</td>
+		<td><input type="text" name="comp_mnt_pay" value="">comp_mnt_pay</td>
+	</tr>
+	<tr>
+		<td>Date d'échéance</td>
+		<td><input type="text" name="comp_date_echeance" value="">comp_date_echeance</td>
+	</tr>
+	<tr>
+		<td>Solde restant du</td>
+		<td><input type="text" name="comp_solde_du" value="">comp_solde_du</td>
+	</tr>
+	<tr>
+</table>
+<br><br>
+Liste dynamique des heb par proprio avec somme a payer pour publiction sue site public
+<table border="1" cellspacing="0" bordercolor="#EEEFEE">
+	<tr>
+		<td colspan="8" align="left" bgcolor="#006666">
+			<span class="titre_encodage">
+			INTERNET
+			</span>
+			</font>
+		</td>
+	</tr>
+	<tr>
+		<td>Etat</td>
+		<td>Hébergement</td>
+		<td>A payer</td>
+		<td>Date de début</td>
+		<td>Paiement effectué</td>
+		<td>Controle montant payé</td>
+		<td>Date d'échéance</td>
+		<td>Solde restant du</td>
+	</tr>
+	<tr>
+		<td><img src="images/blerouge.gif">retard<br><img src="images/bleverte.gif">en ordre&nbsp;&nbsp;net_etat</td>
+		<td>heb_gdw</td>
+		<td><input type="text" name="A payer" value="">A payer</td>
+		<td>net_date_debut</td>
+		<td><input type="text" name="net_pay_effectue" value=""><br>net_pay_effectue</td>
+		<td><input type="text" name="net_control_pay" value=""><br>net_control_pay</td>
+		<td>net_date_echance</td>
+		<td>net_solde_du</td>
+	</tr>
+</table>
+<br><br>
+<table border="1" cellspacing="0" bordercolor="#EEEFEE">
+	<tr>
+		<td colspan="6" align="left" bgcolor="#006666">
+			<span class="titre_encodage">
+			BOUTIQUE
+			</span>
+			</font>
+		</td>
+	</tr>
+	<tr>
+		<td>Commande</td>
+		<td>Total à payer</td>
+		<td>Date de commande</td>		
+		<td>Paiement effectué</td>
+		<td>Controle montant payé</td>
+		<td>Montant déjà payé</td>		
+	</tr>
+	<tr>		
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+	</tr>
+</table>
+<br><br>
+<table border="1" cellspacing="0" bordercolor="#EEEFEE">
+	<tr>
+		<td colspan="5" align="left" bgcolor="#006666">
+			<span class="titre_encodage">
+			CAS PARTICULIER
+			</span>
+			</font>
+		</td>
+	</tr>
+	<tr>
+		<td>Opération</td>
+		<td>Montant à payer</td>
+		<td>Date de paiement</td>		
+		<td>Controle du paiement</td>
+		<td>Montant paiement</td>		
+	</tr>
+	<tr>		
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+	</tr>
+</table>
+<br><br>
+<table border="1" cellspacing="0" bordercolor="#EEEFEE">
+	<tr>
+		<td colspan="6" align="left" bgcolor="#006666">
+			<span class="titre_encodage">
+			FRAIS ADMINISTRATIFS
+			</span>
+			</font>
+		</td>
+	</tr>
+	<tr>
+		<td>Etat</td>
+		<td>Hébergement labellisé</td>
+		<td>A payer</td>		
+		<td>Date de paiment</td>
+		<td>Controle du paiement</td>	
+		<td>Montant payé</td>
+	</tr>
+	<tr>		
+		<td><img src="images/blerouge.gif">retard<br><img src="images/bleverte.gif">en ordre&nbsp;&nbsp;net_etat</td>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+	</tr>
+</table>
+<table>
+<tr>
+		<td colspan="2" align="center">
+			<input type="submit" value="Modifier la comptabilité">
+			&nbsp; :: &nbsp;
+			<input type="reset" value="Effacer">
+		</td>
+	</tr>
+</table>
+</body>
+</html>

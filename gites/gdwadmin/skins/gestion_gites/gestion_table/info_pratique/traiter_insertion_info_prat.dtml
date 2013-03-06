@@ -1,0 +1,2 @@
+<dtml-call "admin_base.info_pratique.zsql_info_prat_insert()">
+<dtml-call "RESPONSE.redirect('info_prat')">

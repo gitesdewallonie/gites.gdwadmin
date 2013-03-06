@@ -1,0 +1,24 @@
+ <dtml-comment>
+title:
+arguments: 
+connection_id:Psycopg_database_connection
+max_rows:1000
+max_cache:100
+cache_time:0
+class_name:
+class_file:
+</dtml-comment>
+create table gw_callcenter(
+gwc_pk serial PRIMARY KEY,
+gwc_nom_heb varchar,
+gwc_nom_contact varchar,
+gwc_prenom_contact varchar,
+gwc_adresse_heb varchar,
+gwc_cp_heb varchar,
+gwc_commune_heb varchar,
+gwc_localite_heb varchar,
+gwc_tel varchar,
+gwc_fax varchar,
+gwc_gsm varchar,
+gwc_type_heb varchar,
+gwc_nbre_heb varchar)

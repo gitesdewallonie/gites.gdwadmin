@@ -1,0 +1,7 @@
+<a href="javascript:Envoyer('supprimer');" 
+   onMouseOver="suppression.src='images/btn_supprimer_on.gif' " 
+   onMouseOut="suppression.src='images/btn_supprimer_off.gif' ">
+       <img name="suppression" 
+            src="images/btn_supprimer_off.gif" 
+            border="0" 
+            onLoad="tempImg=new Image(0,0); tempImg.src='images/btn_supprimer_on.gif'"></a>

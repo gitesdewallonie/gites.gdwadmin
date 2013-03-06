@@ -1,0 +1,42 @@
+ <dtml-comment>
+title:
+arguments: fpro_pk fpro_nom1 fpro_nom2 fpro_prenom1 fpro_prenom2 fpro_societe fpro_adresse fpro_cp fpro_email fpro_tel_priv fpro_tel_bur fpro_fax_priv fpro_fax_bur fpro_gsm1 fpro_gsm2 fpro_url fpro_langue fpro_tva fpro_comment fpro_etat fpro_date_in fpro_date_out fpro_motif_out fpro_justif_out fpro_log fpro_pass fpro_employe_modification fpro_date_modification fpro_civ_fk
+connection_id:Psycopg_database_connection
+max_rows:1000
+max_cache:100
+cache_time:0
+class_name:
+class_file:
+</dtml-comment>
+update 
+   proprio
+set
+   pro_nom1 = <dtml-sqlvar fpro_nom1 type="string">,
+   pro_nom2 = <dtml-sqlvar fpro_nom2 type="string">,
+   pro_prenom1 = <dtml-sqlvar fpro_prenom1 type="string">,
+   pro_prenom2 = <dtml-sqlvar fpro_prenom2 type="string">,
+   pro_societe = <dtml-sqlvar fpro_societe type="string">,
+   pro_adresse = <dtml-sqlvar fpro_adresse type="string">,
+   pro_com_fk = <dtml-sqlvar fpro_cp type="int">,
+   pro_email = <dtml-sqlvar fpro_email type="string">,
+   pro_tel_priv = <dtml-sqlvar fpro_tel_priv type="string">,
+   pro_tel_bur = <dtml-sqlvar fpro_tel_bur type="string">,
+   pro_fax_priv = <dtml-sqlvar fpro_fax_priv type="string">,
+   pro_fax_bur = <dtml-sqlvar fpro_fax_bur type="string">,
+   pro_gsm1 = <dtml-sqlvar fpro_gsm1 type="string">,
+   pro_gsm2 = <dtml-sqlvar fpro_gsm2 type="string">,
+   pro_url = <dtml-sqlvar fpro_url type="string">,
+   pro_tva = <dtml-sqlvar fpro_tva type="string">,
+   pro_langue = <dtml-sqlvar fpro_langue type="string">,
+   pro_etat = <dtml-sqlvar fpro_etat type="string">,
+   pro_motif_out = <dtml-sqlvar fpro_motif_out type="string">,
+   pro_justif_out = <dtml-sqlvar fpro_justif_out type="string">,
+   pro_date_in = <dtml-sqlvar fpro_date_in type="string">,
+   pro_date_out = <dtml-sqlvar fpro_date_out type="string">,
+   pro_log = <dtml-sqlvar fpro_log type="string">,
+   pro_pass = <dtml-sqlvar fpro_pass type="string">,
+   pro_employe_modification = <dtml-sqlvar fpro_employe_modification type="string">,
+   pro_date_modification = now(),
+   pro_civ_fk=<dtml-sqlvar fpro_civ_fk type="string">
+where  
+   pro_pk  = <dtml-sqlvar fpro_pk type="int">

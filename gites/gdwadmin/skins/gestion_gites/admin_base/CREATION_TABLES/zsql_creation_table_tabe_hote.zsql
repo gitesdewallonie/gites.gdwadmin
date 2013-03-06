@@ -1,0 +1,18 @@
+ <dtml-comment>
+title:table_hote
+arguments: 
+connection_id:Psycopg_database_connection
+max_rows:1000
+max_cache:100
+cache_time:0
+class_name:
+class_file:
+</dtml-comment>
+create table table_hote(
+tabho_pk serial primary key,
+tabho_type_fr varchar,
+tabho_type_nl varchar,
+tabho_type_de varchar,
+tabho_type_it varchar,
+tabho_type_en varchar
+)

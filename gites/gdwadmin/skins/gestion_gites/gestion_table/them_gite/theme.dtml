@@ -1,0 +1,78 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title> Gites wallons : gestion table theme gite </TITLE>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" >
+<dtml-call "RESPONSE.setHeader('Content-Type', 'text/html;charset=UTF-8')">
+<meta name="generator" content="Bluefish 1.0.7">
+<meta name="author" content="alain">
+<meta name="Keywords" CONTENT="">
+<meta name="Description" CONTENT="">
+<link href="gites_wallons_style.css" type=text/css rel=stylesheet>
+<script language=JavaScript src="gites_wallons_script.js"></script>
+</head>
+<body>
+<span class="titre_page">Gestion de la table thème des gites</span><br><br>
+
+
+<form name="formulaire" action="traiter_modifsup_theme" method="get">
+<input type="hidden" name="operation" value="">
+<table width="95%" border="1" cellspacing="0" bordercolor="#EEEFEE">
+	<tr>
+		<td colspan="3" align="left" bgcolor="#006666">
+			<span class="titre_encodage">
+			Liste des thèmes de gites
+			</span>
+			</font>
+		</td>
+	</tr>
+	<tr>
+		<td width="15">&nbsp;</td>
+		<td><b>Code</b></td>
+	</tr>
+	<dtml-in zsql_select_all_theme>
+		<dtml-if sequence-odd>
+			<tr>
+		<dtml-else>
+			<tr bgcolor="#E6FED9">
+		</dtml-if>
+		<td width="15"><input type="radio" name="fgit_them_pk" value="<dtml-var git_them_pk>"></td>		
+		<td><dtml-var git_them_type></td>
+	</tr>
+	</dtml-in>
+	<tr>
+		<td colspan="3" align="center">
+			<dtml-var bouton_modifier>
+		    &nbsp;&nbsp;&nbsp;
+			<dtml-var bouton_supprimer>
+		</td>
+	</tr>
+</table>
+</form>
+
+<br><br>
+
+<form name="formulaire_creation" action="traiter_insertion_theme" method="get">
+<table border="1" cellspacing="0" cellpadding="0" width="75%" bordercolor="#EEEFEE">
+	<tr>
+		<td colspan="3" align="left" bgcolor="#006666">
+			<span class="titre_encodage">
+			Créer un nouveau thème de gite
+			</span>
+			</font>
+		</td>
+	</tr>	
+	<tr>
+		<td>Code</td>
+		<td><input type="text" name="fgit_them_type" value=""></td>
+	</tr>
+	<tr>
+		<td colspan="2" align="center">
+			<dtml-var bouton_creer>
+		</td>
+	</tr>
+</table>
+</form>	
+
+</body>
+</html>

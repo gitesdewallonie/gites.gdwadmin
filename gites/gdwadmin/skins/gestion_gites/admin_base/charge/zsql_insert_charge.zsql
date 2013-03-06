@@ -1,0 +1,27 @@
+ <dtml-comment>
+title:
+arguments: fcha_fr fcha_nl fcha_en fcha_it fcha_de
+connection_id:Psycopg_database_connection
+max_rows:1000
+max_cache:100
+cache_time:0
+class_name:
+class_file:
+</dtml-comment>
+insert into charge
+(
+cha_type_fr,
+cha_type_nl,
+cha_type_en,
+cha_type_it,
+cha_type_de
+)
+values
+(
+<dtml-sqlvar fcha_fr type="string" optional>,
+<dtml-sqlvar fcha_nl type="string" optional>,
+<dtml-sqlvar fcha_en type="string" optional>,
+<dtml-sqlvar fcha_it type="string" optional>,
+<dtml-sqlvar fcha_de type="string" optional>
+
+)

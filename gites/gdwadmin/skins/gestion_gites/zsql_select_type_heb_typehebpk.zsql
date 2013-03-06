@@ -1,0 +1,17 @@
+ <dtml-comment>
+title:
+arguments: ftype_heb_pk
+connection_id:Psycopg_database_connection
+max_rows:1000
+max_cache:100
+cache_time:0
+class_name:
+class_file:
+</dtml-comment>
+select 
+   * 
+from 
+   type_heb
+where 
+   type_heb_pk = <dtml-sqlvar ftype_heb_pk type="int">
+

@@ -1,0 +1,105 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title> Gites wallons : gestion table charge </TITLE>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" >
+<dtml-call "RESPONSE.setHeader('Content-Type', 'text/html;charset=UTF-8')">
+<meta name="generator" content="Bluefish 1.0.7">
+<meta name="author" content="alain">
+<meta name="Keywords" CONTENT="">
+<meta name="Description" CONTENT="">
+<link href="gites_wallons_style.css" type=text/css rel=stylesheet>
+<script language=JavaScript src="gites_wallons_script.js"></script>
+</head>
+<body>
+<span class="titre_page">Gestion de la table charge</span><br><br>
+
+
+<form name="formulaire" action="traiter_modifsup_charge" method="get">
+<input type="hidden" name="operation" value="">
+<table width="95%" border="1" cellspacing="0" bordercolor="#EEEFEE">
+	<tr>
+		<td colspan="7" align="left" bgcolor="#006666">
+			<span class="titre_encodage">
+			Liste des charges
+			</span>
+			</font>
+		</td>
+	</tr>
+	<tr>
+		<td width="15">&nbsp;</td>
+		<td ><b>PK</b></td>
+		<td><b>FR</b></td>
+		<td><b>EN</b></td>
+		<td><b>NL</b></td>
+		<td><b>IT</b></td>
+		<td><b>DE</b></td>
+	</tr>
+	<dtml-in "admin_base.charge.zsql_select_all_charge()">
+		<dtml-if sequence-odd>
+			<tr>
+		<dtml-else>
+			<tr bgcolor="#E6FED9">
+		</dtml-if>
+		<td width="15"><input type="radio" name="fcha_pk" value="<dtml-var cha_pk>"></td>
+		<td><dtml-var cha_pk></td>
+		<td><dtml-var cha_type_fr></td>
+		<td><dtml-var cha_type_en></td>
+        <td><dtml-var cha_type_nl></td>
+        <td><dtml-var cha_type_it></td>
+        <td><dtml-var cha_type_de></td>
+	</tr>
+	</dtml-in>
+	<tr>
+		<td colspan="6" align="center">
+			<dtml-var bouton_modifier>
+		    &nbsp;&nbsp;&nbsp;
+			<dtml-var bouton_supprimer>
+		</td>
+	</tr>
+</table>
+</form>
+
+<br><br>
+
+<form name="formulaire_creation" action="traiter_insertion_charge" method="get">
+<table border="1" cellspacing="0" cellpadding="0" width="75%" bordercolor="#EEEFEE">
+	<tr>
+		<td colspan="3" align="left" bgcolor="#006666">
+			<span class="titre_encodage">
+			Créer une nouvelle charge
+			</span>
+			</font>
+		</td>
+	</tr>
+	<tr>
+		<td>FR</td>
+		<td><input type="text" name="fcha_fr" value=""></td>
+	</tr>
+        <tr>
+		<td>EN</td>
+		<td><input type="text" name="fcha_en" value=""></td>
+	</tr>
+        <tr>
+		<td>NL</td>
+		<td><input type="text" name="fcha_nl" value=""></td>
+	</tr>
+        <tr>
+		<td>IT</td>
+		<td><input type="text" name="fcha_it" value=""></td>
+	</tr>
+        <tr>
+		<td>DE</td>
+		<td><input type="text" name="fcha_de" value=""></td>
+	</tr>
+
+	<tr>
+		<td colspan="2" align="center">
+			<dtml-var bouton_creer>
+		</td>
+	</tr>
+</table>
+</form>
+
+</body>
+</html>

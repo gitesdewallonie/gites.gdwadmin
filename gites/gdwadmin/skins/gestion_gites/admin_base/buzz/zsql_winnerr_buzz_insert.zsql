@@ -1,0 +1,42 @@
+ <dtml-comment>
+title:buzz.winner
+arguments: winner_player_fk winner_destinataire_fk winner_player_heb_fk winner_destinataire_heb_fk
+connection_id:Psycopg_database_connection
+max_rows:1000
+max_cache:100
+cache_time:0
+class_name:
+class_file:
+</dtml-comment>
+insert into buzz.winner
+(
+winner_player_fk,
+winner_destinataire_fk,
+winner_player_heb_fk,
+winner_destinataire_heb_fk
+)
+values
+(
+<dtml-sqlvar winner_player_fk type="int">,
+<dtml-sqlvar winner_destinataire_fk type="int">,
+<dtml-sqlvar winner_player_heb_fk type="int">,
+<dtml-sqlvar winner_destinataire_heb_fk type="int">
+)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

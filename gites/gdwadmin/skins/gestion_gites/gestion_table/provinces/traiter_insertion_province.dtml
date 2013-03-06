@@ -1,0 +1,2 @@
+<dtml-call zsql_insert_province>
+<dtml-call "RESPONSE.redirect('provinces')">

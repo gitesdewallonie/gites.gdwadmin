@@ -1,0 +1,15 @@
+ <dtml-comment>
+title:
+arguments: heb_pk
+connection_id:Psycopg_database_connection
+max_rows:1000
+max_cache:100
+cache_time:0
+class_name:
+class_file:
+</dtml-comment>
+SELECT heb_nom, com_nom from hebergement, communes
+WHERE 
+com_pk=heb_com_fk
+AND
+heb_pk=<dtml-sqlvar heb_pk type="string">

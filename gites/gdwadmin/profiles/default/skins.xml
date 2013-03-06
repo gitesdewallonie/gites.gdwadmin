@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<object name="portal_skins" allow_any="False" cookie_persistence="False"
+   default_skin="gites.gdwadmin">
+
+ <object name="gestion_gites"
+         meta_type="Filesystem Directory View"
+         directory="gites.gdwadmin:skins/gestion_gites"/>
+
+ <skin-path name="gites.gdwadmin"
+            based-on="Plone Default">
+  <layer name="gestion_gites"
+         insert-after="custom"/>
+ </skin-path>
+
+</object>

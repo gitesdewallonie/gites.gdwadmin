@@ -1,0 +1,18 @@
+ <dtml-comment>
+title:
+arguments: fgit_lab_type
+connection_id:Psycopg_database_connection
+max_rows:1000
+max_cache:100
+cache_time:0
+class_name:
+class_file:
+</dtml-comment>
+insert into gite_label
+(
+git_lab_type
+)
+values
+(
+<dtml-sqlvar fgit_lab_type type="string">
+)

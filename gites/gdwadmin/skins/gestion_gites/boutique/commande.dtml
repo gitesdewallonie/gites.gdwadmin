@@ -1,0 +1,116 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title> Gites wallons : commande boutique</TITLE>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" >
+<dtml-call "RESPONSE.setHeader('Content-Type', 'text/html;charset=UTF-8')">
+<meta name="generator" content="Bluefish 1.0.7">
+<meta name="author" content="alain">
+<meta name="Keywords" CONTENT="">
+<meta name="Description" CONTENT="">
+<link href="gites_wallons_style.css" type=text/css rel=stylesheet>
+<script language=JavaScript src="gites_wallons_script.js"></script>
+</head>
+<body>
+<span class="titre_page">Formulaire de commande pour la boutique</span><br><br>
+<!---[DEBUT INFORMATION PROPRIETAIRE]-------------------------------------------------------------------------------------->
+<table border="1" cellspacing="0" bordercolor="#EEEFEE">
+	<tr>
+		<td colspan="2" align="left" bgcolor="#006666">
+			<span class="titre_encodage">
+			INFORMATION PROPRIETAIRE
+			</span>
+			</font>
+		</td>
+	</tr>
+	<tr>
+		<td>Etat du propriétaire</td>
+		<td><img src="images/blerouge.gif">désactivé&nbsp;&nbsp;<img src="images/bleverte.gif">activé&nbsp;&nbsp;proprio_etat</td>
+	</tr>
+	<tr>
+		<td>Comptabilité</td>
+		<td><img src="images/blerouge.gif">pas en ordre&nbsp;&nbsp;<img src="images/bleverte.gif">en ordre&nbsp;&nbsp;proprio_etat  Prévoir accès en consultation pour voir le problème</td>
+	</tr>
+	<tr>
+		<td>Code du propriétaire</td>
+		<td>proprio_pk</td>
+	</tr>
+	<tr>
+		<td>Nom 1 du propriétaire</td>
+		<td>proprio_nom</td>
+	</tr>
+	<tr>
+		<td>Prénom du propriétaire</td>
+		<td>proprio_prenom</td>
+	</tr>
+	<tr>
+		<td>Localité</td>
+		<td>proprio_localité</td>
+	</tr>
+</table>
+<!---[FIN INFORMATION PROPRIETAIRE]----------------------------------------------------------------------------------------->
+<form action="zsql_commande_in" method="get">	
+Listing dynamique des produits invariables depuis la base de données
+<table border="1" cellspacing="0" bordercolor="#EEEFEE">
+	<tr>
+		<td colspan="4" align="left" bgcolor="#006666">
+			<span class="titre_encodage">
+			COMMANDE
+			</span>
+			</font>
+		</td>
+	</tr>
+	<tr>
+		<td align="center"><b>Nom articles invariables</b></td>
+		<td align="center"><b>Prix TVAC</b></td>
+		<td align="center"><b>Nombre</b></td>
+		<td align="center"><b>Total</b></td>		
+	</tr>	
+	<tr>
+		<td align="center"><input type="radio" name="prod_pk" value="1">prod_pk</td>
+		<td align="center"> prod_prix_tvac</td>
+		<td align="center"> <input type="text" name="prod_nbre" value="">prod_nbre</td>
+		<td align="center"> <input type="text" name="prod_total" value="">prod_total</td>
+	</tr>
+</table>
+Listing dynamique des produits variables depuis la base de données
+<table border="1" cellspacing="0" bordercolor="#EEEFEE">
+	<tr>
+		<td align="center"><b>Nom articles variables</b></td>
+		<td align="center"><b>Prix TVAC</b></td>
+		<td align="center"><b>Poids</b></td>
+		<td align="center"><b>Nombre</b></td>
+		<td align="center"><b>Total</b></td>		
+	</tr>	
+	<tr>
+		<td align="center"> <input type="radio" name="prod_pk" value="1">prod_pk</td>
+		<td align="center"> <input type="text" name="prod_prix_tvac" value="">prod_prix_tvac</td>
+		<td align="center"> <input type="text" name="prod_poids" value="">prod_poids</td>
+		<td align="center"> <input type="text" name="prod_nbre" value="">prod_nbre</td>
+		<td align="center"> <input type="text" name="prod_total" value="">prod_total</td>
+	</tr>	
+</table>
+<br><br><br>
+<table border="1" cellspacing="0" bordercolor="#EEEFEE">
+	<tr width="400">
+		<td>Total TVAC</td>
+		<td> <input type="text" name="prod_total_tvac" value="">prod_total_tvac</td>
+	</tr>
+	<tr>
+		<td>Total poids</td>
+		<td> <input type="text" name="prod_total_poids" value="">prod_total_poids</td>
+	</tr>
+	<tr>
+		<td>Total à payer</td>
+		<td> <input type="text" name="prod_total" value="">prod_total</td>
+	</tr>
+	<tr>
+		<td colspan="2" align="center">
+			<input type="submit" value="Enregister la commande">
+			&nbsp; :: &nbsp;
+			<input type="reset" value="Effacer">
+		</td>
+	</tr>
+</table>
+</form>
+</body>

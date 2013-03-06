@@ -1,0 +1,60 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title> Gites wallons : gestion table province </TITLE>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" >
+<dtml-call "RESPONSE.setHeader('Content-Type', 'text/html;charset=UTF-8')">
+<meta name="generator" content="Bluefish 1.0.7">
+<meta name="author" content="alain">
+<meta name="Keywords" CONTENT="">
+<meta name="Description" CONTENT="">
+<link href="gites_wallons_style.css" type=text/css rel=stylesheet>
+<script language=JavaScript src="gites_wallons_script.js"></script>
+</head>
+
+<body>
+<span class="titre_page">Gestion de la table province</span><br><br>
+
+
+<!---[gestion de la suppression d'une province]--->
+<dtml-if "operation == 'supprimer'">   
+   <dtml-call zsql_delete_province>
+   <dtml-call "RESPONSE.redirect('provinces')">
+</dtml-if>
+
+
+
+<!---[Gestion de la modification d'une province]--->
+<dtml-if "operation == 'modifier'">   
+<form name="formulaire" action="traiter_modification_province" method="get">
+
+ <table width="95%" border="1" cellspacing="0" bordercolor="#EEEFEE">
+	<tr>
+		<td colspan="4" align="left" bgcolor="#006666">
+			<span class="titre_encodage">
+			Province à modifier
+			</span>
+			</font>
+		</td>
+	</tr>
+     <dtml-in zsql_select_province_provpk>
+     <tr>
+        <td align="right">Nom</td>
+        <td><input type="text" name="fprov_nom" value="<dtml-var prov_nom>"></td>        
+        <td align="right">Code</td>
+        <td><input type="text" name="fprov_code" value="<dtml-var prov_code>"></td>        
+     </tr>     
+     <tr>
+        <td colspan="4" align="center">
+			<input type="hidden" name="fprov_pk" value="<dtml-var prov_pk>">
+			<dtml-var bouton_modifier>
+		</td>        
+     </tr>
+     </dtml-in>
+  </table>
+  <input type="hidden" name="operation" value="">
+</form>  
+</dtml-if>
+
+</body>
+</html>

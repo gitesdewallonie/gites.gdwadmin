@@ -1,0 +1,2 @@
+<dtml-call "admin_base.table_hote.zsql_table_hote_insert()">
+<dtml-call "RESPONSE.redirect('table_hote')">

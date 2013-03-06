@@ -1,0 +1,18 @@
+ <dtml-comment>
+title:table type_info_touristique
+arguments: 
+connection_id:Psycopg_database_connection
+max_rows:1000
+max_cache:100
+cache_time:0
+class_name:
+class_file:
+</dtml-comment>
+create table type_info_touristique(
+typinfotour_pk serial primary key,
+typinfotour_nom_fr varchar,
+typinfotour_nom_nl varchar,
+typinfotour_nom_en varchar,
+typinfotour_nom_it varchar,
+typinfotour_nom_de varchar
+)

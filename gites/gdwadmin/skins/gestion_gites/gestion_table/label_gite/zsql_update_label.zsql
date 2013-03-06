@@ -1,0 +1,17 @@
+ <dtml-comment>
+title:
+arguments: fgit_lab_pk fgit_lab_type
+connection_id:Psycopg_database_connection
+max_rows:1000
+max_cache:100
+cache_time:0
+class_name:
+class_file:
+</dtml-comment>
+update gite_label
+
+set
+
+git_lab_type = <dtml-sqlvar fgit_lab_type type="string">
+
+where  git_lab_pk = <dtml-sqlvar fgit_lab_pk type="int">

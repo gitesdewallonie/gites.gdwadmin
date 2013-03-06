@@ -1,0 +1,20 @@
+ <dtml-comment>
+title:table link_hebergement_epis
+arguments: heb_pk
+connection_id:Psycopg_database_connection
+max_rows:1000
+max_cache:100
+cache_time:0
+class_name:
+class_file:
+</dtml-comment>
+select 
+   heb_nombre_epis,
+   heb_typeheb_fk
+from 
+   link_hebergement_epis,
+   hebergement
+where
+   link_hebergement_epis.heb_pk=<dtml-sqlvar heb_pk type="int">
+   and
+   hebergement.heb_pk=<dtml-sqlvar heb_pk type="int">

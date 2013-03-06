@@ -1,0 +1,18 @@
+ <dtml-comment>
+title:table link_hebergement_epis
+arguments: heb_pk
+connection_id:Psycopg_database_connection
+max_rows:1000
+max_cache:100
+cache_time:0
+class_name:
+class_file:
+</dtml-comment>
+delete from 
+   link_hebergement_epis
+where
+   heb_pk=<dtml-sqlvar heb_pk type="int">
+
+
+-- on efface a chaque modification de l'hebergement les entrees dans
+-- cette table, ensuite on reinsere avec les nouvelles donnees

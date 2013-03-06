@@ -1,0 +1,18 @@
+ <dtml-comment>
+title:
+arguments: fprov_pk fprov_nom fprov_code
+connection_id:Psycopg_database_connection
+max_rows:1000
+max_cache:100
+cache_time:0
+class_name:
+class_file:
+</dtml-comment>
+update provinces
+
+set
+
+prov_nom = <dtml-sqlvar fprov_nom type="string">,
+prov_code = <dtml-sqlvar fprov_code type="int">
+
+where  prov_pk = <dtml-sqlvar fprov_pk type="string">

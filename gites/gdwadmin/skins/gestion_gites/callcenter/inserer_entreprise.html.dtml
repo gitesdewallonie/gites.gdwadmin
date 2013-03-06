@@ -1,0 +1,107 @@
+<!-- page précédente : formulaire.html ou formulaire_reussi.html-->
+<!-- formulaire d'insertion d'une nouvelle entreprise dans la base -->
+
+<dtml-var standard_html_header.html>
+
+<!------------------------------------------------------------------------------------->
+<!-- Tableau affichant le nom et le rôle du client connecté -->
+<font face="verdana" size="2" color="#000000">
+<table align="center" width="75%">
+   <tr>
+       <td align="left">
+          <font face="verdana" size="2" color="#888888">
+          <b><dtml-var "AUTHENTICATED_USER.getUserName()"></b>
+       </td>
+       <td>
+          &nbsp; &nbsp; &nbsp;
+       </td>
+       <td align="right">          
+          <font face="verdana" size="2" color="#888888">
+          <b><dtml-var "AUTHENTICATED_USER.getRoles()[0]"></b>
+       </td>
+   </tr>
+</table>
+<hr size="1">
+<!------------------------------------------------------------------------------------->
+
+<font face="verdana" size="2">
+&nbsp;&nbsp;&nbsp;<font color="#4386BC"><b>INSERER UNE NOUVELLE ENTREPRISE DANS LA BASE</b></font><br>
+
+<form name="formulaire" action="insertion_entreprise.html" method="get" >
+	<table align="center">
+		<tr>
+			<td align="right"><font  size="2">Type de société</td>
+		   <td>&nbsp;<input type="text" size="65" name="CCL_TYPE" value="" style = "color: #3366CC"></td>
+      </tr>
+      <tr>
+			<td align="right"><font  size="2">Nom de la société <font color="#0000FF"></td>
+		   <td>&nbsp;<input type="text" size="65" name="CCL_SOCIETE" value=""></td>
+		</tr>
+      <tr>
+	      <td align="right"><font  size="2">Nom de la personne de contact</td>
+		   <td>&nbsp;<input type="text" size="65" name="CCL_CONTACT" value=""></td>
+      </tr>
+      <tr>
+	      <td align="right"><font  size="2">Adresse de la société</td>
+		   <td>&nbsp;<input type="text" size="65" name="CCL_ADRESSE" value=""></td>
+      </tr>
+      <tr>
+		   <td align="right"><font  size="2">Code Postale</td>
+		   <td>&nbsp;<input type="text" size="4" name="CCL_CP" value=""></td>
+      </tr>
+      <tr>
+		   <td align="right"><font  size="2">Localité</td>
+		   <td>&nbsp;<input type="text" size="65" name="CCL_LOCALITE" value=""></td>
+      </tr>
+      <tr>
+		   <td align="right"><font  size="2">Téléphone</td>
+		   <td>&nbsp;<input type="text" size="12" name="CCL_TELEPHONE" value=""></td>
+      </tr>
+      <tr>
+	      <td align="right"><font  size="2">Fax</td>
+		   <td>&nbsp;<input type="text" size="12" name="CCL_FAX" value=""></td>
+      </tr>
+      <tr>
+			<td align="right"><font  size="2">E-mail</td>
+			<td>&nbsp;<input type="text" size="65" name="CCL_EMAIL" value=""></td>
+      </tr>
+      <tr>
+			<td align="right"><font  size="2">Résultat de l'appel</td>
+			<td>
+				<font  size="1" color="#000099">
+				&nbsp;&nbsp;aboutit<input type="radio" name="CCL_RESULTAT" value="reussi">
+			   &nbsp;&nbsp;pas aboutit<input type="radio" name="CCL_RESULTAT" value="echec">
+			   &nbsp;&nbsp;Recontacter<input type="radio" name="CCL_RESULTAT" value="recontacter">			   
+			</td>
+      </tr>       
+      <tr>
+			<td align="right"><font  size="2">Impression suite au contact</td>
+			<td>&nbsp;<textarea name="CCL_IMPRESSION" cols="51" rows="3" style="font-family: verdana, Arial, Helvetica; font-size: 11px; color: #800000;"></textarea></td>
+      </tr>
+      <tr>
+			<td align="right"><font  size="2">Suivi commercial</td>
+			<td>&nbsp;<textarea name="CCL_SUIVI" cols="51" rows="3" style="font-family: verdana, Arial, Helvetica; font-size: 11px; color: #800000;"></textarea></td>
+      </tr>       
+      <tr>			
+			<td >&nbsp;</td>
+			<td align="center" >
+				<input type="submit"  name="op" value="valider">&nbsp; &nbsp; &nbsp;<input type="reset"  value="Vider">
+			</td>
+      </tr>
+		<tr>
+			<td colspan="2" align="center">
+				<hr size="1">	
+				<a href="appel_reussi.html"><img src="images/btn_reussi_on.gif" border="0"></a>
+				<a href="inserer_entreprise.html"><img src="images/btn_nouveau_on.gif" border="0"></a>
+			</td>
+		</tr>
+    </table>
+    <!-- envoi vers la base le nom de la personne qui est connectée en vue du traçage des modifications-->
+    <input type="hidden" name="CCL_USER" value="<dtml-var "AUTHENTICATED_USER.getUserName()">"> 
+	 <!-- le nouveau record créé est actif et donc visible dna sles pages web-->
+    <input type="hidden" name="CCL_ACTIF" value="oui"> 
+</form>
+
+
+<hr size="1">
+<dtml-var standard_html_footer.html>

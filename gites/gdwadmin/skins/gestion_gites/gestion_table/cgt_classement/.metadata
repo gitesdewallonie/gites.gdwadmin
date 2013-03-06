@@ -1,0 +1,11 @@
+[default]
+title=
+
+[Objects]
+cgt:DTML Method
+traiter_insertion_cgt:DTML Method
+traiter_modification_cgt:DTML Method
+traiter_modifsup_cgt:DTML Method
+zsql_delete_cgt:Z SQL Method
+zsql_insert_cgt:Z SQL Method
+zsql_update_cgt:Z SQL Method

@@ -1,0 +1,19 @@
+ <dtml-comment>
+title:
+arguments: 
+connection_id:Psycopg_database_connection
+max_rows:1000
+max_cache:100
+cache_time:0
+class_name:
+class_file:
+</dtml-comment>
+create table charge
+(
+cha_pk serial PRIMARY KEY,
+cha_type_fr varchar,
+cha_type_en varchar,
+cha_type_nl varchar,
+cha_type_de varchar,
+cha_type_it varchar
+)

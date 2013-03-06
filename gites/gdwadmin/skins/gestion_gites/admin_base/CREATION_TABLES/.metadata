@@ -1,0 +1,42 @@
+[default]
+title=Creation des tables
+
+[Objects]
+crate_table_heb_tab_hote_maj:Z SQL Method
+creation_table_buzz01Destinataire:Z SQL Method
+creation_table_buzz01Hebergement:Z SQL Method
+creation_table_buzz01Player:Z SQL Method
+creation_table_buzz01Winner:Z SQL Method
+creation_table_cgt_class_reco:Z SQL Method
+creation_table_charge:Z SQL Method
+creation_table_civilite:Z SQL Method
+creation_table_commande:Z SQL Method
+creation_table_commande_guide:Z SQL Method
+creation_table_commune:Z SQL Method
+creation_table_e_card_prospect:Z SQL Method
+creation_table_enquete_namur:Z SQL Method
+creation_table_gite_label:Z SQL Method
+creation_table_gite_theme:Z SQL Method
+creation_table_heb_theme_label:Z SQL Method
+creation_table_hebrgement_maj:Z SQL Method
+creation_table_herbergement:Z SQL Method
+creation_table_info_pratique:Z SQL Method
+creation_table_info_touristique:Z SQL Method
+creation_table_join_hebergement_tablr_hote:Z SQL Method
+creation_table_log_employe:Z SQL Method
+creation_table_maison_tourisme:Z SQL Method
+creation_table_parametre:Z SQL Method
+creation_table_proprio:Z SQL Method
+creation_table_proprio_maj:Z SQL Method
+creation_table_province:Z SQL Method
+creation_table_region_guide:Z SQL Method
+creation_table_type_heb:Z SQL Method
+creation_table_type_info_pratique:Z SQL Method
+creation_table_type_info_touristique:Z SQL Method
+creation_table_visite:Z SQL Method
+drop_table:Z SQL Method
+zsql_alter_table:Z SQL Method
+zsql_copy_heb_tempo:Z SQL Method
+zsql_creation_table_tabe_hote:Z SQL Method
+zsql_grant:Z SQL Method
+zsql_insert_heb:Z SQL Method

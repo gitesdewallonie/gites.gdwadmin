@@ -1,0 +1,9 @@
+[default]
+title=
+
+[Objects]
+zsql_delete_charge:Z SQL Method
+zsql_insert_charge:Z SQL Method
+zsql_select_all_charge:Z SQL Method
+zsql_select_charge_by_pk:Z SQL Method
+zsql_update_charge:Z SQL Method

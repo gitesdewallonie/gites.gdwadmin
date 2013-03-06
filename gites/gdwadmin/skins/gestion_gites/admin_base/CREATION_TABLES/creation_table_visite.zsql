@@ -1,0 +1,18 @@
+ <dtml-comment>
+title:
+arguments: 
+connection_id:Psycopg_database_connection
+max_rows:1000
+max_cache:100
+cache_time:0
+class_name:
+class_file:
+</dtml-comment>
+create table visite
+(
+vis_pk serial PRIMARY KEY,
+vis_derniere_date varchar,
+vis_qui varchar,
+vis_num_rapport varchar,
+vis_heb_FK int
+)

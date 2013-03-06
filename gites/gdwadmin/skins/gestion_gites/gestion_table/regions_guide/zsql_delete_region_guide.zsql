@@ -1,0 +1,12 @@
+ <dtml-comment>
+title:
+arguments: freg_pk
+connection_id:Psycopg_database_connection
+max_rows:1000
+max_cache:100
+cache_time:0
+class_name:
+class_file:
+</dtml-comment>
+delete from region_guide
+where reg_pk = <dtml-sqlvar freg_pk type="string">

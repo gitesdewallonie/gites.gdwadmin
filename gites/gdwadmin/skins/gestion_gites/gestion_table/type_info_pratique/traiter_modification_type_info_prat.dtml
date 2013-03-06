@@ -1,0 +1,2 @@
+<dtml-call "admin_base.info_pratique.zsql_type_info_prat_update()">
+<dtml-call "RESPONSE.redirect('type_info_prat')">

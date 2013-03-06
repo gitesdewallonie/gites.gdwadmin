@@ -1,0 +1,8 @@
+[default]
+title=
+
+[Objects]
+info_prat:DTML Method
+mod_sup_info_prat:DTML Method
+traiter_insertion_info_prat:DTML Method
+traiter_modification_info_prat:DTML Method

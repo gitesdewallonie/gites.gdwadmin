@@ -1,0 +1,14 @@
+ <dtml-comment>
+title:
+arguments: 
+connection_id:Psycopg_database_connection
+max_rows:2000
+max_cache:100
+cache_time:0
+class_name:
+class_file:
+</dtml-comment>
+select distinct com_cp, com_pk, com_nom 
+from hebergement, commune
+where com_pk=heb_com_fk
+order by com_nom

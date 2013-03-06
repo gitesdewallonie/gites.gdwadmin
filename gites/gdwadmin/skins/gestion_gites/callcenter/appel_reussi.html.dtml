@@ -1,0 +1,4 @@
+<!-- Sélectionne tous les apples dont CCL_RESULTAT = 'reussi'-->
+<!-- Redirige vers la page formulaire_reussi.html en vue d'afficher les résultats de la requête-->
+<dtml-call zsql_select_all_by_reussi>
+<dtml-call "RESPONSE.redirect('formulaire_reussi.html')">

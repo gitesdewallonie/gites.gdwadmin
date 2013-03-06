@@ -1,0 +1,18 @@
+ <dtml-comment>
+title:table hebergement
+arguments: heb_pk heb_calendrier_proprio
+connection_id:Psycopg_database_connection
+max_rows:1000
+max_cache:100
+cache_time:0
+class_name:
+class_file:
+</dtml-comment>
+update 
+   hebergement
+set
+   heb_calendrier_proprio = <dtml-sqlvar heb_calendrier_proprio type="string">
+where 
+   heb_pk=<dtml-sqlvar heb_pk type="int">
+
+

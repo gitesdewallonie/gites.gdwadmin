@@ -1,0 +1,7 @@
+<a href="javascript:Envoyer('creer');" 
+   onMouseOver="creation.src='images/btn_creer_on.gif' " 
+   onMouseOut="creation.src='images/btn_creer_off.gif' ">
+      <img name="creation" 
+           src="images/btn_creer_off.gif" 
+           border="0" 
+           onLoad="tempImg=new Image(0,0); tempImg.src='images/btn_creer_on.gif'"></a>

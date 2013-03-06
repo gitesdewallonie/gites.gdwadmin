@@ -1,0 +1,82 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title> Gites wallons : détail des types d'hébergement</TITLE>
+<meta name="generator" content="Bluefish 1.0.7">
+<meta name="author" content="alain">
+<meta name="Keywords" CONTENT="">
+<meta name="Description" CONTENT="">
+<link href="gites_wallons_style.css" type=text/css rel=stylesheet>
+<script language=JavaScript src="gites_wallons_script.js"></script>
+</head>
+<body>   
+<fieldset  class="fieldsetprive">
+   <legend class="legende">Liste des hébergements de type : <b><span tal:content="python: request.thmlab" /></b></legend>
+   <br />
+   <tal:requete tal:define="Hebergements python:here.admin_base.hebergement.zsql_heb_select_by_thmlab(thmlab=request.thmlab)">
+      <table align="left">
+         <tr class="table_titre">
+            <td> &nbsp; </td>
+            <td> Nom </td>
+            <td> Capacité </td>
+            <td> Localité </td>
+            <td> Provinces </td>
+         </tr>
+         
+         <tal:boucle tal:repeat="heb Hebergements">
+            <span tal:condition="repeat/heb/even">
+            <tr class="list_even">
+               <td>
+                  <img src="images/flch_orange_pt.gif" />
+               </td>
+               <td>
+                  <a href=""
+                     tal:attributes="href string: description?fheb_pk=${heb/heb_pk}"
+                     tal:content="heb/heb_nom" />
+               </td>
+               <td>
+                  <span tal:content="heb/heb_cgt_cap_min" />
+                  &nbsp;&nbsp;-&nbsp;&nbsp;
+                  <span tal:content="heb/heb_cgt_cap_max" />
+               </td>
+               <td>
+                  <span tal:content="heb/com_cp" />
+                  <span tal:content="heb/com_nom" />
+               </td>
+               <td>
+                  <span tal:content="heb/prov_nom" />
+               </td>
+            </tr>
+            </span>
+            <span tal:condition="repeat/heb/odd">
+            <tr class="list_odd">
+               <td>
+                  <img src="images/flch_orange_pt.gif" />
+               </td>
+               <td>
+                  <a href=""
+                     tal:attributes="href string: description?fheb_pk=${heb/heb_pk}"
+                     tal:content="heb/heb_nom" />
+               </td>
+               <td>
+                  <span tal:content="heb/heb_cgt_cap_min" />
+                  &nbsp;&nbsp;-&nbsp;&nbsp;
+                  <span tal:content="heb/heb_cgt_cap_max" />
+               </td>
+               <td>
+                  <span tal:content="heb/com_cp" />
+                  <span tal:content="heb/com_nom" />
+               </td>
+               <td>
+                  <span tal:content="heb/prov_nom" />
+               </td>
+            </tr>
+            </span>
+             
+          </tal:boucle>
+       </table>
+   </tal:requete>
+   <br /><br />
+</fieldset>     
+</body>
+</html>
