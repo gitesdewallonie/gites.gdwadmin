@@ -1,0 +1,13 @@
+Définition de la politique pour l'édition des metadata par les propriétaires
+============================================================================
+
+Suite à la modification de la table hebergement et à la création de la table metadata le fonctionnement de validation par l'administration des gites de wallonie ne va plus fonctionner
+
+Fonctionnement actuel pour les employés des GDW
+-----------------------------------------------
+Accès à un formulaire pour modifier les données relatives aux gites dans gdwadmin
+
+Fonctionnement actuel pour les propriétaires
+--------------------------------------------
+Les propriétaires ont accès à un formulaire dans le site des gites de wallonie qui une fois soumis écrit dans la table hebergement_maj.
+Une fois cette table modifié il est possible aux employés des GDW de valider les changements via un écran montrant les différences qui se trouve dans gdwadmin.
