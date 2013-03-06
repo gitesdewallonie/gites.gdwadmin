@@ -503,13 +503,6 @@
                         Nuit&eacute;e <dtml-var heb_chmbre_tarif> <br>
                      </td>
                   </tr>
-                  <tr>
-                     <td bgcolor="#c6d4ea">
-                        <br>
-                        <dtml-var heb_chmbre_divers>
-                        <br><br><br>
-                     </td>
-                  </tr>
                </table>
 
                   <hr>
