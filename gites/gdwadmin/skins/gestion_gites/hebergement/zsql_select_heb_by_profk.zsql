@@ -8,5 +8,5 @@ cache_time:0
 class_name:
 class_file:
 </dtml-comment>
-select * from hebergement
+select * from hebergement_view
 where heb_pro_fk=<dtml-sqlvar pro_pk type="int">

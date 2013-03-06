@@ -109,5 +109,5 @@ heb_theme_fk,
 heb_label_fk
 
 
-from hebergement
+from hebergement_view
 where heb_pk = <dtml-sqlvar heb_pk type="string">

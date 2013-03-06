@@ -11,6 +11,6 @@ class_file:
 select 
    count(*) 
 from 
-   hebergement
+   hebergement_view
 where 
    <dtml-var ftheme> = 'oui'

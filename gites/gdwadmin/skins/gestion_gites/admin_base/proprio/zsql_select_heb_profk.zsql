@@ -11,6 +11,6 @@ class_file:
 select 
    * 
 from 
-   hebergement
+   hebergement_view
 where 
    heb_pro_fk=<dtml-sqlvar fpro_fk type="string">

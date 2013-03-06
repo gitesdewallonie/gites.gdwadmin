@@ -9,6 +9,6 @@ class_name:
 class_file:
 </dtml-comment>
 select * 
-from hebergement
+from hebergement_view
 where 
 heb_code_gdw like <dtml-sqlvar "'%' + heb_code_gdw.upper() + '%' " type=string>

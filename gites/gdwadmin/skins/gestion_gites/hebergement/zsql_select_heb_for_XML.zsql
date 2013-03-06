@@ -12,7 +12,7 @@ select
 *,
 com_nom
 from 
-hebergement, communes
+hebergement_view, communes
 where
 heb_pk=90 and
 com_pk=heb_com_fk

@@ -8,4 +8,4 @@ cache_time:0
 class_name:
 class_file:
 </dtml-comment>
-select * from hebergement order by heb_pk
+select * from hebergement_view order by heb_pk

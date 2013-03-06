@@ -11,6 +11,6 @@ class_file:
 select 
    * 
 from 
-   hebergement
+   hebergement_view
 where 
    heb_pk = <dtml-sqlvar heb_pk type="string">
