@@ -8,13 +8,11 @@
 <tr>
   <td>heb_pk</td>
   <td>heb_charge_fk</td>
-  <td>heb_tarif_charge</td>
 </tr>
 <dtml-in zsql_select_all_heb>
    <tr>
      <td><dtml-var heb_pk></td>
      <td><dtml-var heb_charge_fk></td>
-     <td><dtml-var heb_tarif_charge></td>
    </tr>
 </dtml-in>
 </table>

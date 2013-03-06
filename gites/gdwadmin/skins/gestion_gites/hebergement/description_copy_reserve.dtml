@@ -735,10 +735,6 @@
                            <dtml-if "heb_charge_fk==3">
                               <dtml-var heb_forfait_montant>
                            </dtml-if>
-                           <br/>
-                           <dtml-if heb_tarif_charge>
-                              <dtml-var heb_tarif_charge>
-                           </dtml-if>
                         </td>
                      </tr>
                      <tr>
