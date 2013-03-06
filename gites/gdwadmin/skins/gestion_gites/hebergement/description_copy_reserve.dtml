@@ -470,16 +470,6 @@
          <dtml-in "zsql_select_type_heb_typehebpk(ftype_heb_pk=heb_typeheb_fk)">
             <dtml-if "type_heb_code=='CH'">
                <!--DEBUT TABLE TARIFICATION CHAMBRE-->
-               <table border="0" cellpadding="0" cellspacing="0" align="center">
-                  <tr>
-                     <td bgcolor="#82a7ea">
-                        Nuit&eacute;e <dtml-var heb_chmbre_tarif> <br>
-                     </td>
-                  </tr>
-               </table>
-
-                  <hr>
-
                   <b>Nouvelle tarification</b>
                   <table border="0" cellpadding="0" cellspacing="0" align="center"  bgcolor="#c6d4ea">
                      <tr  bgcolor="#82a7ea">
