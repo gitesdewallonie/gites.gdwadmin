@@ -896,21 +896,6 @@
       </td>
    </tr>
    <tr>
-      <td>Taxe de Séjour</td>
-      <td>
-         <select name="fheb_taxe_sejour">
-            <option value="non">...</option>
-                <dtml-if "heb_taxe_sejour=='oui'">
-                <option value="oui" selected> Oui</option>
-                <option value="non"> Non</option>
-                <dtml-else>
-                    <option value="oui"> Oui</option>
-                <option value="non" selected> Non</option>
-                </dtml-if>
-         </select>
-      </td>
-   </tr>
-   <tr>
       <td>Montant de la taxe</td>
       <td>
          <input type="text" name="fheb_taxe_montant" value="<dtml-var heb_taxe_montant>">

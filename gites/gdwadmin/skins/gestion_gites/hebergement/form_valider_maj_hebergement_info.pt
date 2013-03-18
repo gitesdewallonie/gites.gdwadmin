@@ -1039,28 +1039,6 @@
                                     </span>
                                 </td>
                             </tr>
-                            <tr bgcolor="#E2F3DE">
-                                <td>Taxe de S&eacute;jour</td>
-                                <td>
-                                    <span tal:content="heb/heb_taxe_sejour"
-                                          class="grasnoir" />
-                                </td>
-                                <td>
-                                    <select name="heb_taxe_sejour">
-                                        <option value="oui"
-                                                selected=""
-                                                tal:attributes="selected python:hebmaj.heb_maj_taxe_sejour == 'oui' or None">
-                                                Oui
-                                        </option>
-                                        <option value="non"
-                                                selected=""
-                                                tal:attributes="selected python:hebmaj.heb_maj_taxe_sejour == 'non' or None">
-                                                Non
-                                        </option>
-                                    </select>
-                                    <span tal:content="hebmaj/heb_maj_taxe_sejour" />
-                                </td>
-                            </tr>
                             <tr>
                                 <td class="maj-etiquette">Montant de la taxe</td>
                                 <td>

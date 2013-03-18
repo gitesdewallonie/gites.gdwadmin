@@ -47,7 +47,6 @@ heb_confort_lave_linge = context.REQUEST.get('heb_confort_lave_linge', None)
 heb_confort_seche_linge = context.REQUEST.get('heb_confort_seche_linge', None)
 heb_confort_congelateur = context.REQUEST.get('heb_confort_congelateur', None)
 heb_confort_internet = context.REQUEST.get('heb_confort_internet', None)
-heb_taxe_sejour = context.REQUEST.get('heb_taxe_sejour', None)
 heb_taxe_montant = context.REQUEST.get('heb_taxe_montant', None)
 heb_forfait_montant = context.REQUEST.get('heb_forfait_montant', None)
 heb_lit_1p = context.REQUEST.get('heb_lit_1p', None)
@@ -116,7 +115,6 @@ if int(heb_typeheb_fk) in (5,6,9):
                                                                heb_confort_seche_linge = heb_confort_seche_linge, \
                                                                heb_confort_congelateur = heb_confort_congelateur, \
                                                                heb_confort_internet = heb_confort_internet, \
-                                                               heb_taxe_sejour = heb_taxe_sejour, \
                                                                heb_taxe_montant = heb_taxe_montant, \
                                                                heb_forfait_montant = heb_forfait_montant, \
                                                                heb_lit_1p = heb_lit_1p, \
@@ -192,7 +190,6 @@ else:
                                                                heb_confort_seche_linge = heb_confort_seche_linge, \
                                                                heb_confort_congelateur = heb_confort_congelateur, \
                                                                heb_confort_internet = heb_confort_internet, \
-                                                               heb_taxe_sejour = heb_taxe_sejour, \
                                                                heb_taxe_montant = heb_taxe_montant, \
                                                                heb_forfait_montant = heb_forfait_montant, \
                                                                heb_tarif_we_bs = heb_tarif_we_bs, \
