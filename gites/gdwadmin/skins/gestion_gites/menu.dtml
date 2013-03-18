@@ -50,8 +50,6 @@ body{
 <img src="images/flch_orange_pt.gif">
 <a href="hebergement/photo_gestion" target="principal">Gestion des photos</a><br />
 -->
-        <img src="images/flch_orange_pt.gif">
-        <a href="hebergement/etat_nombre_hebergement" target="principal">Total par type</a><br />
         <br />
         <img src="images/flch_orange_pt.gif">
         <a href="hebergement/listing_maj_hebergement_info" target="principal">MAJ hebergement a confirmer</a><br />
