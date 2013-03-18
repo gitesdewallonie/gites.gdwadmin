@@ -59,21 +59,21 @@
 
 <!-- INFOS PROPRIO -->
 <fieldset class="fieldsetdescription">
-   <legend>Propriétaires</legend>
+   <legend>Propri&eacute;taires</legend>
    <span tal:define="proprios here/admin_base/proprio/zsql_proprio_count_all">
       <span tal:repeat="proprio proprios">
-         <span tal:content="proprio/count" /> propriétaires
+         <span tal:content="proprio/count" /> propri&eacute;taires
       </span>
    </span> 
    <ul>
       <li tal:define="proprioActifs here/admin_base/proprio/zsql_proprio_count_all_active">
          <span tal:repeat="proprio proprioActifs">
-              <span tal:content="proprio/count" /> activés
+              <span tal:content="proprio/count" /> activ&eacute;s
          </span>
       </li>
       <li tal:define="proprioNonActifs here/admin_base/proprio/zsql_proprio_count_all_non_active">
           <span tal:repeat="proprio proprioNonActifs">
-             <span tal:content="proprio/count" /> désactivés
+             <span tal:content="proprio/count" /> d&eacute;sactiv&eacute;s
          </span>
       </li>
    </ul>
@@ -85,7 +85,7 @@
 
 <!-- INFOS HEBERGEMENT -->
 <fieldset class="fieldsetdescription">
-   <legend>Nombre des hébergements par type</legend>
+   <legend>Nombre des h&eacute;bergements par type</legend>
    <br />
    <table border="1" cellspacing="0" bordercolor="#EEEFEE" width="35%" align="center">
       <tr class="titre_encodage" bgcolor="#006666">
@@ -178,7 +178,7 @@
 
 <!-- INFOS HEBERGEMENT THEME-->
 <fieldset class="fieldsetdescription">
-   <legend>Nombre des hébergements a theme</legend>
+   <legend>Nombre des h&eacute;bergements a theme</legend>
    <br />
    <table border="1" cellspacing="0" bordercolor="#EEEFEE" width="35%" align="center">
       <tr class="titre_encodage" bgcolor="#006666">
@@ -209,7 +209,7 @@
 
 <!-- INFOS HEBERGEMENT GITES+-->
 <fieldset class="fieldsetdescription">
-   <legend>Nombre des hébergements gites+</legend>
+   <legend>Nombre des h&eacute;bergements gites+</legend>
    <br />
    <table border="1" cellspacing="0" bordercolor="#EEEFEE" width="35%" align="center">
       <tr class="titre_encodage" bgcolor="#006666">
@@ -240,7 +240,7 @@
 
 <!-- INFOS HEBERGEMENT CALENDRIER PROPRIO ACTIF-->
 <fieldset class="fieldsetdescription">
-   <legend>Nombre des hébergements dont le calendrier est activ&eacute;</legend>
+   <legend>Nombre des h&eacute;bergements dont le calendrier est activ&eacute;</legend>
    (Proprio actif)
    <br />
    <table border="1" cellspacing="0" bordercolor="#EEEFEE" width="35%" align="center">
