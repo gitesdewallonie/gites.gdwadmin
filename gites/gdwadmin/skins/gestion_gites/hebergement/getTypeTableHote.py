@@ -7,10 +7,10 @@
 ##parameters=heb_pk
 ##title=select box
 ##
-# r�cup�ration de tous les types de table d'h�te
+# rÃ©cupÃ©ration de tous les types de table d'hÃ´te
 type_table_hote=context.admin_base.table_hote.zsql_table_hote_select_all()
 
-# r�cup�ration de tous les types de table d'h�tes de l'h�bergement dont on passe la heb_k en param�tre
+# rÃ©cupÃ©ration de tous les types de table d'hÃ´tes de l'hÃ©bergement dont on passe la heb_k en paramÃ¨tre
 tableHoteHebergement=context.admin_base.table_hote.zsql_table_hote_select_by_hebpk(heb_pk=heb_pk)
 
 
@@ -34,10 +34,10 @@ for elem in tableHoteHebergement:
 #print heb_table_hote
 
 
-# cr�ation du bloc de input type check
-# je parcours de tous les types de table d'h�te
-# je teste la pr�sence du type de table d'h�te dans la liste des type de table de l'h�bergement
-# si l'hebergement poss�de le type alors le input est checked
+# crÃ©ation du bloc de input type check
+# je parcours de tous les types de table d'hÃ´te
+# je teste la prÃ©sence du type de table d'hÃ´te dans la liste des type de table de l'hÃ©bergement
+# si l'hebergement possÃ¨de le type alors le input est checked
 # sinon c'est un simple input
 
 for elem in table_hote:

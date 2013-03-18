@@ -10,7 +10,7 @@
 #
 # appelle par "form_valider_maj_proprio_info"  
 # table proprio
-# mise à jour des infos proprio par validation des données 
+# mise Ã  jour des infos proprio par validation des donnÃ©es 
 #
 
 pro_nom1=context.REQUEST.pro_nom1
@@ -34,7 +34,7 @@ pro_maj_pk=context.REQUEST.pro_maj_pk
 
 
 # update des donnes du proprio dans la table proprio
-# etat de maj-info du proprio repasse à confirmé
+# etat de maj-info du proprio repasse Ã  confirmÃ©
 context.admin_base.proprio.zsql_proprio_update_with_maj_info(pro_pk=pro_pk,\
                                                              pro_nom1=pro_nom1,\
                                                              pro_nom2=pro_nom2,\

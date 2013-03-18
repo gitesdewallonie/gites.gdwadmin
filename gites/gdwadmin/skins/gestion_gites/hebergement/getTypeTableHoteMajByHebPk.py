@@ -7,7 +7,7 @@
 ##parameters=heb_pk
 ##title=
 ##
-# récupération de tous les types de table d'hôtes de l'hébergement dont on passe la heb_k en paramètre
+# rÃ©cupÃ©ration de tous les types de table d'hÃ´tes de l'hÃ©bergement dont on passe la heb_k en paramÃ¨tre
 
 tablesHoteHebergementMaj=context.admin_base.table_hote.zsql_table_hote_maj_select_by_hebpk(heb_pk=heb_pk)
 

@@ -9,8 +9,8 @@
 ##
 #
 # table link_hebergement_epis
-# certain hebergement peuvent avoir plusieurs nombre d'épis différents
-# car plusieurs batiment ou plusieurs chambre sous le même ID
+# certain hebergement peuvent avoir plusieurs nombre d'epis differents
+# car plusieurs batiment ou plusieurs chambre sous le meme ID
 #
 # ce script extrait les epis et retourne une liste
 #

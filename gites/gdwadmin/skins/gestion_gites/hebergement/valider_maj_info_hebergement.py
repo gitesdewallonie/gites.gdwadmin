@@ -10,7 +10,7 @@
 #
 # appelle par "form_valider_hebergement_info"  
 # table hebergement
-# mise à jour des infos hebergement par validation des données 
+# mise Ã  jour des infos hebergement par validation des donnÃ©es 
 #
 heb_pk = context.REQUEST.get('heb_pk', None)
 heb_maj_pk = context.REQUEST.get('heb_maj_pk', None)
@@ -224,11 +224,11 @@ context.admin_base.hebergement.zsql_maj_hebergement_delete_by_heb_maj_pk(heb_maj
 
 
 
-# SI il y a un type de table d'hote coché,
-#   je détruis toutes les infos qui se rapportent à cet hébergement
-#   j'insère les nouvelles infos
+# SI il y a un type de table d'hote cochÃ©,
+#   je dÃ©truis toutes les infos qui se rapportent Ã  cet hÃ©bergement
+#   j'insÃ¨re les nouvelles infos
 # SINON
-#   je détruis toutes les infos liées à cet hébergement
+#   je dÃ©truis toutes les infos liÃ©es Ã  cet hÃ©bergement
 if hebhot_tabhot_fk > -1:
    context.admin_base.table_hote.zsql_heb_tab_hote_delete(hebhot_heb_fk=heb_pk)
    for elem in hebhot_tabhot_fk:
