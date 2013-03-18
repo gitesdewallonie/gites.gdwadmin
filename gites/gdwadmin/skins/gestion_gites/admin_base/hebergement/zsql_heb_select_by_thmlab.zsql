@@ -17,7 +17,7 @@ select
    com_nom, 
    prov_nom  
 from 
-   hebergement, 
+   hebergement_view, 
    commune, 
    provinces
 where 
