@@ -10,7 +10,7 @@
 <script language=JavaScript src="gites_wallons_script.js"></script>
 </head>
 <body>
-   <span tal:define="Communes python:here.admin_base.commune.zsql_commune_select_by_compk(com_pk=request.com_pk)">
+   <span tal:define="Communes python:here.admin_base.commune.zsql_select_commune_by_compk(com_pk=request.com_pk)">
       <span tal:repeat="com Communes">
          <fieldset  class="fieldsetprive">
             <legend class="legende">Résultat de votre recherche sur la commune <span tal:content="python: com.com_nom.upper()" /></legend>
