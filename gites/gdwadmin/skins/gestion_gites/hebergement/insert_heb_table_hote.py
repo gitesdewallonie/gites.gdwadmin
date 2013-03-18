@@ -8,8 +8,8 @@
 ##title=
 ##
 # insertion dans la table de jointure heb_tab_hote
-# de la clé de l'hebergement et de la clé du type de table d'hote
-# un hébergement peut avoir plusieurs type de table
+# de la clÃ© de l'hebergement et de la clÃ© du type de table d'hote
+# un hÃ©bergement peut avoir plusieurs type de table
 #
 # voir 
 #   table hebergement heb_pk
@@ -18,11 +18,11 @@
 heb_pk=int(heb_pk)
 
 
-# SI il y a un type de table d'hote coché,
-#   je détruis toutes les infos qui se rapportent à cet hébergement
-#   j'insère les nouvelles infos
+# SI il y a un type de table d'hote cochÃ©,
+#   je dÃ©truis toutes les infos qui se rapportent Ã  cet hÃ©bergement
+#   j'insÃ¨re les nouvelles infos
 # SINON
-#   je détruis toutes les infos liées à cet hébergement
+#   je dÃ©truis toutes les infos liÃ©es Ã  cet hÃ©bergement
 
 if hebhot_tabho_fk > -1:
    context.admin_base.table_hote.zsql_heb_tab_hote_delete(hebhot_heb_fk=heb_pk)
