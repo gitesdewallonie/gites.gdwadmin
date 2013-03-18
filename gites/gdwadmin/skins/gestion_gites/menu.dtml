@@ -110,15 +110,11 @@ body{
         <img src="images/flch_orange_pt.gif"><a href="gestion_table/maison_tourisme/maison_tourisme" target="principal">Maison tourisme</a><br />
 <!--<img src="images/flch_orange_pt.gif"><a href="gestion_table/cgt_classement/cgt" target="principal">CGT Classement</a><br />-->
         <img src="images/flch_orange_pt.gif"><a href="gestion_table/type_heb/type" target="principal">Type d'hébergement</a><br />
-        <img src="images/flch_orange_pt.gif"><a href="gestion_table/them_gite/theme" target="principal">Thèmes des gîtes</a><br />
-        <img src="images/flch_orange_pt.gif"><a href="gestion_table/label_gite/label" target="principal">Label des gîtes</a><br />
-        <img src="images/flch_orange_pt.gif"><a href="gestion_table/table_hote/table_hote" target="principal">Table d'hôtes</a><br />
         <img src="images/flch_orange_pt.gif"><a href="gestion_table/civilite/civilite" target="principal">Liste des civilitïés</a><br />
         <img src="images/flch_orange_pt.gif"><a href="gestion_table/charge/charge" target="principal">Liste des charges</a><br />       
         <br />
         <img src="images/flch_orange_pt.gif"><a href="gestion_table/info_pratique/info_prat" target="principal">Infos pratiques</a><br />
         <img src="images/flch_orange_pt.gif"><a href="gestion_table/info_touristique/info_tour" target="principal">Infos touristiques</a><br />
-        <img src="images/flch_orange_pt.gif"><a href="gestion_table/type_info_pratique/type_info_prat" target="principal">Type infos pratiques</a><br />
         <img src="images/flch_orange_pt.gif"><a href="gestion_table/type_info_touristique/type_info_tour" target="principal">Types infos touristiques</a><br />
         <br />
 <!--<img src="images/flch_orange_pt.gif"><a href="gestion_table/ecard/consulter_liste_ecard" target="principal">Liste des e-cards</a><br />-->
