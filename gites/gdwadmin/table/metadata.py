@@ -142,3 +142,19 @@ class Filterable(column.GetAttrColumn, grok.MultiAdapter):
             <input type="hidden" name="met_pk:list" value="%s" />
                 ''' % (item.met_pk, value and 'checked="CHECKED"' or '',
                        item.met_pk)
+
+
+class Editable(column.GetAttrColumn, grok.MultiAdapter):
+    grok.provides(IColumn)
+    grok.name('editable')
+    grok.adapts(Interface, Interface, IMetadataTable)
+
+    header = u'Editable'
+    attrName = 'met_editable'
+    cssClasses = {'td': 'center'}
+    weight = 70
+
+    def renderCell(self, item):
+        value = getattr(item, self.attrName, False)
+        return u'<input type="checkbox" name="editable-%s" %s />' % (
+            item.met_pk, value and 'checked="CHECKED"' or '')

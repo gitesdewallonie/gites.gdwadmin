@@ -35,6 +35,7 @@ class MetadataView(BrowserView):
             results[key] = form.get(key)[index]
         # if pk is None (for new metadata), filterable should always be False
         results['met_filterable'] = form.get("filterable-%s" % pk, False)
+        results['met_editable'] = form.get("editable-%s" % pk, False)
         return results
 
     def updateMetadata(self):
