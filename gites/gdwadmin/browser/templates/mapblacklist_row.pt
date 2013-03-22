@@ -1,6 +1,6 @@
 <tr>
     <td>
-        <image style="cursor:pointer" src="moins.png" name="blacklist_remove_button"
+        <image style="cursor:pointer" src="++resource++gdwadminImages/moins.png" name="blacklist_remove_button"
                tal:attributes="id string:${request/dataId}_${request/provider}_remove_button;
                                dataId request/dataId;
                                dataProvider request/provider" />

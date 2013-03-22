@@ -41,7 +41,7 @@
         <tal:boucle tal:repeat="item view/getBlacklist">
             <tr>
                 <td>
-                    <image style="cursor:pointer" src="moins.png" name="blacklist_remove_button"
+                    <image style="cursor:pointer" src="++resource++gdwadminImages/moins.png" name="blacklist_remove_button"
                            tal:attributes="id string:${item/blacklist_id}_${item/blacklist_provider_pk}_remove_button;
                                            dataId item/blacklist_id;
                                            dataprovider item/blacklist_provider_pk" />

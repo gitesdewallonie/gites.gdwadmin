@@ -10,7 +10,7 @@
             <tal:boucle tal:repeat="item searchData">
                 <tr>
                     <td>
-                        <image style="cursor:pointer" src="plus.png" name="blacklist_add_button"
+                        <image style="cursor:pointer" src="++resource++gdwadminImages/plus.png" name="blacklist_add_button"
                                tal:attributes="dataId item/dataId;
                                                dataName item/name;
                                                dataDescription item/description;

@@ -2,11 +2,17 @@
 
 import json
 
+from googleplaces import GooglePlaces, types, lang
+
 from Products.Five.browser import BrowserView
 from zope.component import getUtility
 from z3c.sqlalchemy import getSAWrapper
-from googleplaces import GooglePlaces, types, lang
+
 from affinitic.pwmanager.interfaces import IPasswordManager
+
+#Région wallonne center location
+WALLONIE_CENTER = "50.401078,5.133648"
+
 
 class MapBlacklist(BrowserView):
     """
@@ -77,23 +83,40 @@ class MapBlacklistSearchResult(BrowserView):
         searchValue = self.request.get("searchValue")
         if searchValue == "":
             return None
-        # Google Place API KEY
-        pwManager = getUtility(IPasswordManager, 'googleapi')
-        apiKey = pwManager.password
-        google_places = GooglePlaces(apiKey)
-
-        query_result = google_places.query(
-                location='Région wallonne', keyword=searchValue,
-                radius=50000)
 
         result = []
-        for place in query_result.places:
-            item = dict(dataId = place.reference,
-                        name = place.name,
-                        description = place.vicinity,
-                        provider = 'google')
-            result.append(item)
+        result.extend(getGoogleDatas(searchValue))
+
         return result
+
+
+def getGoogleDatas(searchValue):
+    # Google Place API KEY
+    pwManager = getUtility(IPasswordManager, 'googleapi')
+    apiKey = pwManager.password
+    google_places = GooglePlaces(apiKey)
+
+    query_result = google_places.query(
+        location=WALLONIE_CENTER,
+        keyword=searchValue,
+        radius=50000,
+        language=lang.FRENCH)
+
+    result = []
+    for place in query_result.places:
+        item = dict(dataId=place.reference,
+                    name=place.name,
+                    description=place.vicinity,
+                    provider='google',
+                    #XXXtypes les types doivent etre défini suivant ce qui est utilisé dans les gites
+                    types=[types.TYPE_FOOD])
+        result.append(item)
+    #XXXnext probleme pour les request, 60 result max par page, et python-google-places ne gere pas
+    # le next_page_token et pagetoken
+    # https://developers.google.com/places/documentation/search?hl=fr
+#    if query_result.getAttr('next_page_token'):
+#        pass
+    return result
 
 
 def insertBlacklistData(dataId, name, description, provider):
@@ -125,8 +148,8 @@ def removeBlacklistData(dataId, provider):
     mapBlacklistTable = wrapper.getMapper('map_blacklist')
 
     query = session.query(mapBlacklistTable)
-    query = query.filter(mapBlacklistTable.blacklist_id==dataId)
-    query = query.filter(mapBlacklistTable.blacklist_provider_pk==provider)
+    query = query.filter(mapBlacklistTable.blacklist_id == dataId)
+    query = query.filter(mapBlacklistTable.blacklist_provider_pk == provider)
     result = query.one()
     session.delete(result)
     session.flush()
