@@ -24,7 +24,6 @@ setup(name='gites.gdwadmin',
       install_requires=[
           'zope.app.testing>=3.5',
           'setuptools',
-          'gites.skin',
           'gites.core',
           'affinitic.db',
           'collective.js.jqueryui',
