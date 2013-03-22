@@ -47,11 +47,18 @@ class HebergementMetadataValues(z3c.table.value.ValuesMixin,
         heb_pk = self.request.get('heb_pk')
         query = session().query(mappers.LinkHebergementMetadata)
         query = query.join('metadata_info', 'type')
-        query = query.filter(sa.and_(
-            mappers.LinkHebergementMetadata.heb_fk == heb_pk,
-            mappers.LinkHebergementMetadata.link_met_value == True))
+        query = query.filter(mappers.LinkHebergementMetadata.heb_fk == heb_pk)
         query = query.order_by(mappers.Metadata.metadata_type_id)
-        return query.all()
+
+        query_base = query.filter(sa.and_(
+            sa.not_(mappers.Metadata.met_id.in_(['heb_animal'])),
+            mappers.LinkHebergementMetadata.link_met_value == True))
+        base = query_base.all()
+
+        query_specials = query.filter(
+            mappers.Metadata.met_id.in_(['heb_animal']))
+        base.extend(query_specials.all())
+        return base
 
 
 class HebMetadataType(z3c.table.column.GetAttrColumn, grok.MultiAdapter):
@@ -81,8 +88,11 @@ class HebMetadataIcon(z3c.table.column.GetAttrColumn, grok.MultiAdapter):
     weight = 10
 
     def renderCell(self, item):
-        return u'<img src="%(id)s" alt="%(title)s" title="%(title)s" />' % {
-            'id': item.metadata_info.met_id,
+        metadata_id = item.metadata_info.met_id
+        if item.link_met_value is False:
+            metadata_id = '%s_off' % metadata_id
+        return u'<img src="%(id)s.png" alt="%(title)s" title="%(title)s" />' % {
+            'id': metadata_id,
             'title': item.metadata_info.met_titre_fr}
 
 
