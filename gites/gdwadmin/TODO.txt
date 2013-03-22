@@ -36,9 +36,15 @@
 
     - Creer code python
         - recuperation des informations lors de la recherche
+            - recuperer infos depuis google
+                + utiliser la clé API des gites de wallonie, en utilisant passwordmanager (cf: gites.db __init__)
+                + utiliser package python-google-places
+                - ajouter les types uniquement utilisés dans les gites (restaurant, etc..) cf: XXXtypes
             - Penser a retirer ceux deja blacklisté du resultat
-        - recuperation des informations actuellement blacklistées
+            - Attention il semble qu'il ne prenne que les 20 resultats les plus proches (peut etre need clé pro, ou passer par text search request https://developers.google.com/places/documentation/search?hl=fr ) cf: pagetoken
+        + recuperation des informations actuellement blacklistées
         + inserer des nouvelles informations dans la blacklist
         + supprimer des nouvelles informations dans la blacklist
 
     - Changer code de la map pour qu elle n affiche pas les blacklistés
+    - utiliser recherche par code python d infos google plutot que javascript sur la map?
