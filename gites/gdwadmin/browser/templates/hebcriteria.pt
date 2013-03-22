@@ -45,7 +45,7 @@
                             <span tal:replace="repeat/criterion/number" />.
                         </td>
                         <td>
-                            <span tal:replace="criterion/metadata/met_titre_fr" />
+                            <span tal:replace="criterion/metadata_info/met_titre_fr" />
                         </td>
                         <td align="center">
                             <input type="hidden" name="metadata_fk:list" value=""
