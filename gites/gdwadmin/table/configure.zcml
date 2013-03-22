@@ -3,5 +3,6 @@
 
    <grok:grok package=".metadata" />
    <grok:grok package=".hebmetadata" />
+   <grok:grok package=".hebmetadataupdate" />
 
 </configure>
