@@ -19,7 +19,7 @@ class HebCriteriaView(BrowserView):
         session = wrapper.session
         linkHebMetadataTable = wrapper.getMapper('link_hebergement_metadata')
         metadataTable = wrapper.getMapper('metadata')
-        query = session.query(linkHebMetadataTable).join('metadata')
+        query = session.query(linkHebMetadataTable).join('metadata_info')
         query = query.filter(linkHebMetadataTable.heb_fk == hebPk)
         query = query.order_by(metadataTable.met_titre_fr)
 
@@ -36,7 +36,7 @@ class HebCriteriaView(BrowserView):
                 'link_met_value': None,
                 'metadata': metadata})()
             heb_metadata.append(criterion)
-        heb_metadata.sort(key=lambda x: x.metadata.met_titre_fr)
+        heb_metadata.sort(key=lambda x: x.metadata_info.met_titre_fr)
         return heb_metadata
 
     def updateHebCriteria(self):
