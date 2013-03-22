@@ -999,19 +999,23 @@
 </fieldset>
 <!--FIN INFOS PROPRIETAIRE-->
 
-
-
 <fieldset class="fieldsetdescription">
     <legend class="legende">Type de table d'h&ocirc;te</legend>
     <ul>
-    <dtml-in "admin_base.table_hote.zsql_table_hote_select_by_hebpk(heb_pk=fheb_pk)">
-        <li><dtml-var tabho_type_fr></li>
-    </dtml-in>
+      <dtml-if "heb_tabhot_gourmand == 'oui'">
+        <li>Assiette gourmande</li>
+      </dtml-if>
+      <dtml-if "heb_tabhot_gastronomique == 'oui'">
+        <li>Menu gastronomique</li>
+      </dtml-if>
+      <dtml-if "heb_tabhot_repas_familial == 'oui'">
+        <li>Repas familial</li>
+      </dtml-if>
     </ul>
 </fieldset>
 
 <fieldset class="fieldsetdescription">
-   <legend class="legende">Info ECR</legend>
+  <legend class="legende">Info ECR</legend>
    <ul>
       <li>Date d'ouverture : <dtml-var heb_ecr_date_ouverture></li>
       <li>Remarque         : <dtml-var heb_ecr_remarque></li>

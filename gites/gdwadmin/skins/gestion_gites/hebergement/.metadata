@@ -21,9 +21,6 @@ gare_commerce_resto:DTML Method
 generer_code_gdw:External Method
 getIconeNbreEpis:Script (Python)
 getNbreEpis:Script (Python)
-getTypeTableHote:Script (Python)
-getTypeTableHoteByHebPk:Script (Python)
-getTypeTableHoteMajByHebPk:Script (Python)
 insert_heb_table_hote:Script (Python)
 liste_actif:DTML Method
 liste_non_actif:DTML Method
