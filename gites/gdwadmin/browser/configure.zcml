@@ -1,4 +1,5 @@
 <configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:grok="http://namespaces.zope.org/grok"
            xmlns:browser="http://namespaces.zope.org/browser"
            i18n_domain="gites">
 
@@ -41,6 +42,10 @@
       class=".hebcriteria.HebCriteriaView"
       attribute="updateHebCriteria"
       />
+
+
+    <!-- Heb metadatas -->
+	<grok:grok package=".hebmetadata" />
 
 
     <!-- Resources -->
