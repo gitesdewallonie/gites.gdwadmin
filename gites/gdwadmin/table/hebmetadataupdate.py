@@ -107,7 +107,7 @@ class HebMetadataUpdateActualValue(z3c.table.column.GetAttrColumn,
     weight = 30
 
     def renderCell(self, item):
-        return [u'oui', u'non'][int(item.link_metadata.link_met_value)]
+        return [u'non', u'oui'][int(item.link_metadata.link_met_value)]
 
 
 class HebMetadataUpdateNewValue(z3c.table.column.GetAttrColumn,
@@ -123,4 +123,4 @@ class HebMetadataUpdateNewValue(z3c.table.column.GetAttrColumn,
     weight = 40
 
     def renderCell(self, item):
-        return [u'oui', u'non'][int(item.link_met_value)]
+        return [u'non', u'oui'][int(item.link_met_value)]
