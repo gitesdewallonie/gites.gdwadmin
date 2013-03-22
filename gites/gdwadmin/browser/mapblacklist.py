@@ -19,19 +19,6 @@ class MapBlacklist(BrowserView):
     Map blacklist view
     """
     def getBlacklist(self):
-        result = [{'dataId': 'id4',
-                   'name':"item4",
-                   'description':"descriptionitem4",
-                   'provider':"quefaire.be"},
-                  {'dataId': 'id5',
-                   'name':"item5",
-                   'description':"descriptionitem5",
-                   'provider':"resto.be"},
-                  {'dataId': 'id6',
-                   'name':"item6",
-                   'description':"descriptionitem6",
-                   'provider':"google"},
-                  ]
         wrapper = getSAWrapper('gites_wallons')
         session = wrapper.session
 
@@ -71,7 +58,12 @@ class MapBlacklistLiveSearch(BrowserView):
     """
 
     def __call__(self):
-        return json.dumps(['hello', 'world'])
+        word = self.request.get('client_contains')
+        list = getExternalDatas(word)
+        result = []
+        for item in list:
+            result.append(item['name'])
+        return json.dumps(result)
 
 
 class MapBlacklistSearchResult(BrowserView):
@@ -83,10 +75,9 @@ class MapBlacklistSearchResult(BrowserView):
         searchValue = self.request.get("searchValue")
         if searchValue == "":
             return None
-
         result = []
         result.extend(getGoogleDatas(searchValue))
-
+        result.extend(getExternalDatas(searchValue))
         return result
 
 
@@ -118,6 +109,24 @@ def getGoogleDatas(searchValue):
 #        pass
     return result
 
+def getExternalDatas(searchValue):
+    wrapper = getSAWrapper('gites_wallons')
+    session = wrapper.session
+
+    mapExternalDataTable = wrapper.getMapper('map_external_data')
+
+    query = session.query(mapExternalDataTable)
+    result = []
+    for item in query.all():
+        if searchValue.decode('utf-8').lower() in item.ext_data_title.lower():
+            item = dict(dataId=item.ext_data_id,
+                        name=item.ext_data_title,
+                        description=item.ext_data_type,
+                        provider=item.ext_data_provider_pk,
+                        #XXXtypes les types doivent etre défini suivant ce qui est utilisé dans les gites
+                        types=[types.TYPE_FOOD])
+            result.append(item)
+    return result
 
 def insertBlacklistData(dataId, name, description, provider):
     """
