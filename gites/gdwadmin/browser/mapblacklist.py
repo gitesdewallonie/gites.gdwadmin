@@ -59,9 +59,10 @@ class MapBlacklistLiveSearch(BrowserView):
 
     def __call__(self):
         word = self.request.get('client_contains')
-        list = getExternalDatas(word)
         result = []
-        for item in list:
+        for item in getExternalDatas(word):
+            result.append(item['name'])
+        for item in getGoogleDatas(word):
             result.append(item['name'])
         return json.dumps(result)
 
@@ -89,7 +90,7 @@ def getGoogleDatas(searchValue):
 
     query_result = google_places.query(
         location=WALLONIE_CENTER,
-        keyword=searchValue,
+        name='"%s"'%searchValue.decode('utf-8').lower().replace("'",""),
         radius=50000,
         language=lang.FRENCH)
 
