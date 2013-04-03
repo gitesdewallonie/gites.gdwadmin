@@ -96,7 +96,7 @@ def getGoogleDatas(searchValue):
 
     result = []
     for place in query_result.places:
-        item = dict(dataId=place.reference,
+        item = dict(dataId=place.id,
                     name=place.name,
                     description=place.vicinity,
                     provider='google',
