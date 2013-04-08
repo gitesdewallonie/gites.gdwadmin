@@ -13,6 +13,11 @@
       rel=stylesheet>
 <script language="JavaScript" 
         src="gites_wallons_script.js"></script>
+<script>
+  function actu_iframe() {
+    document.getElementById("heb-metadata").style.height = document.getElementById("heb-metadata").contentDocument.body.offsetHeight+"px";
+  };
+</script>
 </head>
 <body>
 <span class="titre_page">Modification d'un hébergement</span><br><br>
@@ -888,8 +893,16 @@
       </td>
    </tr>
    <tr>
-      <td>Edition</td>
-      <td><a href="<dtml-var portal_url>/@@hebCriteriaEdition?pk=<dtml-var fheb_pk>" target="_blank">Formulaire d'édition des métadonnées</a></td>
+      <td colspan="2"><a href="<dtml-var portal_url>/@@hebCriteriaEdition?pk=<dtml-var fheb_pk>" target="_blank">Formulaire d'édition des métadonnées</a></td>
+   </tr>
+   <tr>
+     <td colspan="2">
+       <iframe id="heb-metadata" onLoad="actu_iframe();"
+               src="<dtml-var portal_url>/@@hebergement-metadata?heb_pk=<dtml-var heb_pk>&diazo.off=1"
+               scrolling="no" frameborder="0" style="width: 100%;">
+       </iframe>
+       <br />
+     </td>
    </tr>
 </table>
 
