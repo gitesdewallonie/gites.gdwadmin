@@ -132,44 +132,34 @@
             <tr>
                <td align="center"><!--gestion des picto activité-->
                   <dtml-if "heb_tenis=='oui'">
-                     <img src="images/picto/a_tennis.png"><br>
-                     <dtml-var heb_tenis_distance>km
+                     <img src="images/picto/a_tennis.png">
                   </dtml-if>
                   <dtml-if "heb_nautisme=='oui'">
-                     <img src="images/picto/a_voile.png"><br>
-                     <dtml-var heb_nautisme_distance>km
+                     <img src="images/picto/a_voile.png">
                   </dtml-if>
                   <dtml-if "heb_sky=='oui'">
-                     <img src="images/picto/a_sky.png"><br>
-                     <dtml-var heb_sky_distance>km
+                     <img src="images/picto/a_sky.png">
                   </dtml-if>
                   <dtml-if "heb_rando=='oui'">
-                     <img src="images/picto/a_rando.png"><br>
-                     <dtml-var heb_rando_distance>km
+                     <img src="images/picto/a_rando.png">
                   </dtml-if>
                   <dtml-if "heb_piscine=='oui'">
-                     <img src="images/picto/a_piscine.png"><br>
-                     <dtml-var heb_piscine_distance>km
+                     <img src="images/picto/a_piscine.png">
                   </dtml-if>
                   <dtml-if "heb_peche=='oui'">
-                     <img src="images/picto/a_peche.png"><br>
-                     <dtml-var heb_peche_distance>km
+                     <img src="images/picto/a_peche.png">
                   </dtml-if>
                   <dtml-if "heb_equitation=='oui'">
-                     <img src="images/picto/a_cheval.png"><br>
-                     <dtml-var heb_equitation_distance>km
+                     <img src="images/picto/a_cheval.png">
                   </dtml-if>
                   <dtml-if "heb_velo=='oui'">
-                     <img src="images/picto/a_velo.png"><br>
-                     <dtml-var heb_velo_distance>km
+                     <img src="images/picto/a_velo.png">
                   </dtml-if>
                   <dtml-if "heb_vtt=='oui'">
-                     <img src="images/picto/a_vtt.png"><br>
-                     <dtml-var heb_vtt_distance>km
+                     <img src="images/picto/a_vtt.png">
                   </dtml-if>
                   <dtml-if "heb_ravel=='oui'">
-                     <img src="images/picto/a_ravel.png"><br>
-                     <dtml-var heb_ravel_distance>km
+                     <img src="images/picto/a_ravel.png">
                   </dtml-if>
                </td>
             </tr>
@@ -350,8 +340,7 @@
                <td class="infogid"><img src="images/picto/i_commerce.png" /></td>
                <td class="choixinfogid">
                   <dtml-if heb_commerce>
-                     <dtml-var heb_commerce><br/>
-                     <dtml-var heb_commerce_distance> km
+                     <dtml-var heb_commerce>
                   <dtml-else>
                      <span class="tiret_None">-</span>
                   </dtml-if>
@@ -361,8 +350,7 @@
                <td class="infogid"><img src="images/picto/i_restaurant.png" /></td>
                <td class="choixinfogid">
                   <dtml-if heb_restaurant>
-                     <dtml-var heb_restaurant><br/>
-                     <dtml-var heb_restaurant_distance> km
+                     <dtml-var heb_restaurant>
                   <dtml-else>
                      <span class="tiret_None">-</span>
                   </dtml-if>
@@ -372,8 +360,7 @@
                <td class="infogid"><img src="images/picto/i_gare.png" /></td>
                <td class="choixinfogid">
                   <dtml-if heb_gare>
-                     <dtml-var heb_gare><br/>
-                     <dtml-var heb_gare_distance> km
+                     <dtml-var heb_gare>
                   <dtml-else>
                      <span class="tiret_None">-</span>
                   </dtml-if>
