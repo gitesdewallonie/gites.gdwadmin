@@ -9,9 +9,9 @@
 <link href="gites_wallons_style.css" type=text/css rel=stylesheet>
 <script language=JavaScript src="images/picto/images/picto/gites_wallons_script.js"></script>
 <script>
-function actu_iframe() {
-  document.getElementById("heb-metadata").style.height = document.getElementById("heb-metadata").contentDocument.body.offsetHeight+"px";
-}
+  function actu_iframe() {
+    document.getElementById("heb-metadata").style.height = document.getElementById("heb-metadata").contentDocument.body.offsetHeight+"px";
+  }
 </script>
 </head>
 
@@ -729,7 +729,7 @@ function actu_iframe() {
                       <tr>
                         <td>
                           <iframe id="heb-metadata" onLoad="actu_iframe();"
-                                  tal:attributes="src string:http://localhost:5011/plone1/@@hebergement-metadata-update?heb_pk=${heb_pk}&diazo.off=1"
+                                  tal:attributes="src string:${context/portal_url}/@@hebergement-metadata-update?heb_pk=${heb_pk}&diazo.off=1"
                                   scrolling="no" frameborder="0" style="width: 100%;">
                           </iframe>
                           <br />
