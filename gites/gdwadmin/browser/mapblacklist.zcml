@@ -5,7 +5,7 @@
     <browser:page
       for="*"
       name="mapBlacklist"
-      permission="zope2.View"
+      permission="gdw.ViewAdmin"
       class=".mapblacklist.MapBlacklist"
       template="templates/mapblacklist.pt"
       />
@@ -13,14 +13,14 @@
     <browser:page
       for="*"
       name="mapBlacklistLiveSearch"
-      permission="zope2.View"
+      permission="gdw.ViewAdmin"
       class=".mapblacklist.MapBlacklistLiveSearch"
       />
 
     <browser:page
       for="*"
       name="mapBlacklistSearchResult"
-      permission="zope2.View"
+      permission="gdw.ViewAdmin"
       class=".mapblacklist.MapBlacklistSearchResult"
       template="templates/mapblacklist_searchresult.pt"
       />
@@ -28,7 +28,7 @@
     <browser:page
       for="*"
       name="mapBlacklistRemoveData"
-      permission="zope2.View"
+      permission="gdw.ViewAdmin"
       class=".mapblacklist.MapBlacklist"
       attribute="removeData"
       />
@@ -36,7 +36,7 @@
     <browser:page
       for="*"
       name="mapBlacklistAddData"
-      permission="zope2.View"
+      permission="gdw.ViewAdmin"
       class=".mapblacklist.MapBlacklist"
       attribute="addData"
       />
@@ -44,7 +44,7 @@
     <browser:page
       for="*"
       name="mapBlacklistRowData"
-      permission="zope2.View"
+      permission="gdw.ViewAdmin"
       class=".mapblacklist.MapBlacklist"
       template="templates/mapblacklist_row.pt"
       />

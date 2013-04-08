@@ -30,7 +30,7 @@ class HebMetadataView(grok.View):
 class HebMetadataUpdateView(grok.View):
     grok.context(zope.interface.Interface)
     grok.name(u'hebergement-metadata-update')
-    grok.require('zope2.View')
+    grok.require('gdw.ViewAdmin')
     grok.template('hebmetadatatable')
 
     def get_table(self):

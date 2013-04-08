@@ -11,7 +11,7 @@
     <browser:page
       for="*"
       name="metadataEdition"
-      permission="zope2.View"
+      permission="gdw.ViewAdmin"
       class=".metadata.MetadataView"
       template="templates/metadata.pt"
       />
@@ -19,7 +19,7 @@
     <browser:page
       for="*"
       name="updateMetadata"
-      permission="zope2.View"
+      permission="gdw.ViewAdmin"
       class=".metadata.MetadataView"
       attribute="updateMetadata"
       />
@@ -30,7 +30,7 @@
     <browser:page
       for="*"
       name="hebCriteriaEdition"
-      permission="zope2.View"
+      permission="gdw.ViewAdmin"
       class=".hebcriteria.HebCriteriaView"
       template="templates/hebcriteria.pt"
       />
@@ -38,7 +38,7 @@
     <browser:page
       for="*"
       name="updateHebCriteria"
-      permission="zope2.View"
+      permission="gdw.ViewAdmin"
       class=".hebcriteria.HebCriteriaView"
       attribute="updateHebCriteria"
       />
