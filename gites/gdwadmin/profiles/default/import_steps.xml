@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<import-steps>
+  <import-step id="gites.gdwadmin.various"
+               version="1"
+               handler="gites.gdwadmin.install.setup"
+               title="GitesGdwAdmin: miscellaneous import steps">
+    <dependency step="skins" />
+    Setup portal for gdwadmin
+  </import-step>
+</import-steps>
