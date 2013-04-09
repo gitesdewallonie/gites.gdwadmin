@@ -121,6 +121,20 @@ body{
     </div>
 </fieldset>
 
+<fieldset>
+    <legend class="legende_menu">Données fournisseurs externes</legend>
+    <div class="divmenu">
+        <img src="images/flch_orange_pt.gif"><a href="<dtml-var portal_url>/@@mapBlacklist" target="_target">Filtres sur les données</a><br />
+    </div>
+</fieldset>
+
+<fieldset>
+    <legend class="legende_menu">Meta-données</legend>
+    <div class="divmenu">
+        <img src="images/flch_orange_pt.gif"><a href="<dtml-var portal_url>/@@metadataEdition" target="_target">Edition</a><br />
+    </div>
+</fieldset>
+
 <!--
 <fieldset>
     <legend class="legende_menu"> CallCenter </legend>
