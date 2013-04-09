@@ -111,7 +111,7 @@ else:
         heb_charge_fk=heb_charge_fk)
 
 # Updates the metadatas
-#context.admin_base.hebergement.zsql_maj_hebergement_metadata(heb_pk=heb_maj_pk)
+context.admin_base.hebergement.zsql_maj_hebergement_metadata(heb_pk=heb_pk)
 
 #suppression des infos de maj dans la table hebergement
 context.admin_base.hebergement.zsql_maj_hebergement_delete_by_heb_maj_pk(heb_maj_pk=heb_maj_pk);
