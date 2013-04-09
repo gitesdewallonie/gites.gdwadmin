@@ -32,7 +32,7 @@ class MapBlacklist(BrowserView):
         dataId = self.request.get('dataId')
         provider = self.request.get('provider')
 
-        #XXX remove in database
+        # remove in database
         removeBlacklistData(dataId, provider)
 
     def addData(self):
@@ -41,7 +41,7 @@ class MapBlacklist(BrowserView):
         description = self.request.get('description')
         provider = self.request.get('provider')
 
-        #XXX insert in database
+        # insert in database
         insertBlacklistData(dataId, name, description, provider)
 
         #return what we inserted in database
@@ -71,6 +71,7 @@ class MapBlacklistSearchResult(BrowserView):
     """
     Map blacklist search result view
     """
+
     def searchData(self):
 
         searchValue = self.request.get("searchValue")
@@ -90,7 +91,7 @@ def getGoogleDatas(searchValue):
 
     query_result = google_places.query(
         location=WALLONIE_CENTER,
-        name='"%s"'%searchValue.decode('utf-8').lower().replace("'",""),
+        name='"%s"' % searchValue.decode('utf-8').lower().replace("'", ""),
         radius=50000,
         language=lang.FRENCH)
 
@@ -110,6 +111,7 @@ def getGoogleDatas(searchValue):
 #        pass
     return result
 
+
 def getExternalDatas(searchValue):
     wrapper = getSAWrapper('gites_wallons')
     session = wrapper.session
@@ -128,6 +130,7 @@ def getExternalDatas(searchValue):
                         types=[types.TYPE_FOOD])
             result.append(item)
     return result
+
 
 def insertBlacklistData(dataId, name, description, provider):
     """
