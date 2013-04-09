@@ -286,7 +286,7 @@
                     </td>
                 </tr>
 
-                <tr  tal:condition="python: heb.heb_typeheb_fk in (1,2,3,4,7,10,11)">
+                <tr  tal:condition="python: heb.heb_typeheb_fk in (1,2,3,4,7,10)">
                     <td>
                         <!---[DEBUT TARIFICATION GITES]-->
                         <table class="maj-info">

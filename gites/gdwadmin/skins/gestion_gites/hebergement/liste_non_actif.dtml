@@ -37,7 +37,7 @@
       </dtml-in>
    </li>
    <li>
-      Nombre de GR GC GF GG MT MV</legend>
+      Nombre de GR GC GF MT MV</legend>
       <dtml-in "admin_base.hebergement.zsql_compte_hebergement_by_gr_gc_gf_mt_mv_by_EtatProprio()">
          <b><dtml-var count></b>
       </dtml-in>

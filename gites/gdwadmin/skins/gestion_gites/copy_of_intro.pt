@@ -144,7 +144,7 @@
             </fieldset>
 
             <fieldset class="fieldsetdescription">
-               <legend>Nombre de GR GC GF GG MT MV dont le proprio est actif</legend>
+               <legend>Nombre de GR GC GF MT MV dont le proprio est actif</legend>
                <span tal:define="totHeb here/admin_base/hebergement/zsql_compte_hebergement_by_gr_gc_gf_mt_mv_by_EtatProprio">
                   <span tal:repeat="tot totHeb"><b><span tal:content="tot/count" /></b></span>
                </span>
@@ -329,31 +329,31 @@
       </li> 
    </ul>
    
-   <h4>GR GC GF GG MT MV GRECR</h4>
+   <h4>GR GC GF MT MV GRECR</h4>
    <ul>
        <li>
-           <span tal:define="calendriers python:here.admin_base.hebergement.zsql_heb_select_hebcalendar_byetat_bytype(etat='actif', type=(1,2,3,4,7,10,11))">
+           <span tal:define="calendriers python:here.admin_base.hebergement.zsql_heb_select_hebcalendar_byetat_bytype(etat='actif', type=(1,2,3,4,7,10))">
                <span tal:repeat="cal calendriers">
                   <span tal:content="cal/count" /> actifs
                </span>
            </span>
       </li>
       <li>
-           <span tal:define="calendriers python:here.admin_base.hebergement.zsql_heb_select_hebcalendar_byetat_bytype(etat='non actif', type=(1,2,3,4,7,10,11))">
+           <span tal:define="calendriers python:here.admin_base.hebergement.zsql_heb_select_hebcalendar_byetat_bytype(etat='non actif', type=(1,2,3,4,7,10))">
                <span tal:repeat="cal calendriers">
                   <span tal:content="cal/count" /> non-actifs
                </span>
            </span>
       </li>
       <li>
-           <span tal:define="calendriers python:here.admin_base.hebergement.zsql_heb_select_hebcalendar_byetat_bytype(etat='bloque', type=(1,2,3,4,7,10,11))">
+           <span tal:define="calendriers python:here.admin_base.hebergement.zsql_heb_select_hebcalendar_byetat_bytype(etat='bloque', type=(1,2,3,4,7,10))">
                <span tal:repeat="cal calendriers">
                   <span tal:content="cal/count" /> bloqu&eacute;s
                </span>
            </span>
       </li>
       <li>
-           <span tal:define="calendriers python:here.admin_base.hebergement.zsql_heb_select_hebcalendar_byetat_bytype(etat='searchactif', type=(1,2,3,4,7,10,11))">
+           <span tal:define="calendriers python:here.admin_base.hebergement.zsql_heb_select_hebcalendar_byetat_bytype(etat='searchactif', type=(1,2,3,4,7,10))">
                <span tal:repeat="cal calendriers">
                   <span tal:content="cal/count" /> actifs pour la recherche
                </span>
