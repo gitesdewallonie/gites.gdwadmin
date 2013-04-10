@@ -4,6 +4,6 @@
     i18n_domain="gites">
 
   <!-- File System Directory Views registration -->
-  <cmf:registerDirectory name="gestion_gites"/>
+  <cmf:registerDirectory name="gestion_gites" recursive="True"/>
 
 </configure>
