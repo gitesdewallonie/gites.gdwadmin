@@ -285,3 +285,10 @@ margin: 1em 1em 1em 0.7em;
 width: auto;
 text-align: left;	
 }
+
+#photo-proprio {
+width:196px;
+height:170px;
+background-image:url(++theme++gites.theme/images/bg_photo_proprio.png);
+background-repeat:no-repeat;
+}

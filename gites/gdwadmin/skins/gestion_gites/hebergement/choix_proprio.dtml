@@ -2,7 +2,7 @@
 <html>
 <head>
 <title> Gites wallons : sélection d'un propriétaire</TITLE>
-<meta http-equiv="content-type" content="="text/ht; charset=UTF-8" >
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" >
 <dtml-call "RESPONSE.setHeader('Content-Type', 'text/html;charset=UTF-8')">
 <meta name="generator" content="vim">
 <meta name="author" content="affinitic">

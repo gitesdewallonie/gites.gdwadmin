@@ -2,7 +2,7 @@
 <html>
 <head>
 <title> Gites wallons : modification du propriétaire</title>
-<meta http-equiv="content-type" content=""text/htm; charset=UTF-8" >
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <dtml-call "RESPONSE.setHeader('Content-Type', 'text/html;charset=UTF-8')">
 <meta name="generator" content="Bluefish 1.0.7">
 <meta name="author" content="alain">
@@ -16,6 +16,7 @@
 
 <!--"traiter_modification_proprio" -->
 
+
 <form action= "traiter_modification_proprio"                                                     
            method="get">
 
@@ -23,6 +24,23 @@
 <dtml-in "admin_base.proprio.zsql_select_proprio_propk(pro_pk=fpro_pk)">
 
 <table border="1" cellspacing="0" bordercolor="#EEEFEE">
+   <tr>
+      <td colspan="2" align="left" bgcolor="#006666">
+         <span class="titre_encodage">
+         PHOTO DU PROPRIETAIRE
+         </span>
+         </font>
+      </td>
+   </tr>
+   <tr>
+      <td>Photo de contact</td>
+      <td>
+          <div id="photo-proprio">
+              <img src="photos_proprio/<dtml-var pro_pk>.jpg" />
+          </div>
+      </td>
+   </tr>
+   <tr>
    <tr>
       <td colspan="2" align="left" bgcolor="#006666">
          <span class="titre_encodage">
