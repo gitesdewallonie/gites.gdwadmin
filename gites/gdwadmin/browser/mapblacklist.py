@@ -91,7 +91,7 @@ def getGoogleDatas(searchValue):
 
     query_result = google_places.query(
         location=WALLONIE_CENTER,
-        name='"%s"' % searchValue.decode('utf-8').lower().replace("'", ""),
+        name='"%s"' % searchValue.lower().replace("'", ""),
         radius=50000,
         language=lang.FRENCH)
 
