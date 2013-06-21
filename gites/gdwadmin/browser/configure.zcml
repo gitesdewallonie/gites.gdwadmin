@@ -6,6 +6,17 @@
     <include file="mapblacklist.zcml" />
 
 
+    <!-- Utils -->
+
+    <browser:page
+      for="*"
+      name="generer_code_gdw"
+      attribute="generer_code_gdw"
+      permission="gdw.ViewAdmin"
+      class=".utils.UtilsView"
+      />
+
+
     <!-- Metadata -->
 
     <browser:page

@@ -37,7 +37,8 @@ for elem in dataCommune:
 
 
 
-gdw=context.generer_code_gdw(typeHeb,comIns)
+generer_code_gdw = context.restrictedTraverse('@@generer_code_gdw')
+gdw=generer_code_gdw(typeHeb,comIns)
 
 
 context.admin_base.hebergement.zsql_insert_heb(GDW=gdw, \
