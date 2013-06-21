@@ -14,7 +14,7 @@
 <body>
 <span class="titre_page">Liste des réservations</span><br><br>
 
-<form action="traiter_insertion_proprio" method="get">
+<form action="insertProprio" method="get">
 <table>
 	<tr>
 		<td colspan="15" align="left" bgcolor="#006666">

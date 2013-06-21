@@ -1,2 +1,0 @@
-<dtml-call "admin_base.proprio.zsql_proprio_insert()">
-<dtml-call "RESPONSE.redirect('liste_actif')">
