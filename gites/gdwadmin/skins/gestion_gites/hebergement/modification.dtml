@@ -898,7 +898,7 @@
    <tr>
      <td colspan="2">
        <iframe id="heb-metadata" onLoad="actu_iframe();"
-               src="<dtml-var portal_url>/@@hebergement-metadata?heb_pk=<dtml-var heb_pk>&diazo.off=1"
+               src="<dtml-var portal_url>/@@hebergement-metadata?heb_pk=<dtml-var heb_pk>"
                scrolling="no" frameborder="0" style="width: 100%;">
        </iframe>
        <br />

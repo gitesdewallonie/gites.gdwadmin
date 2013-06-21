@@ -5,7 +5,7 @@
 <head></head>
 <body>
 <div metal:fill-slot="wrapper">
-  <div tal:content="structure view/get_table" />
+  <div style="background:#FFFFFF" tal:content="structure view/get_table" />
 </div>
 </body>
 </html>

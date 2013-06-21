@@ -55,8 +55,7 @@ var mapBlackList = {
         jQuery.ajax({
             type: "POST",
             url: 'mapBlacklistSearchResult',
-            data: {searchValue: jQuery("input#blacklist_search_value").val(),
-                   'diazo.off': 1},
+            data: {searchValue: jQuery("input#blacklist_search_value").val()},
             success: function(data) {
                 jQuery("div#blacklist_search_result").html(data);
                 jQuery("[name='blacklist_add_button']").bind({'click': mapBlackList.addData});
@@ -68,8 +67,7 @@ var mapBlackList = {
         dataToAdd = {dataId: jQuery(event.target).attr('dataId'),
                      name: jQuery(event.target).attr('dataName'),
                      description: jQuery(event.target).attr('dataDescription'),
-                     provider: jQuery(event.target).attr('dataProvider'),
-                     'diazo.off': 1}
+                     provider: jQuery(event.target).attr('dataProvider'),}
         // Insert data in database
         jQuery.ajax({
             type: "POST",
@@ -83,7 +81,6 @@ var mapBlackList = {
                     });
 
                 rowData = JSON.parse(data);
-                rowData['diazo.off'] = 1;
                 // Add row in html blacklist table
                 jQuery.ajax({
                     type: "POST",
