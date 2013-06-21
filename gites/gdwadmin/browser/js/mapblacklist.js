@@ -82,20 +82,17 @@ var mapBlackList = {
 
                 rowData = JSON.parse(data);
                 // Add row in html blacklist table
-                jQuery.ajax({
-                    type: "POST",
-                    url: 'mapBlacklistRowData',
-                    data: rowData,
-                    success: function(data) {
-                        data = jQuery(data);
-                        jQuery("table#blacklist_table tr:last").after(data);
+                jQuery('<tr></tr>').appendTo('table#blacklist_table"').load(
+                    'mapBlacklistRowData',
+                    rowData,
+                    function() {
                         jQuery("table#blacklist_table tr:last").hide().fadeIn(300,
                             function(){
                                 dataSelector = '[id="' + rowData.dataId + '_' + rowData.provider + '_remove_button' + '"]' + '[name="blacklist_remove_button"]';
                                 jQuery(dataSelector).bind({'click': mapBlackList.removeData});
                             });
                     }
-                });
+                );
 
             }
         });
