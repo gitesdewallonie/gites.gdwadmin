@@ -18,7 +18,8 @@ class MapBlacklist(BrowserView):
     """
     Map blacklist view
     """
-    def getBlacklist(self):
+    @classmethod
+    def getBlacklist(cls):
         wrapper = getSAWrapper('gites_wallons')
         session = wrapper.session
 
@@ -77,10 +78,18 @@ class MapBlacklistSearchResult(BrowserView):
         searchValue = self.request.get("searchValue")
         if searchValue == "":
             return None
-        result = []
-        result.extend(getGoogleDatas(searchValue))
-        result.extend(getExternalDatas(searchValue))
-        return result
+        results = []
+        results.extend(getGoogleDatas(searchValue))
+        results.extend(getExternalDatas(searchValue))
+
+        # Remove actual blacklisted data from the results
+        blackList = MapBlacklist.getBlacklist()
+        for result in results[:]:
+            for blackListed in blackList:
+                if (result.get('provider') == blackListed.blacklist_provider_pk
+                   and result.get('dataId') == blackListed.blacklist_id):
+                    results.remove(result)
+        return results
 
 
 def getGoogleDatas(searchValue):

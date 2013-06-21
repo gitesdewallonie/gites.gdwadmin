@@ -1,6 +1,6 @@
 <tal:def define="searchData view/searchData">
     <tal:if tal:condition="searchData">
-        <table>
+        <table class="blacklist">
             <tr>
                 <th>Blacklister</th>
                 <th>Nom</th>
