@@ -34,7 +34,7 @@ class HebCriteriaView(BrowserView):
                 'heb_fk': hebPk,
                 'metadata_fk': metadata.met_pk,
                 'link_met_value': None,
-                'metadata': metadata})()
+                'metadata_info': metadata})()
             heb_metadata.append(criterion)
         heb_metadata.sort(key=lambda x: x.metadata_info.met_titre_fr)
         return heb_metadata
