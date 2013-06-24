@@ -73,7 +73,7 @@ class HebMetadataUpdateIcon(z3c.table.column.GetAttrColumn, grok.MultiAdapter):
     weight = 10
 
     def renderCell(self, item):
-        return u'<img src="%(id)s" alt="%(title)s" title="%(title)s" />' % {
+        return u'<img src="%(id)s.png" alt="%(title)s" title="%(title)s" />' % {
             'id': item.metadata_info.met_id,
             'title': item.metadata_info.met_titre_fr}
 
