@@ -1,17 +1,5 @@
 <!--dtml-var REQUEST-->
 
-
-<!-- 
-        appel à un script python pour insérer la clé de l'heb heb_pk 
-         et les différents type de table d'hote hebhot_tabho_fk
--->
-<dtml-if hebhot_tabho_fk>
-  <dtml-call "insert_heb_table_hote(heb_pk=fheb_pk, hebhot_tabho_fk=hebhot_tabho_fk)">
-<dtml-else>
-  <dtml-call "insert_heb_table_hote(heb_pk=fheb_pk, hebhot_tabho_fk=-1)">
-</dtml-if>
-
-
 <!-- mise à jour de la table hebergement -->
 <dtml-call "admin_base.hebergement.zsql_heb_update()">
 
