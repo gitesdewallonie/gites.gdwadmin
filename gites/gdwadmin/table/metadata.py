@@ -21,6 +21,7 @@ class MetadataTable(Table):
     cssClassEven = u'odd'
     cssClassOdd = u'even'
     sortOn = 'table-number-0'
+    startBatchingAt = 9999
 
     @property
     def values(self):
