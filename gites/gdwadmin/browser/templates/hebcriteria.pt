@@ -13,8 +13,8 @@
                  criteria python: view.getCriteriasValueForHeb(heb_pk)">
 
 
-    <h3 tal:define="hebergement python: criteria[0].hebergement">
-        <span tal:replace="hebergement/heb_nom" />
+    <h3>
+        <span tal:replace="view/hebergement/heb_nom" />
     </h3>
 
     <br />

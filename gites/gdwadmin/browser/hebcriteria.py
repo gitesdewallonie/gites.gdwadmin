@@ -4,11 +4,18 @@ from sqlalchemy.sql import not_
 from z3c.sqlalchemy import getSAWrapper
 from Products.Five.browser import BrowserView
 
+from gites.db.content.hebergement.hebergement import Hebergement
+
 
 class HebCriteriaView(BrowserView):
     """
     Hebs criteria values edition view
     """
+
+    @property
+    def hebergement(self):
+        """ Returns the heb """
+        return Hebergement.first(heb_pk=self.request.get('pk'))
 
     def getCriteriasValueForHeb(self, hebPk):
         """
