@@ -21,10 +21,6 @@
 
     <form name="edit-criteria" action="updateHebCriteria" method="post">
 
-      <style>
-        tr.not-defined { background-color: #f9e7c6; } /* XXX Must be moved in future css file */
-      </style>
-
       <table align="center" class="listing nosort">
            <thead>
                 <tr>
