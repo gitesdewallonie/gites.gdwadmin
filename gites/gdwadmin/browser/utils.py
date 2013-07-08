@@ -13,7 +13,7 @@ from datetime import datetime
 from z3c.sqlalchemy import getSAWrapper
 from Products.Five.browser import BrowserView
 
-dir_gdw = "/home/gdw/compteur_gdw.ame"
+dir_gdw = "/home/gdw"
 
 
 def lire_compteur_gdw():
