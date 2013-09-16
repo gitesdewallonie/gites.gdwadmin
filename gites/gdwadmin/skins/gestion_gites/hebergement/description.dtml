@@ -130,7 +130,7 @@
                <td colspan="2" align="center"><b>Activit&eacute;s</b></td>
             </tr>
             <tr>
-               <td align="center"><!--gestion des picto activité-->
+               <td align="center"><!--gestion des picto activitÃ©-->
                   <dtml-if "heb_tenis=='oui'">
                      <img src="images/picto/a_tennis.png">
                   </dtml-if>
@@ -873,7 +873,7 @@
                   <tr bgcolor="#CCFFCC">
                </dtml-if>
                <td>
-                  Disponibilités
+                  DisponibilitÃ©s
                </td>
             </tr>
             <tr>
@@ -881,12 +881,12 @@
                   <!--dtml-in "zsql_select_reservation_by_hebfk(fres_heb_fk=fheb_pk)"-->
                      <!--dtml-var res_date-->
                   <!--/dtml-in-->
-                   
+                  Â 
                </td>
             </tr>
             <tr>
                <td>
-                  <xxdtml-call "REQUEST.set('list_res',[])"><!--liste qui reçoit les dates réservées-->
+                  <xxdtml-call "REQUEST.set('list_res',[])"><!--liste qui reÃ§oit les dates rÃ©servÃ©es-->
                   <xxdtml-calendar controls="yes" bgcolor="#cccccc" lang="fr">
                      <xxdtml-call "setCalendar('valign','top')">
                      <xxdtml-call "setCalendar('daybgcolor','6a8ea2')">
@@ -897,14 +897,14 @@
                      </font>
 
 
-                        <!-- debut lecture dans la base des dates réservées-->
+                        <!-- debut lecture dans la base des dates rÃ©servÃ©es-->
                         <xxdtml-in "zsql_select_reservation_by_hebfk(fres_heb_fk=fheb_pk)">
                            <xxdtml-call "REQUEST.set('the_date', _['sequence-item'].to_char)">
-                           <xxdtml-call "list_res.append(the_date)"><!--ajout de la date réservée &#65533;  la liste-->
+                           <xxdtml-call "list_res.append(the_date)"><!--ajout de la date rÃ©servÃ©e &#65533;  la liste-->
                         <xx/dtml-in>
-                        <!-- fin lecture dans la base des dates réservées-->
+                        <!-- fin lecture dans la base des dates rÃ©servÃ©es-->
 
-                              <xxdtml-if "date.strftime('%Y-%m-%d') in list_res"><!--cas ou il y a des réservations dans la base-->
+                              <xxdtml-if "date.strftime('%Y-%m-%d') in list_res"><!--cas ou il y a des rÃ©servations dans la base-->
 
                                  <xxdtml-if "date.strftime('%Y-%m-%d') == ZopeTime().strftime('%Y-%m-%d')"><!--jour courant-->
                                     <font  face="verdana, arial, helvetica, sans-serif" size="1" color="#0000FF">
@@ -912,7 +912,7 @@
                                     </font>
                                  <xxdtml-else>
                                     <font face="verdana, arial, helvetica, sans-serif" size="1" color="#FF0000">
-                                       <xxdtml-var date fmt="%d"> <!--date réservée-->
+                                       <xxdtml-var date fmt="%d"> <!--date rÃ©servÃ©e-->
                                     </font>
                                  <xx/dtml-if>
 
