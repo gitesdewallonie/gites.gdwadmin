@@ -16,7 +16,12 @@
 proPk = context.REQUEST.fpro_pk
 
 etatCalendrier = context.REQUEST.heb_calendrier_proprio
-etatCourant = context.isEtatCalendrierProprioActive(pro_pk=proPk)
+doitEtreBloque = etatCalendrier == 'bloque' and True or False
+estBloque = not context.isEtatCalendrierProprioActive(pro_pk=proPk)
+
+if doitEtreBloque == estBloque:
+    return
+
 hebergements = context.admin_base.hebergement.zsql_heb_select_hebcalendar_by_propk(pro_pk=proPk)
 
 for heb in hebergements:
