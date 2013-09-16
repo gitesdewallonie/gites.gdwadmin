@@ -1,5 +1,6 @@
 <dtml-call "admin_base.proprio.zsql_proprio_update()">
 <dtml-call changeEtatCalendrierProprio>
+<dtml-call changeExclusionAlloCHProprio>
 <dtml-call "RESPONSE.redirect('liste_actif')">
 
 

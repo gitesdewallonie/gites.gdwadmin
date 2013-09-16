@@ -215,7 +215,7 @@
       </td> 
    </tr>
    <tr>
-      <td >Propriétaire</td>
+      <td width="50%">Propriétaire</td>
       <td>
          <select name="fpro_etat">           
             <dtml-if "pro_etat == True">
@@ -244,7 +244,7 @@
       </td> 
    </tr>
    <tr>
-      <td >Calendrier</td>
+      <td width="50%">Calendrier</td>
       <td>
          <dtml-let etatCalendrier="isEtatCalendrierProprioActive(pro_pk=fpro_pk)">
              <select name="heb_calendrier_proprio">           
@@ -262,7 +262,33 @@
 </table>
 <!---[FIN CALENDRIER]--->
 
-
+<!---[DEBUT EXCLUSION ALLOCH]--->
+<table border="1" cellspacing="0" bordercolor="#EEEFEE">
+   <tr>
+      <td colspan="2" align="left" bgcolor="#006666">
+         <span class="titre_encodage">
+            EXCLUSION D'ALLO CHAMBRE D'HOTES
+         </span>
+      </td>
+   </tr>
+   <tr>
+      <td width="50%">Exclure les chambres (éventuelles) de ce propriétaire d'Allo Chambre d'hôtes</td>
+      <td>
+         <dtml-let etatExclusion="isProprioExcludedFromAlloCH(pro_pk=fpro_pk)">
+	         <select name="heb_desactivation_alloch">
+	            <dtml-if "etatExclusion == True">
+	               <option value="True" selected> Exclu d'Allo Chambre d'hôtes</option>
+	               <option value="False"> Par défaut</option>
+	            <dtml-else>
+	               <option value="True"> Exclu d'Allo Chambre d'hôtes</option>
+	               <option value="False" selected> Par défaut</option>
+	            </dtml-if>
+	         </select>
+         </dtml-let>             
+      </td>
+   </tr>
+</table>
+<!---[FIN EXCLUSION ALLOCH]--->
 
 <!---[DEBUT HISTORIQUE]--->
 <table border="1" cellspacing="0" bordercolor="#EEEFEE">
