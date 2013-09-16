@@ -277,11 +277,11 @@
          <dtml-let etatExclusion="isProprioExcludedFromAlloCH(pro_pk=fpro_pk)">
 	         <select name="heb_desactivation_alloch">
 	            <dtml-if "etatExclusion == True">
-	               <option value="True" selected> Exclu d'Allo Chambre d'hôtes</option>
 	               <option value="False"> Par défaut</option>
+	               <option value="True" selected> Exclu d'Allo Chambre d'hôtes</option>
 	            <dtml-else>
-	               <option value="True"> Exclu d'Allo Chambre d'hôtes</option>
 	               <option value="False" selected> Par défaut</option>
+	               <option value="True"> Exclu d'Allo Chambre d'hôtes</option>
 	            </dtml-if>
 	         </select>
          </dtml-let>             
