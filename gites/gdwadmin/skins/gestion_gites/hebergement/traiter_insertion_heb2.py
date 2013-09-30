@@ -36,10 +36,13 @@ for elem in dataCommune:
    comIns=elem.com_ins
 
 
-
 generer_code_gdw = context.restrictedTraverse('@@generer_code_gdw')
 gdw=generer_code_gdw(typeHeb,comIns)
 
+existingHebergements = context.admin_base.hebergement.zsql_heb_select_hebcalendar_by_propk(pro_pk=fheb_pro_fk)
+etatCalendrier = 'non actif'  # default
+for heb in existingHebergements:
+    etatCalendrier = heb.heb_calendrier_proprio
 
 context.admin_base.hebergement.zsql_insert_heb(GDW=gdw, \
                                                fheb_nom=fheb_nom, \
@@ -55,7 +58,8 @@ context.admin_base.hebergement.zsql_insert_heb(GDW=gdw, \
                                                fheb_employe_creation = fheb_employe_creation, \
                                                fheb_site_public='0', \
                                                fheb_charge_fk= charge_pk, \
-                                               fheb_pro_fk=fheb_pro_fk)
+                                               fheb_pro_fk=fheb_pro_fk, \
+                                               fheb_calendrier_proprio=etatCalendrier)
 
 
 return context.REQUEST.RESPONSE.redirect('liste_non_actif?code_gdw='+gdw)
