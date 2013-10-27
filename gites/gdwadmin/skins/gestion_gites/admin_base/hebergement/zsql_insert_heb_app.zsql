@@ -1,0 +1,23 @@
+ <dtml-comment>
+title:table hebergement_app
+arguments: fheb_pk
+connection_id:Psycopg_database_connection
+max_rows:1000
+max_cache:100
+cache_time:0
+class_name:
+class_file:
+</dtml-comment>
+insert into hebergement_app
+
+(
+heb_app_sort_order,
+heb_app_heb_fk
+)
+
+values
+
+(
+<dtml-sqlvar fheb_pk type="int">,
+<dtml-sqlvar fheb_pk type="int">
+)

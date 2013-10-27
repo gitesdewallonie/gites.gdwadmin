@@ -61,5 +61,11 @@ context.admin_base.hebergement.zsql_insert_heb(GDW=gdw, \
                                                fheb_pro_fk=fheb_pro_fk, \
                                                fheb_calendrier_proprio=etatCalendrier)
 
+created_heb = context.admin_base.hebergement.zsql_select_hebergement_by_codegdw(f_code_gdw=gdw)
+created_pk = created_heb[0].heb_pk
+
+# see later if we need more intelligent logic (get max value of
+# hebergement_app table instead of putting heb_pk which is always greater)
+context.admin_base.hebergement.zsql_insert_heb_app(fheb_pk=created_pk)
 
 return context.REQUEST.RESPONSE.redirect('liste_non_actif?code_gdw='+gdw)
