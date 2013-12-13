@@ -958,7 +958,7 @@
                 name="fheb_employe_modification"
                 value="<dtml-var "AUTHENTICATED_USER.getUserName()">" />
          <input type="submit" 
-                value="Enregister" />
+                value="Enregistrer" />
       </td>
    </tr>
 </table>
