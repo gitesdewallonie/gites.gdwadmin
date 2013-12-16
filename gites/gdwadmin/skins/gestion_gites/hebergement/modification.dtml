@@ -69,7 +69,7 @@
 <br><br>
 
 
-<form action="traiter_modification_heb" method="get">
+<form action="heb_update" method="get">
 <table border="1" cellspacing="0" bordercolor="#EEEFEE">
     <tr>
         <td colspan="2" align="left" bgcolor="#006666">

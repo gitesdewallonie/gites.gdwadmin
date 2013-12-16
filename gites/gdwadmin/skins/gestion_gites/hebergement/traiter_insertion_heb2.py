@@ -29,7 +29,7 @@ comIns=''
 
 dataTypeHeb=context.admin_base.type_heb.zsql_select_type_heb_typehebpk(type_heb_pk=context.REQUEST.fheb_typeheb_fk)
 for elem in dataTypeHeb:
-   typeHeb=elem.type_heb_code  
+   typeHeb=elem.type_heb_code
 
 dataCommune=context.admin_base.commune.zsql_select_commune_compk(fcom_pk=context.REQUEST.fheb_com_fk)
 for elem in dataCommune:

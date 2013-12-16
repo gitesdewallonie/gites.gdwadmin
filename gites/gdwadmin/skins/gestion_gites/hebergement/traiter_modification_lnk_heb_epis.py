@@ -8,7 +8,6 @@
 ##title=
 ##
 #
-# appelle par "traiter_modification_heb"  
 # table link_hebergement_epis
 # a chaque modification d'un hebergement on delete dans cette table toutes les entrees
 # et ensuite on reinsere avec les nouvelles donnes.
