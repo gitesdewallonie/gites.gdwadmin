@@ -138,14 +138,6 @@
             </td>
         </tr>
         <tr>
-            <td>URL du site personnel</td>
-            <td>
-                <input type="text" 
-                       name="fpro_url" 
-                       value="" />
-            </td>
-        </tr>
-        <tr>
             <td>Numéro de TVA</td>
             <td>
                 <input type="text" 

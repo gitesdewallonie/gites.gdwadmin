@@ -66,7 +66,6 @@ class UtilsView(BrowserView):
                                  pro_fax_bur=fields.get('fpro_fax_bur'),
                                  pro_gsm1=fields.get('fpro_gsm1'),
                                  pro_gsm2=fields.get('fpro_gsm2'),
-                                 pro_url=fields.get('fpro_url'),
                                  pro_tva=fields.get('fpro_tva'),
                                  pro_etat=fields.get('fpro_etat'),
                                  pro_employe_creation=fields.get('fpro_employe_creation'),

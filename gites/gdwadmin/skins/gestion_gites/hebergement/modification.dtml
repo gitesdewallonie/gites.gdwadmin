@@ -243,6 +243,12 @@
       -->
    </tr>
    <tr>
+      <td>URL du site li&eacute; à l'h&eacute;bergement</td>
+      <td>
+         <input type="text" name="fheb_url" value="<dtml-var heb_url>" size="50">
+      </td>
+   </tr>
+   <tr>
       <td>Nombre d'épis</td>
       <td>
          <dtml-let HebNbreEpis="int(getNbreEpis(heb_pk=heb_pk))">

@@ -15,6 +15,7 @@
 heb_pk = context.REQUEST.get('heb_pk', None)
 heb_maj_pk = context.REQUEST.get('heb_maj_pk', None)
 heb_nom = context.REQUEST.get('heb_nom', None)
+heb_url = context.REQUEST.get('heb_url', None)
 heb_adresse = context.REQUEST.get('heb_adresse', None)
 heb_localite = context.REQUEST.get('heb_localite', None)
 heb_taxe_montant = context.REQUEST.get('heb_taxe_montant', None)
@@ -46,6 +47,7 @@ if int(heb_typeheb_fk) in (5, 6, 9):
     context.admin_base.hebergement.zsql_maj_hebergement_update(
         heb_pk=heb_pk,
         heb_nom=heb_nom,
+        heb_url=heb_url,
         heb_adresse=heb_adresse,
         heb_localite=heb_localite,
         heb_taxe_montant=heb_taxe_montant,
@@ -86,6 +88,7 @@ else:
     context.admin_base.hebergement.zsql_maj_hebergement_update(
         heb_pk=heb_pk,
         heb_nom=heb_nom,
+        heb_url=heb_url,
         heb_adresse=heb_adresse,
         heb_localite=heb_localite,
         heb_taxe_montant=heb_taxe_montant,

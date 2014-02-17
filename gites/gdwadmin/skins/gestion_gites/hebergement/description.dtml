@@ -25,6 +25,7 @@
    ::: <b>Code GDW</b> : <b class="choixinfogid"><dtml-var heb_code_gdw></b><br/>
    ::: <b>Position sur carte</b> : <b class="choixinfogid"><dtml-var heb_coordonnee></b><br/>
    ::: <b>Coordonn&eacute;es GPS</b> : Long: <b class="choixinfogid"><dtml-var heb_gps_long></b> - Lat : <b class="choixinfogid"><dtml-var heb_gps_lat></b><br />
+   ::: <b>URL du site li&eacute; à l'h&eacute;bergement</b> : <b class="choixinfogid"><dtml-var heb_url></b><br/>
 
    <dtml-in "zsql_select_maison_tourisme_maispk(fmais_pk=heb_maison_tourisme_fk)">
        ::: <b>Maison du tourisme</b> : <b class="choixinfogid"><dtml-var mais_nom></b>
@@ -980,7 +981,6 @@
          <li>Fax : <dtml-var pro_fax_priv missing=""></li>
          <li>GSM : <dtml-var pro_gsm1 missing=""></li>
          <li><a href="mailto:<dtml-var pro_email>"><dtml-var pro_email missing=""></a></li>
-         <li><a href="http://<dtml-var pro_url>" target="_blank"><dtml-var pro_url missing=""></a></li>
       </dtml-in>
       </ul>
 </fieldset>

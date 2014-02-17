@@ -117,6 +117,20 @@
                                            tal:attributes="value hebmaj/heb_maj_localite" />
                                 </td>
                             </tr>
+                            <tr bgcolor="#E2F3DE">
+                                <td class="maj-etiquette">URL du site li&eacute; à l'h&eacute;bergement</td>
+                                <td>
+                                    <span tal:content="heb/heb_url"
+                                          class="grasnoir" />
+                                </td>
+                                <td>
+                                    <input type="text"
+                                           name="heb_url"
+                                           size="50"
+                                           value=""
+                                           tal:attributes="value hebmaj/heb_maj_url" />
+                                </td>
+                            </tr>
                         </table>
                         <!---[FIN INFORMATION GENERALE]-->
                     </td>

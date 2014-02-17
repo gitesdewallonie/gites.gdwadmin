@@ -127,13 +127,6 @@
          <input type="text" name="fpro_gsm1" value="<dtml-var pro_gsm1>">
    </tr>
    
-   <tr>
-      <td>URL du site personnel</td>
-      <td>
-         <input type="text" name="fpro_url" value="<dtml-var pro_url>">
-      </td>
-   </tr>
-   
 
 </table>
 <!---[FIN INFORMATION GENERALE]--->

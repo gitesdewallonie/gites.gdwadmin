@@ -159,12 +159,6 @@
       </td>
    </tr>
    <tr>
-      <td>URL du site personnel</td>
-      <td>
-         <input type="text" name="fpro_url" value="<dtml-var pro_url>" size="50" />
-      </td>
-   </tr>
-   <tr>
       <td>Numéro de TVA</td>
       <td>
          <input type="text" name="fpro_tva" value="<dtml-var pro_tva>">

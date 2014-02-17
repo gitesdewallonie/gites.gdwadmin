@@ -967,7 +967,6 @@
          <li>Fax : <dtml-var pro_fax_priv missing=""></li>
          <li>GSM : <dtml-var pro_gsm1 missing=""></li>
          <li><a href="mailto:<dtml-var pro_email>"><dtml-var pro_email missing=""></a></li>
-         <li><a href="http://<dtml-var pro_url>" target="_blank"><dtml-var pro_url missing=""></a></li>
       </dtml-in>
       </ul>
 </fieldset>
