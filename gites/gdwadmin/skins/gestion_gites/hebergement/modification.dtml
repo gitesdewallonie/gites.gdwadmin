@@ -252,6 +252,7 @@
       <td>Nombre d'épis</td>
       <td>
          <dtml-let HebNbreEpis="int(getNbreEpis(heb_pk=heb_pk))">
+            <span class="grasorange"><dtml-var "getNbreEpis(heb_pk=heb_pk)"></span>&nbsp;
             <dtml-if "heb_typeheb_fk in [1,2,3,4,7,10]"><!--cas des GR GF MT GC MV GRECR-->
                 <span class="grasorange">[<dtml-var "getNbreEpis(heb_pk=heb_pk)">]</span>
 
@@ -300,13 +301,12 @@
                     <input type="radio" name="fheb_nbre_epis" value="5">
                 </dtml-if>
                     <img src="images/1_epis.gif"><img src="images/1_epis.gif"><img src="images/1_epis.gif"><img src="images/1_epis.gif"><img src="images/1_epis.gif">
-    
-            <dtml-else>
-                 <span class="grasorange"><dtml-var "getNbreEpis(heb_pk=heb_pk)"></span>
+            </dtml-if>
 
 
         <!-- CHAMBRE -->
-                 <dtml-if "HebNbreEpis in [5,6,9]"><!-- cas de CH MH CHECR-->
+             <dtml-if "heb_typeheb_fk in [5,6,9]"><!-- cas de CH MH CHECR-->
+                <dtml-if "HebNbreEpis==0">
                     <input type="radio" name="fheb_nbre_epis" value="0" checked="checked">
                  <dtml-else>
                     <input type="radio" name="fheb_nbre_epis" value="0">
