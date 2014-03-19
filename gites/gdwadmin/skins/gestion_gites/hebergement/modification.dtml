@@ -253,9 +253,7 @@
       <td>
          <dtml-let HebNbreEpis="int(getNbreEpis(heb_pk=heb_pk))">
             <span class="grasorange"><dtml-var "getNbreEpis(heb_pk=heb_pk)"></span>&nbsp;
-            <dtml-if "heb_typeheb_fk in [1,2,3,4,7,10]"><!--cas des GR GF MT GC MV GRECR-->
-                <span class="grasorange">[<dtml-var "getNbreEpis(heb_pk=heb_pk)">]</span>
-
+            <dtml-if "heb_typeheb_fk in [1,2,3,4,7,10,11]"><!--cas des GR GF MT GC MV GRECR-->
                 <dtml-if "HebNbreEpis==0">
                     <input type="radio" name="fheb_nbre_epis" value="0" checked>
                 <dtml-else>

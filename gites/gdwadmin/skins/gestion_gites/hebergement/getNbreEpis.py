@@ -19,18 +19,7 @@ nbreEpis=context.admin_base.hebergement.zsql_nbre_epis_select_by_heb_pk(heb_pk=h
 
 if len(nbreEpis)==0:
    epis=0
-   print epis
-   return printed
+   return epis
 
-
-epis=''
-c=1
-
-for elem in nbreEpis:
-   epis=epis+str(elem.heb_nombre_epis)
-   if (len(nbreEpis) > 1 and  c < (len(nbreEpis))):
-      epis=epis+'    '
-   c=c+1
-
-print epis
-return printed
+epis = nbreEpis[0].heb_nombre_epis
+return epis
