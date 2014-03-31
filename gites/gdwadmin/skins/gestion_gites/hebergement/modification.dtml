@@ -23,6 +23,7 @@
 <span class="titre_page">Modification d'un hébergement</span><br><br>
 
 <dtml-in "zsql_select_heb_hebpk(heb_pk=fheb_pk)">
+<dtml-in "zsql_select_heb_app_hebpk(heb_pk=fheb_pk)">
 
 <dtml-if "heb_site_public == '1'">
     <img src="images/bleverte.gif" /> Publi&eacute; sur le portail
@@ -390,6 +391,18 @@
                 value="<dtml-var heb_gps_lat>">
          <br /><br />
          Recherche coordonnées <a href="http://www.gpsfrance.net/services/adresse2gps.php" target="_blank">ici</a>
+         <br /><br />
+         <b>Groupement</b>
+         <br />
+         Attention, ces changements doivent idéalement être effectués sur tous les hébergements du groupement. Laisser un champ vide pour remettre les valeurs par défaut.
+         <br /><br />
+         Entrez la longueur de la ligne du groupement (Nombre entier. Défaut: 65, bonne alternative: 100) :
+         <br />
+         <input type="text" name="fheb_app_groupement_line_length" value="<dtml-var heb_app_groupement_line_length>">
+         <br />
+         Entrez l'angle de départ de l'affichage des groupements (Nombre réel. Défaut: 0, bonne alternative: 0.5, tour complet: 10) :
+         <br />
+         <input type="text" name="fheb_app_groupement_angle_start" value="<dtml-var heb_app_groupement_angle_start>">
          <br />
       </td>
    </tr>
@@ -966,6 +979,7 @@
       </td>
    </tr>
 </table>
+</dtml-in>
 </dtml-in>
 </form>
 </body>

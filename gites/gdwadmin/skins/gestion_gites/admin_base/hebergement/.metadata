@@ -20,6 +20,7 @@ zsql_heb_select_by_type:Z SQL Method
 zsql_heb_select_hebcalendar_by_propk:Z SQL Method
 zsql_heb_select_hebcalendar_byetat_bytype:Z SQL Method
 zsql_heb_update:Z SQL Method
+zsql_heb_app_update:Z SQL Method
 zsql_heb_update_hebcalendar_by_hebpk:Z SQL Method
 zsql_insert_heb:Z SQL Method
 zsql_lnk_heb_nbre_epis_delete:Z SQL Method

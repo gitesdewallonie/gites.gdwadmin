@@ -1,0 +1,19 @@
+ <dtml-comment>
+title:table hebergement_app
+arguments: fheb_pk fheb_app_groupement_line_length fheb_app_groupement_angle_start
+connection_id:Psycopg_database_connection
+max_rows:1000
+max_cache:100
+cache_time:0
+class_name:
+class_file:
+</dtml-comment>
+update hebergement_app
+
+
+set
+
+heb_app_groupement_line_length=<dtml-sqlvar fheb_app_groupement_line_length type="string" optional>,
+heb_app_groupement_angle_start=<dtml-sqlvar fheb_app_groupement_angle_start type="string" optional>
+
+where heb_app_heb_fk = <dtml-sqlvar fheb_pk type="int">
