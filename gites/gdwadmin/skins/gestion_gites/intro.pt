@@ -52,6 +52,36 @@
          </li>
       </span>
    </span>
+
+   <span tal:define="proprios python:here.admin_base.proprio.zsql_compte_notification_en_attente_confirmation(origin='PIVOT')">
+      <span tal:repeat="proprio proprios">
+         <li>
+            <a href="" tal:attributes="href string:${context/portal_url}/notification-listing?status=UNTREATED&origin=PIVOT" target="blank">
+              <span tal:content="proprio/count" /> notification en attente de confirmation (PIVOT)
+            </a>
+         </li>
+      </span>
+   </span>
+
+   <span tal:define="proprios python:here.admin_base.proprio.zsql_compte_notification_en_attente_confirmation(origin='GDW')">
+      <span tal:repeat="proprio proprios">
+         <li>
+            <a href="" tal:attributes="href string:${context/portal_url}/notification-listing?status=UNTREATED&origin=GDW" target="blank">
+              <span tal:content="proprio/count" /> notification en attente de confirmation (GDW)
+            </a>
+         </li>
+      </span>
+   </span>
+
+   <span tal:define="proprios here/admin_base/proprio/zsql_compte_tarifs_en_attente_confirmation">
+      <span tal:repeat="proprio proprios">
+         <li>
+            <a href="" tal:attributes="href string:${context/portal_url}/tarif-to-confirm" target="blank">
+              <span tal:content="proprio/count" /> tarifs en attente de confirmation
+            </a>
+         </li>
+      </span>
+   </span>
    </ul> 
 </fieldset>
 <!-- /INFOS HEBERGEMENT PROPRIO MAJ -->

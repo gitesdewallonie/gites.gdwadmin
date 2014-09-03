@@ -3,6 +3,8 @@ title=
 
 [Objects]
 zsql_compte_maj_proprio_en_attente_confirmation:Z SQL Method
+zsql_compte_notification_en_attente_confirmation:Z SQL Method
+zsql_compte_tarifs_en_attente_confirmation:Z SQL Method
 zsql_maj_proprio_delete_by_pro_maj_pk:Z SQL Method
 zsql_maj_proprio_select_all:Z SQL Method
 zsql_maj_proprio_select_by_pro_maj_pk:Z SQL Method
