@@ -55,7 +55,8 @@ body{
         <a href="hebergement/listing_maj_hebergement_info" target="principal">MAJ hebergement a confirmer</a><br />
         <img src="images/flch_orange_pt.gif">
         <a href="<dtml-var portal_url>/tarif-to-confirm" target="blank">MAJ tarifs a confirmer</a><br />
-
+        <img src="images/flch_orange_pt.gif">
+        <a href="<dtml-var portal_url>/@@notification-listing" target="blank">Notifications à traiter</a><br />
     </div>
 </fieldset>
 
