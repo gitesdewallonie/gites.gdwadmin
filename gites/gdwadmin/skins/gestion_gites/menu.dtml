@@ -56,7 +56,7 @@ body{
         <img src="images/flch_orange_pt.gif">
         <a href="<dtml-var portal_url>/tarif-to-confirm" target="blank">MAJ tarifs a confirmer</a><br />
         <img src="images/flch_orange_pt.gif">
-        <a href="<dtml-var portal_url>/@@notification-listing" target="blank">Notifications à traiter</a><br />
+        <a href="<dtml-var portal_url>/@@notification-listing?status=UNTREATED&origin=PIVOT" target="blank">Notifications à traiter</a><br />
     </div>
 </fieldset>
 
