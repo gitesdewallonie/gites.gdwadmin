@@ -8,4 +8,4 @@ cache_time:0
 class_name:
 class_file:
 </dtml-comment>
-select count(*) from tarifs where valid = Null
+select count(distinct heb_pk) from tarifs where valid is null
