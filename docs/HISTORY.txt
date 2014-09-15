@@ -4,7 +4,14 @@ Changelog
 0.1.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Add notification counter + tarifs counter Affinitic refs #5928
+  [francoisbr]
+
+- Add link to notifications
+  [mpeeters]
+
+- Add links to new tarif-edition view + remove old tarif forms : #5838 Affinitic
+  [schminitz]
 
 
 0.1 (2014-09-15)
