@@ -30,7 +30,6 @@ heb_pointfort_fr = context.REQUEST.get('heb_pointfort_fr', None)
 heb_typeheb_fk = context.REQUEST.heb_typeheb_fk
 
 if int(heb_typeheb_fk) in (5, 6, 9):
-    heb_charge_fk = 2
     context.admin_base.hebergement.zsql_maj_hebergement_update(
         heb_pk=heb_pk,
         heb_nom=heb_nom,
@@ -44,10 +43,8 @@ if int(heb_typeheb_fk) in (5, 6, 9):
         heb_lit_enf=heb_lit_enf,
         heb_distribution_fr=heb_distribution_fr,
         heb_descriptif_fr=heb_descriptif_fr,
-        heb_pointfort_fr=heb_pointfort_fr,
-        heb_charge_fk=heb_charge_fk)
+        heb_pointfort_fr=heb_pointfort_fr)
 else:
-    heb_charge_fk = context.REQUEST.get('heb_charge_fk', 2)
     context.admin_base.hebergement.zsql_maj_hebergement_update(
         heb_pk=heb_pk,
         heb_nom=heb_nom,
@@ -61,8 +58,7 @@ else:
         heb_lit_enf=heb_lit_enf,
         heb_distribution_fr=heb_distribution_fr,
         heb_descriptif_fr=heb_descriptif_fr,
-        heb_pointfort_fr=heb_pointfort_fr,
-        heb_charge_fk=heb_charge_fk)
+        heb_pointfort_fr=heb_pointfort_fr)
 
 # Updates the metadatas
 context.admin_base.hebergement.zsql_maj_hebergement_metadata(heb_pk=heb_pk)

@@ -1,6 +1,6 @@
  <dtml-comment>
 title:table hebergement
-arguments: heb_adresse heb_animal heb_charge_fk heb_commerce heb_commerce_distance heb_confort_congelateur heb_confort_feu_ouvert heb_confort_internet heb_confort_lave_linge heb_confort_lave_vaiselle heb_confort_micro_onde heb_confort_seche_linge heb_confort_tv heb_descriptif_fr heb_distribution_fr heb_equitation heb_equitation_distance heb_forfait_montant heb_fumeur heb_gare heb_gare_distance heb_lit_1p heb_lit_2p heb_lit_enf heb_lit_sup heb_localite heb_nautisme heb_nautisme_distance heb_nom heb_url heb_peche heb_peche_distance heb_piscine heb_piscine_distance heb_pk heb_pointfort_fr heb_rando heb_rando_distance heb_ravel heb_ravel_distance heb_restaurant heb_restaurant_distance heb_sky heb_sky_distance heb_tenis heb_tenis_distance heb_velo heb_velo_distance heb_vtt heb_vtt_distance
+arguments: heb_adresse heb_animal heb_commerce heb_commerce_distance heb_confort_congelateur heb_confort_feu_ouvert heb_confort_internet heb_confort_lave_linge heb_confort_lave_vaiselle heb_confort_micro_onde heb_confort_seche_linge heb_confort_tv heb_descriptif_fr heb_distribution_fr heb_equitation heb_equitation_distance heb_forfait_montant heb_fumeur heb_gare heb_gare_distance heb_lit_1p heb_lit_2p heb_lit_enf heb_lit_sup heb_localite heb_nautisme heb_nautisme_distance heb_nom heb_url heb_peche heb_peche_distance heb_piscine heb_piscine_distance heb_pk heb_pointfort_fr heb_rando heb_rando_distance heb_ravel heb_ravel_distance heb_restaurant heb_restaurant_distance heb_sky heb_sky_distance heb_tenis heb_tenis_distance heb_velo heb_velo_distance heb_vtt heb_vtt_distance
 connection_id:Psycopg_database_connection
 max_rows:1000
 max_cache:100
@@ -36,6 +36,5 @@ set
     heb_tenis_distance  = <dtml-sqlvar heb_tenis_distance type="string" optional>,
     heb_velo_distance  = <dtml-sqlvar heb_velo_distance type="string" optional>,
     heb_vtt_distance  = <dtml-sqlvar heb_vtt_distance type="string" optional>,
-    heb_charge_fk = <dtml-sqlvar heb_charge_fk type="int" optional>
 where  
     heb_pk  = <dtml-sqlvar heb_pk type="int">
