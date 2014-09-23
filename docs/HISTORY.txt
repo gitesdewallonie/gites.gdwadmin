@@ -4,7 +4,8 @@ Changelog
 0.1.2 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Do not remove heb_charge_fk on update : #6003
+  [mpeeters]
 
 
 0.1.1 (2014-09-15)
