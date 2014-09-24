@@ -35,6 +35,6 @@ set
     heb_sky_distance  = <dtml-sqlvar heb_sky_distance type="string" optional>,
     heb_tenis_distance  = <dtml-sqlvar heb_tenis_distance type="string" optional>,
     heb_velo_distance  = <dtml-sqlvar heb_velo_distance type="string" optional>,
-    heb_vtt_distance  = <dtml-sqlvar heb_vtt_distance type="string" optional>,
+    heb_vtt_distance  = <dtml-sqlvar heb_vtt_distance type="string" optional>
 where  
     heb_pk  = <dtml-sqlvar heb_pk type="int">
