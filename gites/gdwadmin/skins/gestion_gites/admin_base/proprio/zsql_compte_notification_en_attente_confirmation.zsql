@@ -14,3 +14,5 @@ from
    notification
 where 
    origin = <dtml-sqlvar origin type="string">
+and
+   treated is null

@@ -4,7 +4,8 @@ Changelog
 0.1.5 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Update zsql_compte_notification_en_attente_confirmation : #6014
+  [francoisbr]
 
 
 0.1.4 (2014-10-23)
