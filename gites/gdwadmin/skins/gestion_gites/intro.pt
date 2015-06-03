@@ -6,10 +6,10 @@
 <meta name="author" content="Affinitic">
 <meta name="Keywords" CONTENT="">
 <meta name="Description" CONTENT="">
-<link href="gites_wallons_style.css" 
-      type="text/css" 
+<link href="gites_wallons_style.css"
+      type="text/css"
       rel="stylesheet" />
-<script language="JavaScript" 
+<script language="JavaScript"
         src="gites_wallons_script.js"></script>
 </head>
 
@@ -19,15 +19,159 @@
          <td align="center">
             <font face="verdana, arial" size="3" color="#FFOOOO">
                Bienvenue dans la zone de gestion du site des g&icirc;tes de Wallonie.
-            </font>		
+            </font>
          </td>
       </tr>
    </table>
 
 
-   
-
 <div align="center">
+<!-- INFOS HEBERGEMENT PROPRIO MAJ -->
+<fieldset class="fieldsetdescription">
+   <legend>Mise a jour des donn&eacute;es</legend>
+   <ul>
+   <span tal:define="hebergements here/admin_base/hebergement/zsql_compte_maj_hebergement_en_attente_confirmation">
+      <span tal:repeat="heb hebergements">
+         <li>
+            <a href="hebergement/listing_maj_hebergement_info">
+               <span tal:content="heb/count" /> hebergement en attente de confirmation
+            </a>
+         </li>
+      </span>
+   </span>
+
+   <span tal:define="proprios here/admin_base/proprio/zsql_compte_maj_proprio_en_attente_confirmation">
+      <span tal:repeat="proprio proprios">
+         <li>
+            <a href="proprietaire/listing_maj_proprio_info">
+              <span tal:content="proprio/count" /> proprio en attente de confirmation
+            </a>
+         </li>
+      </span>
+   </span>
+   </ul>
+</fieldset>
+<!-- /INFOS HEBERGEMENT PROPRIO MAJ -->
+
+<!-- INFOS PROPRIO -->
+<fieldset class="fieldsetdescription">
+   <legend>Propriétaires</legend>
+   <span tal:define="proprios here/admin_base/proprio/zsql_proprio_count_all">
+      <span tal:repeat="proprio proprios">
+         <span tal:content="proprio/count" /> propriétaires
+      </span>
+   </span>
+   <ul>
+      <li tal:define="proprioActifs here/admin_base/proprio/zsql_proprio_count_all_active">
+         <span tal:repeat="proprio proprioActifs">
+              <span tal:content="proprio/count" /> activés
+         </span>
+      </li>
+      <li tal:define="proprioNonActifs here/admin_base/proprio/zsql_proprio_count_all_non_active">
+          <span tal:repeat="proprio proprioNonActifs">
+             <span tal:content="proprio/count" /> désactivés
+         </span>
+      </li>
+   </ul>
+</fieldset>
+<!-- /INFOS PROPRIO -->
+
+<!-- INFOS HEBERGEMENT -->
+<fieldset class="fieldsetdescription">
+   <legend>Nombre des hébergements par type</legend>
+   <br />
+   <table border="1" cellspacing="0" bordercolor="#EEEFEE" width="35%" align="center">
+      <tr class="titre_encodage" bgcolor="#006666">
+         <td>TYPE</td>
+         <td align="center">CODE</td>
+         <td align="center">NOMBRE</td>
+      </tr>
+      <span tal:define="typeHebs here/admin_base/hebergement/zsql_select_all_type_heb">
+         <span tal:repeat="type typeHebs">
+         <span tal:define="typeHebPk type/type_heb_pk">
+         <tr>
+         <td>
+            &nbsp;&nbsp;
+            <a href=""
+               tal:attributes="href string:hebergement/etat_nombre_hebergement_detail?type_heb_pk=${typeHebPk}&type_heb_nom=${type/type_heb_nom}">
+               <span tal:content="type/type_heb_nom" />
+            </a>
+         </td>
+         <td align="center">
+            <span tal:content="type/type_heb_code" />&nbsp;(<span tal:content="type/type_heb_pk" />)
+         </td>
+         <td align="right">
+            <span tal:define="totaux python:here.admin_base.hebergement.zsql_compte_hebergement_by_type(fheb_type=typeHebPk)">
+               <span tal:repeat="total totaux"><span tal:content="total/count" /></span>
+            </span>
+         </td>
+      </tr>
+      </span>
+      </span>
+      </span>
+      <tr bgcolor="#fff1f0">
+         <td colspan="2" align="right">
+           <span class="grasrouge">TOTAL</span>
+         </td>
+         <td align="right">
+            <span tal:define="totHeb here/admin_base/hebergement/zsql_compte_hebergement">
+               <span tal:repeat="tot totHeb"><span tal:content="tot/count" class="grasrouge" /></span>
+            </span>
+         </td>
+      </tr>
+      <tr>
+         <td colspan="3">
+            <fieldset class="fieldsetdescription">
+               <legend>Nombre de CH et de MH dont le proprio est actif</legend>
+               <span tal:define="totHeb here/admin_base/hebergement/zsql_compte_hebergement_by_ch_mh_by_EtatProprio">
+                  <span tal:repeat="tot totHeb"><b><span tal:content="tot/count" /></b></span>
+               </span>
+               dont
+               <span tal:define="totHebPub python:here.admin_base.hebergement.zsql_compte_hebergement_by_ch_mh_by_EtatPublication_EtatProprio(etat=1)">
+                  <span tal:repeat="tot totHebPub"><b><span tal:content="tot/count" /></b></span>
+               </span> publi&eacute;s
+               et
+               <span tal:define="totHebNotPub python:here.admin_base.hebergement.zsql_compte_hebergement_by_ch_mh_by_EtatPublication_EtatProprio(etat=0)">
+                  <span tal:repeat="tot totHebNotPub"><b><span tal:content="tot/count" /></b></span>
+               </span> non-publi&eacute;s
+            </fieldset>
+
+            <fieldset class="fieldsetdescription">
+               <legend>Nombre de GR GC GF MT MV dont le proprio est actif</legend>
+               <span tal:define="totHeb here/admin_base/hebergement/zsql_compte_hebergement_by_gr_gc_gf_mt_mv_by_EtatProprio">
+                  <span tal:repeat="tot totHeb"><b><span tal:content="tot/count" /></b></span>
+               </span>
+               dont
+               <span tal:define="totHebPub python:here.admin_base.hebergement.zsql_compte_hebergement_by_gr_gc_gf_mt_mv_by_EtatPublication_EtatProprio(etat=1)">
+                  <span tal:repeat="tot totHebPub"><b><span tal:content="tot/count" /></b></span>
+               </span> publi&eacute;s
+               et
+               <span tal:define="totHebNotPub python:here.admin_base.hebergement.zsql_compte_hebergement_by_gr_gc_gf_mt_mv_by_EtatPublication_EtatProprio(etat=0)">
+                  <span tal:repeat="tot totHebNotPub"><b><span tal:content="tot/count" /></b></span>
+               </span>  non-publi&eacute;s
+
+            </fieldset>
+            <fieldset class="fieldsetdescription">
+               <legend>H&eacute;bergements publi&eacute;s sur le portail</legend>
+               <span tal:define="totHeb python:here.admin_base.hebergement.zsql_compte_hebergement_public_portail(etat=1)">
+                  <span tal:repeat="tot totHeb"><b><span tal:content="tot/count" /></b> publi&eacute;s sur le portail</span>
+               </span>
+               <br />
+               <span tal:define="totHeb python:here.admin_base.hebergement.zsql_compte_hebergement_public_portail(etat=0)">
+                  <span tal:repeat="tot totHeb"><b><span tal:content="tot/count" /></b> non-publi&eacute;s sur le portail</span>
+               </span>
+            </fieldset>
+
+         </td>
+      </tr>
+   </table>
+</fieldset>
+<!-- /INFOS HEBERGEMENT -->
+<ul>
+    <li><a href="nombre_des_hebergements_au_calendrier_actif">Nombre des hébergements dont le calendrier est activ&eacute;</a></li>
+    <li><a href="etat_des_calendriers_selon_types_hebergement">Etat des calendriers selon les types d'h&eacute;bergement</a></li>
+</ul>
+
 </div>
 
 <br /><br />

@@ -1,0 +1,88 @@
+<html>
+<head>
+<title> Gites wallons : sélection d'un hébergement par le proprio</TITLE>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" >
+<meta name="generator" content="Zope">
+<meta name="author" content="Affinitic">
+<meta name="Keywords" CONTENT="">
+<meta name="Description" CONTENT="">
+<link href="gites_wallons_style.css"
+      type="text/css"
+      rel="stylesheet" />
+<script language="JavaScript"
+        src="gites_wallons_script.js"></script>
+</head>
+
+<body>
+<!-- INFOS CALENDRIER -->
+<fieldset class="fieldsetdescription">
+   <legend>Etat des calendriers selon les types d'h&eacute;bergement</legend>
+   (Proprio actif)
+   <h4>CH MH CHECR</h4>
+   <ul>
+       <li>
+           <span tal:define="calendriers python:here.admin_base.hebergement.zsql_heb_select_hebcalendar_byetat_bytype(etat='actif', type=(5,6,9))">
+               <span tal:repeat="cal calendriers">
+                  <span tal:content="cal/count" /> actifs
+               </span>
+           </span>
+      </li>
+      <li>
+           <span tal:define="calendriers python:here.admin_base.hebergement.zsql_heb_select_hebcalendar_byetat_bytype(etat='non actif', type=(5,6,9))">
+               <span tal:repeat="cal calendriers">
+                  <span tal:content="cal/count" /> non-actifs
+               </span>
+           </span>
+      </li>
+      <li>
+           <span tal:define="calendriers python:here.admin_base.hebergement.zsql_heb_select_hebcalendar_byetat_bytype(etat='bloque', type=(5,6,9))">
+               <span tal:repeat="cal calendriers">
+                  <span tal:content="cal/count" /> bloqu&eacute;s
+               </span>
+           </span>
+      </li>
+      <li>
+           <span tal:define="calendriers python:here.admin_base.hebergement.zsql_heb_select_hebcalendar_byetat_bytype(etat='searchactif', type=(5,6,9))">
+               <span tal:repeat="cal calendriers">
+                  <span tal:content="cal/count" /> actifs pour la recherche
+               </span>
+           </span>
+      </li>
+   </ul>
+
+   <h4>GR GC GF MT MV GRECR</h4>
+   <ul>
+       <li>
+           <span tal:define="calendriers python:here.admin_base.hebergement.zsql_heb_select_hebcalendar_byetat_bytype(etat='actif', type=(1,2,3,4,7,10))">
+               <span tal:repeat="cal calendriers">
+                  <span tal:content="cal/count" /> actifs
+               </span>
+           </span>
+      </li>
+      <li>
+           <span tal:define="calendriers python:here.admin_base.hebergement.zsql_heb_select_hebcalendar_byetat_bytype(etat='non actif', type=(1,2,3,4,7,10))">
+               <span tal:repeat="cal calendriers">
+                  <span tal:content="cal/count" /> non-actifs
+               </span>
+           </span>
+      </li>
+      <li>
+           <span tal:define="calendriers python:here.admin_base.hebergement.zsql_heb_select_hebcalendar_byetat_bytype(etat='bloque', type=(1,2,3,4,7,10))">
+               <span tal:repeat="cal calendriers">
+                  <span tal:content="cal/count" /> bloqu&eacute;s
+               </span>
+           </span>
+      </li>
+      <li>
+           <span tal:define="calendriers python:here.admin_base.hebergement.zsql_heb_select_hebcalendar_byetat_bytype(etat='searchactif', type=(1,2,3,4,7,10))">
+               <span tal:repeat="cal calendriers">
+                  <span tal:content="cal/count" /> actifs pour la recherche
+               </span>
+           </span>
+      </li>
+   </ul>
+</fieldset>
+<!-- /INFOS CALENDRIER -->
+
+</body>
+</html>

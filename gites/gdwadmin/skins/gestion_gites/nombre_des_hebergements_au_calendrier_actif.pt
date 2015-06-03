@@ -1,0 +1,71 @@
+<html>
+<head>
+<title> Gites wallons : sélection d'un hébergement par le proprio</TITLE>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" >
+<meta name="generator" content="Zope">
+<meta name="author" content="Affinitic">
+<meta name="Keywords" CONTENT="">
+<meta name="Description" CONTENT="">
+<link href="gites_wallons_style.css"
+      type="text/css"
+      rel="stylesheet" />
+<script language="JavaScript"
+        src="gites_wallons_script.js"></script>
+</head>
+
+<body>
+<!-- INFOS HEBERGEMENT CALENDRIER PROPRIO ACTIF-->
+<fieldset class="fieldsetdescription">
+   <legend>Nombre des hébergements dont le calendrier est activ&eacute;</legend>
+   (Proprio actif)
+   <br />
+   <table border="1" cellspacing="0" bordercolor="#EEEFEE" width="35%" align="center">
+      <tr class="titre_encodage" bgcolor="#006666">
+         <td>HEBERGEMENT</td>
+         <td align="center">NOMBRE</td>
+      </tr>
+      <tr>
+           <td>
+                    Activation
+           </td>
+           <td align="right">
+               <span tal:define="totaux python:here.admin_base.hebergement.zsql_compte_hebergement_calendrier_proprio_actif(etat='actif')">
+                    <span tal:repeat="total totaux"><span tal:content="total/count" /></span>
+                </span>
+           </td>
+       </tr>
+       <tr>
+           <td>
+                    Activation pour la recherche
+           </td>
+           <td align="right">
+               <span tal:define="totaux python:here.admin_base.hebergement.zsql_compte_hebergement_calendrier_proprio_actif(etat='searchactif')">
+                    <span tal:repeat="total totaux"><span tal:content="total/count" /></span>
+                </span>
+           </td>
+       </tr>
+       <tr>
+           <td>
+                    Non activ&eacute;
+           </td>
+           <td align="right">
+               <span tal:define="totaux python:here.admin_base.hebergement.zsql_compte_hebergement_calendrier_proprio_actif(etat='non actif')">
+                    <span tal:repeat="total totaux"><span tal:content="total/count" /></span>
+                </span>
+           </td>
+       </tr>
+       <tr>
+           <td>
+                    Bloqu&eacute;
+           </td>
+           <td align="right">
+               <span tal:define="totaux python:here.admin_base.hebergement.zsql_compte_hebergement_calendrier_proprio_actif(etat='bloque')">
+                    <span tal:repeat="total totaux"><span tal:content="total/count" /></span>
+                </span>
+           </td>
+       </tr>
+   </table>
+</fieldset>
+<!-- INFOS HEBERGEMENT CALENDRIER PROPRIO ACTIF-->
+</body>
+</html>
