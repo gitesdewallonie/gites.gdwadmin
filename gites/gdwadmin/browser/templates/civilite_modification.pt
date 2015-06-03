@@ -1,0 +1,70 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xml:lang="en" lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="cerise">
+
+<head>
+<!--   <metal:addRemoveWidget fill-slot="javascript_head_slot">
+    <script type="text/javascript"
+            tal:attributes="src string:$portal_url/++resource++gdwadminJS/mapblacklist.js"></script>
+  </metal:addRemoveWidget> -->
+
+<link href="gites_wallons_style.css" type=text/css rel=stylesheet>
+</head>
+
+<body>
+<div metal:fill-slot="main"
+     i18n:domain="gites">
+<div class="content">
+<style>
+.ligne { 
+      clear:both;
+      margin:5px;
+      padding:5px;
+    }
+.casep { 
+      float:left;
+      margin:2px;
+      text-align:center;
+      width:3em;
+    }
+.casem { 
+      float:left;
+      margin:2px;
+      text-align:center;
+      width:8em;
+    }
+.caseg { 
+      float:left;
+      margin:2px;
+      text-align:center;
+      width:15em;
+      }
+</style>
+
+<form action= "@@gdwadmin.civilite_update" method="get">
+  <tal:type_hebontourisme define="civ view/civilite">
+   
+<h2>Modification d'une civilité</h2>
+<br>
+
+        Titre : 
+        <input type="text" name="fciv_titre" size="50" tal:attributes="value civ/civ_titre" />
+        <br>
+        <input type="hidden"
+                    name="fpro_employe_modification"
+                    value="AUTHENTICATED_USER.getUserName()" />
+
+        <input type="hidden"
+                    name="fciv_pk"
+                    value="" tal:attributes="value civ/civ_pk" />
+
+        <input type="submit" 
+                    value="Modifier cette civilité">
+</tal:type_hebontourisme>
+</form>
+
+</div><!--content-->
+</div><!--main-->
+</body>
+</html>

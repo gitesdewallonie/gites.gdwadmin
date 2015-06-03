@@ -1,0 +1,268 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xml:lang="en" lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="cerise">
+
+<head>
+
+<!--   <metal:addRemoveWidget fill-slot="javascript_head_slot">
+    <script type="text/javascript"
+            tal:attributes="src string:$portal_url/++resource++gdwadminJS/mapblacklist.js"></script>
+  </metal:addRemoveWidget> -->
+</head>
+
+<body>
+<div metal:fill-slot="main"
+     i18n:domain="gites">
+<div class="content">
+<style>
+.ligne { 
+      clear:both;
+      margin:5px;
+      padding:5px;
+    }
+.float { 
+      float:left;
+      text-align:left;
+    }
+.float_b { 
+      float:left;
+      text-align:left;
+      width:7em;
+    }
+.casep { 
+      float:left;
+      margin:2px;
+      text-align:center;
+      width:5em;
+    }
+.casem { 
+      float:left;
+      margin:2px;
+      text-align:center;
+      width:8em;
+    }
+.caseg { 
+      float:left;
+      margin:2px;
+      text-align:center;
+      width:11em;
+      }
+.bouton{
+      -moz-border-radius: 18px;
+      -webkit-border-radius: 18px;
+      border-radius: 18px;
+      background: -moz-linear-gradient(center top , #fcfcfc 0%, #f3f3f3 35%, #ededed 100%);
+      background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fcfcfc), color-stop(40%,#f3f3f3), color-stop(100%,#ededed));
+      -moz-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.15), 0 1px 0 0 rgba(0, 0, 0, 0.15), 0 -2px 3px 0px #FFF inset, 0 -10px 0 0 #ededed inset;
+      -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.15), 0 1px 0 0 rgba(0, 0, 0, 0.15), 0 -2px 3px 0px #FFF inset, 0 -10px 0 0 #ededed inset;
+      box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.15), 0 1px 0 0 rgba(0, 0, 0, 0.15), 0 -2px 3px 0px #FFF inset, 0 -10px 0 0 #ededed inset;
+      }
+</style>
+
+
+
+
+<h1>Propriétaires :</h1>
+<h2>Statistiques des propriétaires</h2>
+Liste des <div tal:replace="view/proprio_count"> propriétaires</div><br>
+Nombre de propriétaires actifs : <div tal:replace="view/proprio_active_count"></div><br>
+Nombre de propriétaires désactivés : <div tal:replace="view/proprio_desactive_count"></div><br>
+<br>
+<h2> Sélection des propriétaires : </h2>
+      <form action="@@gdwadmin.proprio"  method="get">
+            Afficher uniquement les propriétaires :
+            <select name="activite" onchange="this.form.submit()">
+                <option value="a" selected='selected'>
+                </option>
+                <option value="a">Tous
+                </option>
+                <option value="t">Actifs
+                </option>
+                <option value="f">Désactivés
+                </option>
+            </select>
+            <noscript><input type="submit" value="Submit"></noscript>
+      </form>
+<br>
+
+<h2> Rechercher un propriétaire : </h2>
+
+<!-- XXX ATTENTION, l'adresse du get est à corriger, mais si j'enlève http://localhost:5080/plone/@@gdwadmin. , ça ne marche pas, pourquoi? -->
+<form action="@@gdwadmin.proprio_modification"  method="get">
+PK du propriétaire ? 
+<input type="text" name="fpro_pk" value="" />
+<br>
+<input type="submit" value="Lancer la recherche" />
+</form>
+<br>
+
+
+<br>
+<br>
+  <h2>Listing des propriétaires :</h2>
+
+<div STYLE="clear:both;" > 
+  <div CLASS="casep" >Selection</div>
+  <div CLASS="casem" >PK</div>
+  <div CLASS="casem" >Nom1 </div>
+  <div CLASS="casem">Nom2 </div>
+  <div CLASS="casem" >Prénom1 </div>
+  <div CLASS="casem" >Prénom2 </div>
+  <div CLASS="caseg" >Société </div>
+  <div CLASS="caseg" >Localité </div>
+  <div CLASS="casep">Etat </div>
+</div>
+<div  STYLE="clear:both;"><hr></div>
+
+<!-- XXX ATTENTION, l'adresse du get est à corriger, mais si j'enlève http://localhost:5080/plone/@@gdwadmin. , ça ne marche pas, pourquoi? -->
+
+<div>
+  <div tal:repeat="proprio view/localite">
+    <div  STYLE="clear:both;">
+    <form action="@@gdwadmin.proprio_modification"  method="get">
+        <div CLASS="casep" >
+        <input type="hidden" name="fpro_pk" tal:attributes="value proprio/Proprio/pro_pk" />
+        <input type="submit" value="GO">
+        </div>
+        <div CLASS="casem" tal:content="proprio/Proprio/pro_pk"></div>
+        <div CLASS="casem"  tal:content="proprio/Proprio/pro_nom1"></div>
+        <div CLASS="casem"  tal:content="proprio/Proprio/pro_nom2"></div>
+        <div CLASS="casem"  tal:content="proprio/Proprio/pro_prenom1"></div>
+        <div CLASS="casem"  tal:content="proprio/Proprio/pro_prenom2"></div>
+        <div CLASS="caseg"  tal:content="proprio/Proprio/pro_societe"></div>
+        <div CLASS="caseg"  tal:content="proprio/Commune/com_nom"></div>
+        <div CLASS="casep">
+        <tal:if condition="not: proprio/Proprio/pro_etat">
+            <img src="images/nook.png">
+        </tal:if>
+        <tal:if condition="proprio/Proprio/pro_etat">
+            <img src="images/ok.png">
+        </tal:if>
+        </div>
+        <div  STYLE="clear:both;"><hr></div>
+    </form>
+  </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+<br>
+<form action= "@@gdwadmin.proprio_add" method="get">
+<h2>Ajout d'un propriétaire</h2>
+<br>
+
+  Civilité :
+    <select name="fpro_civ_fk">
+        <tal:block repeat="civil view/civilite">
+        <option tal:attributes="value civil/civ_pk"
+                tal:content="civil/civ_titre">
+        </option>
+        </tal:block>
+    </select>
+        <br>
+
+    Nom 1 : 
+        <input type="text" name="fpro_nom1" size="50" />
+        <br>
+
+        Prénom 1 : 
+        <input type="text" name="fpro_prenom1" size="50" />
+        <br>
+
+        Nom 2 : 
+        <input type="text" name="fpro_nom2" size="50" />
+        <br>
+
+        Prénom 2 : 
+        <input type="text" name="fpro_prenom2" size="50" />
+        <br>
+
+        Société : 
+        <input type="text" name="fpro_societe" size="50" />
+        <br>
+
+        Adresse : 
+        <input type="text" name="fpro_adresse" size="50" />
+        <br>
+
+        Commune : 
+        <select name="fpro_com_fk">
+            <tal:block repeat="com view/commune">
+            <option tal:attributes="value com/com_pk"
+                tal:content="string: ${com/com_cp} ${com/com_nom}">
+            </option>
+            </tal:block>
+        </select>
+        <br>
+
+        Email : 
+        <input type="text" name="fpro_email" size="50" />
+        <br>
+
+        Téléphone privé : 
+        <input type="text" name="fpro_tel_priv" size="50" />
+        <br>
+
+        Téléphone bureau : 
+        <input type="text" name="fpro_tel_bur" size="50" />
+        <br>
+
+        Fax privé : 
+        <input type="text" name="fpro_fax_priv" size="50" />
+        <br>
+
+        Fax bureau : 
+        <input type="text" name="fpro_fax_bur" size="50" />
+        <br>
+
+        GSM 1 : 
+        <input type="text" name="fpro_gsm1" size="50" />
+        <br>
+
+        GSM 2 : 
+        <input type="text" name="fpro_gsm2" size="50" />
+        <br>
+
+        Numéro de TVA : 
+        <input type="text" name="fpro_tva" size="50" />
+        <br>
+
+        Langues parlées par le proprio : 
+        <input type="text" name="fpro_langue" size="50" />
+        <br>
+
+
+        Etat :
+        <input type="radio" name="fpro_etat" value="t" checked> Activé - Désactivé
+    <input type="radio" name="fpro_etat" value="f">
+    <br>
+            
+    <input type="hidden"
+                    name="fpro_employe_modification"
+                    value="AUTHENTICATED_USER.getUserName()" />
+
+        <!-- La ligne ci-dessous, permet de récupérer la valeur de pro-pk utilisée dans cette page et de la transmettre à la page suivante lors de l'envoie grâce au bouton submit ci-dessous -->
+        
+
+        <input type="submit" 
+                    value="Ajouter ce propriétaire">
+
+</form>
+
+</div><!--content-->
+</div><!--main-->
+</body>
+</html>
+
+
+
+
+
+

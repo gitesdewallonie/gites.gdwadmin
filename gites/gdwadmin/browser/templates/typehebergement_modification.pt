@@ -1,0 +1,114 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xml:lang="en" lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="cerise">
+
+<head>
+<!--   <metal:addRemoveWidget fill-slot="javascript_head_slot">
+    <script type="text/javascript"
+            tal:attributes="src string:$portal_url/++resource++gdwadminJS/mapblacklist.js"></script>
+  </metal:addRemoveWidget> -->
+
+<link href="gites_wallons_style.css" type=text/css rel=stylesheet>
+</head>
+
+<body>
+<div metal:fill-slot="main"
+     i18n:domain="gites">
+<div class="content">
+<style>
+.ligne { 
+      clear:both;
+      margin:5px;
+      padding:5px;
+    }
+.casep { 
+      float:left;
+      margin:2px;
+      text-align:center;
+      width:3em;
+    }
+.casem { 
+      float:left;
+      margin:2px;
+      text-align:center;
+      width:8em;
+    }
+.caseg { 
+      float:left;
+      margin:2px;
+      text-align:center;
+      width:15em;
+      }
+</style>
+
+<form action= "@@gdwadmin.typehebergement_update" method="get">
+  <tal:type_hebontourisme define="type_heb view/type_hebergement">
+   
+<h2>Modification d'un type d'hébergement</h2>
+<br>
+
+        Code : 
+        <input type="text" name="ftype_heb_code" size="50" tal:attributes="value type_heb/type_heb_code" />
+        <br>
+
+		    Dénomination FR : 
+        <input type="text" name="ftype_heb_nom" size="50" tal:attributes="value type_heb/type_heb_nom"/>
+        <br>
+
+        Dénomination NL : 
+        <input type="text" name="ftype_heb_nom_nl" size="50" tal:attributes="value type_heb/type_heb_nom_nl"/>
+        <br>
+
+        Dénomination EN : 
+        <input type="text" name="ftype_heb_nom_uk" size="50" tal:attributes="value type_heb/type_heb_nom_uk"/>
+        <br>
+
+        Dénomination DE : 
+        <input type="text" name="ftype_heb_nom_de" size="50" tal:attributes="value type_heb/type_heb_nom_de"/>
+        <br>
+
+        Dénomination IT : 
+        <input type="text" name="ftype_heb_nom_it" size="50" tal:attributes="value type_heb/type_heb_nom_it"/>
+        <br>
+
+        ID Google FR (*) : 
+        <input type="text" name="ftype_heb_id" size="50" tal:attributes="value type_heb/type_heb_id"/>
+        <br>
+
+        ID Google NL (*) : 
+        <input type="text" name="ftype_heb_id_nl" size="50" tal:attributes="value type_heb/type_heb_id_nl"/>
+        <br>
+
+        ID Google EN (*) : 
+        <input type="text" name="ftype_heb_id_uk" size="50" tal:attributes="value type_heb/type_heb_id_uk"/>
+        <br>
+
+        ID Google DE (*) : 
+        <input type="text" name="ftype_heb_id_de" size="50" tal:attributes="value type_heb/type_heb_id_de"/>
+        <br>
+
+        ID Google IT (*) : 
+        <input type="text" name="ftype_heb_id_it" size="50" tal:attributes="value type_heb/type_heb_id_it"/>
+        <br>
+        * le nom de la type_hebon du tourisme sans majuscule et avec les espaces remplacés par des tirets
+        Exemple : gites-de-wallonie
+        <br>
+
+        <input type="hidden"
+                    name="fpro_employe_modification"
+                    value="AUTHENTICATED_USER.getUserName()" />
+
+        <input type="hidden"
+                    name="ftype_heb_pk"
+                    value="" tal:attributes="value type_heb/type_heb_pk" />
+
+        <input type="submit" 
+                    value="Modifier ce type d'hébergement">
+</tal:type_hebontourisme>
+</form>
+
+</div><!--content-->
+</div><!--main-->
+</body>
+</html>

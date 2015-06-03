@@ -1,0 +1,81 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xml:lang="en" lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="cerise">
+
+<head>
+<!--   <metal:addRemoveWidget fill-slot="javascript_head_slot">
+    <script type="text/javascript"
+            tal:attributes="src string:$portal_url/++resource++gdwadminJS/mapblacklist.js"></script>
+  </metal:addRemoveWidget> -->
+
+<link href="gites_wallons_style.css" type=text/css rel=stylesheet>
+</head>
+
+<body>
+<div metal:fill-slot="main"
+     i18n:domain="gites">
+<div class="content">
+<style>
+.ligne { 
+      clear:both;
+      margin:5px;
+      padding:5px;
+    }
+.casep { 
+      float:left;
+      margin:2px;
+      text-align:center;
+      width:3em;
+    }
+.casem { 
+      float:left;
+      margin:2px;
+      text-align:center;
+      width:8em;
+    }
+.caseg { 
+      float:left;
+      margin:2px;
+      text-align:center;
+      width:15em;
+      }
+</style>
+
+<h2>Gestion de la table province</h2>
+
+
+<div STYLE="clear:both;" > 
+  <div CLASS="casem" >Modifier</div>
+  <div CLASS="casep" >PK</div>
+  <div CLASS="casem" >Nom</div>
+  <div CLASS="casep" >Code</div>
+</div>
+<div  STYLE="clear:both;"><hr></div>
+
+
+
+<div>
+  <div tal:repeat="table view/table_prov">
+    <div  STYLE="clear:both;">
+    	<form action="@@gdwadmin.province_modification"  method="get">
+        	<div CLASS="casem" >
+        	<input type="hidden" name="fprov_pk" tal:attributes="value table/prov_pk"/>
+        	<input type="submit" value="Modifier">
+        </div>
+    	</form>
+        <div CLASS="casep" tal:content="table/prov_pk"></div>
+        <div CLASS="casem"  tal:content="table/prov_nom"></div>
+        <div CLASS="casep"  tal:content="table/prov_code"></div>
+        <div  STYLE="clear:both;"><hr></div>
+
+  </div>
+  </div>
+</div>
+
+
+
+</div><!--content-->
+</div><!--main-->
+</body>
+</html>

@@ -1,0 +1,152 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xml:lang="en" lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="cerise">
+
+<head>
+<!--   <metal:addRemoveWidget fill-slot="javascript_head_slot">
+    <script type="text/javascript"
+            tal:attributes="src string:$portal_url/++resource++gdwadminJS/mapblacklist.js"></script>
+  </metal:addRemoveWidget> -->
+
+<link href="gites_wallons_style.css" type=text/css rel=stylesheet>
+</head>
+
+<body>
+<div metal:fill-slot="main"
+     i18n:domain="gites">
+<div class="content">
+<style>
+.ligne { 
+      clear:both;
+      margin:5px;
+      padding:5px;
+    }
+.casep { 
+      float:left;
+      margin:2px;
+      text-align:center;
+      width:3em;
+    }
+.casem { 
+      float:left;
+      margin:2px;
+      text-align:center;
+      width:8em;
+    }
+.caseg { 
+      float:left;
+      margin:2px;
+      text-align:center;
+      width:19em;
+      }
+</style>
+
+<h2>Gestion de la table commune</h2>
+
+
+<div STYLE="clear:both;" > 
+  <div CLASS="casem" >Modifier</div>
+  <div CLASS="casep" >PK</div>
+  <div CLASS="casep" >CP</div>
+  <div CLASS="casem" >Nom</div>
+  <div CLASS="casep" >INS</div>
+  <div CLASS="caseg" >Région guide</div>
+  <div CLASS="casem" >Province</div>
+  <div CLASS="caseg" >Maison du tourisme</div>
+  <div CLASS="casem" >ID Google</div>
+</div>
+<div  STYLE="clear:both;"><hr></div>
+
+
+
+<div>
+  <div tal:repeat="table view/table_com">
+    <div  STYLE="clear:both;">
+    	<form action="@@gdwadmin.commune_modification"  method="get">
+        	<div CLASS="casem" >
+        	<input type="hidden" name="fcom_pk" tal:attributes="value table/com_pk"/>
+        	<input type="submit" value="Modifier">
+        </div>
+    	</form>
+        <div CLASS="casep" tal:content="table/com_pk"></div>
+        <div CLASS="casep"  tal:content="table/com_cp"></div>
+        <div CLASS="casem"  tal:content="table/com_nom"></div>
+        <div CLASS="casep"  tal:content="table/com_ins"></div>
+        <div CLASS="caseg"  tal:content="table/regionGuide/reg_nom"></div>
+        <div CLASS="casem"  tal:content="table/province/prov_nom"></div>
+        <div CLASS="caseg"  tal:content="table/maisonTourisme/mais_nom"></div>
+        <div CLASS="casem"  tal:content="table/com_id"></div>
+        <div  STYLE="clear:both;"><hr></div>
+
+  </div>
+  </div>
+</div>
+<br>
+
+
+<form action= "@@gdwadmin.commune_add" method="get">
+   
+<h2>Ajout d'une commune</h2>
+
+		Nom : 
+        <input type="text" name="fcom_nom" size="50" />
+        <br>
+
+        CP : 
+        <input type="text" name="fcom_cp" size="50" />
+        <br>
+
+        INS : 
+        <input type="text" name="fcom_ins" size="50" />
+        <br>
+
+        Région du guide :
+    	<select name="fcom_reg_fk">
+    	<option value="" selected="selected"></option>
+        <tal:block repeat="reg view/regionguide">
+        <option tal:attributes="value reg/reg_pk"
+                tal:content="reg/reg_nom">
+        </option>
+        </tal:block>
+    	</select>
+        <br>
+
+        Province : 
+        <select name="fcom_prov_fk">
+        	<option value="" selected="selected"></option>
+            <tal:block repeat="prov view/province">
+            <option tal:attributes="value prov/prov_pk"
+                tal:content="prov/prov_nom">
+            </option>
+            </tal:block>
+        </select>
+        <br>
+
+        Maison du tourisme : 
+        <select name="fcom_mais_fk">
+        	<option value="" selected="selected"></option>
+            <tal:block repeat="mais view/maisontourisme">
+            <option tal:attributes="value mais/mais_pk"
+                tal:content="mais/mais_nom">
+            </option>
+            </tal:block>
+        </select>
+        <br>
+
+        ID Google (*) : 
+        <input type="text" name="fcom_id" size="50" />
+        <br>
+
+        <input type="hidden"
+                    name="fpro_employe_modification"
+                    value="AUTHENTICATED_USER.getUserName()" />
+        <input type="submit" 
+                    value="Ajouter cette commune">
+
+</form>
+
+</div><!--content-->
+</div><!--main-->
+</body>
+</html>

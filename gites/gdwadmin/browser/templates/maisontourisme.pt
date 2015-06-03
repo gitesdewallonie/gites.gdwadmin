@@ -1,0 +1,133 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xml:lang="en" lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="cerise">
+
+<head>
+<!--   <metal:addRemoveWidget fill-slot="javascript_head_slot">
+    <script type="text/javascript"
+            tal:attributes="src string:$portal_url/++resource++gdwadminJS/mapblacklist.js"></script>
+  </metal:addRemoveWidget> -->
+
+<link href="gites_wallons_style.css" type=text/css rel=stylesheet>
+</head>
+
+<body>
+<div metal:fill-slot="main"
+     i18n:domain="gites">
+<div class="content">
+<style>
+.ligne { 
+      clear:both;
+      margin:5px;
+      padding:5px;
+    }
+.casep { 
+      float:left;
+      margin:2px;
+      text-align:center;
+      width:3em;
+    }
+.casem { 
+      float:left;
+      margin:2px;
+      text-align:center;
+      width:8em;
+    }
+.caseg { 
+      float:left;
+      margin:2px;
+      text-align:center;
+      width:20em;
+      }
+</style>
+
+<h2>Gestion des maisons du tourisme</h2>
+
+
+<div STYLE="clear:both;" > 
+  <div CLASS="casem" >Modifier</div>
+  <div CLASS="casep" >PK</div>
+  <div CLASS="caseg" >Nom</div>
+  <div CLASS="caseg" >URL</div>
+  <div CLASS="casep" >Code</div>
+  <div CLASS="casem" >GPS Long</div>
+  <div CLASS="casem" >GPS Lat</div>
+  <div CLASS="casem" >ID Google</div>
+</div>
+<div  STYLE="clear:both;"><hr></div>
+
+
+
+<div>
+  <div tal:repeat="table view/maison_tourisme">
+    <div  STYLE="clear:both;">
+    	<form action="@@gdwadmin.maisontourisme_modification"  method="get">
+        	<div CLASS="casem" >
+        	<input type="hidden" name="fmais_pk" tal:attributes="value table/mais_pk"/>
+        	<input type="submit" value="Modifier">
+        </div>
+    	</form>
+        <div CLASS="casep" tal:content="table/mais_pk"></div>
+        <div CLASS="caseg"  tal:content="table/mais_nom"></div>
+        <a tal:attributes="href table/mais_url" target="_blank">
+          <div CLASS="caseg"  tal:content="table/mais_url"></div>
+        </a>
+        <div CLASS="casep"  tal:content="table/mais_code"></div>
+        <div CLASS="casem"  tal:content="table/mais_gps_long"></div>
+        <div CLASS="casem"  tal:content="table/mais_gps_lat"></div>
+        <div CLASS="casem"  tal:content="table/mais_id"></div>
+        <div  STYLE="clear:both;"><hr></div>
+
+  </div>
+  </div>
+</div>
+<br>
+
+
+
+
+<form action= "@@gdwadmin.maisontourisme_add" method="get">
+   
+<h2>Ajout d'une maison du tourisme</h2>
+
+        Nom : 
+        <input type="text" name="fmais_nom" size="50" />
+        <br>
+
+        Code : 
+        <input type="text" name="fmais_code" size="50" />
+        <br>
+
+        URL : 
+        <input type="text" name="fmais_url" size="50" />
+        <br>
+
+        GPS Longitude 00.00 : 
+        <input type="text" name="fmais_gps_long" size="50" />
+        <br>
+
+        GPS Latitude 00.00 : 
+        <input type="text" name="fmais_gps_lat" size="50" />
+        <br>
+
+        ID Google (*) : 
+        <input type="text" name="fmais_id" size="50" />
+        <br>
+        * le nom de la maison du tourisme sans majuscule et avec les espaces remplacés par des tirets
+        Exemple : gites-de-wallonie
+        <br>
+        <input type="hidden"
+                    name="fpro_employe_modification"
+                    value="AUTHENTICATED_USER.getUserName()" />
+        <input type="submit" 
+                    value="Ajouter cette maison du tourisme">
+</form>
+
+
+
+
+</div><!--content-->
+</div><!--main-->
+</body>
+</html>

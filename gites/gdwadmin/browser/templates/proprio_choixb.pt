@@ -1,0 +1,149 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xml:lang="en" lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="cerise">
+
+<head>
+
+<!--   <metal:addRemoveWidget fill-slot="javascript_head_slot">
+    <script type="text/javascript"
+            tal:attributes="src string:$portal_url/++resource++gdwadminJS/mapblacklist.js"></script>
+  </metal:addRemoveWidget> -->
+</head>
+
+<body>
+<div metal:fill-slot="main"
+     i18n:domain="gites">
+<div class="content">
+<style>
+.ligne { 
+      clear:both;
+      margin:5px;
+      padding:5px;
+    }
+.float { 
+      float:left;
+      text-align:left;
+    }
+.float_b { 
+      float:left;
+      text-align:left;
+      width:7em;
+    }
+.casep { 
+      float:left;
+      margin:2px;
+      text-align:center;
+      width:5em;
+    }
+.casem { 
+      float:left;
+      margin:2px;
+      text-align:center;
+      width:8em;
+    }
+.caseg { 
+      float:left;
+      margin:2px;
+      text-align:center;
+      width:11em;
+      }
+</style>
+<h1>Propriétaires :</h1>
+<h2>Statistiques des propriétaires</h2>
+Liste des <div tal:replace="view/proprio_count"> propriétaires</div><br>
+Nombre de propriétaires actifs : <div tal:replace="view/proprio_active_count"></div><br>
+Nombre de propriétaires désactivés : <div tal:replace="view/proprio_desactive_count"></div><br>
+<br>
+<h2> Sélection des propriétaires : </h2>
+      <form action="http://localhost:5080/plone/@@gdwadmin.proprio_choix"  method="get">
+            Afficher uniquement les propriétaires :
+            <select name="activite" onchange="this.form.submit()">
+                <option value="a" selected='selected'>
+                </option>
+                <option value="a">Tous
+                </option>
+                <option value="t">Actifs
+                </option>
+                <option value="f">Désactivés
+                </option>
+            </select>
+            <noscript><input type="submit" value="Submit"></noscript>
+      </form>
+<br>
+<br>
+
+<h2> Rechercher un propriétaire : </h2>
+
+<!-- XXX ATTENTION, l'adresse du get est à corriger, mais si j'enlève http://localhost:5080/plone/@@gdwadmin. , ça ne marche pas, pourquoi? -->
+<form action="http://localhost:5080/plone/@@gdwadmin.proprio_modification"  method="get">
+PK du propriétaire ? 
+<input type="text" name="fpro_pk" value="" />
+<br>
+<input type="submit" value="Lancer la recherche" />
+</form>
+<br>
+
+  <h2>Listing des propriétaires :</h2>
+
+<div STYLE="clear:both;" > 
+  <div CLASS="casep" >Selection</div>
+  <div CLASS="casem" >PK</div>
+  <div CLASS="casem" >Nom1 </div>
+  <div CLASS="casem">Nom2 </div>
+  <div CLASS="casem" >Prénom1 </div>
+  <div CLASS="casem" >Prénom2 </div>
+  <div CLASS="caseg" >Société </div>
+  <div CLASS="caseg" >Localité </div>
+  <div CLASS="casep">Etat </div>
+</div>
+<div  STYLE="clear:both;"><hr></div>
+
+<!-- XXX ATTENTION, l'adresse du get est à corriger, mais si j'enlève http://localhost:5080/plone/@@gdwadmin. , ça ne marche pas, pourquoi? -->
+
+<div>
+  <div tal:repeat="proprio view/localite">
+    <div  STYLE="clear:both;">
+    <form action="@@gdwadmin.proprio_modification"  method="get">
+        <div CLASS="casep" >
+        <input type="hidden" name="fpro_pk" tal:attributes="value proprio/Proprio/pro_pk" />
+        <input type="submit" value="GO">
+        </div>
+        <div CLASS="casem" tal:content="proprio/Proprio/pro_pk"></div>
+        <div CLASS="casem"  tal:content="proprio/Proprio/pro_nom1"></div>
+        <div CLASS="casem"  tal:content="proprio/Proprio/pro_nom2"></div>
+        <div CLASS="casem"  tal:content="proprio/Proprio/pro_prenom1"></div>
+        <div CLASS="casem"  tal:content="proprio/Proprio/pro_prenom2"></div>
+        <div CLASS="caseg"  tal:content="proprio/Proprio/pro_societe"></div>
+        <div CLASS="caseg"  tal:content="proprio/Commune/com_nom"></div>
+        <div CLASS="casep">
+        <tal:if condition="not: proprio/Proprio/pro_etat">
+            <img src="images/nook.png">
+        </tal:if>
+        <tal:if condition="proprio/Proprio/pro_etat">
+            <img src="images/ok.png">
+        </tal:if>
+        </div>
+        <div  STYLE="clear:both;"><hr></div>
+    </form>
+  </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+</div><!--content-->
+</div><!--main-->
+</body>
+</html>
+
+
+
+
+
+

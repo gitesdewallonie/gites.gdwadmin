@@ -32,7 +32,7 @@ set
    pro_justif_out = <dtml-sqlvar fpro_justif_out type="string">,
    pro_date_in = <dtml-sqlvar fpro_date_in type="string">,
    pro_date_out = <dtml-sqlvar fpro_date_out type="string">,
-   pro_log = <dtml-sqlvar fpro_log type="string">,
+  
    pro_pass = <dtml-sqlvar fpro_pass type="string">,
    pro_employe_modification = <dtml-sqlvar fpro_employe_modification type="string">,
    pro_date_modification = now(),

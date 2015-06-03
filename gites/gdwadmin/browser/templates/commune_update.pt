@@ -1,0 +1,28 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xml:lang="en" lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="cerise">
+
+<!-- head>
+  <metal:addRemoveWidget fill-slot="javascript_head_slot">
+    <script type="text/javascript"
+            tal:attributes="src string:$portal_url/++resource++gdwadminJS/mapblacklist.js"></script>
+  </metal:addRemoveWidget>
+</head -->
+
+<body>
+<div metal:fill-slot="main"
+     i18n:domain="gites">
+<h1>Modification des informations sur la commune</h1>
+<div class="content">
+
+  <div tal:content="view/update_table_com"></div>
+  <form action="@@gdwadmin.commune_modification"  method="get">
+    <input type="hidden" name="fcom_pk" tal:attributes="value view/com_pk" />
+    <input type="submit" value="Retour sur la fiche">
+  </form>
+
+</div><!--content-->
+</div><!--main-->
+</body>
+</html>

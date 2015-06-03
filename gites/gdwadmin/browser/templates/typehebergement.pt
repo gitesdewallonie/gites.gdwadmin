@@ -1,0 +1,161 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xml:lang="en" lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="cerise">
+
+<head>
+<!--   <metal:addRemoveWidget fill-slot="javascript_head_slot">
+    <script type="text/javascript"
+            tal:attributes="src string:$portal_url/++resource++gdwadminJS/mapblacklist.js"></script>
+  </metal:addRemoveWidget> -->
+
+<link href="gites_wallons_style.css" type=text/css rel=stylesheet>
+</head>
+
+<body>
+<div metal:fill-slot="main"
+     i18n:domain="gites">
+<div class="content">
+<style>
+.ligne { 
+      clear:both;
+      margin:5px;
+      padding:5px;
+    }
+.casep { 
+      float:left;
+      margin:2px;
+      text-align:center;
+      width:3em;
+    }
+.casem { 
+      float:left;
+      margin:2px;
+      text-align:center;
+      width:7em;
+    }
+.caseg { 
+      float:left;
+      margin:2px;
+      text-align:center;
+      width:20em;
+      }
+</style>
+
+<h2>Gestion de la table type d'hébergement</h2>
+
+
+<div STYLE="clear:both;" > 
+  <div CLASS="casep" >Modifier</div>
+  <div CLASS="casep" >PK</div>
+  <div CLASS="casep" >Code</div>
+  <div CLASS="caseg" >Dénomination FR</div>
+  <div CLASS="caseg" >Dénomination NL</div>
+  <div CLASS="caseg" >Dénomination EN</div>
+  <div CLASS="caseg" >Dénomination DE</div>
+  <div CLASS="caseg" >Dénomination IT</div>
+  <div CLASS="casem" >ID Google FR</div>
+  <div CLASS="casem" >ID Google NL</div>
+  <div CLASS="casem" >ID Google EN</div>
+  <div CLASS="casem" >ID Google DE</div>
+  <div CLASS="casem" >ID Google IT</div>
+</div>
+<div  STYLE="clear:both;"><hr></div>
+
+
+
+<div>
+  <div tal:repeat="table view/type_hebergement">
+    <div  STYLE="clear:both;">
+    	<form action="@@gdwadmin.typehebergement_modification"  method="get">
+        	<div CLASS="casep" >
+        	<input type="hidden" name="ftype_heb_pk" tal:attributes="value table/type_heb_pk"/>
+        	<input type="submit" value="Go">
+        </div>
+    	</form>
+        <div CLASS="casep" tal:content="table/type_heb_pk"></div>
+        <div CLASS="casep"  tal:content="table/type_heb_code"></div>
+        <div CLASS="caseg"  tal:content="table/type_heb_nom"></div>
+        <div CLASS="caseg"  tal:content="table/type_heb_nom_nl"></div>
+        <div CLASS="caseg"  tal:content="table/type_heb_nom_uk"></div>
+        <div CLASS="caseg"  tal:content="table/type_heb_nom_de"></div>
+        <div CLASS="caseg"  tal:content="table/type_heb_nom_it"></div>
+        <div CLASS="casem"  tal:content="table/type_heb_id"></div>
+        <div CLASS="casem"  tal:content="table/type_heb_id_nl"></div>
+        <div CLASS="casem"  tal:content="table/type_heb_id_uk"></div>
+        <div CLASS="casem"  tal:content="table/type_heb_id_de"></div>
+        <div CLASS="casem"  tal:content="table/type_heb_id_it"></div>
+        <div  STYLE="clear:both;"><hr></div>
+
+  </div>
+  </div>
+</div>
+<br>
+
+
+
+
+<form action= "@@gdwadmin.typehebergement_add" method="get">
+   
+<h2>Ajout d'un type d'hébergement</h2>
+
+        Code : 
+        <input type="text" name="ftype_heb_code" size="50" />
+        <br>
+
+        Dénomination FR : 
+        <input type="text" name="ftype_heb_nom" size="50" />
+        <br>
+
+        Dénomination NL : 
+        <input type="text" name="ftype_heb_nom_nl" size="50" />
+        <br>
+
+        Dénomination EN : 
+        <input type="text" name="ftype_heb_nom_uk" size="50" />
+        <br>
+
+        Dénomination DE : 
+        <input type="text" name="ftype_heb_nom_de" size="50" />
+        <br>
+
+        Dénomination IT : 
+        <input type="text" name="ftype_heb_nom_it" size="50" />
+        <br>
+
+        ID Google (*) : 
+        <input type="text" name="ftype_heb_id" size="50" />
+        <br>
+
+        ID Google NL (*) : 
+        <input type="text" name="ftype_heb_id_nl" size="50" />
+        <br>
+
+        ID Google EN (*) : 
+        <input type="text" name="ftype_heb_id_uk" size="50" />
+        <br>
+
+        ID Google DE (*) : 
+        <input type="text" name="ftype_heb_id_de" size="50" />
+        <br>
+
+        ID Google IT (*) : 
+        <input type="text" name="ftype_heb_id_it" size="50" />
+        <br>
+        * le nom de la type_hebon du tourisme sans majuscule et avec les espaces remplacés par des tirets
+        Exemple : gites-de-wallonie
+        <br>
+        <input type="hidden"
+                    name="fpro_employe_modification"
+                    value="AUTHENTICATED_USER.getUserName()" />
+        <input type="submit" 
+                    value="Ajouter ce type d'hébergement">
+</form>
+
+
+
+
+</div><!--content-->
+</div><!--main-->
+</body>
+</html>

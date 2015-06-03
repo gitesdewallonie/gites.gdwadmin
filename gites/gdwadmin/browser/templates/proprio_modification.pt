@@ -1,0 +1,351 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xml:lang="en" lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="cerise">
+
+<head>
+<!--   <metal:addRemoveWidget fill-slot="javascript_head_slot">
+    <script type="text/javascript"
+            tal:attributes="src string:$portal_url/++resource++gdwadminJS/mapblacklist.js"></script>
+  </metal:addRemoveWidget> -->
+
+<link href="gites_wallons_style.css" type=text/css rel=stylesheet>
+</head>
+
+<body>
+<div metal:fill-slot="main"
+     i18n:domain="gites">
+<h1>Modification des informations sur le propriétaire</h1>
+<div class="content">
+<style>
+.ligne { 
+      clear:both;
+      margin:5px;
+      padding:5px;
+    }
+.casep { 
+      float:left;
+      margin:2px;
+      text-align:center;
+      width:5em;
+    }
+.casem { 
+      float:left;
+      margin:2px;
+      text-align:center;
+      width:8em;
+    }
+.caseg { 
+      float:left;
+      margin:2px;
+      text-align:center;
+      width:11em;
+      }
+</style>
+
+
+<form action= "@@gdwadmin.proprio_update" method="get">
+
+    <tal:proprio define="proprio_donnees view/proprio">
+
+        <h3>PHOTO DU PROPRIETAIRE : </h3>
+        Photo de contact :
+        <div id="photo-proprio">
+            <img alt="" tal:attributes="src string:photos_proprio/${view/pro_pk}.jpg" />
+        </div>
+
+
+        <h3>INFORMATION GENERALE : </h3>
+        Pk Proprio :
+        <span name="" tal:replace="view/pro_pk"/>
+        <br>
+
+
+        Civilité : 
+        <select name="fpro_civ_fk">
+        <tal:block repeat="civil view/civilite">
+        <option tal:condition="python: civil.civ_pk != proprio_donnees.pro_civ_fk" 
+                tal:attributes="value civil/civ_pk"
+                tal:content="civil/civ_titre">
+        </option>
+        <option tal:condition="python: civil.civ_pk == proprio_donnees.pro_civ_fk"
+                tal:attributes="value civil/civ_pk"
+                tal:content="civil/civ_titre" value="" selected='selected'>
+        </option>
+        </tal:block>
+        </select>
+        <br>
+
+
+        Nom 1 : 
+        <input type="text" name="fpro_nom1" tal:attributes="value proprio_donnees/pro_nom1" size="50" />
+        <br>
+
+        Prénom 1 : 
+        <input type="text" name="fpro_prenom1" tal:attributes="value proprio_donnees/pro_prenom1" size="50" />
+        <br>
+
+        Nom 2 : 
+        <input type="text" name="fpro_nom2" tal:attributes="value proprio_donnees/pro_nom2" size="50" />
+        <br>
+
+        Prénom 2 : 
+        <input type="text" name="fpro_prenom2" tal:attributes="value proprio_donnees/pro_prenom2" size="50" />
+        <br>
+
+        Société : 
+        <input type="text" name="fpro_societe" tal:attributes="value proprio_donnees/pro_societe" size="50" />
+        <br>
+
+        Adresse : 
+        <input type="text" name="fpro_adresse" tal:attributes="value proprio_donnees/pro_adresse" size="50" />
+        <br>
+
+        Commune : 
+        <select tal:define="com_menu view/proprio"
+            name="fpro_cp">
+            <tal:block repeat="com view/commune">
+            <option tal:condition="python: com.com_pk != com_menu" 
+                tal:attributes="value com/com_cp"
+                tal:content="string: ${com/com_cp} ${com/com_nom}">
+            </option>
+            <option tal:condition="python: com.com_pk == com_menu"
+                tal:attributes="value com/com_cp"
+                tal:content="string: ${com/com_cp} ${com/com_nom}" value="" selected='selected'>
+            </option>
+            </tal:block>
+        </select>
+        <br>
+
+        Email : 
+        <input type="text" name="fpro_email" tal:attributes="value proprio_donnees/pro_email" size="50" />
+        <br>
+
+        Téléphone privé : 
+        <input type="text" name="fpro_tel_priv" tal:attributes="value proprio_donnees/pro_tel_priv" size="50" />
+        <br>
+
+        Téléphone bureau : 
+        <input type="text" name="fpro_tel_bur" tal:attributes="value proprio_donnees/pro_tel_bur" size="50" />
+        <br>
+
+        Fax privé : 
+        <input type="text" name="fpro_fax_priv" tal:attributes="value proprio_donnees/pro_fax_priv" size="50" />
+        <br>
+
+        Fax bureau : 
+        <input type="text" name="fpro_fax_bur" tal:attributes="value proprio_donnees/pro_fax_bur" size="50" />
+        <br>
+
+        GSM 1 : 
+        <input type="text" name="fpro_gsm1" tal:attributes="value proprio_donnees/pro_gsm1" size="50" />
+        <br>
+
+        GSM 2 : 
+        <input type="text" name="fpro_gsm2" tal:attributes="value proprio_donnees/pro_gsm2" size="50" />
+        <br>
+
+        Numéro de TVA : 
+        <input type="text" name="fpro_tva" tal:attributes="value proprio_donnees/pro_tva" size="50" />
+        <br>
+
+        Langues parlées par le proprio : 
+        <input type="text" name="fpro_langue" tal:attributes="value proprio_donnees/pro_langue" size="50" />
+        <br>
+
+
+    <h3>SECURITE PROPRIETAIRE : </h3>
+
+        <span tal:replace="proprio_donnees/pro_log"/>
+        <br>
+
+        Pass : 
+        <input type="text" name="fpro_pass" tal:attributes="value proprio_donnees/pro_pass" size="50" />
+        <br>
+
+    <h3>ETAT PROPRIETAIRE : </h3>
+
+
+    <tal:if condition="view/etat_doublon_log">
+                <span>
+                    Un autre propriétaire actif existe déjà avec ce même login, 
+                    vous ne pouvez donc pas activer celui-ci.
+                </span>
+    </tal:if>
+
+    <tal:if condition="not: view/etat_doublon_log">
+        <tal:if condition="not: proprio_donnees/pro_etat">
+            Propriétaire :
+            <select name="fpro_etat">
+                <option value='False' selected='selected'>Désactivé
+                </option>
+                <option value='True'>Activé
+                </option>
+            </select>
+        </tal:if>
+
+        <tal:if condition="proprio_donnees/pro_etat">
+            Propriétaire :
+            <select name="fpro_etat">
+                <option value='False'>Désactivé
+                </option>
+                <option value='True' selected='selected'>Activé
+                </option>
+            </select>
+        </tal:if>
+    </tal:if>
+
+
+    <h3>ETAT CALENDRIER : </h3>
+        Changer l'état de tous les calendriers des hebergements de ce proprio en un clic !!
+        Calendrier :
+        <select name="heb_calendrier_proprio">
+            <tal:if condition="not: view/proprio_calendrier">
+                <option value='False' selected='selected'>Bloqué
+                </option>
+                <option value='True'>Non-bloqué
+                </option>
+            </tal:if>
+            <tal:if condition="view/proprio_calendrier">
+                <option value='False'>Bloqué
+                </option>
+                <option value='True' selected='selected'>Non-bloqué
+                </option>
+            </tal:if>
+        </select>
+        <br>
+
+
+    <h3>EXCLUSION D'ALLO CHAMBRE D'HOTES : </h3>
+        Exclure les chambres (éventuelles) de ce propriétaire d'Allo Chambre d'hôtes :
+        <select name="heb_desactivation_alloch">
+            <tal:if condition="not: view/heb_alloch">
+                <option value='False' selected='selected'>Par défaut
+                </option>
+                <option value='True'>Exclu d'Allo Chambre d'hôtes
+                </option>
+            </tal:if>
+            <tal:if condition="view/heb_alloch">
+                <option value='False' selected='selected'>Par défaut
+                </option>
+                <option value='True'>Exclu d'Allo Chambre d'hôtes
+                </option>
+            </tal:if>
+        </select>
+        <br>
+
+    <h3>HISTORIQUE : </h3>
+        Date d'entrée :
+        <input type="text" name="fpro_date_in" tal:attributes="value proprio_donnees/pro_date_in" size="50" />
+        <br>
+
+        Date de sortie :
+        <input type="text" name="fpro_date_out" tal:attributes="value proprio_donnees/pro_date_out" size="50" />
+        <br>
+
+        Commentaire : 
+        <select name="fpro_motif_out">
+            <option value="rp"> Raison personnelle</option>
+            <option value="vh"> Vente hébergement</option>
+            <option value="ca"> Cessation d'activité</option>
+            <option value="cnp"> Cotisation non payée</option>
+            <option value="refus_cgt"> Refus CGT</option>            
+         </select>
+        <br>
+
+        Numéro de la pièce justificative :
+        <input type="text" name="fpro_justif_out" tal:attributes="value proprio_donnees/pro_justif_out" size="50" />
+        <br>
+
+        <!-- XXX Les lignes ci-dessous étaient dans le fichier d'orgine, faut-il l'adapter -->
+        <input type="hidden"
+                    name="fpro_employe_modification"
+                    value="AUTHENTICATED_USER.getUserName()" />
+
+        <!-- La ligne ci-dessous, permet de récupérer la valeur de pro-pk utilisée dans cette page et de la transmettre à la page suivante lors de l'envoie grâce au bouton submit ci-dessous -->
+        <input type="hidden"
+                    name="fpro_pk"
+                    value="" tal:attributes="value proprio_donnees/pro_pk" />
+
+        <input type="submit" 
+                    value="Modifier les infos du propriétaire">
+
+
+    </tal:proprio>
+</form>
+
+
+    <h3>LISTING DES HEBERGEMENTS : </h3>
+
+    <div  STYLE="clear:both;">
+    <div CLASS="casep" >Sélection : </div>
+    <div CLASS="casep" >PK : </div>
+    <div CLASS="casem" >Publié : </div>
+    <div CLASS="casem" >Calendrier : </div>
+    <div CLASS="caseg" >Code GDW : </div>
+    <div CLASS="caseg" >Type :  </div>
+    <div CLASS="caseg" >Nom : </div>
+    <div CLASS="casep" >Capacité : </div>
+    <div CLASS="caseg" >Commune : </div>
+    </div>
+    <div  STYLE="clear:both;"><hr></div>
+    <span tal:repeat="heb view/hebergement">
+    <div  STYLE="clear:both;">
+    <div>
+        <form action="http://localhost:5080/plone/portal_skins/gestion_gites/hebergement/modification"  method="get">
+            <div CLASS="casep" >
+            <input type="hidden" name="fheb_pk" tal:attributes="value heb/heb_pk" />
+            <input type="submit" value="Modifier">
+            </div>
+        </form>
+        <span CLASS="casep" tal:content="heb/heb_pk"></span>
+    </div>
+        
+        
+    <div CLASS="casem">
+        <tal:if condition="not: view/hebergement_view">
+            <img src="images/nook.png">
+        </tal:if>
+        <tal:if condition="view/hebergement_view">
+            <img src="images/ok.png">
+        </tal:if>
+        <br>
+    </div>
+    <div CLASS="casem">
+        <tal:if condition="not: view/proprio_calendrier">
+            <img src="images/nook.png">
+        </tal:if>
+        <tal:if condition="view/proprio_calendrier">
+            <img src="images/ok.png">
+        </tal:if>
+        <br>
+    </div>
+
+    <div CLASS="caseg">
+        <span tal:content="heb/heb_code_gdw"></span>
+    </div>
+
+    <div CLASS="caseg">
+        <span tal:content="heb/heb_typeheb_fk"></span>
+    </div>
+
+    <div CLASS="caseg">
+        <span tal:content="heb/heb_nom"></span>
+    </div>
+    <div CLASS="casep">
+        <span tal:content="heb/heb_cgt_cap_max"></span>
+    </div>
+    <div CLASS="caseg">
+        <span tal:repeat="heb view/localite">
+            <span tal:content="heb/com_cp"></span> - <span tal:content="heb/com_nom"></span>
+        </span>
+    </div>
+    </div>
+    <div  STYLE="clear:both;"><hr></div>
+    </span>
+
+
+</div><!--content-->
+</div><!--main-->
+</body>
+</html>

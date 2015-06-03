@@ -1,0 +1,169 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xml:lang="en" lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="cerise">
+
+<head>
+
+<!--   <metal:addRemoveWidget fill-slot="javascript_head_slot">
+    <script type="text/javascript"
+            tal:attributes="src string:$portal_url/++resource++gdwadminJS/mapblacklist.js"></script>
+  </metal:addRemoveWidget> -->
+</head>
+
+<body>
+<div metal:fill-slot="main"
+     i18n:domain="gites">
+<div class="content">
+<style>
+.ligne { 
+      clear:both;
+      margin:5px;
+      padding:5px;
+    }
+.float { 
+      float:left;
+      text-align:left;
+    }
+.float_b { 
+      float:left;
+      text-align:left;
+      width:7em;
+    }
+.casep { 
+      float:left;
+      margin:2px;
+      text-align:center;
+      width:3em;
+    }
+.casem { 
+      float:left;
+      margin:2px;
+      text-align:center;
+      width:8em;
+    }
+.caseg { 
+      float:left;
+      margin:2px;
+      text-align:center;
+      width:11em;
+      }
+</style>
+
+  <h2>Gestion de la table Infos pratiques :</h2>
+
+<div STYLE="clear:both;" > 
+  <div CLASS="casep" >Modifier</div>
+  <div CLASS="casem" >Nom </div>
+  <div CLASS="casem" >Adresse</div>
+  <div CLASS="caseg" >CP Communes </div>
+  <div CLASS="casem" >Localité </div>
+  <div CLASS="casem" >URL </div>
+  <div CLASS="casem" >Coord. GPS Long</div>
+  <div CLASS="casem" >Coord. GPS Lat</div>
+  <div CLASS="casep" >Type</div>
+  <div CLASS="caseg" >Maison du tourisme</div>
+</div>
+<div  STYLE="clear:both;"><hr></div>
+
+<div>
+  <div tal:repeat="info view/infopratique">
+    <div  STYLE="clear:both;">
+    <form action="@@gdwadmin.infopratique_modification"  method="get">
+        <div CLASS="casep" >
+        <input type="hidden" name="finfoprat_pk" tal:attributes="value info/InfoPratique/infoprat_pk" />
+        <input type="submit" value="GO">
+        </div>
+        <div CLASS="casem" tal:content="info/InfoPratique/infoprat_nom"></div>
+        <div CLASS="casem" tal:content="info/InfoPratique/infoprat_adresse"></div>
+        <div CLASS="caseg" >
+          <span tal:content="info/Commune/com_cp"/> - <span tal:content="info/Commune/com_nom"/>
+        </div>
+        
+        <div CLASS="casem" tal:content="info/InfoPratique/infoprat_localite"></div>
+        <a tal:attributes="href info/InfoPratique/infoprat_url" target="_blank">
+          <div CLASS="casem"  tal:content="info/InfoPratique/infoprat_url"></div>
+        </a>
+        <div CLASS="casem" tal:content="info/InfoPratique/infoprat_gps_long"></div>
+        <div CLASS="casem" tal:content="info/InfoPratique/infoprat_gps_lat"></div>
+        <div CLASS="casep" tal:content="info/InfoPratique/infoprat_type_infoprat_fk"></div>
+        <div CLASS="caseg" tal:content="info/MaisonTourisme/mais_nom"></div>
+        <div  STYLE="clear:both;"><hr></div>
+
+
+    </form>
+  </div>
+  </div>
+</div>
+<br>
+<form action= "@@gdwadmin.infopratique_add" method="get">
+   
+<h2>Ajout d'une Info Pratique</h2>
+
+        Nom : 
+        <input type="text" name="finfoprat_nom" size="50" />
+        <br>
+
+        Adresse : 
+        <input type="text" name="finfoprat_adresse" size="50" />
+        <br>
+
+        Commune : 
+        <select name="finfoprat_commune_fk">
+            <tal:block repeat="com view/commune">
+            <option tal:attributes="value com/com_pk"
+                tal:content="string: ${com/com_cp} ${com/com_nom}">
+            </option>
+            </tal:block>
+        </select>
+        <br>
+
+        Localité : 
+        <input type="text" name="finfoprat_localite" size="50" />
+        <br>
+
+        URL : 
+        <input type="text" name="finfoprat_url" size="50" />
+        <br>
+
+        GPS Longitude 00.00 : 
+        <input type="text" name="finfoprat_gps_long" size="50" />
+        <br>
+
+        GPS Latitude 00.00 : 
+        <input type="text" name="finfoprat_gps_lat" size="50" />
+        <br>
+
+        Type : 
+        <select name="finfoprat_type_infoprat_fk">
+            <tal:block repeat="type view/typeinfopratique">
+            <option tal:attributes="value type/typinfoprat_pk"
+                tal:content="string: ${type/typinfoprat_nom_fr}">
+            </option>
+            </tal:block>
+        </select>
+        <br>
+
+
+        <input type="hidden"
+                    name="fpro_employe_modification"
+                    value="AUTHENTICATED_USER.getUserName()" />
+        <input type="submit" 
+                    value="Ajouter cette info pratique">
+
+        <br>
+</form>
+
+
+
+
+</div><!--content-->
+</div><!--main-->
+</body>
+</html>
+
+
+
+
+
+

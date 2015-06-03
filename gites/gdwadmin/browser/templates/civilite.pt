@@ -1,0 +1,98 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xml:lang="en" lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="cerise">
+
+<head>
+<!--   <metal:addRemoveWidget fill-slot="javascript_head_slot">
+    <script type="text/javascript"
+            tal:attributes="src string:$portal_url/++resource++gdwadminJS/mapblacklist.js"></script>
+  </metal:addRemoveWidget> -->
+
+<link href="gites_wallons_style.css" type=text/css rel=stylesheet>
+</head>
+
+<body>
+<div metal:fill-slot="main"
+     i18n:domain="gites">
+<div class="content">
+<style>
+.ligne { 
+      clear:both;
+      margin:5px;
+      padding:5px;
+    }
+.casep { 
+      float:left;
+      margin:2px;
+      text-align:center;
+      width:3em;
+    }
+.casem { 
+      float:left;
+      margin:2px;
+      text-align:center;
+      width:7em;
+    }
+.caseg { 
+      float:left;
+      margin:2px;
+      text-align:center;
+      width:20em;
+      }
+</style>
+
+<h2>Gestion de la table Civilité</h2>
+
+
+<div STYLE="clear:both;" > 
+  <div CLASS="casep" >Modifier</div>
+  <div CLASS="casep" >PK</div>
+  <div CLASS="casem" >Titre</div>
+</div>
+<div  STYLE="clear:both;"><hr></div>
+
+
+
+<div>
+  <div tal:repeat="table view/civilite">
+    <div  STYLE="clear:both;">
+    	<form action="@@gdwadmin.civilite_modification"  method="get">
+        	<div CLASS="casep" >
+        	<input type="hidden" name="fciv_pk" tal:attributes="value table/civ_pk"/>
+        	<input type="submit" value="Go">
+        </div>
+    	</form>
+        <div CLASS="casep" tal:content="table/civ_pk"></div>
+        <div CLASS="casem"  tal:content="table/civ_titre"></div>
+        <div  STYLE="clear:both;"><hr></div>
+
+  </div>
+  </div>
+</div>
+<br>
+
+
+
+
+<form action= "@@gdwadmin.civilite_add" method="get">
+   
+<h2>Ajout d'une civilité</h2>
+
+        Titre : 
+        <input type="text" name="fciv_titre" size="50" />
+        <br>
+        <input type="hidden"
+                    name="fpro_employe_modification"
+                    value="AUTHENTICATED_USER.getUserName()" />
+        <input type="submit" 
+                    value="Ajouter cette civilité">
+</form>
+
+
+
+
+</div><!--content-->
+</div><!--main-->
+</body>
+</html>

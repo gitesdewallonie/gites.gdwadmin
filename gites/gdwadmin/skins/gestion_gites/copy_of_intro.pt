@@ -158,6 +158,8 @@
                </span>  non-publi&eacute;s
   
             </fieldset>
+
+
             <fieldset class="fieldsetdescription">
                <legend>H&eacute;bergements publi&eacute;s sur le portail</legend>
                <span tal:define="totHeb python:here.admin_base.hebergement.zsql_compte_hebergement_public_portail(etat=1)">
@@ -174,6 +176,11 @@
    </table>
 </fieldset>
 <!-- /INFOS HEBERGEMENT -->
+
+
+<!-- --------------------------------------------------------------------------- -->
+<!-- --------JE NE TROUVE PAS LES TABLES UTILISEES CI-DESSOUS------------------- -->
+<!-- --------------------------------------------------------------------------- -->
 
 
 <!-- INFOS HEBERGEMENT THEME-->
@@ -207,6 +214,8 @@
 </fieldset>
 <!-- /INFOS HEBERGEMENT THEME-->
 
+
+
 <!-- INFOS HEBERGEMENT GITES+-->
 <fieldset class="fieldsetdescription">
    <legend>Nombre des hébergements gites+</legend>
@@ -237,6 +246,7 @@
    </table>
 </fieldset>
 <!-- /INFOS HEBERGEMENT GITES+-->
+
 
 <!-- INFOS HEBERGEMENT CALENDRIER PROPRIO ACTIF-->
 <fieldset class="fieldsetdescription">
@@ -291,6 +301,13 @@
    </table>
 </fieldset>
 <!-- INFOS HEBERGEMENT CALENDRIER PROPRIO ACTIF-->
+
+
+
+
+<!-- --------------------------------------------------------------------------- -->
+<!-- ----------------------------------  A FAIRE ------------------------------- -->
+<!-- --------------------------------------------------------------------------- -->
 
 
 <!-- INFOS CALENDRIER -->

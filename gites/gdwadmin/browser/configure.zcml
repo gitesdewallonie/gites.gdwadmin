@@ -81,4 +81,329 @@
       permission="zope2.View"
       />
 
+    <!-- Intro -->
+
+    <browser:page
+      for="*"
+      name="gdwadmin.intro"
+      permission="gdw.ViewAdmin"
+      class=".intro.IntroView"
+      template="templates/intro.pt"
+      />
+
+
+
+
+
+      <!-- Proprio Liste -->
+      
+    <browser:page
+      for="*"
+      name="gdwadmin.proprio"
+      permission="gdw.ViewAdmin"
+      class=".proprio.ProprioView"
+      template="templates/proprio.pt"
+      />
+
+      <!-- Proprio Ajout -->
+      
+    <browser:page
+      for="*"
+      name="gdwadmin.proprio_add"
+      permission="gdw.ViewAdmin"
+      class=".proprio_add.AddProprio"
+      template="templates/proprio_add.pt"
+      />
+
+
+      <!-- Proprio Modification -->
+
+    <browser:page
+      for="*"
+      name="gdwadmin.proprio_modification"
+      permission="gdw.ViewAdmin"
+      class=".proprio_modification.ModifProprioView"
+      template="templates/proprio_modification.pt"
+      />
+
+
+      <!-- Proprio Update de la modification -->
+
+    <browser:page
+      for="*"
+      name="gdwadmin.proprio_update"
+      permission="gdw.ViewAdmin"
+      class=".proprio_update.UpdateProprio"
+      template="templates/proprio_update.pt"
+      />
+      
+
+
+
+
+
+
+
+      <!-- Commune Liste -->
+      
+    <browser:page
+      for="*"
+      name="gdwadmin.commune"
+      permission="gdw.ViewAdmin"
+      class=".commune.CommuneView"
+      template="templates/commune.pt"
+      />
+
+      <!-- Commune Ajout -->
+      
+    <browser:page
+      for="*"
+      name="gdwadmin.commune_add"
+      permission="gdw.ViewAdmin"
+      class=".commune_add.AddCommune"
+      template="templates/commune_add.pt"
+      />
+
+      <!-- Commune Modification -->
+      
+    <browser:page
+      for="*"
+      name="gdwadmin.commune_modification"
+      permission="gdw.ViewAdmin"
+      class=".commune_modification.ModifCommune"
+      template="templates/commune_modification.pt"
+      />
+
+      <!-- Commune Update de la modification -->
+      
+    <browser:page
+      for="*"
+      name="gdwadmin.commune_update"
+      permission="gdw.ViewAdmin"
+      class=".commune_update.UpdateCommune"
+      template="templates/commune_update.pt"
+      />      
+
+
+
+
+
+
+
+
+      <!-- Province Liste -->
+      
+    <browser:page
+      for="*"
+      name="gdwadmin.province"
+      permission="gdw.ViewAdmin"
+      class=".province.ProvinceView"
+      template="templates/province.pt"
+      />
+
+      <!-- Province Modification -->
+      
+    <browser:page
+      for="*"
+      name="gdwadmin.province_modification"
+      permission="gdw.ViewAdmin"
+      class=".province_modification.ModifProvince"
+      template="templates/province_modification.pt"
+      />
+
+      <!-- Province Update de la modification -->
+      
+    <browser:page
+      for="*"
+      name="gdwadmin.province_update"
+      permission="gdw.ViewAdmin"
+      class=".province_update.UpdateProvince"
+      template="templates/province_update.pt"
+      />
+
+
+
+
+
+
+      <!-- Maison du tourisme Liste -->
+      
+    <browser:page
+      for="*"
+      name="gdwadmin.maisontourisme"
+      permission="gdw.ViewAdmin"
+      class=".maisontourisme.MaisonTourismeView"
+      template="templates/maisontourisme.pt"
+      />
+
+      <!-- Maison du tourisme Ajout -->
+      
+    <browser:page
+      for="*"
+      name="gdwadmin.maisontourisme_add"
+      permission="gdw.ViewAdmin"
+      class=".maisontourisme_add.AddMaisonTourisme"
+      template="templates/maisontourisme_add.pt"
+      />
+
+      <!-- Maison du tourisme Modification -->
+      
+    <browser:page
+      for="*"
+      name="gdwadmin.maisontourisme_modification"
+      permission="gdw.ViewAdmin"
+      class=".maisontourisme_modification.ModifMaisonTourisme"
+      template="templates/maisontourisme_modification.pt"
+      />
+
+      <!-- Maison du tourisme Update de la modification -->
+      
+    <browser:page
+      for="*"
+      name="gdwadmin.maisontourisme_update"
+      permission="gdw.ViewAdmin"
+      class=".maisontourisme_update.UpdateMaisonTourisme"
+      template="templates/maisontourisme_update.pt"
+      />
+
+
+
+
+
+
+      <!-- Type hebergement Liste -->
+      
+    <browser:page
+      for="*"
+      name="gdwadmin.typehebergement"
+      permission="gdw.ViewAdmin"
+      class=".typehebergement.TypeHebergementView"
+      template="templates/typehebergement.pt"
+      />
+
+      <!-- Type hebergement Ajout -->
+      
+    <browser:page
+      for="*"
+      name="gdwadmin.typehebergement_add"
+      permission="gdw.ViewAdmin"
+      class=".typehebergement_add.AddTypeHebergement"
+      template="templates/typehebergement_add.pt"
+      />
+
+      <!-- Type hebergement Modification -->
+      
+    <browser:page
+      for="*"
+      name="gdwadmin.typehebergement_modification"
+      permission="gdw.ViewAdmin"
+      class=".typehebergement_modification.ModifTypeHebergement"
+      template="templates/typehebergement_modification.pt"
+      />
+
+      <!-- Type hebergement Update de la modification -->
+      
+    <browser:page
+      for="*"
+      name="gdwadmin.typehebergement_update"
+      permission="gdw.ViewAdmin"
+      class=".typehebergement_update.UpdateTypeHebergement"
+      template="templates/typehebergement_update.pt"
+      />
+
+
+
+
+
+
+      <!-- Civilite Liste -->
+      
+    <browser:page
+      for="*"
+      name="gdwadmin.civilite"
+      permission="gdw.ViewAdmin"
+      class=".civilite.CiviliteView"
+      template="templates/civilite.pt"
+      />
+
+      <!-- Civilite Ajout -->
+      
+    <browser:page
+      for="*"
+      name="gdwadmin.civilite_add"
+      permission="gdw.ViewAdmin"
+      class=".civilite_add.AddCivilite"
+      template="templates/civilite_add.pt"
+      />
+
+      <!-- Civilite Modification -->
+      
+    <browser:page
+      for="*"
+      name="gdwadmin.civilite_modification"
+      permission="gdw.ViewAdmin"
+      class=".civilite_modification.ModifCivilite"
+      template="templates/civilite_modification.pt"
+      />
+
+      <!-- Civilite Update de la modification -->
+      
+    <browser:page
+      for="*"
+      name="gdwadmin.civilite_update"
+      permission="gdw.ViewAdmin"
+      class=".civilite_update.UpdateCivilite"
+      template="templates/civilite_update.pt"
+      />
+
+
+
+
+
+
+      <!-- Infos pratiques Liste -->
+      
+    <browser:page
+      for="*"
+      name="gdwadmin.infopratique"
+      permission="gdw.ViewAdmin"
+      class=".infopratique.InfoPratiqueView"
+      template="templates/infopratique.pt"
+      />
+
+      <!-- Infos pratiques Ajout -->
+      
+    <browser:page
+      for="*"
+      name="gdwadmin.infopratique_add"
+      permission="gdw.ViewAdmin"
+      class=".infopratique_add.AddInfoPratique"
+      template="templates/infopratique_add.pt"
+      />
+
+      <!-- Infos pratiques Modification -->
+      
+    <browser:page
+      for="*"
+      name="gdwadmin.infopratique_modification"
+      permission="gdw.ViewAdmin"
+      class=".infopratique_modification.ModifInfoPratique"
+      template="templates/infopratique_modification.pt"
+      />
+
+      <!-- Infos pratiques Update de la modification -->
+      
+    <browser:page
+      for="*"
+      name="gdwadmin.infopratique_update"
+      permission="gdw.ViewAdmin"
+      class=".infopratique_update.UpdateInfoPratique"
+      template="templates/infopratique_update.pt"
+      />
+
+
+
+
+
+
 </configure>

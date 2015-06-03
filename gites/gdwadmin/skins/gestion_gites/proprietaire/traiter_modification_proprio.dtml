@@ -3,4 +3,3 @@
 <dtml-call changeExclusionAlloCHProprio>
 <dtml-call "RESPONSE.redirect('liste_actif')">
 
-

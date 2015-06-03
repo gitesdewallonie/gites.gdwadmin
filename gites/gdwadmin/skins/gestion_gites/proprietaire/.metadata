@@ -12,6 +12,7 @@ liste_actif:DTML Method
 liste_non_actif:DTML Method
 listing_maj_proprio_info:Page Template
 modification:DTML Method
+verifierEtatProprio:Script (Python)
 traiter_insertion_proprio:DTML Method
 traiter_modification_etat_proprio:DTML Method
 traiter_modification_proprio:DTML Method

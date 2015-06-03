@@ -1,0 +1,183 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xml:lang="en" lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="cerise">
+
+<!-- head>
+  <metal:addRemoveWidget fill-slot="javascript_head_slot">
+    <script type="text/javascript"
+            tal:attributes="src string:$portal_url/++resource++gdwadminJS/mapblacklist.js"></script>
+  </metal:addRemoveWidget>
+</head -->
+
+<body>
+<div metal:fill-slot="main"
+     i18n:domain="gites">
+<h1>Bienvenue dans la zone de gestion du site des g&icirc;tes de Wallonie.</h1>
+<div class="content">
+
+
+   <h2> Mise à jour : </h2>
+
+<div>Hébergements en attente de confirmation : <span tal:replace="view/hebergement_maj_count"/></div>
+<div>Propriétaires en attente de confirmation :  <span tal:replace="view/proprio_maj"/></div>
+
+
+<br>
+   <h2> Infos - Propriétaires : </h2>
+
+<div>Nombre de propriétaires : <span tal:replace="view/proprio_count"/></div>
+<div>Nombre de propriétaires actifs : <span tal:replace="view/proprio_active_count"/></div>
+<div>Nombre de propriétaires désactivés : <span tal:replace="view/proprio_desactive_count"/></div>
+
+
+<br>
+   <h2> Infos - Hébergements : </h2>
+
+<div>
+<b>Nombre d'hébergements par type :<br></b>
+  <span tal:repeat="count view/hebergement_type_count">
+    <span tal:content="count/type_heb_nom"></span> : <span tal:content="count/heb_pk_count"></span> 
+    <br>
+  </span>
+</div>
+<div><b>Total d'hébergements : </b><span tal:replace="view/hebergement_count"/></div>
+
+
+<br>
+
+<div>Nombre de CH et de MH dont le proprio est actif :
+  <span tal:repeat="count view/heb_CH_actif_count">
+    <span tal:content="count/heb_actif_count"></span>
+  </span>
+</div>
+<div>Nombre de CH et de MH dont le proprio est actif et publié :
+  <span tal:repeat="count view/heb_CH_actif_public_count">
+    <span tal:content="count/heb_actif_public_count"></span>
+  </span>
+</div>
+<div>Nombre de CH et de MH dont le proprio est actif et n'est pas publié :
+  <span tal:repeat="count view/heb_CH_actif_nopublic_count">
+    <span tal:content="count/heb_actif_nopublic_count"></span>
+  </span>
+</div>
+<br>
+<div>Nombre de GR GC GF MT MV dont le proprio est actif :
+  <span tal:repeat="count view/heb_GR_actif_count">
+    <span tal:content="count/heb_actif_count"></span>
+  </span>
+</div>
+<div>Nombre de GR GC GF MT MV dont le proprio est actif et publié :
+  <span tal:repeat="count view/heb_GR_actif_public_count">
+    <span tal:content="count/heb_actif_public_count"></span>
+  </span>
+</div>
+<div>Nombre de GR GC GF MT MV dont le proprio est actif et n'est pas publié :
+  <span tal:repeat="count view/heb_GR_actif_nopublic_count">
+    <span tal:content="count/heb_actif_nopublic_count"></span>
+  </span>
+</div>
+
+<br>
+<div>Nombre d'hébergements publiés :
+  <span tal:repeat="count view/heb_public_portail_count">
+    <span tal:content="count/heb_public_portail_count"></span>
+  </span>
+</div>
+<div>Nombre d'hébergements non publiés :
+  <span tal:repeat="count view/heb_nopublic_portail_count">
+    <span tal:content="count/heb_nopublic_portail_count"></span>
+  </span>
+</div>
+
+
+
+
+<br>
+<div>Nombre d'hébergements de thème "Nature" : <span tal:replace="view/heb_theme_nature_count"/></div>
+<div>Nombre d'hébergements de thème "Equestre" : <span tal:replace="view/heb_theme_equestre_count"/></div>
+<div>Nombre d'hébergements de thème "Pêche" : <span tal:replace="view/heb_theme_peche_count"/></div>
+<div>Nombre d'hébergements de thème "Panda" : <span tal:replace="view/heb_theme_panda_count"/></div>
+<div>Nombre d'hébergements de thème "Patrimoine" : <span tal:replace="view/heb_theme_patrimoine_count"/></div>
+
+
+<br>
+<div>Nombre d'hébergement dont le calendrier est actif  :
+  <span tal:repeat="count view/heb_calend_proprio_actif_count">
+    <span tal:content="count/heb_calend_proprio_actif_count"></span>
+  </span>
+</div>
+<div>Nombre d'hébergement dont le calendrier est actif pour la recherche :
+  <span tal:repeat="count view/heb_calend_proprio_searchactif_count">
+    <span tal:content="count/heb_calend_proprio_searchactif_count"></span>
+  </span>
+</div>
+<div>Nombre d'hébergement dont le calendrier n'est pas actif :
+  <span tal:repeat="count view/heb_calend_proprio_noactif_count">
+    <span tal:content="count/heb_calend_proprio_noactif_count"></span>
+  </span>
+</div>
+<div>Nombre d'hébergement dont le calendrier est bloqué :
+  <span tal:repeat="count view/heb_calend_proprio_bloc_count">
+    <span tal:content="count/heb_calend_proprio_bloc_count"></span>
+  </span>
+</div>
+
+
+<br>
+<div>Nombre d'hébergement de type "CH MH CHECR" dont le calendrier est actif :
+  <span tal:repeat="count view/heb_calend_CH_actif_count">
+    <span tal:content="count/heb_calend_CH_actif_count"></span>
+  </span>
+</div>
+<div>Nombre d'hébergement de type "CH MH CHECR" dont le calendrier n'est pas actif :
+  <span tal:repeat="count view/heb_calend_CH_noactif_count">
+    <span tal:content="count/heb_calend_CH_noactif_count"></span>
+  </span>
+</div>
+<div>Nombre d'hébergement de type "CH MH CHECR" dont le calendrier est bloqué :
+  <span tal:repeat="count view/heb_calend_CH_bloc_count">
+    <span tal:content="count/heb_calend_CH_bloc_count"></span>
+  </span>
+</div>
+<div>Nombre d'hébergement de type "CH MH CHECR" dont le calendrier est actif pour la recherche :
+  <span tal:repeat="count view/heb_calend_CH_searchactif_count">
+    <span tal:content="count/heb_calend_CH_searchactif_count"></span>
+  </span>
+</div>
+
+
+<br>
+<div>Nombre d'hébergement de type "GR GC GF MT MV GRECR" dont le calendrier est actif :
+  <span tal:repeat="count view/heb_calend_GR_actif_count">
+    <span tal:content="count/heb_calend_GR_actif_count"></span>
+  </span>
+</div>
+<div>Nombre d'hébergement de type "GR GC GF MT MV GRECR" dont le calendrier n'est pas actif :
+  <span tal:repeat="count view/heb_calend_GR_noactif_count">
+    <span tal:content="count/heb_calend_GR_noactif_count"></span>
+  </span>
+</div>
+<div>Nombre d'hébergement de type "GR GC GF MT MV GRECR" dont le calendrier est bloqué :
+  <span tal:repeat="count view/heb_calend_GR_bloc_count">
+    <span tal:content="count/heb_calend_GR_bloc_count"></span>
+  </span>
+</div>
+<div>Nombre d'hébergement de type "GR GC GF MT MV GRECR" dont le calendrier est actif pour la recherche :
+  <span tal:repeat="count view/heb_calend_GR_searchactif_count">
+    <span tal:content="count/heb_calend_GR_searchactif_count"></span>
+  </span>
+</div>
+
+
+
+
+
+
+
+
+
+</div><!--content-->
+</div><!--main-->
+</body>
+</html>

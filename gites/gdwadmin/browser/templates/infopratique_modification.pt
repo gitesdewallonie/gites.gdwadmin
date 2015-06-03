@@ -1,0 +1,131 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xml:lang="en" lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="cerise">
+
+<head>
+<!--   <metal:addRemoveWidget fill-slot="javascript_head_slot">
+    <script type="text/javascript"
+            tal:attributes="src string:$portal_url/++resource++gdwadminJS/mapblacklist.js"></script>
+  </metal:addRemoveWidget> -->
+
+<link href="gites_wallons_style.css" type=text/css rel=stylesheet>
+</head>
+
+<body>
+<div metal:fill-slot="main"
+     i18n:domain="gites">
+<div class="content">
+<style>
+.ligne { 
+      clear:both;
+      margin:5px;
+      padding:5px;
+    }
+.casep { 
+      float:left;
+      margin:2px;
+      text-align:center;
+      width:3em;
+    }
+.casem { 
+      float:left;
+      margin:2px;
+      text-align:center;
+      width:8em;
+    }
+.caseg { 
+      float:left;
+      margin:2px;
+      text-align:center;
+      width:15em;
+      }
+</style>
+
+<form action= "@@gdwadmin.infopratique_update" method="get">
+  <tal:infopratique define="info view/info_pratique">
+   
+<h2>Modification d'une info pratique</h2>
+<br>
+       Nom : 
+        <input type="text" name="finfoprat_nom" size="50" tal:attributes="value info/InfoPratique/infoprat_nom"/>
+        <br>
+ 
+        Adresse : 
+        <input type="text" name="finfoprat_adresse" size="50" tal:attributes="value info/InfoPratique/infoprat_adresse"/>
+        <br>
+
+        Commune : 
+        <select tal:define="info_menu view/info_pratique"
+            name="finfoprat_commune_fk">
+            <tal:block repeat="com view/commune">
+            <option  tal:condition="python: com.com_pk != info_menu.InfoPratique.infoprat_commune_fk"
+                tal:attributes="value com/com_pk"
+                tal:content="string: ${com/com_cp} ${com/com_nom}">
+            </option>
+            <option  tal:condition="python: com.com_pk == info_menu.InfoPratique.infoprat_commune_fk"
+                tal:attributes="value com/com_pk"
+                tal:content="string: ${com/com_cp} ${com/com_nom}" value="" selected='selected'>
+            </option>
+            </tal:block>
+        </select>
+        <br>
+
+
+        Localité : 
+        <input type="text" name="finfoprat_localite" size="50" tal:attributes="value info/InfoPratique/infoprat_localite"/>
+        <br>
+
+        URL : 
+        <input type="text" name="finfoprat_url" size="50" tal:attributes="value info/InfoPratique/infoprat_url"/>
+        <br>
+
+        GPS Longitude 00.00 : 
+        <input type="text" name="finfoprat_gps_long" size="50" tal:attributes="value info/InfoPratique/infoprat_gps_long"/>
+        <br>
+
+        GPS Latitude 00.00 : 
+        <input type="text" name="finfoprat_gps_lat" size="50"  tal:attributes="value info/InfoPratique/infoprat_gps_lat"/>
+        <br>
+
+         <!-- Je me suis permise de mettre un menu déroulant contenant le type plutôt que de permettre de l'écrire à la main dans un input comme initiallement, cela devrait éviter des erreurs d'encodage -->
+        Type : 
+        <select tal:define="info_menu view/info_pratique" name="finfoprat_type_infoprat_fk">
+            <tal:block repeat="type view/typeinfopratique">
+            <option   tal:condition="python: type.typinfoprat_pk != info_menu.InfoPratique.infoprat_type_infoprat_fk"
+                tal:attributes="value type/typinfoprat_pk"
+                tal:content="string: ${type/typinfoprat_nom_fr}">
+            </option>
+            <option   tal:condition="python: type.typinfoprat_pk == info_menu.InfoPratique.infoprat_type_infoprat_fk"
+                tal:attributes="value type/typinfoprat_pk"
+                tal:content="string: ${type/typinfoprat_nom_fr}" value="" selected='selected'>
+            </option>
+            </tal:block>
+        </select>
+        <br>
+
+        Maison du tourisme :
+        <span tal:content="info/MaisonTourisme/mais_nom"/>
+        <br>
+
+        <input type="hidden"
+                    name="fpro_employe_modification"
+                    value="AUTHENTICATED_USER.getUserName()" />
+
+        <input type="hidden"
+                    name="finfoprat_pk"
+                    value="" tal:attributes="value info/InfoPratique/infoprat_pk" />
+
+        <input type="submit" 
+                    value="Ajouter cette info pratique">
+
+        <br>
+
+
+</tal:infopratique>
+</form>
+
+</div><!--content-->
+</div><!--main-->
+</body>
+</html>

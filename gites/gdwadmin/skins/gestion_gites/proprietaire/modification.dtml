@@ -12,7 +12,7 @@
 <script language=JavaScript src="gites_wallons_script.js"></script>
 </head>
 <body>
-<span class="titre_page">Modification des informations sur le proriétaire</span><br><br>
+<span class="titre_page">Modification des informations sur le propriétaire</span><br><br>
 
 <!--"traiter_modification_proprio" -->
 
@@ -186,8 +186,9 @@
    </tr>
    <tr>
       <td>Login</td>
+      <!-- Partie en cours de travail -->
       <td>
-         <input type="text" name="fpro_log" value="<dtml-var pro_log>" size="10" />
+          <dtml-var pro_log>
       </td>
    </tr> 
    <tr>
@@ -218,6 +219,7 @@
             <dtml-else>
                <option value=True> Activé</option>
                <option value=False selected> Désactivé</option>
+               
             </dtml-if>                    
          </select>            
       </td>

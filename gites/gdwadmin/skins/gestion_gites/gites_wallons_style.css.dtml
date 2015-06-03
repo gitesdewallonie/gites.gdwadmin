@@ -4,6 +4,15 @@ font-size: 10pt;
  color: #666677;	
 }
 
+
+.float {
+    float: right;
+}
+
+.clear {
+    clear: both;
+}
+
 a{	 
 font-size: 10;
 font-weight: bold;
