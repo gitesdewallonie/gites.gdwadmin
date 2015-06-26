@@ -4,7 +4,8 @@ Changelog
 0.1.6 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Change max rows count to fix missing results : #6212
+  [laz]
 
 
 0.1.5 (2014-10-27)
