@@ -2,7 +2,7 @@
 title:buzz.player
 arguments: buzz_player_pk
 connection_id:Psycopg_database_connection
-max_rows:1000
+max_rows:10000
 max_cache:100
 cache_time:0
 class_name:

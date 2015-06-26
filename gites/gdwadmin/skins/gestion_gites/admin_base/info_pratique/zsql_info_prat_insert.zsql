@@ -2,7 +2,7 @@
 title:table info_pratique
 arguments: infoprat_nom infoprat_adresse infoprat_url infoprat_gps_long infoprat_gps_lat infoprat_localite infoprat_commune_fk infoprat_type_infoprat_fk
 connection_id:Psycopg_database_connection
-max_rows:1000
+max_rows:10000
 max_cache:100
 cache_time:0
 class_name:

@@ -2,7 +2,7 @@
 title:table type_info_pratique
 arguments: typinfoprat_pk typinfoprat_nom_fr typinfoprat_nom_nl typinfoprat_nom_it typinfoprat_nom_de typinfoprat_nom_en
 connection_id:Psycopg_database_connection
-max_rows:1000
+max_rows:10000
 max_cache:100
 cache_time:0
 class_name:

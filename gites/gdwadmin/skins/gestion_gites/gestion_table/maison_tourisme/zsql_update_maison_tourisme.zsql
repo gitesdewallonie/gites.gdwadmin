@@ -2,7 +2,7 @@
 title:
 arguments: mais_pk mais_nom mais_url mais_code mais_gps_long mais_gps_lat mais_id
 connection_id:Psycopg_database_connection
-max_rows:1000
+max_rows:10000
 max_cache:100
 cache_time:0
 class_name:

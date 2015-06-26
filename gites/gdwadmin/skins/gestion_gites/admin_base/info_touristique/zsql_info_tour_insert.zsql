@@ -2,7 +2,7 @@
 title:table info_touristique
 arguments: infotour_nom infotour_adresse infotour_url infotour_gps_long infotour_gps_lat infotour_localite infotour_commune_fk infotour_type_infotour_fk
 connection_id:Psycopg_database_connection
-max_rows:1000
+max_rows:10000
 max_cache:100
 cache_time:0
 class_name:

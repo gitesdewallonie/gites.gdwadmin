@@ -2,7 +2,7 @@
 title:modification des données selon CCL_PK
 arguments: CCL_PK CCL_SOCIETE CCL_CONTACT CCL_ADRESSE CCL_CP CCL_LOCALITE CCL_TELEPHONE CCL_FAX CCL_EMAIL CCL_RESULTAT CCL_IMPRESSION CCL_SUIVI CCL_USER
 connection_id:Interbase_database_connection
-max_rows:1000
+max_rows:10000
 max_cache:100
 cache_time:0
 class_name:

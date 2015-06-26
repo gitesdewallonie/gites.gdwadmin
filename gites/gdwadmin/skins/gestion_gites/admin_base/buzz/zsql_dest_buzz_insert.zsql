@@ -2,7 +2,7 @@
 title:buzz.destinataire
 arguments: dest_nom dest_prenom dest_email dest_localite dest_langue dest_player_fk
 connection_id:Psycopg_database_connection
-max_rows:1000
+max_rows:10000
 max_cache:100
 cache_time:0
 class_name:
