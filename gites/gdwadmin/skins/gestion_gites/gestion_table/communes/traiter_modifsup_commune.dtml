@@ -17,7 +17,7 @@
 
 
 <!---[gestion de la suppression d'une commune]--->
-<dtml-if "operation == 'supprimer'">   
+<dtml-if "operation == 'supprimer'">
    <dtml-call zsql_delete_commune>
    <dtml-call "RESPONSE.redirect('communes')">
 </dtml-if>
@@ -25,14 +25,14 @@
 
 
 <!---[Gestion de la modification d'une commune]--->
-<dtml-if "operation == 'modifier'">   
-<form name="formulaire" 
-      action="traiter_modification_commune" 
+<dtml-if "operation == 'modifier'">
+<form name="formulaire"
+      action="traiter_modification_commune"
       method="post">
 
- <table width="95%" 
-        border="1" 
-        cellspacing="0" 
+ <table width="95%"
+        border="1"
+        cellspacing="0"
         bordercolor="#EEEFEE">
    <tr>
       <td colspan="4" align="left" bgcolor="#006666">
@@ -41,99 +41,99 @@
          </span>
        </td>
    </tr>
-     <dtml-in "admin_base.commune.zsql_select_commune_by_compk(fcom_pk=com_pk)">
+     <dtml-in "admin_base.commune.zsql_select_commune_by_compk(com_pk=com_pk)">
      <tr>
         <td align="right">Nom</td>
         <td>
-           <input type="text" 
-                  name="com_nom" 
+           <input type="text"
+                  name="com_nom"
                   value="<dtml-var com_nom>" />
-        </td> 
-	</tr>
-	<tr>
+        </td>
+    </tr>
+    <tr>
         <td align="right">CP</td>
         <td>
-           <input type="text" 
-                  name="com_cp" 
+           <input type="text"
+                  name="com_cp"
                   value="<dtml-var com_cp>" />
-        </td>        
-     </tr> 
-	 <tr>
+        </td>
+     </tr>
+     <tr>
         <td align="right">INS</td>
         <td>
-           <input type="text" 
-                  name="com_ins" 
+           <input type="text"
+                  name="com_ins"
                   value="<dtml-var com_ins>" />
-        </td>        
+        </td>
      </tr>
      <tr>
         <td align="right">Région du guide</td>
         <td>
-			<select name="com_reg_fk">
-				<option value="">  </option>
-				<dtml-in zsql_select_all_region_guide>
-					<dtml-if "com_reg_fk==reg_pk">
-						<option value="<dtml-var reg_pk>" selected> <dtml-var reg_nom></option>
-					<dtml-else>
-						<option value="<dtml-var reg_pk>"> <dtml-var reg_nom></option>
-					</dtml-if>
-				</dtml-in>
-			</select>
-		</td>        
+            <select name="com_reg_fk">
+                <option value="">  </option>
+                <dtml-in zsql_select_all_region_guide>
+                    <dtml-if "com_reg_fk==reg_pk">
+                        <option value="<dtml-var reg_pk>" selected> <dtml-var reg_nom></option>
+                    <dtml-else>
+                        <option value="<dtml-var reg_pk>"> <dtml-var reg_nom></option>
+                    </dtml-if>
+                </dtml-in>
+            </select>
+        </td>
      </tr>
-	 <tr>
+     <tr>
         <td align="right">Province</td>
         <td>
-			<select name="com_prov_fk">
-				<option value="">  </option>
-				<dtml-in zsql_select_all_province>
-					<dtml-if "com_prov_fk==prov_pk">
-						<option value="<dtml-var prov_pk>" selected> <dtml-var prov_nom></option>
-					<dtml-else>
-						<option value="<dtml-var prov_pk>"> <dtml-var prov_nom></option>
-					</dtml-if>
-				</dtml-in>
-			</select>
-		</td>        
+            <select name="com_prov_fk">
+                <option value="">  </option>
+                <dtml-in zsql_select_all_province>
+                    <dtml-if "com_prov_fk==prov_pk">
+                        <option value="<dtml-var prov_pk>" selected> <dtml-var prov_nom></option>
+                    <dtml-else>
+                        <option value="<dtml-var prov_pk>"> <dtml-var prov_nom></option>
+                    </dtml-if>
+                </dtml-in>
+            </select>
+        </td>
      </tr>
-	 <tr>
+     <tr>
         <td align="right">Maison du tourisme</td>
         <td>
-			<select name="com_mais_fk">
-				<option value="">  </option>
-				<dtml-in zsql_select_all_maison_tourisme>
-					<dtml-if "com_mais_fk==mais_pk">
-						<option value="<dtml-var mais_pk>" selected> <dtml-var mais_nom></option>
-					<dtml-else>
-						<option value="<dtml-var mais_pk>"> <dtml-var mais_nom></option>
-					</dtml-if>
-				</dtml-in>
-			</select>
-		</td>        
+            <select name="com_mais_fk">
+                <option value="">  </option>
+                <dtml-in zsql_select_all_maison_tourisme>
+                    <dtml-if "com_mais_fk==mais_pk">
+                        <option value="<dtml-var mais_pk>" selected> <dtml-var mais_nom></option>
+                    <dtml-else>
+                        <option value="<dtml-var mais_pk>"> <dtml-var mais_nom></option>
+                    </dtml-if>
+                </dtml-in>
+            </select>
+        </td>
      </tr>
      <tr>
         <td align="right">ID Google</td>
         <td>
-           <input type="text" 
-                  name="com_id" 
+           <input type="text"
+                  name="com_id"
                   value="<dtml-var com_id>" />
-        </td>        
+        </td>
      </tr>
      <tr>
         <td colspan="4" align="center">
-			<input type="hidden" 
-			       name="com_pk" 
-			       value="<dtml-var com_pk>" /> 
-			       
-			<dtml-var bouton_modifier>
-		</td>        
+            <input type="hidden"
+                   name="com_pk"
+                   value="<dtml-var com_pk>" />
+
+            <dtml-var bouton_modifier>
+        </td>
      </tr>
      </dtml-in>
   </table>
-  <input type="hidden" 
-         name="operation" 
+  <input type="hidden"
+         name="operation"
          value="" />
-</form>  
+</form>
 </dtml-if>
 
 </body>

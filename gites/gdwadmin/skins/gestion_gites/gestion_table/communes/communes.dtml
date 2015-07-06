@@ -14,8 +14,12 @@
 <body>
 <span class="titre_page">Gestion de la table commune</span><br><br>
 
-<form name="formulaire" action="traiter_modifsup_commune" method="get">
-   <input type="hidden" name="operation" value="">
+<form name="formulaire"
+      action="traiter_modifsup_commune"
+      method="post">
+   <input type="hidden"
+          name="operation"
+          value="">
    <table width="95%" border="1" cellspacing="0" bordercolor="#EEEFEE">
       <tr>
          <td colspan="9" align="left" bgcolor="#006666">
@@ -29,24 +33,28 @@
          <td><b>PK</b></td>
          <td><b>CP</b></td>
          <td><b>Nom</b></td>
-		<td><b>INS</b></td>
-		<td><b>Région guide</b></td>
-		<td><b>Province</b></td>
-		<td><b>Maison du tourisme</b></td>
-		<td><b>ID Google</b></td>
+        <td><b>INS</b></td>
+        <td><b>Région guide</b></td>
+        <td><b>Province</b></td>
+        <td><b>Maison du tourisme</b></td>
+        <td><b>ID Google</b></td>
      </tr>
-     <dtml-in zsql_select_all_commune>		
+     <dtml-in zsql_select_all_commune>
         <dtml-if sequence-odd>
            <tr>
         <dtml-else>
            <tr bgcolor="#E6FED9">
         </dtml-if>
-        <td width="15"><input type="radio" name="com_pk" value="<dtml-var com_pk>"></td>
+        <td width="15">
+            <input type="radio"
+                   name="com_pk"
+                   value="<dtml-var com_pk>">
+        </td>
         <td><dtml-var com_pk></td>
         <td><dtml-var com_cp missing=xx></td>
-        <td><dtml-var com_nom missing=xx></td>		
+        <td><dtml-var com_nom missing=xx></td>
         <td><dtml-var com_ins missing=xx></td>
-		
+
         <td>
            <dtml-if com_reg_fk>
               <dtml-in "zsql_select_region_guide_regpk(freg_pk=com_reg_fk)">
@@ -73,7 +81,7 @@
                  <a href="http://<dtml-var mais_url>" target="_blank"><dtml-var mais_nom missing=xx></a></td>
               </dtml-in>
            <dtml-else>
-              -			
+              -
            </dtml-if>
         </td>
 
@@ -81,16 +89,16 @@
            <dtml-if com_id>
               <dtml-var com_id>
            <dtml-else>
-              - 
+              -
            </dtml-if>
         </td>
         </tr>
      </dtml-in>
      <tr>
-        <td colspan="7" align="center">
-           <dtml-var bouton_modifier>
-           &nbsp;&nbsp;&nbsp;
-           <dtml-var bouton_supprimer>
+        <td colspan="9" align="center">
+            <dtml-var bouton_modifier>
+            &nbsp;&nbsp;&nbsp;
+            <dtml-var bouton_supprimer>
         </td>
      </tr>
    </table>
@@ -100,75 +108,75 @@
 
 <form name="formulaire_creation" action="traiter_insertion_commune" method="get">
 <table border="1" cellspacing="0" cellpadding="0" width="75%" bordercolor="#EEEFEE">
-	<tr>
-		<td colspan="3" align="left" bgcolor="#006666">
-			<span class="titre_encodage">
-			Créer une nouvelle commune
-			</span>
-			</font>
-		</td>
-	</tr>
-	<tr>
-		<td>Nom</td>
-		<td>
-		   <input type="text" name="com_nom" value=""></td>
-	</tr>
-	<tr>
-		<td>CP</td>
-		<td>
-		   <input type="text" name="com_cp" value=""></td>
-	</tr>
-	<tr>
-		<td>INS</td>
-		<td>
-		   <input type="text" name="com_ins" value=""></td>
-	</tr>
-	<tr>
-		<td>Région du guide</td>
-		<td>
-			<select name="com_reg_fk">
-				<option value="">  </option>
-				<dtml-in zsql_select_all_region_guide>
-					<option value="<dtml-var reg_pk>"> <dtml-var reg_nom></option>
-				</dtml-in>
-			</select>
-		</td>
-	</tr>
-	<tr>
-		<td>Province</td>
-		<td>
-			<select name="com_prov_fk">
-				<option value="">  </option>
-				<dtml-in zsql_select_all_province>
-					<option value="<dtml-var prov_pk>"> <dtml-var prov_nom></option>
-				</dtml-in>
-			</select>
-		</td>
-	</tr>
-	<tr>
-		<td>Maison du tourisme</td>
-		<td>
-			<select name="com_mais_fk">
-				<option value="">  </option>
-				<dtml-in zsql_select_all_maison_tourisme>
-					<option value="<dtml-var mais_pk>"> <dtml-var mais_nom></option>
-				</dtml-in>
-			</select>
-		</td>
-	</tr>
-	<tr>
-		<td>ID Google (*)</td>
-		<td>
-		   <input type="text" name="com_id" value=""></td>
-	</tr>
-	<tr>
-		<td colspan="2" align="center">
-			<dtml-var bouton_creer>
-		</td>
-	</tr>
+    <tr>
+        <td colspan="3" align="left" bgcolor="#006666">
+            <span class="titre_encodage">
+            Créer une nouvelle commune
+            </span>
+            </font>
+        </td>
+    </tr>
+    <tr>
+        <td>Nom</td>
+        <td>
+           <input type="text" name="com_nom" value=""></td>
+    </tr>
+    <tr>
+        <td>CP</td>
+        <td>
+           <input type="text" name="com_cp" value=""></td>
+    </tr>
+    <tr>
+        <td>INS</td>
+        <td>
+           <input type="text" name="com_ins" value=""></td>
+    </tr>
+    <tr>
+        <td>Région du guide</td>
+        <td>
+            <select name="com_reg_fk">
+                <option value="">  </option>
+                <dtml-in zsql_select_all_region_guide>
+                    <option value="<dtml-var reg_pk>"> <dtml-var reg_nom></option>
+                </dtml-in>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td>Province</td>
+        <td>
+            <select name="com_prov_fk">
+                <option value="">  </option>
+                <dtml-in zsql_select_all_province>
+                    <option value="<dtml-var prov_pk>"> <dtml-var prov_nom></option>
+                </dtml-in>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td>Maison du tourisme</td>
+        <td>
+            <select name="com_mais_fk">
+                <option value="">  </option>
+                <dtml-in zsql_select_all_maison_tourisme>
+                    <option value="<dtml-var mais_pk>"> <dtml-var mais_nom></option>
+                </dtml-in>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td>ID Google (*)</td>
+        <td>
+           <input type="text" name="com_id" value=""></td>
+    </tr>
+    <tr>
+        <td colspan="2" align="center">
+            <dtml-var bouton_creer>
+        </td>
+    </tr>
 </table>
 
-</form>	
+</form>
 
 </table>
 </form>

@@ -17,7 +17,7 @@
 
 
 <!---[gestion de la suppression d'une civilite]--->
-<dtml-if "operation == 'supprimer'">   
+<dtml-if "operation == 'supprimer'">
    <dtml-call zsql_delete_civilite>
    <dtml-call "RESPONSE.redirect('civilite')">
 </dtml-if>
@@ -25,33 +25,41 @@
 
 
 <!---[Gestion de la modification d'une civilite]--->
-<dtml-if "operation == 'modifier'">   
-<form name="formulaire" action="traiter_modification_civilite" method="get">
+<dtml-if "operation == 'modifier'">
+<form name="formulaire"
+      action="traiter_modification_civilite"
+      method="post">
 
  <table width="95%" border="1" cellspacing="0" bordercolor="#EEEFEE">
-	<tr>
-		<td colspan="4" align="left" bgcolor="#006666">
-			<span class="titre_encodage">
-			Civilité à modifier
-			</span>
-			</font>
-		</td>
-	</tr>
+    <tr>
+        <td colspan="4" align="left" bgcolor="#006666">
+            <span class="titre_encodage">
+            Civilité à modifier
+            </span>
+            </font>
+        </td>
+    </tr>
      <dtml-in zsql_select_civilite_civpk>
-     <tr>            
-        <td align="right">Titre</td>
-        <td><input type="text" name="fciv_titre" value="<dtml-var civ_titre>"></td>        
-     </tr>     
-     <tr>
-        <td colspan="4" align="center">
-			<input type="hidden" name="fciv_pk" value="<dtml-var civ_pk>">
-			<dtml-var bouton_modifier>
-		</td>        
-     </tr>
+         <tr>
+            <td align="right">Titre</td>
+            <td>
+                <input type="text"
+                       name="fciv_titre"
+                       value="<dtml-var civ_titre>">
+            </td>
+         </tr>
+         <tr>
+            <td colspan="4" align="center">
+                <input type="hidden"
+                       name="fciv_pk"
+                       value="<dtml-var civ_pk>">
+                <dtml-var bouton_modifier>
+            </td>
+         </tr>
      </dtml-in>
   </table>
   <input type="hidden" name="operation" value="">
-</form>  
+</form>
 </dtml-if>
 
 </body>

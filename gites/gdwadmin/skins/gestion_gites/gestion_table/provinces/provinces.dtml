@@ -15,70 +15,77 @@
 <span class="titre_page">Gestion de la table province</span><br><br>
 
 
-<form name="formulaire" action="traiter_modifsup_province" method="get">
-<input type="hidden" name="operation" value="">
-<table width="95%" border="1" cellspacing="0" bordercolor="#EEEFEE">
-	<tr>
-		<td colspan="3" align="left" bgcolor="#006666">
-			<span class="titre_encodage">
-			Liste des Provinces
-			</span>
-			</font>
-		</td>
-	</tr>
-	<tr>
-		<td width="15">&nbsp;</td>
-		<td><b>Nom</b></td>
-		<td><b>Code</b></td>
-	</tr>
-	<dtml-in zsql_select_all_province>
-		<dtml-if sequence-odd>
-			<tr>
-		<dtml-else>
-			<tr bgcolor="#E6FED9">
-		</dtml-if>
-		<td width="15"><input type="radio" name="fprov_pk" value="<dtml-var prov_pk>"></td>
-		<td><dtml-var prov_nom></td>
-		<td><dtml-var prov_code></td>
-	</tr>
-	</dtml-in>
-	<tr>
-		<td colspan="3" align="center">
-			<dtml-var bouton_modifier>
-		    &nbsp;&nbsp;&nbsp;
-			<dtml-var bouton_supprimer>
-		</td>
-	</tr>
-</table>
+<form name="formulaire"
+      action="traiter_modifsup_province"
+      method="get">
+
+    <input type="hidden"
+           name="operation"
+           value="">
+
+    <table width="95%" border="1" cellspacing="0" bordercolor="#EEEFEE">
+        <tr>
+            <td colspan="3" align="left" bgcolor="#006666">
+                <span class="titre_encodage">Liste des Provinces</span>
+            </td>
+        </tr>
+        <tr>
+            <td width="15">&nbsp;</td>
+            <td><b>Nom</b></td>
+            <td><b>Code</b></td>
+        </tr>
+        <dtml-in zsql_select_all_province>
+            <dtml-if sequence-odd>
+                <tr>
+            <dtml-else>
+                <tr bgcolor="#E6FED9">
+            </dtml-if>
+            <td width="15">
+                <input type="radio"
+                       name="fprov_pk"
+                       value="<dtml-var prov_pk>">
+            </td>
+            <td><dtml-var prov_nom></td>
+            <td><dtml-var prov_code></td>
+        </tr>
+        </dtml-in>
+        <tr>
+            <td colspan="3" align="center">
+                <dtml-var bouton_modifier>
+                &nbsp;&nbsp;&nbsp;
+                <dtml-var bouton_supprimer>
+            </td>
+        </tr>
+    </table>
 </form>
 
 <br><br>
 
 <form name="formulaire_creation" action="traiter_insertion_province" method="get">
 <table border="1" cellspacing="0" cellpadding="0" width="75%" bordercolor="#EEEFEE">
-	<tr>
-		<td colspan="3" align="left" bgcolor="#006666">
-			<span class="titre_encodage">
-			Créer une nouvelle Province
-			</span>
-			</font>
-		</td>
-	</tr>
-	<tr>
-		<td>Nom</td>
-		<td><input type="text" name="fprov_nom" value=""></td>
-	</tr>
-	<tr>
-		<td>Code</td>
-		<td><input type="text" name="fprov_code" value=""></td>
-	</tr>
-	<tr>
-		<td colspan="2" align="center">
-			<dtml-var bouton_creer>
-		</td>
-	</tr>
+    <tr>
+        <td colspan="3" align="left" bgcolor="#006666">
+            <span class="titre_encodage">
+            Créer une nouvelle Province
+            </span>
+            </font>
+        </td>
+    </tr>
+    <tr>
+        <td>Nom</td>
+        <td><input type="text" name="fprov_nom" value=""></td>
+    </tr>
+    <tr>
+        <td>Code</td>
+        <td><input type="text" name="fprov_code" value=""></td>
+    </tr>
+    <tr>
+        <td colspan="2" align="center">
+            <dtml-var bouton_creer>
+        </td>
+    </tr>
 </table>
-</form>	
+</form>
 
 </body>
 </html>
