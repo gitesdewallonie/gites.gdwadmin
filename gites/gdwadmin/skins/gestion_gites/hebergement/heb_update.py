@@ -18,7 +18,13 @@ if fheb_com_fk == '0':
 
 
 context.admin_base.hebergement.zsql_heb_update()
-context.admin_base.hebergement.zsql_heb_app_update()
+try:
+    int(fheb_app_groupement_angle_start)
+    int(fheb_app_groupement_line_length)
+except:
+    pass
+else:
+    context.admin_base.hebergement.zsql_heb_app_update()
 context.hebergement.traiter_modification_lnk_heb_epis(heb_pk=fheb_pk, heb_nombre_epis=fheb_nbre_epis)
 
 return context.REQUEST.RESPONSE.redirect('description?fheb_pk=' + fheb_pk)

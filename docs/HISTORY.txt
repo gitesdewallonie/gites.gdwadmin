@@ -4,6 +4,9 @@ Changelog
 0.1.6 (unreleased)
 ------------------
 
+- Avoid error when no angle and line height for hebergement : #5653
+  [laulaz]
+
 - Disable activation of proprios when same login exists for active proprio :
   #6087
   [laulaz]
