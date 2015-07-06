@@ -43,9 +43,9 @@ body{
         <img src="images/flch_orange_pt.gif">
         <a href="hebergement/choix_heberg_descript" target="principal">Description</a><br />
         <img src="images/flch_orange_pt.gif">
-        <a href="hebergement/liste_actif" target="principal">Liste activ&eacute;</a><br />
+        <a href="hebergement/liste_actif" target="principal">Liste activ&eacute;s</a><br />
         <img src="images/flch_orange_pt.gif">
-        <a href="hebergement/liste_non_actif" target="principal">Liste d&eacute;activ&eacute;</a><br />
+        <a href="hebergement/liste_non_actif" target="principal">Liste d&eacute;sactiv&eacute;s</a><br />
 <!--
 <img src="images/flch_orange_pt.gif">
 <a href="hebergement/photo_gestion" target="principal">Gestion des photos</a><br />
