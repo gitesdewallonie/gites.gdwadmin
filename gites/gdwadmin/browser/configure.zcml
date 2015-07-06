@@ -16,12 +16,23 @@
       class=".utils.UtilsView"
       />
 
+
+    <!-- Proprio -->
+
     <browser:page
       for="*"
       name="insertProprio"
       attribute="insertProprio"
       permission="gdw.ViewAdmin"
-      class=".utils.UtilsView"
+      class=".proprio.ProprioView"
+      />
+
+    <browser:page
+      for="*"
+      name="canActivateProprio"
+      attribute="canActivateProprio"
+      permission="gdw.ViewAdmin"
+      class=".proprio.ProprioView"
       />
 
 

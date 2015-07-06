@@ -33,7 +33,8 @@
 </span>
 
 
-   <table border="1" cellspacing="0" bordercolor="#EEEFEE">
+   <table border="1" cellspacing="0" bordercolor="#EEEFEE"
+          tal:define="canActivateProprio nocall:context/@@canActivateProprio">
       <tr>
          <td colspan="17" align="left" bgcolor="#006666">
          <span class="titre_encodage">
@@ -95,24 +96,38 @@
                </dtml-in>
             </td>
             <td><a href="mailto:<dtml-var pro_email>"><dtml-var pro_email missing="-"></a></td>
-            <td align="center">
-               <select name="fpro_etat">  
-                  <dtml-if "pro_etat == True">
-                     <option value=True selected="selected"> oui </option>
-                     <option value=False> non </option>
-                  <dtml-else> 
-                     <option value=True> oui </option>
-                     <option value=False selected="selected"> non </option>
-                  </dtml-if>
-               </select>
-            </td>
-            <td>
-               <input type="hidden"
-                          name="fpro_pk"
-                          value="<dtml-var pro_pk>" />
-               <input type="submit"
-                            value="OK" />
-            </td>
+
+            <dtml-let canActivateProprio="canActivateProprio(pro_pk=pro_pk)">
+                <td align="center">
+
+                   <dtml-if "canActivateProprio == True or pro_etat == True">
+                       <select name="fpro_etat">
+                          <dtml-if "pro_etat == True">
+                             <option value=True selected="selected"> oui </option>
+                             <option value=False> non </option>
+                          <dtml-else> 
+                             <option value=True> oui </option>
+                             <option value=False selected="selected"> non </option>
+                          </dtml-if>
+                       </select>
+                   </dtml-if>
+
+                   <dtml-if "canActivateProprio == False and pro_etat == False">
+                      Autre propriétaire déjà actif avec ce login
+                   </dtml-if>
+
+                </td>
+                <td>
+                   <dtml-if "canActivateProprio == True or pro_etat == True">
+                       <input type="hidden"
+                                  name="fpro_pk"
+                                  value="<dtml-var pro_pk>" />
+                       <input type="submit"
+                                    value="OK" />
+                   </dtml-if>
+                </td>
+            </dtml-let>
+
             <td align="center">
                <a href="modification?fpro_pk=<dtml-var pro_pk>"><img src="images/modifier.png" 
                                                                      border="0"

@@ -12,7 +12,7 @@
 <script language=JavaScript src="gites_wallons_script.js"></script>
 </head>
 <body>
-<span class="titre_page">Modification des informations sur le proriétaire</span><br><br>
+<span class="titre_page">Modification des informations sur le propriétaire</span><br><br>
 
 <!--"traiter_modification_proprio" -->
 
@@ -199,7 +199,7 @@
 </table> 
 <!--[FIN DE LA SECURITE]-->
 
-<!---[DEBUT ETAT]--->
+<!--[DEBUT ETAT]-->
 <table border="1" cellspacing="0" bordercolor="#EEEFEE">
    <tr>
       <td colspan="2" align="left" bgcolor="#006666">
@@ -211,15 +211,24 @@
    <tr>
       <td width="50%">Propriétaire</td>
       <td>
-         <select name="fpro_etat">           
-            <dtml-if "pro_etat == True">
-               <option value=True selected> Activé</option>
-               <option value=False> Désactivé</option>
-            <dtml-else>
-               <option value=True> Activé</option>
-               <option value=False selected> Désactivé</option>
-            </dtml-if>                    
-         </select>            
+         <dtml-let canActivateProprio="canActivateProprio(pro_pk=pro_pk)">
+             <dtml-if "canActivateProprio == True or pro_etat == True">
+                 <select name="fpro_etat">           
+                    <dtml-if "pro_etat == True">
+                       <option value=True selected> Activé</option>
+                       <option value=False> Désactivé</option>
+                    <dtml-else>
+                       <option value=True> Activé</option>
+                       <option value=False selected> Désactivé</option>
+                    </dtml-if>                    
+                 </select>            
+             </dtml-if>
+
+             <dtml-if "canActivateProprio == False and pro_etat == False">
+                Autre propriétaire déjà actif avec ce login
+                <input type="hidden" name="fpro_etat" value=False>
+             </dtml-if>
+         </dtml-let>
       </td>
    </tr> 
 </table>

@@ -4,8 +4,12 @@ Changelog
 0.1.6 (unreleased)
 ------------------
 
+- Disable activation of proprios when same login exists for active proprio :
+  #6087
+  [laulaz]
+
 - Change max rows count to fix missing results : #6212
-  [laz]
+  [laulaz]
 
 
 0.1.5 (2014-10-27)
