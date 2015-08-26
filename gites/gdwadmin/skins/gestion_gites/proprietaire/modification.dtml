@@ -17,7 +17,7 @@
 <!--"traiter_modification_proprio" -->
 
 
-<form action= "traiter_modification_proprio"                                                     
+<form action= "modification_proprio"
            method="get">
 
 <!-- [DEBUT INFORMATION GENERALE] -->
@@ -55,18 +55,18 @@
         </tr>
    <tr>
       <td>Civilité</td>
-      <td>        
-         <select name="fpro_civ_fk">
+      <td>
+          <select name="fpro_civ_fk">
             <dtml-in  zsql_select_all_civilite>
                <dtml-if "pro_civ_fk == civ_pk">
                   <option value="<dtml-var civ_pk>" selected> <dtml-var civ_titre></option>
                <dtml-else>
                   <option value="<dtml-var civ_pk>"> <dtml-var civ_titre></option>
-               </dtml-if>              
-            </dtml-in>           
-         </select>      
+               </dtml-if>
+            </dtml-in>
+         </select>
       </td>
-   </tr> 
+   </tr>
    <tr>
       <td>Nom 1</td>
       <td>
@@ -90,7 +90,7 @@
       <td>
          <input type="text" name="fpro_prenom2" value="<dtml-var pro_prenom2>" size="50" />
       </td>
-   </tr> 
+   </tr>
    <tr>
       <td>Société</td>
       <td>
@@ -113,7 +113,7 @@
                <dtml-else>
                   <option value="<dtml-var com_pk>"> <dtml-var com_cp> <dtml-var com_nom></option>
                </dtml-if>
-            </dtml-in>                       
+            </dtml-in>
          </select>
       </td>
    </tr> 
@@ -146,7 +146,7 @@
       <td>
          <input type="text" name="fpro_fax_bur" value="<dtml-var pro_fax_bur>">
       </td>
-   </tr> 
+   </tr>
    <tr>
       <td>GSM 1</td>
       <td>
@@ -163,8 +163,8 @@
       <td>
          <input type="text" name="fpro_tva" value="<dtml-var pro_tva>">
       </td>
-   </tr> 
-   
+   </tr>
+
    <tr>
       <td>Langues parlées par le prorio</td>
       <td>
@@ -187,16 +187,27 @@
    <tr>
       <td>Login</td>
       <td>
-         <input type="text" name="fpro_log" value="<dtml-var pro_log>" size="10" />
+
+        <dtml-if "pro_log == None">
+                      <input type="text" name="fpro_log" value="" size="10" />
+                    <dtml-else>
+                       <input type="text" name="fpro_log" value="<dtml-var pro_log>" size="10" />
+        </dtml-if>
+
+
       </td>
-   </tr> 
+   </tr>
    <tr>
       <td>Pass</td>
       <td>
-         <input type="text" name="fpro_pass" value="<dtml-var pro_pass>"  size="10" />
+        <dtml-if "pro_pass == None">
+                      <input type="text" name="fpro_pass" value="" size="10" />
+                    <dtml-else>
+                       <input type="text" name="fpro_pass" value="<dtml-var pro_pass>" size="10" />
+        </dtml-if>
       </td>
-   </tr> 
-</table> 
+   </tr>
+</table>
 <!--[FIN DE LA SECURITE]-->
 
 <!--[DEBUT ETAT]-->
@@ -206,22 +217,22 @@
          <span class="titre_encodage">
             ETAT PROPRIETAIRE
          </span>
-      </td> 
+      </td>
    </tr>
    <tr>
       <td width="50%">Propriétaire</td>
       <td>
          <dtml-let canActivateProprio="canActivateProprio(pro_pk=pro_pk)">
              <dtml-if "canActivateProprio == True or pro_etat == True">
-                 <select name="fpro_etat">           
+                 <select name="fpro_etat">
                     <dtml-if "pro_etat == True">
                        <option value=True selected> Activé</option>
                        <option value=False> Désactivé</option>
                     <dtml-else>
                        <option value=True> Activé</option>
                        <option value=False selected> Désactivé</option>
-                    </dtml-if>                    
-                 </select>            
+                    </dtml-if>
+                 </select>
              </dtml-if>
 
              <dtml-if "canActivateProprio == False and pro_etat == False">
@@ -230,7 +241,7 @@
              </dtml-if>
          </dtml-let>
       </td>
-   </tr> 
+   </tr>
 </table>
 <!---[FIN ETAT]--->
 
@@ -244,24 +255,24 @@
          <font color="#ffffff">
          !! Etat de tous les calendriers des hebergements de ce proprio en un clic !!
          </font>
-      </td> 
+      </td>
    </tr>
    <tr>
       <td width="50%">Calendrier</td>
       <td>
          <dtml-let etatCalendrier="isEtatCalendrierProprioActive(pro_pk=fpro_pk)">
-             <select name="heb_calendrier_proprio">           
+             <select name="heb_calendrier_proprio">
                  <dtml-if "etatCalendrier == False">
                      <option value='bloque' selected='selected'> Bloqué</option>
                      <option value='non actif'> Non-Bloqué</option>
                  <dtml-else>
                      <option value='bloque'> Bloqué</option>
                      <option value='non actif' selected='selected'> Non-Bloqué</option>
-                 </dtml-if>                    
+                 </dtml-if>
              </select>
-         </dtml-let>             
+         </dtml-let>
       </td>
-   </tr> 
+   </tr>
 </table>
 <!---[FIN CALENDRIER]--->
 
@@ -287,7 +298,7 @@
 	               <option value="True"> Exclu d'Allo Chambre d'hôtes</option>
 	            </dtml-if>
 	         </select>
-         </dtml-let>             
+         </dtml-let>
       </td>
    </tr>
 </table>
@@ -324,16 +335,16 @@
             <option value="vh"> Vente hébergement</option>
             <option value="ca"> Cessation d'activité</option>
             <option value="cnp"> Cotisation non payée</option>
-            <option value="refus_cgt"> Refus CGT</option>            
+            <option value="refus_cgt"> Refus CGT</option>
          </select>
       </td>
-   </tr> 
+   </tr>
    <tr>
       <td>Numéro de la pièce justificative</td>
       <td>
          <input type="text" name="fpro_justif_out" value="<dtml-var pro_justif_out>" size="50" />
       </td>
-   </tr> 
+   </tr>
 <!--FIN SI DESACTIVE-->
 </table-->
 <!---[FIN HISTORIQUE]--->
@@ -348,7 +359,7 @@
          <input type="hidden"
                     name="fpro_pk"
                     value="<dtml-var fpro_pk>" />
-         <input type="submit" 
+         <input type="submit"
                     value="Modifier les infos du propriétaire">
       </td>
    </tr>
@@ -372,11 +383,11 @@
       <!--CLIQUER SUR UN CHAMP POUR DESCRIPTIF GITE-->
       <td align="center"><b>PK</b></td>
       <td align="center"><b>Publi&eacute;</b></td>
-      <td align="center"><b>Calendrier</b></td>  
+      <td align="center"><b>Calendrier</b></td>
       <td align="center"><b>Code GWD</b></td>
       <td align="center"><b>Nom</b></td>
       <td align="center"><b>Type</b></td>
-      <td align="center"><b>Capacité</b></td>     
+      <td align="center"><b>Capacité</b></td>
       <td align="center"><b>Localité</b></td>
    </tr>
       <dtml-in "zsql_select_heb_profk(fpro_fk=pro_pk)">
