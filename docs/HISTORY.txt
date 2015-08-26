@@ -4,6 +4,9 @@ Changelog
 0.1.6 (unreleased)
 ------------------
 
+- Modification of the form to avoid duplicates : #6236
+  [Aurore]
+
 - Avoid error when no angle and line height for hebergement : #5653
   [laulaz]
 
