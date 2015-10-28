@@ -5,7 +5,7 @@
 <meta name="generator" content="vim">
 <meta name="author" content="AFFINITIC">
 <meta name="Keywords" CONTENT="">
-<meta name="Description" CONTENT="Listing des proprio en attente de mise à jour">
+<meta name="Description" CONTENT="Listing des proprio en attente de mise ï¿½ jour">
 <link href="gites_wallons_style.css" type=text/css rel=stylesheet>
 <script language=JavaScript src="gites_wallons_script.js"></script>
 </head>
@@ -241,6 +241,18 @@
                                name="pro_langue"
                                value=""
                                tal:attributes="value propriomaj/pro_maj_langue" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="maj-etiquette">Date de naissance</td>
+                    <td>
+                        <span tal:content="proprio/pro_date_naiss" />
+                    </td>
+                    <td>
+                        <input type="text"
+                               name="pro_date_naiss"
+                               value=""
+                               tal:attributes="value propriomaj/pro_maj_date_naiss" />
                     </td>
                 </tr>
                 <tr>

@@ -27,5 +27,6 @@ pro_maj_tva varchar,
 pro_maj_langue varchar,
 pro_maj_date_crea timestamp not null default current_timestamp,
 pro_maj_com_fk varchar,
-pro_maj_civ_fk varchar
+pro_maj_civ_fk varchar,
+pro_maj_date_naiss date
 );

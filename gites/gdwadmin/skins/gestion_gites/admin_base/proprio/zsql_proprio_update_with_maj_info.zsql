@@ -1,6 +1,6 @@
  <dtml-comment>
 title:table proprio
-arguments: pro_pk pro_nom1 pro_nom2 pro_prenom1 pro_prenom2 pro_societe pro_adresse pro_email pro_tel_priv pro_fax_priv pro_gsm1 pro_langue pro_tva pro_comment pro_maj_info_etat pro_com_fk pro_civ_fk
+arguments: pro_pk pro_nom1 pro_nom2 pro_prenom1 pro_prenom2 pro_societe pro_adresse pro_email pro_tel_priv pro_fax_priv pro_gsm1 pro_langue pro_tva pro_date_naiss pro_comment pro_maj_info_etat pro_com_fk pro_civ_fk
 connection_id:Psycopg_database_connection
 max_rows:10000
 max_cache:100
@@ -23,6 +23,7 @@ set
    pro_gsm1 = <dtml-sqlvar pro_gsm1 type="string">,
    pro_tva = <dtml-sqlvar pro_tva type="string">,
    pro_langue = <dtml-sqlvar pro_langue type="string">,
+   pro_date_naiss = <dtml-sqlvar pro_date_naiss type="string">,
    pro_maj_info_etat = <dtml-sqlvar pro_maj_info_etat type="string">,
    pro_com_fk = <dtml-sqlvar pro_com_fk type="int">,
    pro_civ_fk=<dtml-sqlvar pro_civ_fk type="string">
