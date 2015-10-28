@@ -4,6 +4,9 @@ Changelog
 0.1.6 (unreleased)
 ------------------
 
+- Add date of birth for proprio in gdwadmin refs #6289
+  [schminitz]
+
 - Modification of the form to avoid duplicates : #6236
   [Aurore]
 
