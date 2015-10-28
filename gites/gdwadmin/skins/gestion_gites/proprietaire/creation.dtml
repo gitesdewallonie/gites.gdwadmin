@@ -146,6 +146,14 @@
             </td>
         </tr>
         <tr>
+            <td>Date de naissance (ex: 1980-05-21)</td>
+            <td>
+                <input type="text"
+                       name="fpro_date_naiss"
+                       value="" />
+            </td>
+        </tr>
+        <tr>
             <td colspan="2" align="center">
                 <input type="hidden"
                        name="fpro_employe_creation"

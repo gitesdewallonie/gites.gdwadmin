@@ -30,6 +30,7 @@ class ProprioView(BrowserView):
                                  pro_gsm1=fields.get('fpro_gsm1'),
                                  pro_gsm2=fields.get('fpro_gsm2'),
                                  pro_tva=fields.get('fpro_tva'),
+                                 pro_date_naiss=fields.get('fpro_date_naiss'),
                                  pro_etat=fields.get('fpro_etat'),
                                  pro_employe_creation=fields.get('fpro_employe_creation'),
                                  pro_date_creation=datetime.now(),
