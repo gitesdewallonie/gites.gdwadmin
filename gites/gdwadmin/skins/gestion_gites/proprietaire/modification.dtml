@@ -175,7 +175,9 @@
    <tr>
       <td>Date de naissance du proprio (ex: 1980-05-21)</td>
       <td>
-         <input type="text" name="fpro_date_naiss" value="<dtml-var pro_date_naiss missing=''>">
+         <dtml-let date_naiss="pro_date_naiss or ''">
+            <input type="text" name="fpro_date_naiss" value="<dtml-var date_naiss>">
+         </dtml-let>
       </td>
    </tr>
 
