@@ -27,7 +27,7 @@ set
    pro_gsm2 = <dtml-sqlvar fpro_gsm2 type="string">,
    pro_tva = <dtml-sqlvar fpro_tva type="string">,
    pro_langue = <dtml-sqlvar fpro_langue type="string">,
-   pro_date_naiss = <dtml-sqlvar fpro_date_naiss type="string">,
+   pro_date_naiss = <dtml-sqlvar fpro_date_naiss type="string" optional>,
    pro_etat = <dtml-sqlvar fpro_etat type="string">,
    pro_motif_out = <dtml-sqlvar fpro_motif_out type="string">,
    pro_justif_out = <dtml-sqlvar fpro_justif_out type="string">,

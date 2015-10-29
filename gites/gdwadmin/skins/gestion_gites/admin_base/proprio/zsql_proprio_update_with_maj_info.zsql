@@ -23,7 +23,7 @@ set
    pro_gsm1 = <dtml-sqlvar pro_gsm1 type="string">,
    pro_tva = <dtml-sqlvar pro_tva type="string">,
    pro_langue = <dtml-sqlvar pro_langue type="string">,
-   pro_date_naiss = <dtml-sqlvar pro_date_naiss type="string">,
+   pro_date_naiss = <dtml-sqlvar pro_date_naiss type="string" optional>,
    pro_maj_info_etat = <dtml-sqlvar pro_maj_info_etat type="string">,
    pro_com_fk = <dtml-sqlvar pro_com_fk type="int">,
    pro_civ_fk=<dtml-sqlvar pro_civ_fk type="string">
