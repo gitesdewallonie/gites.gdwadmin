@@ -35,7 +35,7 @@
 
    <table border="1" cellspacing="0" bordercolor="#EEEFEE">
       <tr>
-         <td colspan="17" align="left" bgcolor="#006666">
+         <td colspan="18" align="left" bgcolor="#006666">
          <span class="titre_encodage">
          INFORMATION GENERALE
          </span>
@@ -54,6 +54,7 @@
          <td align="center"><b>Société</b></td>
          <td align="center"><b>Adresse</b></td>
          <td align="center"><b>Localité</b></td>
+         <td align="center"><b>Date de naissance</b></td>
          <td align="center"><b>E-Mail</b></td>
          <td align="center"><b>Activer</b></td>
          <td></td>
@@ -88,12 +89,13 @@
             <td><dtml-var pro_prenom1 missing="-"></td>
             <td><dtml-var pro_prenom2 missing="-"></td>
             <td><dtml-var pro_societe missing="-"></td>
-            <td><dtml-var pro_adresse missing="-"></td>			
+            <td><dtml-var pro_adresse missing="-"></td>
             <td align="center">
                <dtml-in "admin_base.commune.zsql_select_commune_compk(fcom_pk=pro_com_fk)">
                   <dtml-var com_nom>
                </dtml-in>
             </td>
+            <td><dtml-var expr="pro_date_naiss or ''" missing="-"></td>
             <td><a href="mailto:<dtml-var pro_email>"><dtml-var pro_email missing="-"></a></td>
             <td align="center">
                <select name="fpro_etat">  
