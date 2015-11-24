@@ -1,7 +1,7 @@
 Changelog
 =========
 
-0.1.9 (unreleased)
+0.1.9 (2015-11-24)
 ------------------
 
 - Restore calendar state change and Allo CH exclusion features : #6311
