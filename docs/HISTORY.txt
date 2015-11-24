@@ -4,27 +4,28 @@ Changelog
 0.1.9 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Restore calendar state change and Allo CH exclusion features : #6311
+  [laulaz]
 
 
 0.1.8 (2015-11-18)
 ------------------
 
-- Add date naiss in listing refs #6289
+- Add date naiss in listing : #6289
   [schminitz]
 
 
 0.1.7 (2015-10-29)
 ------------------
 
-- Avoid error with 'None' in date naiss refs #6289
+- Avoid error with 'None' in date naiss : #6289
   [schminitz]
 
 
 0.1.6 (2015-10-28)
 ------------------
 
-- Add date of birth for proprio in gdwadmin refs #6289
+- Add date of birth for proprio in gdwadmin : #6289
   [schminitz]
 
 - Modification of the form to avoid duplicates : #6236
