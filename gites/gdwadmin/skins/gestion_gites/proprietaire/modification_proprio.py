@@ -7,7 +7,6 @@
 ##title=
 ##
 #
-# appelle par "traiter_modification_proprio"
 # table proprio
 # mise à jour des infos proprio par validation des données
 #
@@ -87,6 +86,9 @@ context.admin_base.proprio.zsql_proprio_update(fpro_pk=fpro_pk,\
                                                  fpro_civ_fk=fpro_civ_fk,\
                                                  )
 
+
+context.changeEtatCalendrierProprio()
+context.changeExclusionAlloCHProprio()
 
 #retour sur la page qui liste les proprio en attente de confirmation
 return context.REQUEST.RESPONSE.redirect('liste_actif')

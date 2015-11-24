@@ -8,7 +8,6 @@
 ##title=
 ##
 #
-# appelle par "traiter_modification_proprio"  
 # table hebergement
 # selectionne les hebergement d'un prorio et update l'etat du calendrier 
 #

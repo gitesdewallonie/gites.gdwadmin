@@ -14,9 +14,6 @@
 <body>
 <span class="titre_page">Modification des informations sur le propriétaire</span><br><br>
 
-<!--"traiter_modification_proprio" -->
-
-
 <form action= "modification_proprio"
            method="get">
 
