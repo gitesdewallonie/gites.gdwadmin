@@ -253,7 +253,35 @@
       <td>Nombre d'épis</td>
       <td>
          <dtml-let HebNbreEpis="int(getNbreEpis(heb_pk=heb_pk))">
-            <span class="grasorange"><dtml-var "getNbreEpis(heb_pk=heb_pk)"></span>&nbsp;
+            <dtml-if "heb_typeheb_fk != 0">
+                <span class="grasorange"><dtml-var "getNbreEpis(heb_pk=heb_pk)"></span>&nbsp;
+            </dtml-if>
+
+            <dtml-if "heb_typeheb_fk == 0">
+                <span class="grasorange">Indéfini</span>&nbsp;
+                <input type="radio" name="fheb_nbre_epis" value="0">
+                <img src="images/0_epis.gif">
+                &nbsp;&nbsp;&nbsp;
+
+                <input type="radio" name="fheb_nbre_epis" value="1">
+                <img src="images/1_epis.gif">
+                &nbsp;&nbsp;&nbsp;
+
+                <input type="radio" name="fheb_nbre_epis" value="2">
+                <img src="images/1_epis.gif"><img src="images/1_epis.gif">
+                &nbsp;&nbsp;&nbsp;
+
+                <input type="radio" name="fheb_nbre_epis" value="3">
+                <img src="images/1_epis.gif"><img src="images/1_epis.gif"><img src="images/1_epis.gif">
+                &nbsp;&nbsp;&nbsp;
+
+                <input type="radio" name="fheb_nbre_epis" value="4">
+                <img src="images/1_epis.gif"><img src="images/1_epis.gif"><img src="images/1_epis.gif"><img src="images/1_epis.gif">
+
+                <input type="radio" name="fheb_nbre_epis" value="5">
+                <img src="images/1_epis.gif"><img src="images/1_epis.gif"><img src="images/1_epis.gif"><img src="images/1_epis.gif"><img src="images/1_epis.gif">
+            </dtml-if>
+
             <dtml-if "heb_typeheb_fk in [1,2,3,4,7,10,11]"><!--cas des GR GF MT GC MV GRECR-->
                 <dtml-if "HebNbreEpis==0">
                     <input type="radio" name="fheb_nbre_epis" value="0" checked>

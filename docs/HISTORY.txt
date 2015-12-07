@@ -4,7 +4,8 @@ Changelog
 0.1.10 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Allow to choose epis number when no gite type is selected : #6318
+  [laulaz]
 
 
 0.1.9 (2015-11-24)
