@@ -11,7 +11,7 @@
 <link href="gites_wallons_style.css"
       type=text/css
       rel=stylesheet>
-<script language="JavaScript" 
+<script language="JavaScript"
         src="gites_wallons_script.js"></script>
 <script>
   function actu_iframe() {
@@ -67,9 +67,10 @@
    </tr>
 </table>
 </dtml-in>
+
 <br><br>
 
-
+<!---[DEBUT INFORMATION PROPRIETAIRE]--->
 <form action="heb_update" method="post">
 <table border="1" cellspacing="0" bordercolor="#EEEFEE">
     <tr>
@@ -101,7 +102,7 @@
 </table>
 <!---[FIN INFORMATION PROPRIETAIRE]--->
 
-<br><br>
+<br /><br />
 
 <!---[DEBUT INFORMATION GENERALE]--->
 <input type="hidden" name="fheb_pk" value="<dtml-var fheb_pk>">
@@ -298,7 +299,7 @@
                 </dtml-if>
                 <img src="images/1_epis.gif">
                 &nbsp;&nbsp;&nbsp;
-            
+
                 <dtml-if "HebNbreEpis==2">
                     <input type="radio" name="fheb_nbre_epis" value="2" checked="checked">
                 <dtml-else>
@@ -388,11 +389,52 @@
    <tr>
       <td colspan="2"></td>
    </tr>
-   
 </table>
 <!---[FIN INFORMATION GENERALE]--->
 
-<!-/--[DEBUT COORDONNEE HEB]--->
+<br /><br />
+
+<!---[DEBUT COMMERCIALISATION ALLIANCE RESEAU]--->
+<table border="1" cellspacing="0" bordercolor="#EEEFEE">
+    <tr>
+        <td colspan="2" align="left" bgcolor="#006666">
+            <span class="titre_encodage">
+            COMMERCIALISATION ALLIANCE RESEAU
+            </span>
+            </font>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <select name="fheb_commercialisation_actif">
+                <option value=0> </option>
+                <dtml-if  "heb_commercialisation_actif == TRUE">
+                    <option value="TRUE" selected>
+                    Commercialisation activée
+                    </option>
+                <dtml-else>
+                    <option value="FALSE">
+                    Commercialisation désactivée
+                    </option>
+                </dtml-if>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td>ID Commercilisation</td>
+        <td>
+            <input type="text"
+                   name="fheb_commercialisation_id"
+                   value="<dtml-var heb_commercialisation_id>"
+                   size="8" />
+        </td>
+     </tr>
+</table>
+<!---[FIN COMMERCIALISATION ALLIANCE RESEAU]--->
+
+<br /><br />
+
+<!---[DEBUT COORDONNEE HEB]--->
 <table border="1" cellspacing="0" bordercolor="#EEEFEE">
    <tr>
       <td colspan="2" align="left" bgcolor="#006666">
@@ -437,6 +479,8 @@
 </table>
 <!---[FIN COORDONNEE HEB]--->
 
+<br /><br />
+
 <!---[DEBUT POINTS FORTS HEB]--->
 <table border="1" cellspacing="0" bordercolor="#EEEFEE">
    <tr>
@@ -479,6 +523,8 @@
    </tr>
 </table>
 <!---[FIN POINTS FORTS HEB]--->
+
+<br /><br />
 
 <!---[DEBUT DESCRIPTION HEB]--->
 <table border="1" cellspacing="0" bordercolor="#EEEFEE">
@@ -523,6 +569,8 @@
 </table>
 <!---[FIN DESCRIPTION HEB]--->
 
+<br /><br />
+
 <!---[DEBUT DISTRIBUTION HEB]--->
 <table border="1" cellspacing="0" bordercolor="#EEEFEE">
    <tr>
@@ -566,6 +614,8 @@
 </table>
 <!---[FIN DISTRIBUTION HEB]--->
 
+<br /><br />
+
 <!---[DEBUT TYPE LIT HEB]--->
 <table border="1" cellspacing="0" bordercolor="#EEEFEE">
    <tr>
@@ -595,6 +645,7 @@
 </table>
 <!---[FIN TYPE LIT HEB]--->
 
+<br /><br />
 
 <!---[DEBUT ACTIVITE PARTICULARITE BY PROPRIO]--->
 <table border="1" cellspacing="0" bordercolor="#EEEFEE">
@@ -615,6 +666,7 @@
 </table>
 <!---[FIN ACTIVITE PARTICULARITE BY PROPRIO]--->
 
+<br /><br />
 
 <!---[DEBUT SEMINAIRE VERT]--->
 <table border="1" cellspacing="0" bordercolor="#EEEFEE">
@@ -629,46 +681,47 @@
    <tr>
       <td valign="top">Séminaire au vert <b>FR</b></td>
       <td>
-         <textarea name="fheb_seminaire_vert_fr" 
-                   cols="50" 
+         <textarea name="fheb_seminaire_vert_fr"
+                   cols="50"
                    rows="9"><dtml-var heb_seminaire_vert_fr missing=''></textarea>
       </td>
    </tr>
    <tr>
       <td valign="top">Séminaire au vert <b>NL</b></td>
       <td>
-         <textarea name="fheb_seminaire_vert_nl" 
-                   cols="50" 
+         <textarea name="fheb_seminaire_vert_nl"
+                   cols="50"
                    rows="9"><dtml-var heb_seminaire_vert_nl missing=''></textarea>
       </td>
    </tr>
    <tr>
       <td valign="top">Séminaire au vert <b>UK</b></td>
       <td>
-         <textarea name="fheb_seminaire_vert_uk" 
-                   cols="50" 
+         <textarea name="fheb_seminaire_vert_uk"
+                   cols="50"
                    rows="9"><dtml-var heb_seminaire_vert_uk missing=''></textarea>
       </td>
-   </tr> 
+   </tr>
    <tr>
       <td valign="top">Séminaire au vert <b>DE</b></td>
       <td>
-         <textarea name="fheb_seminaire_vert_de" 
-                   cols="50" 
+         <textarea name="fheb_seminaire_vert_de"
+                   cols="50"
                    rows="9"><dtml-var heb_seminaire_vert_de missing=''></textarea>
       </td>
    </tr>
    <tr>
       <td valign="top">Séminaire au vert <b>IT</b></td>
       <td>
-         <textarea name="fheb_seminaire_vert_it" 
-                   cols="50" 
+         <textarea name="fheb_seminaire_vert_it"
+                   cols="50"
                    rows="9"><dtml-var heb_seminaire_vert_it missing=''></textarea>
       </td>
    </tr>
 </table>
 <!---[FIN SEMINAIRE VERT]--->
 
+<br /><br />
 
 <!---[DEBUT CGT]--->
 <table border="1" cellspacing="0" bordercolor="#EEEFEE">
@@ -684,27 +737,30 @@
    <tr>
       <td rowspan="3">Capacité</td>
       <td>
-         min : <input type="text" 
-                      name="fheb_cgt_cap_min" 
+         min : <input type="text"
+                      name="fheb_cgt_cap_min"
                       value="<dtml-var heb_cgt_cap_min missing=xx>">
       </td>
    <tr>
       <td>
-         max : <input type="text" 
-                      name="fheb_cgt_cap_max" 
+         max : <input type="text"
+                      name="fheb_cgt_cap_max"
                       value="<dtml-var heb_cgt_cap_max missing=xx>">
       </td>
    </tr>
    <tr>
       <td>
-         nombre de chambre : <input type="text" 
-                                    name="fheb_cgt_nbre_chmbre" 
+         nombre de chambre : <input type="text"
+                                    name="fheb_cgt_nbre_chmbre"
                                     value="<dtml-var heb_cgt_nbre_chmbre missing=xx>">
       </td>
    </tr>
 </table>
 <!---[FIN CGT]--->
 
+<br /><br />
+
+<!---[DEBUT TARIFICATION]--->
 <table border="1" cellspacing="0" bordercolor="#EEEFEE">
    <tr>
       <td colspan="2" align="left" bgcolor="#006666">
@@ -735,6 +791,9 @@
      </td>
    </tr>
 </table>
+<!---[FIN TARIFICATION]--->
+
+<br /><br />
 
 <!---[DEBUT DIVERS]--->
 <table border="1" cellspacing="0" bordercolor="#EEEFEE">
@@ -787,7 +846,7 @@
          <input type="hidden"
                 name="fheb_employe_modification"
                 value="<dtml-var "AUTHENTICATED_USER.getUserName()">" />
-         <input type="submit" 
+         <input type="submit"
                 value="Enregistrer" />
       </td>
    </tr>
