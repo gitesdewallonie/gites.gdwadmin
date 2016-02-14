@@ -1,6 +1,6 @@
 <html>
 <head>
-<title> Gites wallons : sélection d'un hébergement par le proprio</TITLE>
+<title> Gites wallons : s&eacute;lection d'un h&eacute;bergement par le proprio</TITLE>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" >
 <meta name="generator" content="Zope">
 <meta name="author" content="Affinitic">
@@ -55,21 +55,21 @@
 
 <!-- INFOS PROPRIO -->
 <fieldset class="fieldsetdescription">
-   <legend>Propriétaires</legend>
+   <legend>Propri&eacute;taires</legend>
    <span tal:define="proprios here/admin_base/proprio/zsql_proprio_count_all">
       <span tal:repeat="proprio proprios">
-         <span tal:content="proprio/count" /> propriétaires
+         <span tal:content="proprio/count" /> propri&eacute;taires
       </span>
    </span>
    <ul>
       <li tal:define="proprioActifs here/admin_base/proprio/zsql_proprio_count_all_active">
          <span tal:repeat="proprio proprioActifs">
-              <span tal:content="proprio/count" /> activés
+              <span tal:content="proprio/count" /> activ&eacute;s
          </span>
       </li>
       <li tal:define="proprioNonActifs here/admin_base/proprio/zsql_proprio_count_all_non_active">
           <span tal:repeat="proprio proprioNonActifs">
-             <span tal:content="proprio/count" /> désactivés
+             <span tal:content="proprio/count" /> d&eacute;sactiv&eacute;s
          </span>
       </li>
    </ul>
@@ -78,7 +78,7 @@
 
 <!-- INFOS HEBERGEMENT -->
 <fieldset class="fieldsetdescription">
-   <legend>Nombre des hébergements par type</legend>
+   <legend>Nombre des h&eacute;bergements par type</legend>
    <br />
    <table border="1" cellspacing="0" bordercolor="#EEEFEE" width="35%" align="center">
       <tr class="titre_encodage" bgcolor="#006666">
@@ -168,7 +168,7 @@
 </fieldset>
 <!-- /INFOS HEBERGEMENT -->
 <ul>
-    <li><a href="nombre_des_hebergements_au_calendrier_actif">Nombre des hébergements dont le calendrier est activ&eacute;</a></li>
+    <li><a href="nombre_des_hebergements_au_calendrier_actif">Nombre des h&eacute;bergements dont le calendrier est activ&eacute;</a></li>
     <li><a href="etat_des_calendriers_selon_types_hebergement">Etat des calendriers selon les types d'h&eacute;bergement</a></li>
 </ul>
 
