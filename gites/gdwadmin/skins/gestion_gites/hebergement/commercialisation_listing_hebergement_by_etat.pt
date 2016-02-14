@@ -1,0 +1,94 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title> Gites wallons : détail des hébergements pour la commercialisation</TITLE>
+<meta name="generator" content="sublimetext">
+<meta name="author" content="alain">
+<meta name="Keywords" CONTENT="">
+<meta name="Description" CONTENT="">
+<link href="gites_wallons_style.css"
+      type=text/css
+      rel=stylesheet>
+<script language=JavaScript
+        src="gites_wallons_script.js"></script>
+</head>
+<body>
+<fieldset tal:define="etat request/etat"
+          class="fieldsetprive">
+    <legend class="legende">
+        <b>Liste des hébergements donc la commercialisation est
+        <span tal:content="python: etat and 'activée' or 'désactivée'"></span></b>
+    </legend>
+   <tal:requete tal:define="Hebergements python:here.admin_base.hebergement.zsql_heb_select_all_commercialisation_by_etat(etat=etat)">
+      <table align="left">
+         <tr class="table_titre">
+            <td> Nom </td>
+            <td> Commercialisation ID </td>
+            <td> Capacité </td>
+            <td> Localité </td>
+            <td> Provinces </td>
+            <td> Propriétaire </td>
+         </tr>
+
+         <tal:boucle tal:repeat="heb Hebergements">
+            <span tal:condition="repeat/heb/even">
+            <tr class="list_even">
+                <td align="center">
+                    <a href=""
+                       tal:attributes="href string: description?fheb_pk=${heb/heb_pk}"
+                       tal:content="heb/heb_nom" />
+                </td>
+                <td align="center">
+                    <span tal:content="heb/heb_commercialisation_id" />
+                </td>
+                <td align="center">
+                    <span tal:content="heb/heb_cgt_cap_min" />
+                    &nbsp;&nbsp;-&nbsp;&nbsp;
+                    <span tal:content="heb/heb_cgt_cap_max" />
+                </td>
+                <td align="center">
+                    <span tal:content="heb/com_cp" />
+                    <span tal:content="heb/com_nom" />
+                </td>
+                <td align="center">
+                    <span tal:content="heb/prov_nom" />
+                </td>
+                <td align="center">
+                    <span tal:content="heb/pro_nom1" />
+                </td>
+            </tr>
+            </span>
+            <span tal:condition="repeat/heb/odd">
+            <tr class="list_odd">
+                <td align="center">
+                    <a href=""
+                       tal:attributes="href string: description?fheb_pk=${heb/heb_pk}"
+                       tal:content="heb/heb_nom" />
+                </td>
+                <td align="center">
+                    <span tal:content="heb/heb_commercialisation_id" />
+                </td>
+                <td align="center">
+                    <span tal:content="heb/heb_cgt_cap_min" />
+                    &nbsp;&nbsp;-&nbsp;&nbsp;
+                    <span tal:content="heb/heb_cgt_cap_max" />
+                </td>
+                <td align="center">
+                    <span tal:content="heb/com_cp" />
+                    <span tal:content="heb/com_nom" />
+                </td>
+                <td align="center">
+                    <span tal:content="heb/prov_nom" />
+                </td>
+                <td align="center">
+                    <span tal:content="heb/pro_nom1" />
+                </td>
+            </tr>
+            </span>
+
+          </tal:boucle>
+       </table>
+   </tal:requete>
+</fieldset>
+</body>
+</html>

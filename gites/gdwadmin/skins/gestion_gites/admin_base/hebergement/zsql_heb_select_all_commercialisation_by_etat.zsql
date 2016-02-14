@@ -1,0 +1,35 @@
+ <dtml-comment>
+title:
+arguments: etat
+connection_id:Psycopg_database_connection
+max_rows:10000
+max_cache:100
+cache_time:0
+class_name:
+class_file:
+</dtml-comment>
+select 
+   heb_pk, 
+   heb_nom,
+   heb_commercialisation_id,
+   heb_cgt_cap_min, 
+   heb_cgt_cap_max, 
+   com_cp, 
+   com_nom, 
+   prov_nom,
+   pro_nom1
+from 
+   hebergement,
+   commune,
+   provinces,
+   proprio
+where
+   heb_commercialisation_actif = <dtml-sqlvar etat type="string">
+   and 
+   commune.com_pk=heb_com_fk 
+   and 
+   provinces.prov_pk=com_prov_fk
+   and
+   proprio.pro_pk = hebergement.heb_pro_fk
+order by 
+   heb_nom;

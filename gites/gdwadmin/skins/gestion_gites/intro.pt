@@ -172,8 +172,18 @@
 <fieldset class="fieldsetdescription">
    <legend>Activation des calendriers</legend>
    <ul>
-       <li><a href="nombre_des_hebergements_au_calendrier_actif">Nombre des h&eacute;bergements dont le calendrier est activ&eacute; <img src="images/flch_orange_pt.gif" /></a></li>
-       <li><a href="etat_des_calendriers_selon_types_hebergement">Etat des calendriers selon les types d'h&eacute;bergement <img src="images/flch_orange_pt.gif" /></a></li>
+       <li>
+         <a href="nombre_des_hebergements_au_calendrier_actif">
+            Nombre des h&eacute;bergements dont le calendrier est activ&eacute;
+            <img src="images/flch_orange_pt.gif" />
+         </a>
+      </li>
+      <li>
+         <a href="etat_des_calendriers_selon_types_hebergement">
+            Etat des calendriers selon les types d'h&eacute;bergement
+            <img src="images/flch_orange_pt.gif" />
+         </a>
+      </li>
    </ul>
 </fieldset>
 <!-- INFOS SUR LES CALENDRIERS -->
@@ -182,11 +192,22 @@
 <fieldset class="fieldsetdescription">
    <legend>Activation de la commercialisation</legend>
    <span tal:define="totHeb python:here.admin_base.hebergement.zsql_compte_hebergement_commercialisation_actif(etat=True)">
-      <span tal:repeat="tot totHeb">Hébergement dont la commercialisation est activée : <b><span tal:content="tot/count" /></b> </span>
+      <span tal:repeat="tot totHeb">
+         <a href=""
+            tal:attributes="href string:hebergement/commercialisation_listing_hebergement_by_etat?etat=True">
+            Hébergement dont la commercialisation est activée :
+         </a>
+         <b><span tal:content="tot/count" /></b>
+      </span>
    </span>
    <br />
    <span tal:define="totHeb python:here.admin_base.hebergement.zsql_compte_hebergement_commercialisation_actif(etat=False)">
-      <span tal:repeat="tot totHeb">Hébergement dont la commercialisation est désactivée : <b><span tal:content="tot/count" /></b></span>
+      <span tal:repeat="tot totHeb">
+         <a href=""
+            tal:attributes="href string:hebergement/commercialisation_listing_hebergement_by_etat?etat=False">
+            Hébergement dont la commercialisation est désactivée :
+         </a>
+         <b><span tal:content="tot/count" /></b></span>
    </span>
 </fieldset>
 <!-- INFOS SUR LA COMMERCIALISATION -->
