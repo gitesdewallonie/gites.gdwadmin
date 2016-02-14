@@ -40,6 +40,15 @@
        <dtml-else>
           <img src="images/blerouge.gif">
        </dtml-if>
+    <br /><br />
+    ::: <b> Commercialisation état : </b>
+    <dtml-if "heb_commercialisation_actif=='True'">
+        <img src="images/bleverte.gif">
+    <dtml-else>
+        <img src="images/blerouge.gif">
+    </dtml-if>
+    <br />
+    ::: <b> Commercialisation ID : <b class="choixinfogid"><dtml-var heb_commercialisation_id></b><br />
 </fieldset>
 
 
@@ -72,7 +81,7 @@
 
    <tr>
       <td width="30%">
-         <dtml-var heb_localite>  
+         <dtml-var heb_localite>
          <dtml-in "admin_base.commune.zsql_select_commune_compk(fcom_pk=heb_com_fk)"><!--debut zsql commune-->
             (<dtml-var com_nom>)
             </td>
@@ -201,26 +210,26 @@
                   <!--Gites +-->
                   <dtml-if "heb_gid_bebe_tendresse=='oui'">
                      <img src="images/l_bebe_tendresse.gif"
-                          title="Gite bebe tendresse" 
+                          title="Gite bebe tendresse"
                           alt="Gite bebe tendresse">
                   </dtml-if>
                   <dtml-if "heb_gid_access_tous=='oui'">
                      <img src="images/l_access_tous.gif"
-                          title="Gite accessible a tous" 
+                          title="Gite accessible a tous"
                           alt="Gite accessible a tous">
                   </dtml-if>
                   <dtml-if "heb_gid_antiallergique=='oui'">
                      <img src="images/l_anti_allergie.gif"
-                          title="Gite anti-allergique" 
+                          title="Gite anti-allergique"
                           alt="Gite anti-allergique">
                   </dtml-if>
                   <dtml-if "heb_gid_beau_jardin=='oui'">
                      <img src="images/l_nain.jpg"
-                          alt="Beau jardin" 
+                          alt="Beau jardin"
                           title="Beau jardin">
                   </dtml-if>
                   <dtml-if "heb_gid_eco_gite=='oui'">
-                     <img src="images/l_eco_gite.gif" 
+                     <img src="images/l_eco_gite.gif"
                           title="Eco gite"
                           alt="Eco gite">
                   </dtml-if>
