@@ -383,12 +383,6 @@
         </dtml-let>
       </td>
    </tr>
-   <tr>
-      <td colspan="2"></td>
-   </tr>
-   <tr>
-      <td colspan="2"></td>
-   </tr>
 </table>
 <!---[FIN INFORMATION GENERALE]--->
 
@@ -405,16 +399,18 @@
         </td>
     </tr>
     <tr>
+        <td>Etat Commercilisation</td>
         <td>
             <select name="fheb_commercialisation_actif">
-                <option value=0> </option>
-                <dtml-if  "heb_commercialisation_actif == TRUE">
-                    <option value="TRUE" selected>
-                    Commercialisation activée
+                <dtml-if  "heb_commercialisation_actif==True">
+                    <option value="True"
+                            selected= "selected">
+                        Commercialisation activée
                     </option>
                 <dtml-else>
-                    <option value="FALSE">
-                    Commercialisation désactivée
+                    <option value="False"
+                            selected="selected">
+                        Commercialisation désactivée
                     </option>
                 </dtml-if>
             </select>
@@ -426,7 +422,7 @@
             <input type="text"
                    name="fheb_commercialisation_id"
                    value="<dtml-var heb_commercialisation_id>"
-                   size="8" />
+                   size="15" />
         </td>
      </tr>
 </table>
