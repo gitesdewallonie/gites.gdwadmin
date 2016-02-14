@@ -407,7 +407,13 @@
                             selected= "selected">
                         Commercialisation activée
                     </option>
+                    <option value="False">
+                        Commercialisation désactivée
+                    </option>
                 <dtml-else>
+                    <option value="True">
+                        Commercialisation activée
+                    </option>
                     <option value="False"
                             selected="selected">
                         Commercialisation désactivée
