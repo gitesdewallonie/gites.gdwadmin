@@ -43,7 +43,7 @@
                 </td>
                 <td align="center">
                     <span tal:content="heb/heb_cgt_cap_min" />
-                    &nbsp;&nbsp;-&nbsp;&nbsp;
+                    &nbsp;-&nbsp;
                     <span tal:content="heb/heb_cgt_cap_max" />
                 </td>
                 <td align="center">

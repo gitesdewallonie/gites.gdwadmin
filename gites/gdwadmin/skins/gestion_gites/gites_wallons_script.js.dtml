@@ -1,10 +1,10 @@
-function passage(lieu){ 
+function passage(lieu){
  document.info.nom_objet.value=lieu;
 }
 
 
 function ouvrir_fenetre(site){
-	nav=window.open(site,'fenetre', 'height=250, width=300, left=700, top=30, status=no, menubar=no, scrollbars=no, resizable=no');
+	nav=window.open(site,'fenetre', 'height=250, width=400, left=700, top=30, status=no, menubar=no, scrollbars=no, resizable=no');
 	nav.setTimeout("window.close()",10000);
 }
 
@@ -33,6 +33,6 @@ function Envoyer(op){
    if (op=='creer'){
       document.formulaire_creation.submit();
    }
-   
+
 }
 
