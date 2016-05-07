@@ -30,16 +30,16 @@
 <fieldset class="fieldsetprive">
    <legend class="legende">Recherche sur la PK de l'hébergement</legend>
    <form action="modification" method="get">
-      <table class="table_resultat">	
+      <table class="table_resultat">
          <tr>
-            <td align="center"> 
+            <td align="center">
                PK de l'hebergement ?
                <input type="text" name="fheb_pk" value="" />
             </td>
-         </tr>	
+         </tr>
          <tr>
             <td align="center">
-               <input type="submit" value="Lancer la recherche">               
+               <input type="submit" value="Lancer la recherche">
             </td>
          </tr>
       </table>
@@ -49,18 +49,18 @@
 
 
 <fieldset class="fieldsetprive">
-   <legend class="legende">Recherche sur le code GDW de l'hébergement</legend>   
+   <legend class="legende">Recherche sur le code GDW de l'hébergement</legend>
       <table class="table_resultat">
          <form action="modification" method="get">
             <tr>
-               <td>                
+               <td>
                   Voici la liste des code GDW des hébergements encodés.<br />
                   Sélectionnez un code GDW ?
                   <br /><br />
                   <select name="fheb_pk">
                      <option>...</option>
-                     <dtml-in "admin_base.zsql_heb_select_all_gdw()">   
-                        <option value="<dtml-var heb_pk>"> <dtml-var heb_code_gdw></option>   
+                     <dtml-in "admin_base.zsql_heb_select_all_gdw()">
+                        <option value="<dtml-var heb_pk>"> <dtml-var heb_code_gdw></option>
                      </dtml-in>
                   </select>
                   <br />
@@ -68,26 +68,26 @@
             </tr>
             <tr>
                <td align="center">
-                  <input type="submit" value="Lancer la recherche">               
+                  <input type="submit" value="Lancer la recherche">
                </td>
             </tr>
             <tr>
                <td align="center">
-                  <hr />               
+                  <hr />
                </td>
             </tr>
          </form>
          <form action="choix_hebergement_by_code_gdw" method="get">
             <tr>
-               <td>                             
-                  Ou entrez quelques caractères d'un code GDW ?<br />               
-                  <input type="text" name="heb_code_gdw" value="" size="10">  
-                  <br />              
+               <td>
+                  Ou entrez quelques caractères d'un code GDW ?<br />
+                  <input type="text" name="heb_code_gdw" value="" size="10">
+                  <br />
                </td>
             </tr>
             <tr>
                <td align="center">
-                  <input type="submit" value="Lancer la recherche">               
+                  <input type="submit" value="Lancer la recherche">
                </td>
             </tr>
          </form>
@@ -108,16 +108,16 @@
                <br /><br />
                <select name="com_pk">
                   <dtml-in "admin_base.zsql_heb_select_all_by_cp()">
-                     <option value="<dtml-var com_pk>"> 
-                        <dtml-var com_cp> &nbsp;&nbsp;&nbsp; <dtml-var com_nom>   
+                     <option value="<dtml-var com_pk>">
+                        <dtml-var com_cp> &nbsp;&nbsp;&nbsp; <dtml-var com_nom>
                      </option>
-                  </dtml-in>								
+                  </dtml-in>
                </select>
             </td>
          </tr>
          <tr>
             <td align="center">
-               <input type="submit" value="Lancer la recherche">               
+               <input type="submit" value="Lancer la recherche">
             </td>
          </tr>
       </table>
@@ -130,7 +130,7 @@
       <table class="table_resultat">
          <tr>
             <td>
-               Veuillez encoder le nom ou quelques lettres du nom du 
+               Veuillez encoder le nom ou quelques lettres du nom du
                propriétaire que vous recherchez<br />
                Une liste de nom contenant ces lettres vous sera alors proposée.<br />
                Vous n'aurez plus qu'à effectuer votre sélection.
@@ -140,7 +140,7 @@
          </tr>
          <tr>
             <td align="center">
-               <input type="submit" value="Lancer la recherche">                        
+               <input type="submit" value="Lancer la recherche">
             </td>
          </tr>
       </table>

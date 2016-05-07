@@ -42,7 +42,7 @@
        </dtml-if>
     <br /><br />
     ::: <b> Commercialisation état : </b>
-    <dtml-if "heb_commercialisation_actif=='True'">
+    <dtml-if "heb_commercialisation_actif==True">
         <img src="images/bleverte.gif">
     <dtml-else>
         <img src="images/blerouge.gif">
@@ -142,34 +142,34 @@
             <tr>
                <td align="center"><!--gestion des picto activité-->
                   <dtml-if "heb_tenis=='oui'">
-                     <img src="images/picto/a_tennis.png">
+                     <img src="images/picto/a_tennis.png"><br />
                   </dtml-if>
                   <dtml-if "heb_nautisme=='oui'">
-                     <img src="images/picto/a_voile.png">
+                     <img src="images/picto/a_voile.png"><br />
                   </dtml-if>
                   <dtml-if "heb_sky=='oui'">
-                     <img src="images/picto/a_sky.png">
+                     <img src="images/picto/a_sky.png"><br />
                   </dtml-if>
                   <dtml-if "heb_rando=='oui'">
-                     <img src="images/picto/a_rando.png">
+                     <img src="images/picto/a_rando.png"><br />
                   </dtml-if>
                   <dtml-if "heb_piscine=='oui'">
-                     <img src="images/picto/a_piscine.png">
+                     <img src="images/picto/a_piscine.png"><br />
                   </dtml-if>
                   <dtml-if "heb_peche=='oui'">
-                     <img src="images/picto/a_peche.png">
+                     <img src="images/picto/a_peche.png"><br />
                   </dtml-if>
                   <dtml-if "heb_equitation=='oui'">
-                     <img src="images/picto/a_cheval.png">
+                     <img src="images/picto/a_cheval.png"><br />
                   </dtml-if>
                   <dtml-if "heb_velo=='oui'">
-                     <img src="images/picto/a_velo.png">
+                     <img src="images/picto/a_velo.png"><br />
                   </dtml-if>
                   <dtml-if "heb_vtt=='oui'">
-                     <img src="images/picto/a_vtt.png">
+                     <img src="images/picto/a_vtt.png"><br />
                   </dtml-if>
                   <dtml-if "heb_ravel=='oui'">
-                     <img src="images/picto/a_ravel.png">
+                     <img src="images/picto/a_ravel.png"><br />
                   </dtml-if>
                </td>
             </tr>
@@ -180,27 +180,27 @@
                   <dtml-if "heb_gid_activite_nature=='oui'">
                      <img src="images/picto/t_nature.png"
                                alt="Gite Activites decouverte nature"
-                               title="Gite Activites decouverte nature" />
+                               title="Gite Activites decouverte nature" /><br />
                   </dtml-if>
                   <dtml-if "heb_gid_panda=='oui'">
                      <img src="images/picto/t_panda.png"
                                alt="Gite Panda"
-                               title="Gite Panda" />
+                               title="Gite Panda" /><br />
                   </dtml-if>
                   <dtml-if "heb_gid_theme_equestre=='oui'">
                      <img src="images/picto/t_equestre.png"
                                alt="Gite equestre"
-                               title="Gite equestre" />
+                               title="Gite equestre" /><br />
                   </dtml-if>
                   <dtml-if "heb_gid_patrimoine=='oui'">
                      <img src="images/picto/t_patrimoine.png"
                                alt="Gite patrimoine"
-                               title="Gite patrimoine" />
+                               title="Gite patrimoine" /><br />
                   </dtml-if>
                   <dtml-if "heb_gid_peche=='oui'">
                      <img src="images/picto/t_peche.png"
                                alt="Gite peche"
-                               title="Gite peche" />
+                               title="Gite peche" /><br />
                   </dtml-if>
                   </div>
                </td>
@@ -211,27 +211,27 @@
                   <dtml-if "heb_gid_bebe_tendresse=='oui'">
                      <img src="images/l_bebe_tendresse.gif"
                           title="Gite bebe tendresse"
-                          alt="Gite bebe tendresse">
+                          alt="Gite bebe tendresse"><br />
                   </dtml-if>
                   <dtml-if "heb_gid_access_tous=='oui'">
                      <img src="images/l_access_tous.gif"
                           title="Gite accessible a tous"
-                          alt="Gite accessible a tous">
+                          alt="Gite accessible a tous"><br />
                   </dtml-if>
                   <dtml-if "heb_gid_antiallergique=='oui'">
                      <img src="images/l_anti_allergie.gif"
                           title="Gite anti-allergique"
-                          alt="Gite anti-allergique">
+                          alt="Gite anti-allergique"><br />
                   </dtml-if>
                   <dtml-if "heb_gid_beau_jardin=='oui'">
                      <img src="images/l_nain.jpg"
                           alt="Beau jardin"
-                          title="Beau jardin">
+                          title="Beau jardin"><br />
                   </dtml-if>
                   <dtml-if "heb_gid_eco_gite=='oui'">
                      <img src="images/l_eco_gite.gif"
                           title="Eco gite"
-                          alt="Eco gite">
+                          alt="Eco gite"><br />
                   </dtml-if>
                </td>
             </tr>

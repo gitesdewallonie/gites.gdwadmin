@@ -36,7 +36,7 @@ fieldset {
 legend {
 background: transparent;
 padding: 0em 0.3em 0em 0.3em;
-color: #FFFFFF;
+color: #c9252b;
 }
 
 form {

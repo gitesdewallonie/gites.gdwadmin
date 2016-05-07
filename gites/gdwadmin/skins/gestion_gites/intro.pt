@@ -82,7 +82,7 @@
    <br />
    <table border="1" cellspacing="0" bordercolor="#EEEFEE" width="35%" align="center">
       <tr class="titre_encodage" bgcolor="#006666">
-         <td>TYPE</td>
+         <td align="center">TYPE</td>
          <td align="center">CODE</td>
          <td align="center">NOMBRE</td>
       </tr>
