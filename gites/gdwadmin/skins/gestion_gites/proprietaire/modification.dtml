@@ -26,7 +26,6 @@
          <span class="titre_encodage">
          PHOTO DU PROPRIETAIRE
          </span>
-         </font>
       </td>
    </tr>
    <tr>
@@ -82,7 +81,7 @@
          <input type="text" name="fpro_nom2" value="<dtml-var pro_nom2>" size="50" />
       </td>
    </tr>
--- <tr>
+   <tr>
       <td>Prénom 2</td>
       <td>
          <input type="text" name="fpro_prenom2" value="<dtml-var pro_prenom2>" size="50" />
@@ -113,7 +112,7 @@
             </dtml-in>
          </select>
       </td>
-   </tr> 
+   </tr>
    <tr>
       <td>E-mail</td>
       <td>
@@ -379,7 +378,7 @@
 <!---[DEBUT LISTING]--->
 <table border="1" cellspacing="0" bordercolor="#EEEFEE">
    <tr>
-      <td colspan="8" align="left" bgcolor="#006666">
+      <td colspan="9" align="left" bgcolor="#006666">
         <span class="titre_encodage">
            LISTING DES HEBERGEMENTS
         </span>
@@ -391,6 +390,7 @@
       <td align="center"><b>Publi&eacute;</b></td>
       <td align="center"><b>Calendrier</b></td>
       <td align="center"><b>Code GWD</b></td>
+      <td align="center"><b>Commercialisation</b></td>
       <td align="center"><b>Nom</b></td>
       <td align="center"><b>Type</b></td>
       <td align="center"><b>Capacité</b></td>
@@ -415,6 +415,13 @@
                 </dtml-if>
             </td>
             <td align="center"><dtml-var heb_code_gdw></td>
+            <td align="center">
+                <dtml-if "heb_commercialisation_actif == True">
+                    <img src="images/bleverte.gif" />
+                <dtml-else>
+                    <img src="images/blerouge.gif" />
+                </dtml-if>
+            </td>
             <td align="center">
                <a href="hebergement/modification?fheb_pk=<dtml-var heb_pk>"><dtml-var heb_nom></a>
             </td>
