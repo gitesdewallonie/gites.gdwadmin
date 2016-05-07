@@ -6,158 +6,61 @@
 
 <style type="text/css" rel="stylesheet">
 body{
-    background-image: url('images/fond_menu.jpg');
-    margin: 0px;
-    scrollbar-face-color:#FFFFFF;
-    scrollbar-arrow-color:#000000;
-    scrollbar-track-color:#CCFFAD;
-    scrollbar-shadow-color:#7EA783;
-    scrollbar-highlight-color:#7EA783;
-    scrollbar-3dlight-color:#7EA783;
-    scrollbar-darkshadow-Color:#7EA783;
+margin: 0px;
+background-color:#dffed3;
 }
 </style>
 </head>
 
 <body>
-
-<!--
-<fieldset>
-   <legend class="legende_menu"> Reservation </legend>
-   <div class="divmenu">
-      <img src="images/flch_orange_pt.gif">
-      <a href="reservation/liste" target="principal">Liste</a>
-   </div>
-</fieldset>
--->
-
-
-
-<fieldset>  
-    <legend class="legende_menu"> Hébergement </legend>
-    <div class="divmenu">
-        <img src="images/flch_orange_pt.gif">
+<nav id="menu-gauche-gdw-admin">
+    <section class="section-menu">
+        <h3>Hébergement</h3>
         <a href="hebergement/choix_proprio" target="principal">Création</a><br />
-        <img src="images/flch_orange_pt.gif">
         <a href="hebergement/choix_heberg_modif" target="principal">Modification</a><br />
-        <img src="images/flch_orange_pt.gif">
         <a href="hebergement/choix_heberg_descript" target="principal">Description</a><br />
-        <img src="images/flch_orange_pt.gif">
         <a href="hebergement/liste_actif" target="principal">Liste activ&eacute;s</a><br />
-        <img src="images/flch_orange_pt.gif">
         <a href="hebergement/liste_non_actif" target="principal">Liste d&eacute;sactiv&eacute;s</a><br />
-<!--
-<img src="images/flch_orange_pt.gif">
-<a href="hebergement/photo_gestion" target="principal">Gestion des photos</a><br />
--->
         <br />
-        <img src="images/flch_orange_pt.gif">
         <a href="hebergement/listing_maj_hebergement_info" target="principal">MAJ hebergement a confirmer</a><br />
-        <img src="images/flch_orange_pt.gif">
         <a href="<dtml-var portal_url>/tarif-to-confirm" target="blank">MAJ tarifs a confirmer</a><br />
-        <img src="images/flch_orange_pt.gif">
         <a href="<dtml-var portal_url>/@@notification-listing?status=UNTREATED&origin=PIVOT" target="blank">Notifications à traiter</a><br />
-    </div>
-</fieldset>
+    </section>
 
-<fieldset>
-    <legend class="legende_menu"> Propriétaire </legend>
-    <div class="divmenu">
-        <img src="images/flch_orange_pt.gif"><a href="proprietaire/creation" target="principal">Création</a><br />
-        <img src="images/flch_orange_pt.gif"><a href="proprietaire/choix_proprio" target="principal">Modification</a><br />
-        <img src="images/flch_orange_pt.gif"><a href="proprietaire/liste_actif" target="principal">Liste activ&eacute;s</a><br />
-        <img src="images/flch_orange_pt.gif"><a href="proprietaire/liste_non_actif" target="principal">Liste d&eacute;sactiv&eacute;s</a><br /><br />
-        <img src="images/flch_orange_pt.gif"><a href="proprietaire/listing_maj_proprio_info" target="principal">MAJ proprio a confirmer</a><br />
-    </div>
-</fieldset>
+    <section class="section-menu">
+        <h3>Propriétaire</h3>
+        </a><br />
+        <a href="proprietaire/choix_proprio" target="principal">Modification</a><br />
+        <a href="proprietaire/liste_actif" target="principal">Liste activ&eacute;s</a><br />
+        <a href="proprietaire/liste_non_actif" target="principal">Liste d&eacute;sactiv&eacute;s</a><br /><br />
+        <a href="proprietaire/listing_maj_proprio_info" target="principal">MAJ proprio a confirmer</a><br />
+    </section>
 
-<!--
-<fieldset>
-   <legend class="legende_menu"> BUZZ NOEL </legend>
-   <div class="divmenu">
-      <img src="images/flch_orange_pt.gif"><a href="buzz01/encoder_gites_form" target="principal">Encoder des gites</a><br />
-      <img src="images/flch_orange_pt.gif"><a href="buzz01/listing_hebergement_buzz" target="principal">Lister les gites</a><br />             
-      <img src="images/flch_orange_pt.gif"><a href="buzz01/listing_gagnant" target="principal">Lister les gaganants</a><br />
-      <img src="images/flch_orange_pt.gif"><a href="buzz01/listing_participant" target="principal">Lister les participants</a><br />
-      <br />
-      <img src="images/flch_orange_pt.gif"><a href="buzz01/listing_winner_info" target="principal">Gagants identifi&eacute;s</a><br />
-      <br />
-      <img src="images/flch_orange_pt.gif"><a href="http://newton.affinitic.be/cgi-bin/awstats.pl?config=ungitepournoel.be" target="_blank">Les stats</a><br />
-   </div>
-</fieldset>
--->
-
-<!--
-<fieldset>
-    <legend class="legende_menu"> Comptabilité </legend>
-    <div class="divmenu">
-        <img src="images/flch_orange_pt.gif"><a href="comptabilite/chercher_proprietaire_creation" target="principal">Création</a><br />
-        <img src="images/flch_orange_pt.gif"><a href="comptabilite/chercher_proprietaire_modification" target="principal">Modification</a><br />
-        <img src="images/flch_orange_pt.gif"><a href="" target="principal">Retard</a><br />
-        <img src="images/flch_orange_pt.gif"><a href="" target="principal">Echéance</a><br />
-        <img src="images/flch_orange_pt.gif"><a href="" target="principal">Echéance par proprio </a><br />
-    </div>
-</fieldset>
--->
-
-
-<fieldset>
-    <legend class="legende_menu"> Gestion tables </legend>
-    <div class="divmenu">
-        <img src="images/flch_orange_pt.gif"><a href="gestion_table/communes/communes" target="principal">Communes</a><br />
-        <img src="images/flch_orange_pt.gif"><a href="gestion_table/provinces/provinces" target="principal">Provinces</a><br />
-        
-<!--<img src="images/flch_orange_pt.gif"><a href="gestion_table/regions_guide/regions_guide" target="principal">Régions guide</a><br />-->
-
-
-        <img src="images/flch_orange_pt.gif"><a href="gestion_table/maison_tourisme/maison_tourisme" target="principal">Maison tourisme</a><br />
-<!--<img src="images/flch_orange_pt.gif"><a href="gestion_table/cgt_classement/cgt" target="principal">CGT Classement</a><br />-->
-        <img src="images/flch_orange_pt.gif"><a href="gestion_table/type_heb/type" target="principal">Type d'hébergement</a><br />
-        <img src="images/flch_orange_pt.gif"><a href="gestion_table/civilite/civilite" target="principal">Liste des civilitïés</a><br />
-        <img src="images/flch_orange_pt.gif"><a href="gestion_table/charge/charge" target="principal">Liste des charges</a><br />       
+    <section class="section-menu">
+        <h3>Gestion des tables</h3>
+        <a href="gestion_table/communes/communes" target="principal">Communes</a><br />
+        <a href="gestion_table/provinces/provinces" target="principal">Provinces</a><br />
+        <a href="gestion_table/maison_tourisme/maison_tourisme" target="principal">Maison tourisme</a><br />
+        <a href="gestion_table/type_heb/type" target="principal">Type d'hébergement</a><br />
+        <a href="gestion_table/civilite/civilite" target="principal">Liste des civilitïés</a><br />
+        <a href="gestion_table/charge/charge" target="principal">Liste des charges</a><br />
         <br />
-        <img src="images/flch_orange_pt.gif"><a href="gestion_table/info_pratique/info_prat" target="principal">Infos pratiques</a><br />
-        <img src="images/flch_orange_pt.gif"><a href="gestion_table/info_touristique/info_tour" target="principal">Infos touristiques</a><br />
-        <img src="images/flch_orange_pt.gif"><a href="gestion_table/type_info_touristique/type_info_tour" target="principal">Types infos touristiques</a><br />
+        <a href="gestion_table/info_pratique/info_prat" target="principal">Infos pratiques</a><br />
+        <a href="gestion_table/info_touristique/info_tour" target="principal">Infos touristiques</a><br />
+        <a href="gestion_table/type_info_touristique/type_info_tour" target="principal">Types infos touristiques</a><br />
         <br />
-<!--<img src="images/flch_orange_pt.gif"><a href="gestion_table/ecard/consulter_liste_ecard" target="principal">Liste des e-cards</a><br />-->
-    </div>
-</fieldset>
+    </section>
 
-<fieldset>
-    <legend class="legende_menu">Données fournisseurs externes</legend>
-    <div class="divmenu">
-        <img src="images/flch_orange_pt.gif"><a href="<dtml-var portal_url>/@@mapBlacklist" target="_target">Filtres sur les données</a><br />
-    </div>
-</fieldset>
-
-<fieldset>
-    <legend class="legende_menu">Meta-données</legend>
-    <div class="divmenu">
-        <img src="images/flch_orange_pt.gif"><a href="<dtml-var portal_url>/@@metadataEdition" target="_target">Edition</a><br />
-    </div>
-</fieldset>
-
-<!--
-<fieldset>
-    <legend class="legende_menu"> CallCenter </legend>
-    <div class="divmenu">
-        <img src="images/flch_orange_pt.gif"><a href="" target="principal"><a href="callcenter/" target="principal">Encoder des contacts</a><br />
-        Téléphonie
-    </div>
-</fieldset>
--->
-
-<!--
-<fieldset>
-    <legend clas="legende_menu"> Visites </legend>
-    <div class="divmenu">
-
-    </div>
-</fieldset>
--->
+    <section class="section-menu">
+        <h3>Données fournisseurs externes</h3>
+        <a href="<dtml-var portal_url>/@@mapBlacklist" target="_target">Filtres sur les données</a><br />
+    </section>
 
 
-<br /><br /><br />
+    <section class="section-menu">
+        <h3>Meta-données</h3>
+        <a href="<dtml-var portal_url>/@@metadataEdition" target="_target">Edition</a><br />
+    </section>
+</nav>
 </body>
 </html>

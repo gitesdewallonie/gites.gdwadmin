@@ -2,11 +2,18 @@
 <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <dtml-call "RESPONSE.setHeader('Content-Type', 'text/html;charset=UTF-8')">
+<style>
+body{
+margin:0px;
+padding:0px;
+background-color:#fefefe;
+}
+</style>
 </head>
-<body leftmargin="0" topmargin="0">
+<body>
 <table border="0" width="100%" cellpadding="0" cellspacing="0">
 	<tr>
-		<td><img src="images/bandeau_sup.jpg"></td>
+		<td><img src="images/bandeau_sup.png"></td>
 	</tr>
 </table>
 </body>

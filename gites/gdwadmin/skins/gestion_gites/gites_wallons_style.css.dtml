@@ -124,20 +124,39 @@ text-decoration: none;
 color: #33FFCC;
 }
 
-.divmenu{
+
+/*** MENU GAUCHE ***/
+
+.section-menu{
+border:1px solid rgba(200,200,200,0.6);
+border-radius: 6px;
+background-color:rgba(200,200,200,0.5);
 padding: 0.5em 0em 0.5em 0.8em;
+width:200px;
+margin:10px auto;
 }
 
-.divmenu a{
-font-weight:none;
+.section-menu h3{
+color: #c9252b;
 font-size:0.8em;
-color: #66FF00;
-text-decoration: none;
 }
 
-.divmenu a:hover{
-color: #FFFF00;
-background-color: #006600;
+.section-menu a{
+display:inline-block;
+width:90%;
+font-weight:none;
+font-size:0.85em;
+color: #005a4a;
+text-decoration: none;
+background-image:url(images/flch_orange_pt.gif);
+background-repeat:no-repeat;
+background-position:8px 5px;
+padding-left:15px;
+}
+
+.section-menu a:hover{
+color: #ff6a00;
+background-color:rgba(200,200,200,0.4);
 }
 
 .fieldsetprive {
@@ -213,13 +232,6 @@ padding: 0em 0.3em 0em 0.3em;
 font-size: 90%;
 font-weight: bold;
 color: #339933;
-}
-
-.legende_menu {
-background: transparent;
-padding: 0em 0.3em 0em 0.3em;
-color: #FFFF00;
-font-size:0.8em;
 }
 
 .infogid{
