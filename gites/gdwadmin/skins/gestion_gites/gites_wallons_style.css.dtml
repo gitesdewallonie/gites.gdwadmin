@@ -1,19 +1,16 @@
 body{
-font-family: verdana, tahoma, helvetica, sans serif; 
+background-color:#fefefe;
+font-family: verdana, tahoma, helvetica, sans serif;
 font-size: 10pt;
- color: #666677;	
+color: #666;
 }
 
-a{	 
-font-size: 10;
-font-weight: bold;
+a{
 color: #2d701c;
 text-decoration: none;
 }
 
-a:hover{	 
-font-size: 10;
-font-weight: bold;
+a:hover{
 color: #FFFF00;
 background-color: #006600;
 /*text-decoration: underline;*/
@@ -21,27 +18,25 @@ background-color: #006600;
 
 
 table{
-font-family: verdana, tahoma, helvetica, sans serif; 
+font-family: verdana, tahoma, helvetica, sans serif;
 font-size: 10;
 color: #666677;
 width: 95%;
 border-collapse:collapse;
-border:1px solid #999999;	
+border:1px solid #999999;
 }
 
 td{
 border:1px solid #999999;
 }
 
-fieldset {    	
+fieldset {
 }
 
 legend {
 background: transparent;
 padding: 0em 0.3em 0em 0.3em;
-font-size: 90%;
-font-weight: bold;
-color: #FFFFFF;	
+color: #FFFFFF;
 }
 
 form {
@@ -50,8 +45,8 @@ border: none;
 }
 
 textarea {
-font: 110% "Courier New", Courier, monospace; 
-border: 1px solid #FF9900;  
+font: 110% "Courier New", Courier, monospace;
+border: 1px solid #FF9900;
 color: #3300CC;
 background-color: white;
 width: 100%;
@@ -60,14 +55,14 @@ width: 100%;
 input {
 font-family: verdana, tahoma, helvetica, sans serif;
 visibility: visible;
-border: 1px solid #FF9900;  
+border: 1px solid #FF9900;
 color: #3300CC;
 background-color: white;
 vertical-align: middle;
 }
 
 select {
-border: 1px solid #FF9900;  
+border: 1px solid #FF9900;
 color: #3300CC;
 vertical-align: top;
 }
@@ -100,32 +95,29 @@ text-align: center;
 }
 
 .menu_titre{
-font-family: verdana, tahoma, helvetica, sans serif; 
-font-size: 12;
-font-weight: bold;
+font-family: verdana, tahoma, helvetica, sans serif;
+font-size:11pt;
 text-decoration: none;
 color: #FF3C00;
 }
 
 
 .menu{
-font-family: verdana, tahoma, helvetica, sans serif; 
-font-size: 10;
+font-family: verdana, tahoma, helvetica, sans serif;
 text-decoration: none;
 color: #007700;
-font-weight: bold;
 }
 
 .titre_page{
-font-family: verdana, tahoma, helvetica, sans serif; 
+font-family: verdana, tahoma, helvetica, sans serif;
 font-size: 12;
 font-weight: bold;
 text-decoration: none;
 color: #FF3C00;
 }
-	
+
 .titre_encodage{
-font-family: verdana, tahoma, helvetica, sans serif; 
+font-family: verdana, tahoma, helvetica, sans serif;
 font-size: 10;
 font-weight: bold;
 text-decoration: none;
@@ -133,45 +125,40 @@ color: #33FFCC;
 }
 
 .divmenu{
-/*background-color: #eef;*/
 padding: 0.5em 0em 0.5em 0.8em;
-/*line-height: 1.5em;*/
 }
 
-.divmenu a{	 
-font-size: 10;
-font-weight: bold;
+.divmenu a{
+font-weight:none;
+font-size:0.8em;
 color: #66FF00;
 text-decoration: none;
 }
 
-.divmenu a:hover{	 
-font-size: 10;
-font-weight: bold;
+.divmenu a:hover{
 color: #FFFF00;
 background-color: #006600;
-/*text-decoration: underline;*/
 }
 
-.fieldsetprive {    
+.fieldsetprive {
 border: 1px solid #336600;
 margin: 1em 0.7em 1em 2em;
 padding: 0em 0em 0.5em 2em;
 line-height: 1.5em;
 width: 75%;
 text-align: left;
-font-family: verdana; 
+font-family: verdana;
 font-size: 10;
 }
 
-.fieldsetdescription {    
+.fieldsetdescription {
 border: 1px solid #999999;
 margin: 1em 0.7em 1em 2em;
 padding: 0em 0em 0.5em 2em;
 line-height: 1.5em;
 width: 80%;
 text-align: left;
-font-family: verdana, arial, sans-serif; 
+font-family: verdana, arial, sans-serif;
 font-size: 10;
 }
 
@@ -183,10 +170,10 @@ color: #308030;
 }
 
 .table_info{
-font-family: verdana, tahoma, helvetica, sans serif; 
+font-family: verdana, tahoma, helvetica, sans serif;
 font-size: 10;
 color: #666677;
-width: 50%;	
+width: 50%;
 }
 
 .list_even{
@@ -211,12 +198,12 @@ text-align: center;
 }
 
 .table_literie_gite{
-font-family: verdana, tahoma, helvetica, sans serif; 
+font-family: verdana, tahoma, helvetica, sans serif;
 font-size: 10;
 color: #666677;
-width: 50%;	
+width: 50%;
 text-align: center;
-border: 0;	
+border: 0;
 background-color:#EEFFEE;
 }
 
@@ -225,15 +212,14 @@ background: transparent;
 padding: 0em 0.3em 0em 0.3em;
 font-size: 90%;
 font-weight: bold;
-color: #339933;	
+color: #339933;
 }
 
 .legende_menu {
 background: transparent;
 padding: 0em 0.3em 0em 0.3em;
-font-size: 90%;
-font-weight: bold;
-color: #FFFF00;	
+color: #FFFF00;
+font-size:0.8em;
 }
 
 .infogid{
@@ -247,7 +233,7 @@ text-align: left;
 }
 
 .tiret_None {
-font-family: verdana, tahoma, helvetica, sans serif; 
+font-family: verdana, tahoma, helvetica, sans serif;
 font-size: 10pt;
 color: #666677;
 font-weight: bold;
@@ -260,7 +246,7 @@ color:#999;
 
 /* resultat des recherches sur les heb et proprio dans la partie privees */
 .div_resultat{
-padding: 0 0 0 2em;   
+padding: 0 0 0 2em;
 background-color: #dddddd;
 line-height: 1.8em;
 width: 92%;
@@ -283,7 +269,7 @@ margin: 1em 1em 1em 0.7em;
 /*padding: 0em 0em 0em 0em;*/
 /*line-height: 1.5em;*/
 width: auto;
-text-align: left;	
+text-align: left;
 }
 
 #photo-proprio {
