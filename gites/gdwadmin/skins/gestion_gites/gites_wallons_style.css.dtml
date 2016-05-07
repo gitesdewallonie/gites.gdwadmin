@@ -94,19 +94,6 @@ font-weight: bold;
 text-align: center;
 }
 
-.menu_titre{
-font-family: verdana, tahoma, helvetica, sans serif;
-font-size:11pt;
-text-decoration: none;
-color: #FF3C00;
-}
-
-
-.menu{
-font-family: verdana, tahoma, helvetica, sans serif;
-text-decoration: none;
-color: #007700;
-}
 
 .titre_page{
 font-family: verdana, tahoma, helvetica, sans serif;
@@ -126,19 +113,21 @@ color: #33FFCC;
 
 
 /*** MENU GAUCHE ***/
-
 .section-menu{
 border:1px solid rgba(200,200,200,0.6);
 border-radius: 6px;
 background-color:rgba(200,200,200,0.5);
-padding: 0.5em 0em 0.5em 0.8em;
+/*padding: 0em 0em 0.5em 0.8em;*/
 width:200px;
 margin:10px auto;
 }
 
 .section-menu h3{
-color: #c9252b;
+color:#c9252b;
 font-size:0.8em;
+text-align:right;
+padding-right: 4px;
+border-bottom:1px dotted rgba(200,200,200,0.6);
 }
 
 .section-menu a{
@@ -203,6 +192,10 @@ background-color: #E2F3DE;
 
 .list_odd{
 background-color: #FFFFFF;
+}
+
+.bouton-go{
+cursor:pointer;
 }
 
 .table_resultat{
