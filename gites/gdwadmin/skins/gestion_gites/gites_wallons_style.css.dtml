@@ -152,10 +152,12 @@ background-image:url(images/flch_orange_pt.gif);
 background-repeat:no-repeat;
 background-position:8px 5px;
 padding-left:15px;
+margin:2px 0px;
 }
 
-.section-menu a:hover{
-color: #ff6a00;
+.section-menu a:hover,
+.section-menu a:active{
+color:#df3c3a;
 background-color:rgba(200,200,200,0.4);
 }
 
