@@ -14,10 +14,10 @@
 <body>
 
 <span class="titre_page">
-   Liste des 
+   Liste des
    <dtml-in "admin_base.proprio.zsql_proprio_count_all()">
       <dtml-var count>
-   </dtml-in> 
+   </dtml-in>
    propriétaires
    <ul>
       <li>
@@ -34,8 +34,8 @@
 </span>
 
 <!---[DEBUT RECHERCHER]--->
-<form name="formulaire" 
-           action="modification" 
+<form name="formulaire"
+           action="modification"
            method="post">
 <table border="1" cellspacing="0" bordercolor="#EEEFEE">
    <tr>
@@ -48,8 +48,8 @@
    <tr>
       <td> PK du propriétaire ?</td>
       <td>
-         <input type="text" 
-                     name="fpro_pk" 
+         <input type="text"
+                     name="fpro_pk"
                      value="" />
       </td>
     </tr>
@@ -57,15 +57,15 @@
     <tr>
        <td>Nom ?</td>
        <td>
-          <input type="text" 
-                      name="fpro_nom" 
+          <input type="text"
+                      name="fpro_nom"
                       value="" />
        </td>
     </tr>
     -->
     <tr>
        <td colspan="2" align="center">
-          <input type="submit" 
+          <input type="submit"
                       value="Lancer la recherche" />
        </td>
     </tr>
@@ -95,24 +95,25 @@
       <td align="center"><b>Pr&eacute;nom1</b></td>
       <td align="center"><b>Pr&eacute;nom1</b></td>
       <td align="center"><b>Soci&eacute;t&eacute;</b></td>
-      <td align="center"><b>Localit&eacute;</b></td>  
+      <td align="center"><b>Localit&eacute;</b></td>
       <td align="center"><b>Etat</b></td>
    </tr>
    <dtml-in "admin_base.proprio.zsql_proprio_select_all()">
-      <form name="formulaire" 
-                 action="modification" 
+      <form name="formulaire"
+                 action="modification"
                  method="post">
          <dtml-if sequence-even>
             <tr bgcolor="#D2F7C1">
          <dtml-else>
             <tr>
-         </dtml-if>      
+         </dtml-if>
             <td align="center">
-               <input type="hidden" 
-                          name="fpro_pk" 
-                          value="<dtml-var pro_pk>" />
+               <input type="hidden"
+                      name="fpro_pk"
+                      value="<dtml-var pro_pk>" />
                <input type="submit"
-                           value="GO" />
+                      value="GO"
+                      class="bouton-go" />
             </td>
             <td align="center"><dtml-var pro_pk></td>
             <td align="center"><dtml-var pro_nom1></td>
