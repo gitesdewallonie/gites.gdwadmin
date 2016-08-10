@@ -35,8 +35,6 @@ class CommuneView(BrowserView):
         wrapper = getSAWrapper('gites_wallons')
         session = wrapper.session
         query = session.query(Commune)
-        import pdb; pdb.set_trace()
-
         query = query.filter(Commune.com_prov_fk.in_(provincePk))
         query = query.order_by(Commune.com_nom)
         allCommunes = query.all()

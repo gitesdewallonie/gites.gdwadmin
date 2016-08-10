@@ -328,4 +328,5 @@ text-align:center;
 table.listing tfoot td {
 border:1px solid #DDD;
 text-align:right;
+padding:0.6em;
 }
