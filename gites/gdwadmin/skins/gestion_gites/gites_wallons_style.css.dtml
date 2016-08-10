@@ -95,13 +95,8 @@ font-weight: bold;
 text-align: center;
 }
 
-
 .titre_page{
-font-family: verdana, tahoma, helvetica, sans serif;
-font-size: 12;
-font-weight: bold;
-text-decoration: none;
-color: #FF3C00;
+color: #c9252b;
 }
 
 .titre_encodage{
@@ -288,4 +283,49 @@ width:196px;
 height:170px;
 background-image:url(++theme++gites.theme/images/bg_photo_proprio.png);
 background-repeat:no-repeat;
+}
+
+
+
+
+
+/* ================================================================== */
+
+section.donnee-db{
+width:95%;
+margin:auto;
+}
+
+section.donnee-db h2{
+font-family:verdana, arial, sans-serif;
+font-variant:small-caps;
+font-size:1.2em;
+color:#999;
+text-align:right;
+border-bottom:1px dotted #eee;
+margin:auto;
+margin-bottom:12px;
+width:95%;
+}
+
+
+table.listing {
+border-bottom:1px solid #DDDDDD;
+border-left:1px solid #DDDDDD;
+border-radius:8px;
+font-size:0.8em;
+margin:auto;
+}
+
+table.listing th {
+background:none repeat scroll 0 0 #ff8336;
+border-style:solid;
+border-width:1px;
+color:#fff;
+text-align:center;
+}
+
+table.listing tfoot td {
+border:1px solid #DDD;
+text-align:right;
 }

@@ -40,7 +40,8 @@ background-color:#dffed3;
 
     <section class="section-menu">
         <h3>Gestion des tables</h3>
-        <a href="gestion_table/communes/communes" target="principal">Communes</a>
+        <a href="commune" target="principal">Communes</a>
+        <a href="gestion_table/communes/localites" target="principal">Localit&eacute;s</a>
         <a href="gestion_table/provinces/provinces" target="principal">Provinces</a>
         <a href="gestion_table/maison_tourisme/maison_tourisme" target="principal">Maison tourisme</a>
         <a href="gestion_table/type_heb/type" target="principal">Type d'hébergement</a>

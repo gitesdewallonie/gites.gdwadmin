@@ -4,7 +4,8 @@ Changelog
 0.1.11 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Manage Communes and Localites --> add view and pt
+  [alain]
 
 
 0.1.10 (2015-12-07)

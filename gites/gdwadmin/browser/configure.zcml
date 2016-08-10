@@ -5,23 +5,54 @@
 
     <include file="mapblacklist.zcml" />
 
+    <!-- 'boisduluc skin' Zope 3 browser layer -->
+    <interface
+        interface=".interfaces.IGdwAdminCoreLayer"
+        type="zope.publisher.interfaces.browser.IBrowserSkinType"
+        name="gdwadmin core"
+        />
 
-    <!-- Utils -->
 
+<!-- UTILS -->
     <browser:page
       for="*"
       name="generer_code_gdw"
-      attribute="generer_code_gdw"
       permission="gdw.ViewAdmin"
       class=".utils.UtilsView"
       />
 
+<!-- COMMUNES -->
+    <browser:page
+        for="*"
+        name="communeView"
+        class=".commune.CommuneView"
+        allowed_interface=".interfaces.ICommuneView"
+        permission="gdw.ViewAdmin"
+        />
 
-    <!-- Proprio -->
+<browser:page
+        name="commune"
+        for="*"
+        template="templates/commune/commune.pt"
+        permission="gdw.ViewAdmin"
+        class=".commune.CommuneView"
+        allowed_interface=".interfaces.ICommuneView"
+        />
 
     <browser:page
-      for="*"
+        name="insertCommune"
+        for="*"
+        class=".commune.CommuneView"
+        attribute="insertCommune"
+        permission="gdw.ViewAdmin"
+        allowed_interface=".interfaces.ICommuneView"
+        />
+
+
+<!-- PROPRIO -->
+    <browser:page
       name="insertProprio"
+      for="*"
       attribute="insertProprio"
       permission="gdw.ViewAdmin"
       class=".proprio.ProprioView"
@@ -36,8 +67,7 @@
       />
 
 
-    <!-- Metadata -->
-
+<!-- METADATA -->
     <browser:page
       for="*"
       name="metadataEdition"
@@ -55,8 +85,7 @@
       />
 
 
-    <!-- Hebs criteria values -->
-
+<!-- HEBS CRITERIA VALUES -->
     <browser:page
       for="*"
       name="hebCriteriaEdition"
@@ -74,12 +103,11 @@
       />
 
 
-    <!-- Heb metadatas -->
+<!-- HEB METADATAS -->
 	<grok:grok package=".hebmetadata" />
 
 
-    <!-- Resources -->
-
+<!-- RESOURCES -->
     <browser:resourceDirectory
       name="gdwadminJS"
       directory="js/"
