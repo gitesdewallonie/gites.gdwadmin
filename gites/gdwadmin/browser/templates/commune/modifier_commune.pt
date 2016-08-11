@@ -1,0 +1,60 @@
+<html>
+<head>
+<title> Gites wallons : s&eacute;lection d'un h&eacute;bergement par le proprio</TITLE>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" >
+<meta name="generator" content="Zope">
+<meta name="author" content="Affinitic">
+<meta name="Keywords" CONTENT="">
+<meta name="Description" CONTENT="">
+<link href="gites_wallons_style.css"
+      type="text/css"
+      rel="stylesheet" />
+<script language="JavaScript"
+        src="gites_wallons_script.js"></script>
+</head>
+
+<body>
+<div tal:define="gestionCommuneView context/@@communeView;
+                 gestionProvinceView context/@@provinceView">
+    <h1 class="titre_page">Gestion de la table commune</h1>
+    <section tal:define="allProvinces python:gestionProvinceView.getAllProvince();"
+             class="donnee-db">
+        <h2 class="titre_encodage">Modifier une commune</h2>
+        <form action="insertionCommune"
+              method="post">
+            <label for="com-nom">Nom</label>
+            <input type="text"
+                   id="com-nom"
+                   name="com_nom"
+                   value="" />
+            <label for="com-cp">CP</label>
+            <input type="text"
+                   id="com-cp"
+                   name="com_cp"
+                   value="" />
+            <label for="com-ins">INS</label>
+            <input type="text"
+                   id="com-ins"
+                   name="com_ins"
+                   value="" />
+            <label for="com-prov-fk">Province</label>
+            <select name="com_prov_fk"
+                    id="com-prov-fk">
+                <option value="">  </option>
+                <tal:boucle tal:repeat="province allProvinces">
+                    <option value=""
+                            tal:attributes="provincePk province/prov_pk"
+                            tal:content="province/prov_nom"></option>
+                </tal:boucle>
+            </select>
+            <label for="com-id">ID Google (*)</label>
+            <input type="text"
+                   id="com-id"
+                   name="com_id"
+                   value="">
+            <dtml-var bouton_creer>
+        </form>
+    </section>
+</div>
+</body>
+</html>
