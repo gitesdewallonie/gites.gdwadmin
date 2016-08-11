@@ -1,0 +1,54 @@
+<html>
+<head>
+<title> Gites wallons : s&eacute;lection d'un h&eacute;bergement par le proprio</TITLE>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" >
+<meta name="generator" content="Zope">
+<meta name="author" content="Affinitic">
+<meta name="Keywords" CONTENT="">
+<meta name="Description" CONTENT="">
+<link href="gites_wallons_style.css"
+      type="text/css"
+      rel="stylesheet" />
+<script language="JavaScript"
+        src="gites_wallons_script.js"></script>
+</head>
+
+<body>
+<div tal:define="gestionProvinceView context/@@provinceView">
+    <h1 class="titre_page">Gestion de la table province</h1>
+    <section tal:define="allProvinces python:gestionProvinceView.getAllProvinces();"
+             class="donnee-db">
+        <h2 class="titre_encodage">Liste des provinces</h2>
+        <table class="listing">
+            <thead>
+                <tr align="center" valign="top">
+                    <th></th>
+                    <th>Nom</th>
+                    <th>Code</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tal:boucle tal:repeat="province allProvinces">
+                    <tr>
+                        <td class="texte-center">
+                            <form action="modifier-une-province"
+                                  method="post">
+                                  <input type="hidden"
+                                         name="provincePk"
+                                         value=""
+                                         tal:attributes="provincePk province/prov_pk" />
+                                  <input type="submit"
+                                         value=""
+                                         class="btn-modifier-listing" />
+                            </form>
+                        </td>
+                        <td><span tal:content="province/prov_nom"></span></td>
+                        <td><span tal:content="province/prov_code"></span></td>
+                    </tr>
+                </tal:boucle>
+            </tbody>
+        </table>
+    </section>
+</div>
+</body>
+</html>
