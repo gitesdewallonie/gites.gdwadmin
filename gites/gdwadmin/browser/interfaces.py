@@ -14,3 +14,15 @@ class ICommuneView(Interface):
     """
     ICommuneView
     """
+
+
+class ILocaliteView(Interface):
+    """
+    ICommuneView
+    """
+
+
+class IProvinceView(Interface):
+    """
+    IProvinceView
+    """

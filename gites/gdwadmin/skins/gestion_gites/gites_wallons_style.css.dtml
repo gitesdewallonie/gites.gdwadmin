@@ -68,6 +68,18 @@ color: #3300CC;
 vertical-align: top;
 }
 
+.texte-left{
+text-align:left;
+}
+
+.texte-center{
+text-align:center;
+}
+
+.texte-right{
+text-align:right;
+}
+
 .grasrouge{
 color:#FF0000;
 font-weight:bold;
@@ -325,8 +337,33 @@ color:#fff;
 text-align:center;
 }
 
+table.listing td {
+padding:0.6em;
+}
+
 table.listing tfoot td {
 border:1px solid #DDD;
 text-align:right;
-padding:0.6em;
 }
+
+.btn-modifier-listing{
+width:12px;
+height:12px;
+border:none;
+background-image:url(images/btn_modifier_listing.png);
+background-position:left top;
+background-repeat:no-repeat;
+cursor:pointer;
+margin:auto;
+}
+
+.btn-modifier-listing:hover{
+background-position:left -12px;
+}
+
+
+
+
+
+
+

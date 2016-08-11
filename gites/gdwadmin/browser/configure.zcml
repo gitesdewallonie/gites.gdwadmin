@@ -25,28 +25,83 @@
     <browser:page
         for="*"
         name="communeView"
-        class=".commune.CommuneView"
+        class=".manage_commune.CommuneView"
         allowed_interface=".interfaces.ICommuneView"
         permission="gdw.ViewAdmin"
         />
 
 <browser:page
-        name="commune"
+        name="lister-les-communes"
         for="*"
-        template="templates/commune/commune.pt"
+        template="templates/commune/lister_commune.pt"
         permission="gdw.ViewAdmin"
-        class=".commune.CommuneView"
+        class=".manage_commune.CommuneView"
         allowed_interface=".interfaces.ICommuneView"
         />
 
     <browser:page
         name="insertCommune"
         for="*"
-        class=".commune.CommuneView"
+        class=".manage_commune.CommuneView"
         attribute="insertCommune"
         permission="gdw.ViewAdmin"
         allowed_interface=".interfaces.ICommuneView"
         />
+
+<!-- LOCALITES -->
+    <browser:page
+        for="*"
+        name="localiteView"
+        class=".manage_localite.LocaliteView"
+        allowed_interface=".interfaces.ILocaliteView"
+        permission="gdw.ViewAdmin"
+        />
+
+<browser:page
+        name="lister-les-localites"
+        for="*"
+        template="templates/localite/lister_localite.pt"
+        permission="gdw.ViewAdmin"
+        class=".manage_localite.LocaliteView"
+        allowed_interface=".interfaces.ILocaliteView"
+        />
+
+    <browser:page
+        name="insertLocalite"
+        for="*"
+        class=".manage_localite.LocaliteView"
+        attribute="insertLocalite"
+        permission="gdw.ViewAdmin"
+        allowed_interface=".interfaces.ILocaliteView"
+        />
+
+<!-- PROVONCES -->
+    <browser:page
+        for="*"
+        name="provinceView"
+        class=".manage_province.ProvinceView"
+        allowed_interface=".interfaces.IProvinceView"
+        permission="gdw.ViewAdmin"
+        />
+
+<browser:page
+        name="lister-les-provinces"
+        for="*"
+        template="templates/province/lister_province.pt"
+        permission="gdw.ViewAdmin"
+        class=".manage_province.ProvinceView"
+        allowed_interface=".interfaces.IProvinceView"
+        />
+
+    <browser:page
+        name="insertProvince"
+        for="*"
+        class=".manage_province.ProvinceView"
+        attribute="insertProvince"
+        permission="gdw.ViewAdmin"
+        allowed_interface=".interfaces.IProvinceView"
+        />
+
 
 
 <!-- PROPRIO -->
