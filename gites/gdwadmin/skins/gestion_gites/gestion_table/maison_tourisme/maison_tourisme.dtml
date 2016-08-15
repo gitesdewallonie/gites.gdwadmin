@@ -4,14 +4,11 @@
 <title> Gites wallons : gestion table maison_tourisme </TITLE>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" >
 <dtml-call "RESPONSE.setHeader('Content-Type', 'text/html;charset=UTF-8')">
-<meta name="generator" content="Bluefish 1.0.7">
-<meta name="author" content="alain">
-<meta name="Keywords" CONTENT="">
-<meta name="Description" CONTENT="">
-<link href="gites_wallons_style.css" type=text/css rel=stylesheet>
+<meta name="author" content="Affinitic">
+<link href="gdwadmin.css" type="text/css" rel="stylesheet" />
 <script language=JavaScript src="gites_wallons_script.js"></script>
 </head>
-<body>
+<body class="gdwadmin-content">
 <span class="titre_page">Gestion de la table maison du tourisme</span><br><br>
 
 <form name="formulaire" action="traiter_modifsup_maison_tourisme" method="get">
@@ -75,8 +72,8 @@
       <tr>
          <td>Nom</td>
          <td>
-            <input type="text" 
-                   name="mais_nom" 
+            <input type="text"
+                   name="mais_nom"
                    value=""
                    size="75" />
          </td>
@@ -92,8 +89,8 @@
       <tr>
          <td>URL</td>
          <td>
-            <input type="text" 
-                   name="mais_url" 
+            <input type="text"
+                   name="mais_url"
                    value=""
                    size="75" />
          </td>
@@ -101,8 +98,8 @@
       <tr>
          <td>GPS Longitude 00.00</td>
          <td>
-            <input type="text" 
-                   name="mais_gps_long" 
+            <input type="text"
+                   name="mais_gps_long"
                    value=""
                    size="5" />
          </td>
@@ -110,8 +107,8 @@
       <tr>
          <td>GPS Latitude 00.00</td>
          <td>
-            <input type="text" 
-                   name="mais_gps_lat" 
+            <input type="text"
+                   name="mais_gps_lat"
                    value=""
                    size="5" />
          </td>
@@ -119,8 +116,8 @@
      <tr>
          <td>ID Google (*)</td>
          <td>
-            <input type="text" 
-                   name="mais_id" 
+            <input type="text"
+                   name="mais_id"
                    value=""
                    size="75" />
          </td>
@@ -135,7 +132,7 @@
 * le nom de la maison du tourisme sans majuscule et avec les espaces remplacés par des tirets<br />
 Exemple : gites-de-wallonie
 </span>
-</form>	
+</form>
 
 
 </body>

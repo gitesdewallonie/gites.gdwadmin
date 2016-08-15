@@ -1,15 +1,11 @@
 <html>
 <head tal:define="dummy python:request.RESPONSE.setHeader('Content-Type','text/html;; charset=utf-8')" >
-<title> Gites wallons : sélection d'un hébergement par le proprio</TITLE>
+<title> Gites wallons : sÃ©lection d'un hÃ©bergement par le proprio</TITLE>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" >
-<meta name="generator" content="Zope">
-<meta name="author" content="Affinitic">
-<meta name="Keywords" CONTENT="">
-<meta name="Description" CONTENT="">
-<link href="gites_wallons_style.css" type=text/css rel=stylesheet>
+<link href="gdwadmin.css" type="text/css" rel="stylesheet" />
 <script language=JavaScript src="gites_wallons_script.js"></script>
 </head>
-<body>
+<body class="gdwadmin-content">
 <fieldset class="fieldsetprive">
    <legend class="legende">BuzzNoel :: listing des participants</legend>
    <tal:requete tal:define="Winners python:here.admin_base.buzz.zsql_winner_info_select_all()">
@@ -26,13 +22,13 @@
                 <th>Nom</th>
                 <th>Prenom</th>
                 <th>Adresse</th>
-                <th>CP - Localité</th>
+                <th>CP - LocalitÃ©</th>
                 <th>Tel</th>
                 <th>E-Mail</th>
                 <th>Langue</th>
                 <th>Date</th>
            </tr>
-            <tal:boucle tal:repeat="win Winners">         
+            <tal:boucle tal:repeat="win Winners">
                 <tr>
                     <td>
                         <span tal:content="win/infowin_pk" />
@@ -45,7 +41,7 @@
                     </td>
                     <td>
                         <span tal:content="win/infowin_adresse" />
-                    </td> 
+                    </td>
                     <td>
                         <span tal:content="win/infowin_cp" class="grasorange" />
                         <span tal:content="win/infowin_localite" class="grasorange" />

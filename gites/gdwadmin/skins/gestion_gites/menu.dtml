@@ -2,17 +2,9 @@
 <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" >
 <dtml-call "RESPONSE.setHeader('Content-Type', 'text/html;charset=UTF-8')">
-<link href="gites_wallons_style.css" type="text/css" rel="stylesheet">
-
-<style type="text/css" rel="stylesheet">
-body{
-margin: 0px;
-background-color:#dffed3;
-}
-</style>
+<link href="gdwadmin.css" type="text/css" rel="stylesheet" />
 </head>
-
-<body>
+<body class="gdwadmin-content gdwadmin-menu">
 <nav id="menu-gauche-gdw-admin">
     <section class="section-menu">
         <h3>Hébergement</h3>
@@ -69,3 +61,6 @@ background-color:#dffed3;
 </nav>
 </body>
 </html>
+
+<meta name="author" content="Affinitic">
+<link href="gdwadmin.css" type="text/css" rel="stylesheet" />

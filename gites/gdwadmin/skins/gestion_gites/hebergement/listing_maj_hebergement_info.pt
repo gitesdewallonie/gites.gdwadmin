@@ -4,13 +4,10 @@
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <meta name="generator" content="vim">
 <meta name="author" content="AFFINITIC">
-<meta name="Keywords" CONTENT="">
-<meta name="Description" CONTENT="Listing des hebergements en attente de mise à jour">
-<link href="gites_wallons_style.css" type=text/css rel=stylesheet>
+<link href="gdwadmin.css" type="text/css" rel="stylesheet" />
 <script language=JavaScript src="gites_wallons_script.js"></script>
 </head>
-
-<body>
+<body class="gdwadmin-content">
 
 <span class="titre_page">Liste des h&eacute;bergements en attente de confirmation</span>
 
@@ -23,7 +20,7 @@
          <td>Localit&eacute;</td>
          <td>En attente depuis</td>
          <td>&nbsp;</td>
-      </tr> 
+      </tr>
       <span tal:repeat="heb hebergements">
           <span tal:define="odd repeat/heb/odd">
               <tr tal:attributes="class python:odd and 'list_odd' or 'list_even'">
@@ -44,7 +41,7 @@
               </tr>
           </span>
       </span>
-   </table> 
+   </table>
 </div><!--taldefine-->
 </body>
 </html>

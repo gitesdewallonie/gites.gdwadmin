@@ -4,21 +4,18 @@
 <title> Gites wallons : création d'un propriétaire</TITLE>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" >
 <dtml-call "RESPONSE.setHeader('Content-Type', 'text/html;charset=UTF-8')">
-<meta name="generator" content="Bluefish 1.0.7">
-<meta name="author" content="alain">
-<meta name="Keywords" CONTENT="">
-<meta name="Description" CONTENT="">
-<link href="gites_wallons_style.css" type=text/css rel=stylesheet>
+<meta name="author" content="Affinitic">
+<link href="gdwadmin.css" type="text/css" rel="stylesheet" />
 <script language=JavaScript src="gites_wallons_script.js"></script>
 </head>
-<body>
+<body class="gdwadmin-content">
 <span class="titre_page">Création d'un propriétaire</span><br><br>
 
-<form name="formulaire_creation" 
-      action="insertProprio" 
+<form name="formulaire_creation"
+      action="insertProprio"
       method="post">
-    <table border="1" 
-           cellspacing="0" 
+    <table border="1"
+           cellspacing="0"
         bordercolor="#EEEFEE">
         <tr>
             <td colspan="2" align="left" bgcolor="#006666">
@@ -54,7 +51,7 @@
             <td>
                 <input type="text" name="fpro_nom2" value="">
             </td>
-        </tr>	
+        </tr>
         <tr>
             <td>Prénom 2</td>
             <td>
@@ -122,7 +119,7 @@
             <td>
                 <input type="text" name="fpro_fax_bur" value="">
             </td>
-        </tr>	
+        </tr>
         <tr>
             <td>GSM 1</td>
             <td>
@@ -132,16 +129,16 @@
         <tr>
             <td>GSM 2</td>
             <td>
-                <input type="text" 
-                       name="fpro_gsm2" 
+                <input type="text"
+                       name="fpro_gsm2"
                        value="" />
             </td>
         </tr>
         <tr>
             <td>Numéro de TVA</td>
             <td>
-                <input type="text" 
-                       name="fpro_tva" 
+                <input type="text"
+                       name="fpro_tva"
                        value="" />
             </td>
         </tr>
@@ -158,8 +155,8 @@
                 <input type="hidden"
                        name="fpro_employe_creation"
                        value="<dtml-var "AUTHENTICATED_USER.getUserName()">" />
-                <input type="hidden" 
-                       name="fpro_etat" 
+                <input type="hidden"
+                       name="fpro_etat"
                        value="True" />
                 <dtml-var bouton_creer>
             </td>

@@ -5,5 +5,7 @@
 
   <!-- File System Directory Views registration -->
   <cmf:registerDirectory name="gestion_gites" recursive="True"/>
+  <cmf:registerDirectory name="gdwadmin_skin_styles"/>
+  <cmf:registerDirectory name="gdwadmin_skin_images"/>
 
 </configure>

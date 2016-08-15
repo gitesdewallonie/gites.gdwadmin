@@ -4,15 +4,11 @@
 <title> Gites wallons : gestion table theme gite </TITLE>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" >
 <dtml-call "RESPONSE.setHeader('Content-Type', 'text/html;charset=UTF-8')">
-<meta name="generator" content="Bluefish 1.0.7">
-<meta name="author" content="alain">
-<meta name="Keywords" CONTENT="">
-<meta name="Description" CONTENT="">
-<link href="gites_wallons_style.css" type=text/css rel=stylesheet>
+<meta name="author" content="Affinitic">
+<link href="gdwadmin.css" type="text/css" rel="stylesheet" />
 <script language=JavaScript src="gites_wallons_script.js"></script>
 </head>
-
-<body>
+<body class="gdwadmin-content">
 <span class="titre_page">Gestion de la table des types de tables d'hôtes</span><br><br>
 
 
@@ -25,98 +21,98 @@
 
 
 <!---[Gestion de la modification d'un type de table]--->
-<dtml-if "operation == 'modifier'">   
+<dtml-if "operation == 'modifier'">
    <form name="formulaire" action="traiter_modification_info_tour" method="get">
       <table width="95%" border="1" cellspacing="0" bordercolor="#EEEFEE">
          <tr>
             <td colspan="4" align="left" bgcolor="#006666">
             <span class="titre_encodage">
             Type de table d'hôte à modifier
-            </span>	
+            </span>
             </td>
          </tr>
          <dtml-in "admin_base.info_touristique.zsql_info_tour_select_by_pk(infotour_pk=infotour_pk)">
-            <tr>           
+            <tr>
                <td align="right">Nom</td>
                <td>
-                  <input type="text" 
-                         name="infotour_nom" 
-                         value="<dtml-var infotour_nom>" 
+                  <input type="text"
+                         name="infotour_nom"
+                         value="<dtml-var infotour_nom>"
                          size="50">
-               </td>        
+               </td>
             </tr>
-            <tr>           
+            <tr>
                <td align="right">Adresse</td>
                <td>
-                  <input type="text" 
-                         name="infotour_adresse" 
-                         value="<dtml-var infotour_adresse>" 
+                  <input type="text"
+                         name="infotour_adresse"
+                         value="<dtml-var infotour_adresse>"
                          size="50">
-               </td>        
-            </tr> 
-            <tr>           
+               </td>
+            </tr>
+            <tr>
                <td align="right">CP Commune</td>
                <td>
                   <select name="infotour_commune_fk">
-                     <option>... </option>                 
+                     <option>... </option>
                      <dtml-in zsql_select_all_commune>
                         <dtml-if "infotour_commune_fk == com_pk">
-                           <option value="<dtml-var com_pk>" 
-                                   selected="selected"> 
+                           <option value="<dtml-var com_pk>"
+                                   selected="selected">
                               <dtml-var com_cp> <dtml-var com_nom>
                            </option>
                         <dtml-else>
-                           <option value="<dtml-var com_pk>">                                    
+                           <option value="<dtml-var com_pk>">
                               <dtml-var com_cp> <dtml-var com_nom>
                            </option>
                         </dtml-if>
                      </dtml-in>
                   </select>
-               </td>        
+               </td>
             </tr>
-            <tr>           
+            <tr>
                <td align="right">Localité</td>
                <td>
-                  <input type="text" 
-                         name="infotour_localite" 
-                         value="<dtml-var infotour_localite>" 
+                  <input type="text"
+                         name="infotour_localite"
+                         value="<dtml-var infotour_localite>"
                          size="50">
-               </td>        
-            </tr>   
-            <tr>           
+               </td>
+            </tr>
+            <tr>
                <td align="right">URL</td>
                <td>
-                  <input type="text" 
-                         name="infotour_url" 
-                         value="<dtml-var infotour_url>" 
+                  <input type="text"
+                         name="infotour_url"
+                         value="<dtml-var infotour_url>"
                          size="50">
-               </td>        
-            </tr> 
-            <tr>           
+               </td>
+            </tr>
+            <tr>
                <td align="right">Coordonn&eacute;e GPS Long</td>
                <td>
-                  <input type="text" 
-                         name="infotour_gps_long" 
-                         value="<dtml-var infotour_gps_long>" 
+                  <input type="text"
+                         name="infotour_gps_long"
+                         value="<dtml-var infotour_gps_long>"
                          size="50">
-               </td>        
+               </td>
             </tr>
-            <tr>           
+            <tr>
                <td align="right">Coordonn&eacute;e GPS Lat</td>
                <td>
-                  <input type="text" 
-                         name="infotour_gps_lat" 
-                         value="<dtml-var infotour_gps_lat>" 
+                  <input type="text"
+                         name="infotour_gps_lat"
+                         value="<dtml-var infotour_gps_lat>"
                          size="50">
-               </td>        
+               </td>
             </tr>
-           <tr>           
+           <tr>
                <td align="right">Type</td>
                <td>
                   <select name="infotour_type_infotour_fk">
 	            <dtml-in "admin_base.info_touristique.zsql_type_info_tour_select_all()">
                        <dtml-if "infotour_type_infotour_fk == typinfotour_pk">
-                          <option value="<dtml-var typinfotour_pk>" 
+                          <option value="<dtml-var typinfotour_pk>"
                                   selected="selected">
                              <dtml-var "typinfotour_nom_fr">
                           </option>
@@ -126,32 +122,32 @@
                           </option>
                        </dtml-if>
                     </dtml-in>
-                  </select> 
-               </td>        
-            </tr>   
-            <tr>           
+                  </select>
+               </td>
+            </tr>
+            <tr>
                <td align="right">Maison de tourisme</td>
                <td>
                   <dtml-in "admin_base.zsql_maison_tourisme_select_by_com_fk(com_pk=infotour_commune_fk)">
                      <dtml-var mais_nom>
-                  </dtml-in> 
-               </td>        
-            </tr>                      
+                  </dtml-in>
+               </td>
+            </tr>
             <tr>
                <td colspan="4" align="center">
-                  <input type="hidden" 
-                         name="infotour_pk" 
+                  <input type="hidden"
+                         name="infotour_pk"
                          value="<dtml-var infotour_pk>">
 
                   <dtml-var bouton_modifier>
-               </td>        
+               </td>
             </tr>
          </dtml-in>
       </table>
-   <input type="hidden" 
-          name="operation" 
+   <input type="hidden"
+          name="operation"
           value="">
-   </form>  
+   </form>
 </dtml-if>
 
 </body>

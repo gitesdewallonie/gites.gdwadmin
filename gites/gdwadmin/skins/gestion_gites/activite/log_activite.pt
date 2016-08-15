@@ -2,14 +2,11 @@
 <head>
 <title> Gites wallons : sélection d'un hébergement par le proprio</TITLE>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" >
-<meta name="generator" content="Bluefish 1.0.7">
-<meta name="author" content="alain">
-<meta name="Keywords" CONTENT="">
-<meta name="Description" CONTENT="">
-<link href="gites_wallons_style.css" type=text/css rel=stylesheet>
+<meta name="author" content="Affinitic">
+<link href="gdwadmin.css" type="text/css" rel="stylesheet" />
 <script language=JavaScript src="gites_wallons_script.js"></script>
 </head>
-<body>
+<body class="gdwadmin-content">
 <fieldset class="fieldsetprive">
    <legend class="legende">Activit&eacute; employ&eacute;</legend>
    <tal:requete tal:define="log python:here.admin_base.log_employe.zsql_log_employe_select_all()">

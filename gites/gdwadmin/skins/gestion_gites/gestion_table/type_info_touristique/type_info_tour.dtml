@@ -4,14 +4,11 @@
 <title> Gites wallons : gestion type d'informations tourisitiques </TITLE>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <dtml-call "RESPONSE.setHeader('Content-Type', 'text/html;charset=UTF-8')">
-<meta name="generator" content="Bluefish 1.0.7">
-<meta name="author" content="alain">
-<meta name="Keywords" CONTENT="">
-<meta name="Description" CONTENT="">
-<link href="gites_wallons_style.css" type=text/css rel=stylesheet>
+<meta name="author" content="Affinitic">
+<link href="gdwadmin.css" type="text/css" rel="stylesheet" />
 <script language=JavaScript src="gites_wallons_script.js"></script>
 </head>
-<body>
+<body class="gdwadmin-content">
 <span class="titre_page">Gestion de la table des types d'informations touristiques</span>
 <br /><br />
 <form name="formulaire" action="mod_sup_type_info_tour" method="get">
@@ -40,10 +37,10 @@
                <tr bgcolor="#E6FED9">
             </dtml-if>
             <td width="15">
-               <input type="radio" 
-                      name="typinfotour_pk" 
+               <input type="radio"
+                      name="typinfotour_pk"
                       value="<dtml-var typinfotour_pk>">
-            </td>		
+            </td>
             <td>
                <dtml-var typinfotour_nom_fr>
             </td>
@@ -73,26 +70,26 @@
 
 <br /><br />
 
-<form name="formulaire_creation" 
-      action="traiter_insertion_type_info_tour" 
+<form name="formulaire_creation"
+      action="traiter_insertion_type_info_tour"
       method="get">
-   <table border="1" 
-          cellspacing="0" 
-          cellpadding="0" 
-          width="75%" 
+   <table border="1"
+          cellspacing="0"
+          cellpadding="0"
+          width="75%"
           bordercolor="#EEEFEE">
       <tr>
          <td colspan="3" align="left" bgcolor="#006666">
             <span class="titre_encodage">
-               Créer un nouveau type d'information touristique
+               CrÃ©er un nouveau type d'information touristique
             </span>
          </td>
-      </tr>	
+      </tr>
       <tr>
          <td>Type FR</td>
          <td>
-            <input type="text" 
-                   name="typinfotour_nom_fr" 
+            <input type="text"
+                   name="typinfotour_nom_fr"
                    value=""
                    size="50">
          </td>
@@ -100,8 +97,8 @@
       <tr>
          <td>Type NL</td>
          <td>
-            <input type="text" 
-                   name="typinfotour_nom_nl" 
+            <input type="text"
+                   name="typinfotour_nom_nl"
                    value=""
                    size="50">
          </td>
@@ -109,8 +106,8 @@
       <tr>
          <td>Type DE</td>
          <td>
-            <input type="text" 
-                   name="typinfotour_nom_de" 
+            <input type="text"
+                   name="typinfotour_nom_de"
                    value=""
                    size="50">
          </td>
@@ -118,8 +115,8 @@
       <tr>
          <td>Type IT</td>
          <td>
-            <input type="text" 
-                   name="typinfotour_nom_it" 
+            <input type="text"
+                   name="typinfotour_nom_it"
                    value=""
                    size="50">
          </td>
@@ -127,8 +124,8 @@
       <tr>
          <td>Type EN</td>
          <td>
-            <input type="text" 
-                   name="typinfotour_nom_en" 
+            <input type="text"
+                   name="typinfotour_nom_en"
                    value=""
                    size="50">
          </td>
@@ -139,7 +136,7 @@
          </td>
       </tr>
    </table>
-</form>	
+</form>
 
 </body>
 </html>

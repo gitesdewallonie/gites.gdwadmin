@@ -4,20 +4,16 @@
 <title> Gites wallons : gestion table maison du tourisme </TITLE>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" >
 <dtml-call "RESPONSE.setHeader('Content-Type', 'text/html;charset=UTF-8')">
-<meta name="generator" content="Bluefish 1.0.7">
-<meta name="author" content="alain">
-<meta name="Keywords" CONTENT="">
-<meta name="Description" CONTENT="">
-<link href="gites_wallons_style.css" type=text/css rel=stylesheet>
+<meta name="author" content="Affinitic">
+<link href="gdwadmin.css" type="text/css" rel="stylesheet" />
 <script language=JavaScript src="gites_wallons_script.js"></script>
 </head>
-
-<body>
+<body class="gdwadmin-content">
 <span class="titre_page">Gestion de la table maison du tourisme</span><br><br>
 
 
 <!---[gestion de la suppression d'une maison du tourisme]--->
-<dtml-if "operation == 'supprimer'">   
+<dtml-if "operation == 'supprimer'">
    <dtml-call zsql_delete_maison_tourisme>
    <dtml-call "RESPONSE.redirect('maison_tourisme')">
 </dtml-if>
@@ -25,7 +21,7 @@
 
 
 <!---[Gestion de la modification d'une maison_tourisme]--->
-<dtml-if "operation == 'modifier'">   
+<dtml-if "operation == 'modifier'">
    <form name="formulaire" action="traiter_modification_maison_tourisme" method="get">
       <table width="95%" border="1" cellspacing="0" bordercolor="#EEEFEE">
          <tr>
@@ -39,8 +35,8 @@
                <tr>
                   <td align="right">Nom</td>
                   <td>
-                     <input type="text" 
-                            name="mais_nom" 
+                     <input type="text"
+                            name="mais_nom"
                             size="75"
                             value="<dtml-var mais_nom>" />
                   </td>
@@ -48,8 +44,8 @@
                <tr>
                   <td align="right">URL</td>
                   <td>
-                     <input type="text" 
-                            name="mais_url" 
+                     <input type="text"
+                            name="mais_url"
                             size="75"
                             value="<dtml-var mais_url>" />
                   </td>
@@ -61,45 +57,45 @@
                                value="<dtml-var mais_code>"
                                rows="5"
                                cols="75"></textarea>
-                  </td>        
+                  </td>
                </tr>
                <tr>
                   <td align="right">GPS Long  00.00</td>
                   <td>
-                     <input type="text" 
-                            name="mais_gps_long" 
+                     <input type="text"
+                            name="mais_gps_long"
                             value="<dtml-var mais_gps_long>" />
                   </td>
-               </tr>  
+               </tr>
                <tr>
                   <td align="right">GPS Lat  00.00</td>
                   <td>
-                     <input type="text" 
-                            name="mais_gps_lat" 
+                     <input type="text"
+                            name="mais_gps_lat"
                             value="<dtml-var mais_gps_lat>" />
                   </td>
                </tr>
                <tr>
                   <td align="right">ID Google</td>
                   <td>
-                     <input type="text" 
-                            name="mais_id" 
-                            value="<dtml-var mais_id>" 
+                     <input type="text"
+                            name="mais_id"
+                            value="<dtml-var mais_id>"
                             size="75" />
                   </td>
-               </tr>     
+               </tr>
                <tr>
                   <td colspan="4" align="center">
-                     <input type="hidden" 
-                            name="mais_pk" 
+                     <input type="hidden"
+                            name="mais_pk"
                             value="<dtml-var mais_pk>" />
                      <dtml-var bouton_modifier>
-                  </td>        
+                  </td>
                </tr>
             </dtml-in>
       </table>
    <input type="hidden" name="operation" value="">
-   </form>  
+   </form>
 </dtml-if>
 
 </body>

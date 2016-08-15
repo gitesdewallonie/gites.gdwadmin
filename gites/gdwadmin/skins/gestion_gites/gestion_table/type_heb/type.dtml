@@ -4,14 +4,11 @@
 <title> Gites wallons : gestion table type hébergement </TITLE>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <dtml-call "RESPONSE.setHeader('Content-Type', 'text/html;charset=UTF-8')">
-<meta name="generator" content="Bluefish 1.0.7">
-<meta name="author" content="alain">
-<meta name="Keywords" CONTENT="">
-<meta name="Description" CONTENT="">
-<link href="gites_wallons_style.css" type=text/css rel=stylesheet>
+<meta name="author" content="Affinitic">
+<link href="gdwadmin.css" type="text/css" rel="stylesheet" />
 <script language=JavaScript src="gites_wallons_script.js"></script>
 </head>
-<body>
+<body class="gdwadmin-content">
 <span class="titre_page">Gestion de la table type d'hébergement</span><br><br>
 
 
@@ -83,103 +80,103 @@
 			</span>
 			</font>
 		</td>
-	</tr>	
+	</tr>
 	<tr>
 		<td>Code</td>
 		<td>
-		   <input type="text" 
-		          name="type_heb_code" 
-		          value="" 
+		   <input type="text"
+		          name="type_heb_code"
+		          value=""
 		          size="50" />
 		</td>
 	</tr>
 	<tr>
 		<td>Dénomination FR</td>
 		<td>
-		   <input type="text" 
-		          name="type_heb_nom" 
-		          value="" 
+		   <input type="text"
+		          name="type_heb_nom"
+		          value=""
 		          size="50" />
 		</td>
 	</tr>
 	<tr>
 		<td>Dénomination NL</td>
 		<td>
-		   <input type="text" 
-		          name="type_heb_nom_nl" 
-		          value="" 
+		   <input type="text"
+		          name="type_heb_nom_nl"
+		          value=""
 		          size="50" />
 		</td>
 	</tr>
 	<tr>
 		<td>Dénomination EN</td>
 		<td>
-		   <input type="text" 
-		          name="type_heb_nom_uk" 
-		          value="" 
+		   <input type="text"
+		          name="type_heb_nom_uk"
+		          value=""
 		          size="50" />
 		</td>
 	</tr>
 	<tr>
 		<td>Dénomination DE</td>
 		<td>
-		   <input type="text" 
-		          name="type_heb_nom_de" 
-		          value="" 
+		   <input type="text"
+		          name="type_heb_nom_de"
+		          value=""
 		          size="50" />
 		</td>
 	</tr>
 	<tr>
 		<td>Dénomination IT</td>
 		<td>
-		   <input type="text" 
-		          name="type_heb_nom_it" 
-		          value="" 
+		   <input type="text"
+		          name="type_heb_nom_it"
+		          value=""
 		          size="50" />
 		</td>
 	</tr>
 	<tr>
 		<td>ID Google FR</td>
 		<td>
-		   <input type="text" 
-		          name="type_heb_id" 
-		          value="" 
+		   <input type="text"
+		          name="type_heb_id"
+		          value=""
 		          size="50" />
 		</td>
 	</tr>
 	<tr>
 		<td>ID Google NL</td>
 		<td>
-		   <input type="text" 
-		          name="type_heb_id_nl" 
-		          value="" 
+		   <input type="text"
+		          name="type_heb_id_nl"
+		          value=""
 		          size="50" />
 		</td>
 	</tr>
 	<tr>
 		<td>ID Google EN</td>
 		<td>
-		   <input type="text" 
-		          name="type_heb_id_uk" 
-		          value="" 
+		   <input type="text"
+		          name="type_heb_id_uk"
+		          value=""
 		          size="50" />
 		</td>
 	</tr>
 	<tr>
 		<td>ID Google DE</td>
 		<td>
-		   <input type="text" 
-		          name="type_heb_id_de" 
-		          value="" 
+		   <input type="text"
+		          name="type_heb_id_de"
+		          value=""
 		          size="50" />
 		</td>
 	</tr>
 	<tr>
 		<td>ID Google IT</td>
 		<td>
-		   <input type="text" 
-		          name="type_heb_id_it" 
-		          value="" 
+		   <input type="text"
+		          name="type_heb_id_it"
+		          value=""
 		          size="50" />
 		</td>
 	</tr>
@@ -189,7 +186,7 @@
 		</td>
 	</tr>
 </table>
-</form>	
+</form>
 
 </body>
 </html>

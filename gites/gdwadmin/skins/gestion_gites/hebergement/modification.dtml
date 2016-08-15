@@ -4,13 +4,8 @@
 <title> Gites wallons : modification d'un hébergement</TITLE>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <dtml-call "RESPONSE.setHeader('Content-Type', 'text/html;charset=UTF-8')">
-<meta name="generator" content="Bluefish 1.0.7">
-<meta name="author" content="AFFINITIC">
-<meta name="Keywords" CONTENT="">
-<meta name="Description" CONTENT="">
-<link href="gites_wallons_style.css"
-      type=text/css
-      rel=stylesheet>
+<meta name="author" content="Affinitic">
+<link href="gdwadmin.css" type="text/css" rel="stylesheet" />
 <script language="JavaScript"
         src="gites_wallons_script.js"></script>
 <script>
@@ -19,7 +14,7 @@
   };
 </script>
 </head>
-<body>
+<body class="gdwadmin-content">
 <span class="titre_page">Modification d'un hébergement</span><br><br>
 
 <dtml-in "zsql_select_heb_hebpk(heb_pk=fheb_pk)">

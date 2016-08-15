@@ -30,12 +30,30 @@
         permission="gdw.ViewAdmin"
         />
 
-<browser:page
+    <browser:page
         name="lister-les-communes"
         for="*"
         template="templates/commune/lister_commune.pt"
         permission="gdw.ViewAdmin"
         class=".manage_commune.CommuneView"
+        allowed_interface=".interfaces.ICommuneView"
+        />
+
+    <browser:page
+        name="modifier-une-commune"
+        for="*"
+        template="templates/commune/modifier_commune.pt"
+        permission="gdw.ViewAdmin"
+        class=".manage_commune.CommuneView"
+        allowed_interface=".interfaces.ICommuneView"
+        />
+
+    <browser:page
+        name="updateCommune"
+        for="*"
+        class=".manage_commune.CommuneView"
+        attribute="updateCommune"
+        permission="gdw.ViewAdmin"
         allowed_interface=".interfaces.ICommuneView"
         />
 

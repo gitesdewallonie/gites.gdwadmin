@@ -4,15 +4,11 @@
 <title> Gites wallons : gestion table theme gite </TITLE>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <dtml-call "RESPONSE.setHeader('Content-Type', 'text/html;charset=UTF-8')">
-<meta name="generator" content="Bluefish 1.0.7">
-<meta name="author" content="alain">
-<meta name="Keywords" CONTENT="">
-<meta name="Description" CONTENT="">
-<link href="gites_wallons_style.css" type=text/css rel=stylesheet>
+<meta name="author" content="Affinitic">
+<link href="gdwadmin.css" type="text/css" rel="stylesheet" />
 <script language=JavaScript src="gites_wallons_script.js"></script>
 </head>
-
-<body>
+<body class="gdwadmin-content">
 <span class="titre_page">Gestion de la table des types d'informations touristiques</span><br><br>
 
 
@@ -25,75 +21,75 @@
 
 
 <!---[Gestion de la modification d'un type de table]--->
-<dtml-if "operation == 'modifier'">   
+<dtml-if "operation == 'modifier'">
    <form name="formulaire" action="traiter_modification_type_info_tour" method="get">
       <table width="95%" border="1" cellspacing="0" bordercolor="#EEEFEE">
          <tr>
             <td colspan="4" align="left" bgcolor="#006666">
             <span class="titre_encodage">
-            Type d'informations touristiques Ã  modifier
-            </span>	
+            Type d'informations touristiques Ãƒ  modifier
+            </span>
             </td>
          </tr>
          <dtml-in "admin_base.info_touristique.zsql_type_info_tour_select_by_pk(typinfotour_pk=typinfotour_pk)">
-            <tr>           
+            <tr>
                <td align="right">Type FR</td>
                <td>
-                  <input type="text" 
-                         name="typinfotour_nom_fr" 
-                         value="<dtml-var typinfotour_nom_fr>" 
+                  <input type="text"
+                         name="typinfotour_nom_fr"
+                         value="<dtml-var typinfotour_nom_fr>"
                          size="50">
-               </td>        
+               </td>
             </tr>
-            <tr>           
+            <tr>
                <td align="right">Type NL</td>
                <td>
-                  <input type="text" 
-                         name="typinfotour_nom_nl" 
-                         value="<dtml-var typinfotour_nom_nl>" 
+                  <input type="text"
+                         name="typinfotour_nom_nl"
+                         value="<dtml-var typinfotour_nom_nl>"
                          size="50">
-               </td>        
-            </tr> 
-            <tr>           
+               </td>
+            </tr>
+            <tr>
                <td align="right">Type DE</td>
                <td>
-                  <input type="text" 
-                         name="typinfotour_nom_de" 
-                         value="<dtml-var typinfotour_nom_de>" 
+                  <input type="text"
+                         name="typinfotour_nom_de"
+                         value="<dtml-var typinfotour_nom_de>"
                          size="50">
-               </td>        
-            </tr>  
-            <tr>           
+               </td>
+            </tr>
+            <tr>
                <td align="right">Type IT</td>
                <td>
-                  <input type="text" 
-                         name="typinfotour_nom_it" 
-                         value="<dtml-var typinfotour_nom_it>" 
+                  <input type="text"
+                         name="typinfotour_nom_it"
+                         value="<dtml-var typinfotour_nom_it>"
                          size="50">
-               </td>        
-            </tr> 
-            <tr>           
+               </td>
+            </tr>
+            <tr>
                <td align="right">Type EN</td>
                <td>
-                  <input type="text" 
-                         name="typinfotour_nom_en" 
-                         value="<dtml-var typinfotour_nom_en>" 
+                  <input type="text"
+                         name="typinfotour_nom_en"
+                         value="<dtml-var typinfotour_nom_en>"
                          size="50">
-               </td>        
-            </tr>               
+               </td>
+            </tr>
             <tr>
                <td colspan="4" align="center">
-                  <input type="hidden" 
-                         name="typinfotour_pk" 
+                  <input type="hidden"
+                         name="typinfotour_pk"
                          value="<dtml-var typinfotour_pk>">
-                  
+
                   <dtml-var bouton_modifier>
-               </td>        
+               </td>
             </tr>
          </dtml-in>
       </table>
    <input type="hidden" name="operation" value="">
-   </form>  
+   </form>
 </dtml-if>
 
 </body>

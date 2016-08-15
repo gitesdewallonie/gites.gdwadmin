@@ -2,8 +2,9 @@
   <head>
     <title tal:content="template/title">The title</title>
   </head>
-  <body>
-    <div align="center">		
+  </head>
+<body class="gdwadmin-content">
+    <div align="center">
 		<fieldset>
 		<div align="left">
 			<a href="javascript:history.go(-1)"> <img src="images/flechebulleretour.gif" border="0"></a>
@@ -17,9 +18,9 @@
 			                  image string:${codegdw}0${cpt}.jpg">
 				<!--vérification de la présence de image dans le dossier photos_heb afin d'éviter-->
 				<!--les crois quand il n'y a pas 7 images-->
-				<span tal:condition="python: image in here.photos_heb.fileIds()">					
+				<span tal:condition="python: image in here.photos_heb.fileIds()">
 					<!--construction du nom de l'image avec le code  et le compteur de la boucle et affichage de l'image-->
-					<img src="" 
+					<img src=""
                                              alt=""
                                              title=""
                                              tal:attributes="src string:photos_heb/${codegdw}0${cpt}.jpg;
@@ -33,8 +34,8 @@
 		<div align="left">
 			<a href="javascript:history.go(-1)"> <img src="images/flechebulleretour.gif" border="0"></a>
 		</div>
-		</fieldset>		
+		</fieldset>
 	</div>
-   
+
   </body>
 </html>

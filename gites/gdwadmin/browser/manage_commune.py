@@ -51,6 +51,32 @@ class CommuneView(BrowserView):
         commune = query.one()
         return commune
 
+    def updateCommune(self):
+        """
+        Update a commune
+        """
+        fields = self.context.REQUEST
+        communePk = getattr(fields, 'com_pk', None)
+        communeNom = getattr(fields, 'com_nom', None)
+        communeCp = getattr(fields, 'com_cp', None)
+        communeIns = getattr(fields, 'com_ins', None)
+        communeProvFk = getattr(fields, 'com_prov_fk', None)
+
+        wrapper = getSAWrapper('gites_wallons')
+        session = wrapper.session
+        query = session.query(Commune)
+        query = query.filter(Commune.com_pk == communePk)
+        commune = query.one()
+        commune.com_nom = unicode(communeNom, 'utf-8')
+        commune.com_cp = unicode(communeCp, 'utf-8')
+        commune.com_ins = unicode(communeIns, 'utf-8')
+        commune.com_prov_fk = communeProvFk
+        session.flush()
+
+        cible = "%s/portal_skins/gestion_gites/lister-les-communes" % self.context.portal_url()
+        self.request.response.redirect(cible)
+        return ''
+
     def insertCommune(self):
         """
         Add a commune

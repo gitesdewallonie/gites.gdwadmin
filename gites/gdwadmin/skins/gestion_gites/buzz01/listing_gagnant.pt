@@ -1,21 +1,17 @@
 <html>
 <head tal:define="dummy python:request.RESPONSE.setHeader('Content-Type','text/html;; charset=utf-8')" >
-<title> Gites wallons : sélection d'un hébergement par le proprio</TITLE>
+<title> Gites wallons : sÃ©lection d'un hÃ©bergement par le proprio</TITLE>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" >
-<meta name="generator" content="Zope">
-<meta name="author" content="Affinitic">
-<meta name="Keywords" CONTENT="">
-<meta name="Description" CONTENT="">
-<link href="gites_wallons_style.css" type=text/css rel=stylesheet>
+<link href="gdwadmin.css" type="text/css" rel="stylesheet" />
 <script language=JavaScript src="gites_wallons_script.js"></script>
 </head>
-<body>
+<body class="gdwadmin-content">
 <fieldset class="fieldsetprive">
-   <legend class="legende">BuzzNo�l : listing des gagnants</legend>
+   <legend class="legende">BuzzNoël : listing des gagnants</legend>
    <tal:requete tal:define="Gagnants python:here.admin_base.buzz.zsql_winner_buzz_select_all()">
       <div class="div_resultat">
          <br />
-         <tal:boucle tal:repeat="gagnant Gagnants">         
+         <tal:boucle tal:repeat="gagnant Gagnants">
             <fieldset class="fieldset_resultat">
                <font color="000000"><b><span tal:content="python: DateTime(str(gagnant.winner_date)).strftime('%d-%m-%Y')" /></b></font>
                <br />
@@ -26,7 +22,7 @@
                <span tal:content="gagnant/player_nom" class="choixinfogid" />
                </b>
                <br />
-               email : <span tal:content="gagnant/player_email" class="choixinfogid" /> 
+               email : <span tal:content="gagnant/player_email" class="choixinfogid" />
                <br />
                localite :  <span tal:content="gagnant/player_localite" class="choixinfogid" />
                <br />
@@ -54,7 +50,7 @@
                <span tal:content="gagnant/dest_nom" class="choixinfogid" />
                </b>
                <br />
-               email :<span tal:content="gagnant/dest_email" class="choixinfogid" /> 
+               email :<span tal:content="gagnant/dest_email" class="choixinfogid" />
                <br />
                localite : <span tal:content="gagnant/dest_localite" class="choixinfogid" />
                <br />
@@ -72,7 +68,7 @@
                      Proprio : <span tal:content="gite/pro_nom1" class="choixinfogid" />
                   </tal:boucle>
                </tal:requete>
-            </fieldset>                 
+            </fieldset>
          </tal:boucle>
          <br />
       </div>

@@ -4,9 +4,7 @@
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <meta name="generator" content="vim">
 <meta name="author" content="AFFINITIC">
-<meta name="Keywords" CONTENT="">
-<meta name="Description" CONTENT="Listing des proprio en attente de mise à jour">
-<link href="gites_wallons_style.css" type=text/css rel=stylesheet>
+<link href="gdwadmin.css" type="text/css" rel="stylesheet" />
 <script language=JavaScript src="images/picto/images/picto/gites_wallons_script.js"></script>
 <script>
   function actu_iframe() {
@@ -14,8 +12,7 @@
   }
 </script>
 </head>
-
-<body>
+<body class="gdwadmin-content">
 
 <span class="titre_page">H&eacute;bergement en attente de confirmation</span>
 
@@ -50,7 +47,7 @@
                             <tr bgcolor="#E2F3DE">
                                 <td class="maj-etiquette">Type</td>
                                 <td colspan="2">
-                                    <span tal:content="heb/heb_typeheb_fk" 
+                                    <span tal:content="heb/heb_typeheb_fk"
                                           class="grasnoir" />
                                 </td>
                             </tr>
@@ -118,7 +115,7 @@
                                 </td>
                             </tr>
                             <tr bgcolor="#E2F3DE">
-                                <td class="maj-etiquette">URL du site li&eacute; à l'h&eacute;bergement</td>
+                                <td class="maj-etiquette">URL du site li&eacute; Ã  l'h&eacute;bergement</td>
                                 <td>
                                     <span tal:content="heb/heb_url"
                                           class="grasnoir" />
@@ -135,7 +132,7 @@
                         <!---[FIN INFORMATION GENERALE]-->
                     </td>
                 </tr>
-                
+
                 <tr>
                     <td>
                         <!---[DEBUT POINTS FORTS HEB]-->
@@ -216,7 +213,7 @@
                         <!---[FIN DISTRIBUTION HEB]-->
                     </td>
                 </tr>
-                
+
                 <tr>
                     <td>
                         <!---[DEBUT TYPE LIT HEB]-->
@@ -306,19 +303,19 @@
                             <tr>
                                 <td rowspan="3" class="maj-etiquette">Capacit&eacute;</td>
                                 <td>
-                                    <span class="maj-etiquette">min :</span> 
+                                    <span class="maj-etiquette">min :</span>
                                     <span tal:content="heb/heb_cgt_cap_min" />
                                 </td>
                             </tr>
                             <tr>
                                 <td bgcolor="#E2F3DE">
-                                    <span class="maj-etiquette">max :</span> 
+                                    <span class="maj-etiquette">max :</span>
                                     <span tal:content="heb/heb_cgt_cap_max" />
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <span class="maj-etiquette">nombre de chambre :</span> 
+                                    <span class="maj-etiquette">nombre de chambre :</span>
                                     <span tal:content="heb/heb_cgt_nbre_chmbre" />
                                 </td>
                             </tr>
@@ -331,7 +328,7 @@
                     <table>
                       <tr align="left" bgcolor="#006666">
                         <td>
-                          <span class="titre_encodage">Meta-données</span>
+                          <span class="titre_encodage">Meta-donnÃ©es</span>
                         </td>
                       </tr>
                       <tr>
@@ -372,7 +369,7 @@
             </table>
         </span><!--spanrepeat-->
     </span><!--spanrepeat-->
-</div><!--divdefine--> 
+</div><!--divdefine-->
 </form>
 
 

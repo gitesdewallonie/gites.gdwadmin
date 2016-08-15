@@ -9,8 +9,7 @@
             tal:attributes="src string:$portal_url/++resource++gdwadminJS/metadata.js"></script>
   </metal:javascripts>
 </head>
-
-<body>
+<body class="gdwadmin-content">
 <div metal:fill-slot="main"
      i18n:domain="gites">
 

@@ -4,18 +4,15 @@
 <title> Gites wallons : sélection d'un propriétaire</TITLE>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" >
 <dtml-call "RESPONSE.setHeader('Content-Type', 'text/html;charset=UTF-8')">
-<meta name="generator" content="vim">
-<meta name="author" content="affinitic">
-<meta name="Keywords" CONTENT="">
-<meta name="Description" CONTENT="">
-<link href="gites_wallons_style.css" type=text/css rel=stylesheet>
+<meta name="generator" content="vim"><meta name="author" content="Affinitic">
+<link href="gdwadmin.css" type="text/css" rel="stylesheet" />
 <script language=JavaScript src="gites_wallons_script.js"></script>
 </head>
-<body>
+<body class="gdwadmin-content">
 
 <!---[DEBUT RECHERCHER]--->
-<form name="formulaire" 
-      action="creation" 
+<form name="formulaire"
+      action="creation"
       method="post">
    <table border="1" cellspacing="0" bordercolor="#EEEFEE">
       <tr>
@@ -53,8 +50,8 @@
 <br><br>
 
 <!---[DEBUT LISTING]--->
-<form name="formulaire" 
-      action="creation" 
+<form name="formulaire"
+      action="creation"
       method="post">
 <table border="1" cellspacing="0" bordercolor="#EEEFEE">
    <tr>
@@ -69,17 +66,17 @@
       <td align="center"><b>Selection</b></td>
       <td align="center"><b>Code</b></td>
       <td align="center"><b>Nom</b></td>
-      <td align="center"><b>Localité</b></td>  
+      <td align="center"><b>Localité</b></td>
       <td align="center"><b>Etat</b></td>
    </tr>
    <dtml-in "admin_base.proprio.zsql_proprio_select_all()">
-      <form name="formulaire" 
-            action="creation" 
+      <form name="formulaire"
+            action="creation"
             method="post">
          <tr>
             <td align="center">
-               <input type="hidden" 
-                           name="fpro_pk" 
+               <input type="hidden"
+                           name="fpro_pk"
                            value="<dtml-var pro_pk>" />
                 <input type="submit"
                             value="GO" />

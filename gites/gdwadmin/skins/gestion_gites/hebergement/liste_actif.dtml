@@ -4,21 +4,18 @@
 <title> Gites wallons : listes des hébergements</TITLE>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <dtml-call "RESPONSE.setHeader('Content-Type', 'text/html;charset=UTF-8')">
-<meta name="generator" content="Bluefish 1.0.7">
-<meta name="author" content="alain">
-<meta name="Keywords" CONTENT="">
-<meta name="Description" CONTENT="">
-<link href="gites_wallons_style.css" type=text/css rel=stylesheet>
+<meta name="author" content="Affinitic">
+<link href="gdwadmin.css" type="text/css" rel="stylesheet" />
 <script language=JavaScript src="gites_wallons_script.js"></script>
 </head>
-<body>
+<body class="gdwadmin-content">
 
 
 <span class="titre_page">
    Liste des
    <dtml-in "admin_base.hebergement.zsql_compte_hebergement()">
                <span class="grasrouge"><dtml-var count> hébergements</span>
-   </dtml-in> 
+   </dtml-in>
 </span>
 
 <!-- info detail des hebergements -->
@@ -42,7 +39,7 @@
       <dtml-in "admin_base.hebergement.zsql_compte_hebergement_by_gr_gc_gf_mt_mv_by_EtatPublication_EtatProprio(etat=1)">
          <b><dtml-var count></b>
       </dtml-in>
-   </li>   
+   </li>
 </ul>
 <!-- /info detail des hebergements -->
 
@@ -158,7 +155,7 @@
          </td>
          <td align="center">
                <a href="modification?fheb_pk=<dtml-var heb_pk>">
-                  <img src="images/modifier.png" 
+                  <img src="images/modifier.png"
                             border="0"
                             title="modifier cet h&eacute;bergement"
                             alt="modifier cet h&eacute;bergement" /></a>

@@ -4,20 +4,16 @@
 <title> Gites wallons : gestion table theme gite </TITLE>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" >
 <dtml-call "RESPONSE.setHeader('Content-Type', 'text/html;charset=UTF-8')">
-<meta name="generator" content="Bluefish 1.0.7">
-<meta name="author" content="alain">
-<meta name="Keywords" CONTENT="">
-<meta name="Description" CONTENT="">
-<link href="gites_wallons_style.css" type=text/css rel=stylesheet>
+<meta name="author" content="Affinitic">
+<link href="gdwadmin.css" type="text/css" rel="stylesheet" />
 <script language=JavaScript src="gites_wallons_script.js"></script>
 </head>
-
-<body>
+<body class="gdwadmin-content">
 <span class="titre_page">Gestion de la table des thèmes des gites</span><br><br>
 
 
 <!---[gestion de la suppression d'une theme gite]--->
-<dtml-if "operation == 'supprimer'">   
+<dtml-if "operation == 'supprimer'">
    <dtml-call zsql_delete_theme>
    <dtml-call "RESPONSE.redirect('theme')">
 </dtml-if>
@@ -25,7 +21,7 @@
 
 
 <!---[Gestion de la modification d'une theme gite]--->
-<dtml-if "operation == 'modifier'">   
+<dtml-if "operation == 'modifier'">
 <form name="formulaire" action="traiter_modification_theme" method="get">
 
  <table width="95%" border="1" cellspacing="0" bordercolor="#EEEFEE">
@@ -38,20 +34,20 @@
 		</td>
 	</tr>
      <dtml-in zsql_select_theme_gitthempk>
-     <tr>           
+     <tr>
         <td align="right">Code</td>
-        <td><input type="text" name="fgit_them_type" value="<dtml-var git_them_type>"></td>        
-     </tr>     
+        <td><input type="text" name="fgit_them_type" value="<dtml-var git_them_type>"></td>
+     </tr>
      <tr>
         <td colspan="4" align="center">
 			<input type="hidden" name="fgit_them_pk" value="<dtml-var git_them_pk>">
 			<dtml-var bouton_modifier>
-		</td>        
+		</td>
      </tr>
      </dtml-in>
   </table>
   <input type="hidden" name="operation" value="">
-</form>  
+</form>
 </dtml-if>
 
 </body>

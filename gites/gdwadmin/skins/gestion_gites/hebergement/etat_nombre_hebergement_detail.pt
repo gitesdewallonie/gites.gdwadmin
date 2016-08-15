@@ -2,14 +2,11 @@
 <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <title> Gites wallons : détail des types d'hébergement</TITLE>
-<meta name="generator" content="Bluefish 1.0.7">
-<meta name="author" content="alain">
-<meta name="Keywords" CONTENT="">
-<meta name="Description" CONTENT="">
-<link href="gites_wallons_style.css" type=text/css rel=stylesheet>
+<meta name="author" content="Affinitic">
+<link href="gdwadmin.css" type="text/css" rel="stylesheet" />
 <script language=JavaScript src="gites_wallons_script.js"></script>
 </head>
-<body>   
+<body class="gdwadmin-content">
 <fieldset  class="fieldsetprive">
    <legend class="legende">Liste des hébergements de type : <b><span tal:content="python: request.type_heb_nom" /></b></legend>
    <tal:requete tal:define="Hebergements python:here.admin_base.hebergement.zsql_heb_select_by_type(type_heb_pk=request.type_heb_pk)">
@@ -21,7 +18,7 @@
             <td> Localité </td>
             <td> Provinces </td>
          </tr>
-         
+
          <tal:boucle tal:repeat="heb Hebergements">
             <span tal:condition="repeat/heb/even">
             <tr class="list_even">
@@ -71,10 +68,10 @@
                </td>
             </tr>
             </span>
-             
+
           </tal:boucle>
        </table>
    </tal:requete>
-</fieldset>     
+</fieldset>
 </body>
 </html>

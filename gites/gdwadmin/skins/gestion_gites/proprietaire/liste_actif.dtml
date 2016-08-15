@@ -4,19 +4,16 @@
 <title> Gites wallons : listes des propriétaires</TITLE>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <dtml-call "RESPONSE.setHeader('Content-Type', 'text/html;charset=UTF-8')">
-<meta name="generator" content="Bluefish 1.0.7">
-<meta name="author" content="alain">
-<meta name="Keywords" CONTENT="">
-<meta name="Description" CONTENT="">
-<link href="gites_wallons_style.css" type=text/css rel=stylesheet>
+<meta name="author" content="Affinitic">
+<link href="gdwadmin.css" type="text/css" rel="stylesheet" />
 <script language=JavaScript src="gites_wallons_script.js"></script>
 </head>
-<body>
+<body class="gdwadmin-content">
 <span class="titre_page">
-   Liste des 
+   Liste des
    <dtml-in "admin_base.proprio.zsql_proprio_count_all()">
       <dtml-var count>
-   </dtml-in> 
+   </dtml-in>
    propriétaires actifs
    <ul>
       <li>
@@ -61,14 +58,14 @@
          <td width="30"></td>
       </tr>
          <dtml-in "admin_base.proprio.zsql_proprio_select_all_actif()">
-            <form action="traiter_modification_etat_proprio" 
+            <form action="traiter_modification_etat_proprio"
                        method="post">
             <dtml-if sequence-even>
                <tr bgcolor="#D2F7C1">
             <dtml-else>
                <tr>
             </dtml-if>
-            
+
             <td align="center">
                <dtml-if "pro_etat==True">
                   <img src="images/bleverte.gif">
@@ -78,9 +75,9 @@
             </td>
             <td><dtml-var pro_pk missing="-"></td>
             <td>
-               <dtml-in "zsql_select_civilite_civpk(fciv_pk=pro_civ_fk)">				
-                  <dtml-var civ_titre>					
-               </dtml-in>				
+               <dtml-in "zsql_select_civilite_civpk(fciv_pk=pro_civ_fk)">
+                  <dtml-var civ_titre>
+               </dtml-in>
             </td>
             <td><dtml-var pro_log missing="-"></td>
             <td><dtml-var pro_pass missing="-"></td>
@@ -98,11 +95,11 @@
             <td><dtml-var expr="pro_date_naiss or ''" missing="-"></td>
             <td><a href="mailto:<dtml-var pro_email>"><dtml-var pro_email missing="-"></a></td>
             <td align="center">
-               <select name="fpro_etat">  
+               <select name="fpro_etat">
                   <dtml-if "pro_etat == True">
                      <option value=True selected="selected"> oui </option>
                      <option value=False> non </option>
-                  <dtml-else> 
+                  <dtml-else>
                      <option value=True> oui </option>
                      <option value=False selected="selected"> non </option>
                   </dtml-if>
@@ -116,7 +113,7 @@
                             value="OK" />
             </td>
             <td align="center">
-               <a href="modification?fpro_pk=<dtml-var pro_pk>"><img src="images/modifier.png" 
+               <a href="modification?fpro_pk=<dtml-var pro_pk>"><img src="images/modifier.png"
                                                                      border="0"
                                                                      title="modifier ce proprio"
                                                                      alt="modifier ce proprio" /></a>

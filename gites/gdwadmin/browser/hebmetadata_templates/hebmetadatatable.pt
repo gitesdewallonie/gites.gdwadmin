@@ -3,7 +3,7 @@
       metal:use-macro="here/main_template/macros/master"
       i18n:domain="gites">
 <head></head>
-<body>
+<body class="gdwadmin-content">
 <div metal:fill-slot="wrapper">
   <div style="background:#FFFFFF" tal:content="structure view/get_table" />
 </div>

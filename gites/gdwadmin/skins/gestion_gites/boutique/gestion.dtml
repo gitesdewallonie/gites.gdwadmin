@@ -4,14 +4,11 @@
 <title> Gites wallons : gestion boutique</TITLE>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" >
 <dtml-call "RESPONSE.setHeader('Content-Type', 'text/html;charset=UTF-8')">
-<meta name="generator" content="Bluefish 1.0.7">
-<meta name="author" content="alain">
-<meta name="Keywords" CONTENT="">
-<meta name="Description" CONTENT="">
-<link href="gites_wallons_style.css" type=text/css rel=stylesheet>
+<meta name="author" content="Affinitic">
+<link href="gdwadmin.css" type="text/css" rel="stylesheet" />
 <script language=JavaScript src="gites_wallons_script.js"></script>
 </head>
-<body>
+<body class="gdwadmin-content">
 <span class="titre_page">Gestion de la boutique</span><br><br>
 <!---[DEBUT GESTION BOUTIQUE]-------------------------------------------------------------------------------------->
 <form name="formulaire" action="modification_suppression" method="get">
@@ -29,7 +26,7 @@
 		<td align="center"><b>Nom de l'article</b></td>
 		<td align="center"><b>Prix TVAC</b></td>
 		<td align="center"><b>Poids</b></td>
-		<td align="center"><b>Nombre en stock</b></td>			
+		<td align="center"><b>Nombre en stock</b></td>
 	</tr>
 	<tr>
 		<td align="center"> <input type="radio" name="prod_pk" value="">prod_pk</td>
@@ -38,13 +35,13 @@
 		<td align="center"> prod_poids</td>
 		<td align="center"> prod_nbre_stock</td>
 	</tr>
-	 <tr>		
+	 <tr>
 		<td colspan="5" align="center">
 			&nbsp;
-		</td>		
+		</td>
     <tr>
-	
-    <tr>		
+
+    <tr>
 		<td colspan="5" align="center">
 			&nbsp;&nbsp;&nbsp; ..::.. &nbsp;&nbsp;&nbsp;
 			<a href="creation">CREER UN PRODUIT</a>
@@ -53,7 +50,7 @@
 			&nbsp;&nbsp;&nbsp; ..::.. &nbsp;&nbsp;&nbsp;
 			<a href="javascript:Envoyer('3');">SUPPRIMER LE PRODUIT</a>
 			&nbsp;&nbsp;&nbsp; ..::.. &nbsp;&nbsp;&nbsp;
-		</td>		
+		</td>
     <tr>
 </table>
 <!---[FIN GESTION BOUTIQUE]--------------------------------------------------------------------------------------->

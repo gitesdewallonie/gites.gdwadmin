@@ -2,57 +2,72 @@
 <head>
 <title> Gites wallons : s&eacute;lection d'un h&eacute;bergement par le proprio</TITLE>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" >
-<meta name="generator" content="Zope">
-<meta name="author" content="Affinitic">
-<meta name="Keywords" CONTENT="">
-<meta name="Description" CONTENT="">
-<link href="gites_wallons_style.css"
-      type="text/css"
-      rel="stylesheet" />
+<link href="gdwadmin.css" type="text/css" rel="stylesheet" />
 <script language="JavaScript"
         src="gites_wallons_script.js"></script>
 </head>
-
-<body>
-<div tal:define="gestionCommuneView context/@@communeView;
-                 gestionProvinceView context/@@provinceView">
+<body class="gdwadmin-content">
+<div tal:define="communePk request/communePk;
+                 gestionCommuneView context/@@communeView;
+                 gestionProvinceView context/@@provinceView;
+                 commune python:gestionCommuneView.getCommuneByPk(communePk)">
+    xx<soan tal:content="communePk" />xx
     <h1 class="titre_page">Gestion de la table commune</h1>
-    <section tal:define="allProvinces python:gestionProvinceView.getAllProvince();"
+    <section tal:define="allProvinces python:gestionProvinceView.getAllProvinces();"
              class="donnee-db">
         <h2 class="titre_encodage">Modifier une commune</h2>
-        <form action="insertionCommune"
-              method="post">
-            <label for="com-nom">Nom</label>
-            <input type="text"
-                   id="com-nom"
-                   name="com_nom"
-                   value="" />
-            <label for="com-cp">CP</label>
-            <input type="text"
-                   id="com-cp"
-                   name="com_cp"
-                   value="" />
-            <label for="com-ins">INS</label>
-            <input type="text"
-                   id="com-ins"
-                   name="com_ins"
-                   value="" />
-            <label for="com-prov-fk">Province</label>
-            <select name="com_prov_fk"
-                    id="com-prov-fk">
-                <option value="">  </option>
-                <tal:boucle tal:repeat="province allProvinces">
-                    <option value=""
-                            tal:attributes="provincePk province/prov_pk"
-                            tal:content="province/prov_nom"></option>
-                </tal:boucle>
-            </select>
-            <label for="com-id">ID Google (*)</label>
-            <input type="text"
-                   id="com-id"
-                   name="com_id"
-                   value="">
-            <dtml-var bouton_creer>
+        <form action="updateCommune"
+              method="post"
+              class="formulaire">
+            <div class="formInput">
+                <label for="com-nom">Nom</label>
+                <input type="text"
+                       id="com-nom"
+                       name="com_nom"
+                       size="50"
+                       value=""
+                       tal:attributes="value commune/com_nom" />
+            </div>
+            <div class="formInput">
+                <label for="com-cp">CP</label>
+                <input type="text"
+                       id="com-cp"
+                       name="com_cp"
+                       size="8"
+                       value=""
+                       tal:attributes="value commune/com_cp" />
+            </div>
+            <div class="formInput">
+                <label for="com-ins">INS</label>
+                <input type="text"
+                       id="com-ins"
+                       name="com_ins"
+                       size="8"
+                       value=""
+                       tal:attributes="value commune/com_ins" />
+            </div>
+            <div class="formInput">
+                <label for="com-prov-fk">Province</label>
+                <select name="com_prov_fk"
+                        id="com-prov-fk">
+                    <option value="">  </option>
+                    <tal:boucle tal:repeat="province allProvinces">
+                        <option value=""
+                                selected=""
+                                tal:attributes="value province/prov_pk;
+                                                selected python: commune.com_prov_fk==province.prov_pk and 'selected' or None;"
+                                tal:content="province/prov_nom"></option>
+                    </tal:boucle>
+                </select>
+            </div>
+            <div class="formControls">
+                <input type="hidden"
+                       name="com_pk"
+                       value=""
+                       tal:attributes="value communePk" />
+                <input type="submit"
+                       value="Modifier" />
+            </div>
         </form>
     </section>
 </div>

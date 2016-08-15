@@ -1,19 +1,12 @@
 <html>
 <head>
-<title> Gites wallons : sélection d'un hébergement par le proprio</TITLE>
+<title> Gites wallons : sÃ©lection d'un hÃ©bergement par le proprio</TITLE>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" >
-<meta name="generator" content="Zope">
-<meta name="author" content="Affinitic">
-<meta name="Keywords" CONTENT="">
-<meta name="Description" CONTENT="">
-<link href="gites_wallons_style.css"
-      type="text/css"
-      rel="stylesheet" />
+<link href="gdwadmin.css" type="text/css" rel="stylesheet" />
 <script language="JavaScript"
         src="gites_wallons_script.js"></script>
 </head>
-
-<body>
+<body class="gdwadmin-content">
 <!-- INFOS CALENDRIER -->
 <fieldset class="fieldsetdescription">
    <legend>Etat des calendriers selon les types d'h&eacute;bergement</legend>

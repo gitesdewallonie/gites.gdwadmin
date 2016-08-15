@@ -4,14 +4,11 @@
 <title> Gites wallons : modification comptabilite</TITLE>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" >
 <dtml-call "RESPONSE.setHeader('Content-Type', 'text/html;charset=UTF-8')">
-<meta name="generator" content="Bluefish 1.0.7">
-<meta name="author" content="alain">
-<meta name="Keywords" CONTENT="">
-<meta name="Description" CONTENT="">
-<link href="gites_wallons_style.css" type=text/css rel=stylesheet>
+<meta name="author" content="Affinitic">
+<link href="gdwadmin.css" type="text/css" rel="stylesheet" />
 <script language=JavaScript src="gites_wallons_script.js"></script>
 </head>
-<body>
+<body class="gdwadmin-content">
 <span class="titre_page">Formulaire de modification d'une comptabilité</span><br><br>
 <form action="zsql_compta_update" method="get">
 
@@ -137,12 +134,12 @@ Liste dynamique des heb par proprio avec somme a payer pour publiction sue site 
 	<tr>
 		<td>Commande</td>
 		<td>Total à payer</td>
-		<td>Date de commande</td>		
+		<td>Date de commande</td>
 		<td>Paiement effectué</td>
 		<td>Controle montant payé</td>
-		<td>Montant déjà payé</td>		
+		<td>Montant déjà payé</td>
 	</tr>
-	<tr>		
+	<tr>
 		<td>&nbsp;</td>
 		<td>&nbsp;</td>
 		<td>&nbsp;</td>
@@ -164,11 +161,11 @@ Liste dynamique des heb par proprio avec somme a payer pour publiction sue site 
 	<tr>
 		<td>Opération</td>
 		<td>Montant à payer</td>
-		<td>Date de paiement</td>		
+		<td>Date de paiement</td>
 		<td>Controle du paiement</td>
-		<td>Montant paiement</td>		
+		<td>Montant paiement</td>
 	</tr>
-	<tr>		
+	<tr>
 		<td>&nbsp;</td>
 		<td>&nbsp;</td>
 		<td>&nbsp;</td>
@@ -190,12 +187,12 @@ Liste dynamique des heb par proprio avec somme a payer pour publiction sue site 
 	<tr>
 		<td>Etat</td>
 		<td>Hébergement labellisé</td>
-		<td>A payer</td>		
+		<td>A payer</td>
 		<td>Date de paiment</td>
-		<td>Controle du paiement</td>	
+		<td>Controle du paiement</td>
 		<td>Montant payé</td>
 	</tr>
-	<tr>		
+	<tr>
 		<td><img src="images/blerouge.gif">retard<br><img src="images/bleverte.gif">en ordre&nbsp;&nbsp;net_etat</td>
 		<td>&nbsp;</td>
 		<td>&nbsp;</td>

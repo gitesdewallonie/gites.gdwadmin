@@ -4,19 +4,15 @@
 <title> Gites wallons : info hebergement</TITLE>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <dtml-call "RESPONSE.setHeader('Content-Type', 'text/html;charset=UTF-8')">
-<meta name="Generator" CONTENT="EditPlus">
-<meta name="Author" CONTENT="www.isips.be">
-<meta name="Keywords" CONTENT="">
-<meta name="Description" CONTENT="">
-<link href="gites_wallons_style.css" type=text/css rel=stylesheet>
+<link href="gdwadmin.css" type="text/css" rel="stylesheet" />
 <script language=JavaScript src="gites_wallons_script.js"></script>
 </head>
-<body>
+<body class="gdwadmin-content">
 <table>
 	<tr>
 		<td colspan="2" align="center">
 			<span class="titre_page">
-				..:: Information sur l'hébergement ::..
+				..:: Information sur l'hÃ©bergement ::..
 			</span>
 		</td>
 	</tr>
@@ -28,13 +24,13 @@
 	<tr>
 		<td align="right">Nom </td>
 		<td><b><dtml-var heb_nom></b></td>
-	</tr>	
+	</tr>
 	<tr>
 		<td align="right">Adresse </td>
 		<td><b><dtml-var heb_adresse></b></td>
 	</tr>
 	<tr>
-		<td align="right">Localité </td>
+		<td align="right">LocalitÃ© </td>
 		<td><b><dtml-var heb_localite></b></td>
 	</tr>
 	<tr>
@@ -64,16 +60,16 @@
 				<img src="images/1_epis.gif"><img src="images/1_epis.gif"><img src="images/1_epis.gif">
 			<dtml-elif "heb_nbre_epis=='4'">
 				<img src="images/1_epis.gif"><img src="images/1_epis.gif"><img src="images/1_epis.gif"><img src="images/1_epis.gif">
-			</dtml-if>			
+			</dtml-if>
 		</td>
-	</tr>	
+	</tr>
 	<tr>
 		<td>&nbsp;</td>
 		<td>&nbsp;</td>
 	</tr>
 	<tr>
 		<td colspan="2" align="center">
-			<img src="vignettes_heb/<dtml-var heb_code_gdw>00.jpg" />			
+			<img src="vignettes_heb/<dtml-var heb_code_gdw>00.jpg" />
 		</td>
 	</dtml-in>
 </table>

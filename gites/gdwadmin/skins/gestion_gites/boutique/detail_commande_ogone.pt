@@ -3,14 +3,11 @@
 <head>
 <title> Gites wallons : commande boutique</TITLE>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" >
-<meta name="generator" content="Bluefish 1.0.7">
-<meta name="author" content="alain">
-<meta name="Keywords" CONTENT="">
-<meta name="Description" CONTENT="">
-<link href="gites_wallons_style.css" type=text/css rel=stylesheet>
+<meta name="author" content="Affinitic">
+<link href="gdwadmin.css" type="text/css" rel="stylesheet" />
 <script language=JavaScript src="gites_wallons_script.js"></script>
 </head>
-<body>
+<body class="gdwadmin-content">
    <span class="titre_page">Détail de la commandes OGONE</span><br><br>
    <tal:requete tal:define="Commandes python:here.gestion_table.boutique.zsql_commande_ogone_select_by_pk()">
       <ul tal:repeat="com Commandes">
@@ -38,7 +35,7 @@
          <li>Date de commande : <span tal:content="com/com_date_commande" class="donnees_base" /></li>
          <li>Date de validation : <span tal:content="com/com_date_validation" class="donnees_base" /></li>
          <li>Date d'envoi : <span tal:content="com/com_date_envoi" class="donnees_base" /></li>
-         <li>Etat : <span tal:content="com/com_etat" class="donnees_base" /></li>         
+         <li>Etat : <span tal:content="com/com_etat" class="donnees_base" /></li>
       </ul>
    </tal:requete>
 </body>

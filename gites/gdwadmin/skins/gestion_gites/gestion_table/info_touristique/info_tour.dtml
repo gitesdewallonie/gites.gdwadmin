@@ -4,14 +4,11 @@
 <title> Gites wallons : gestion table theme gite </TITLE>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" >
 <dtml-call "RESPONSE.setHeader('Content-Type', 'text/html;charset=UTF-8')">
-<meta name="generator" content="Bluefish 1.0.7">
-<meta name="author" content="alain">
-<meta name="Keywords" CONTENT="">
-<meta name="Description" CONTENT="">
-<link href="gites_wallons_style.css" type=text/css rel=stylesheet>
+<meta name="author" content="Affinitic">
+<link href="gdwadmin.css" type="text/css" rel="stylesheet" />
 <script language=JavaScript src="gites_wallons_script.js"></script>
 </head>
-<body>
+<body class="gdwadmin-content">
 <span class="titre_page">Gestion de la table des informations touristiques</span>
 <br /><br />
 <form name="formulaire" action="mod_sup_info_tour" method="get">
@@ -44,10 +41,10 @@
                <tr bgcolor="#E6FED9">
             </dtml-if>
             <td width="15">
-               <input type="radio" 
-                      name="infotour_pk" 
+               <input type="radio"
+                      name="infotour_pk"
                       value="<dtml-var infotour_pk>">
-            </td>		
+            </td>
             <td>
                <dtml-var infotour_nom>
             </td>
@@ -75,7 +72,7 @@
             </td>
             <td>
                <dtml-var mais_nom>
-            </td>            
+            </td>
             </tr>
          </dtml-in>
       <tr>
@@ -90,13 +87,13 @@
 
 <br /><br />
 
-<form name="formulaire_creation" 
-      action="traiter_insertion_info_tour" 
+<form name="formulaire_creation"
+      action="traiter_insertion_info_tour"
       method="get">
-   <table border="1" 
-          cellspacing="0" 
-          cellpadding="0" 
-          width="75%" 
+   <table border="1"
+          cellspacing="0"
+          cellpadding="0"
+          width="75%"
           bordercolor="#EEEFEE">
       <tr>
          <td colspan="3" align="left" bgcolor="#006666">
@@ -104,12 +101,12 @@
                Créer une nouvelle information touristique
             </span>
          </td>
-      </tr>	
+      </tr>
       <tr>
          <td>Nom</td>
          <td>
-            <input type="text" 
-                   name="infotour_nom" 
+            <input type="text"
+                   name="infotour_nom"
                    value=""
                    size="50">
          </td>
@@ -117,8 +114,8 @@
       <tr>
          <td>Adresse</td>
          <td>
-            <input type="text" 
-                   name="infotour_adresse" 
+            <input type="text"
+                   name="infotour_adresse"
                    value=""
                    size="50">
          </td>
@@ -129,7 +126,7 @@
             <select name="infotour_commune_fk">
                <option>... </option>
                <dtml-in zsql_select_all_commune>
-                  <option value="<dtml-var com_pk>" selected> <dtml-var com_cp> <dtml-var com_nom></option>                    
+                  <option value="<dtml-var com_pk>" selected> <dtml-var com_cp> <dtml-var com_nom></option>
                </dtml-in>
             </select>
          </td>
@@ -137,8 +134,8 @@
       <tr>
          <td>Localité</td>
          <td>
-            <input type="text" 
-                   name="infotour_localite" 
+            <input type="text"
+                   name="infotour_localite"
                    value=""
                    size="50">
          </td>
@@ -146,8 +143,8 @@
       <tr>
          <td>URL</td>
          <td>
-            <input type="text" 
-                   name="infotour_url" 
+            <input type="text"
+                   name="infotour_url"
                    value=""
                    size="50">
          </td>
@@ -155,8 +152,8 @@
       <tr>
          <td>Coord GPS Long</td>
          <td>
-            <input type="text" 
-                   name="infotour_gps_long" 
+            <input type="text"
+                   name="infotour_gps_long"
                    value=""
                    size="50">
          </td>
@@ -164,8 +161,8 @@
       <tr>
          <td>Coord GPS Lat</td>
          <td>
-            <input type="text" 
-                   name="infotour_gps_lat" 
+            <input type="text"
+                   name="infotour_gps_lat"
                    value=""
                    size="50">
          </td>
@@ -177,9 +174,9 @@
 	         <dtml-in "admin_base.info_touristique.zsql_type_info_tour_select_all()">
                     <option value="<dtml-var typinfotour_pk>">
                        <dtml-var "typinfotour_nom_fr">
-                    </option>                  
+                    </option>
                  </dtml-in>
-           </select>      
+           </select>
          </td>
       </tr>
       <tr>
@@ -188,7 +185,7 @@
          </td>
       </tr>
    </table>
-</form>	
+</form>
 
 </body>
 </html>

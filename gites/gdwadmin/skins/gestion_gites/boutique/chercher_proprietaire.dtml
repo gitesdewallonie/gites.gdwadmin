@@ -4,14 +4,11 @@
 <title> Gites wallons : commande boutique</TITLE>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" >
 <dtml-call "RESPONSE.setHeader('Content-Type', 'text/html;charset=UTF-8')">
-<meta name="generator" content="Bluefish 1.0.7">
-<meta name="author" content="alain">
-<meta name="Keywords" CONTENT="">
-<meta name="Description" CONTENT="">
-<link href="gites_wallons_style.css" type=text/css rel=stylesheet>
+<meta name="author" content="Affinitic">
+<link href="gdwadmin.css" type="text/css" rel="stylesheet" />
 <script language=JavaScript src="gites_wallons_script.js"></script>
 </head>
-<body>
+<body class="gdwadmin-content">
 <span class="titre_page">Formulaire de commande pour la boutique</span><br><br>
 <form action="commande" method="get">
 <!---[DEBUT RECHERCHER]---------------------------------------------------------------------------------------------------->
@@ -39,7 +36,7 @@
 	<tr>
 		<td>Localité</td>
 		<td><input type="text" name="proprio_localite" value="">proprio_localité</td>
-	</tr>	
+	</tr>
 </table>
 <!---[FIN RECHERCHER]------------------------------------------------------------------------------------------------------->
 <br><br>

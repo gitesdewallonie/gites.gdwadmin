@@ -4,14 +4,11 @@
 <title> Gites wallons : commande boutique</TITLE>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" >
 <dtml-call "RESPONSE.setHeader('Content-Type', 'text/html;charset=UTF-8')">
-<meta name="generator" content="Bluefish 1.0.7">
-<meta name="author" content="alain">
-<meta name="Keywords" CONTENT="">
-<meta name="Description" CONTENT="">
-<link href="gites_wallons_style.css" type=text/css rel=stylesheet>
+<meta name="author" content="Affinitic">
+<link href="gdwadmin.css" type="text/css" rel="stylesheet" />
 <script language=JavaScript src="gites_wallons_script.js"></script>
 </head>
-<body>
+<body class="gdwadmin-content">
 <span class="titre_page">Formulaire de commande pour la boutique</span><br><br>
 <!---[DEBUT INFORMATION PROPRIETAIRE]-------------------------------------------------------------------------------------->
 <table border="1" cellspacing="0" bordercolor="#EEEFEE">
@@ -49,7 +46,7 @@
 	</tr>
 </table>
 <!---[FIN INFORMATION PROPRIETAIRE]----------------------------------------------------------------------------------------->
-<form action="zsql_commande_in" method="get">	
+<form action="zsql_commande_in" method="get">
 Listing dynamique des produits invariables depuis la base de données
 <table border="1" cellspacing="0" bordercolor="#EEEFEE">
 	<tr>
@@ -64,8 +61,8 @@ Listing dynamique des produits invariables depuis la base de données
 		<td align="center"><b>Nom articles invariables</b></td>
 		<td align="center"><b>Prix TVAC</b></td>
 		<td align="center"><b>Nombre</b></td>
-		<td align="center"><b>Total</b></td>		
-	</tr>	
+		<td align="center"><b>Total</b></td>
+	</tr>
 	<tr>
 		<td align="center"><input type="radio" name="prod_pk" value="1">prod_pk</td>
 		<td align="center"> prod_prix_tvac</td>
@@ -80,15 +77,15 @@ Listing dynamique des produits variables depuis la base de données
 		<td align="center"><b>Prix TVAC</b></td>
 		<td align="center"><b>Poids</b></td>
 		<td align="center"><b>Nombre</b></td>
-		<td align="center"><b>Total</b></td>		
-	</tr>	
+		<td align="center"><b>Total</b></td>
+	</tr>
 	<tr>
 		<td align="center"> <input type="radio" name="prod_pk" value="1">prod_pk</td>
 		<td align="center"> <input type="text" name="prod_prix_tvac" value="">prod_prix_tvac</td>
 		<td align="center"> <input type="text" name="prod_poids" value="">prod_poids</td>
 		<td align="center"> <input type="text" name="prod_nbre" value="">prod_nbre</td>
 		<td align="center"> <input type="text" name="prod_total" value="">prod_total</td>
-	</tr>	
+	</tr>
 </table>
 <br><br><br>
 <table border="1" cellspacing="0" bordercolor="#EEEFEE">

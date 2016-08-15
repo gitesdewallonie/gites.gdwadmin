@@ -4,16 +4,12 @@
 <title> Gites wallons : gestion table theme gite </TITLE>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" >
 <dtml-call "RESPONSE.setHeader('Content-Type', 'text/html;charset=UTF-8')">
-<meta name="generator" content="Bluefish 1.0.7">
-<meta name="author" content="alain">
-<meta name="Keywords" CONTENT="">
-<meta name="Description" CONTENT="">
-<link href="gites_wallons_style.css" type=text/css rel=stylesheet>
+<meta name="author" content="Affinitic">
+<link href="gdwadmin.css" type="text/css" rel="stylesheet" />
 <script language=JavaScript src="gites_wallons_script.js"></script>
 </head>
-
-<body>
-<span class="titre_page">Gestion de la table des types de tables d'hôtes</span><br><br>
+<body class="gdwadmin-content">
+<span class="titre_page">Gestion de la table des types de tables d'hÃ´tes</span><br><br>
 
 
 <!---[gestion de la suppression d'un type de table]--->
@@ -25,57 +21,57 @@
 
 
 <!---[Gestion de la modification d'un type de table]--->
-<dtml-if "operation == 'modifier'">   
+<dtml-if "operation == 'modifier'">
    <form name="formulaire" action="traiter_modification_table_hote" method="get">
       <table width="95%" border="1" cellspacing="0" bordercolor="#EEEFEE">
          <tr>
             <td colspan="4" align="left" bgcolor="#006666">
             <span class="titre_encodage">
-            Type de table d'hôte �  modifier
-            </span>	
+            Type de table d'hÃ´te Ã  modifier
+            </span>
             </td>
          </tr>
          <dtml-in "admin_base.table_hote.zsql_table_hote_select_by_pk(tabho_pk=tabho_pk)">
-            <tr>           
+            <tr>
                <td align="right">Type FR</td>
                <td>
                   <input type="text" name="tabho_type_fr" value="<dtml-var tabho_type_fr>" size="50">
-               </td>        
+               </td>
             </tr>
-            <tr>           
+            <tr>
                <td align="right">Type NL</td>
                <td>
                   <input type="text" name="tabho_type_nl" value="<dtml-var tabho_type_nl>" size="50">
-               </td>        
-            </tr> 
-            <tr>           
+               </td>
+            </tr>
+            <tr>
                <td align="right">Type DE</td>
                <td>
                   <input type="text" name="tabho_type_de" value="<dtml-var tabho_type_de>" size="50">
-               </td>        
-            </tr>  
-            <tr>           
+               </td>
+            </tr>
+            <tr>
                <td align="right">Type IT</td>
                <td>
                   <input type="text" name="tabho_type_it" value="<dtml-var tabho_type_it>" size="50">
-               </td>        
-            </tr> 
-            <tr>           
+               </td>
+            </tr>
+            <tr>
                <td align="right">Type EN</td>
                <td>
                   <input type="text" name="tabho_type_en" value="<dtml-var tabho_type_en>" size="50">
-               </td>        
-            </tr>               
+               </td>
+            </tr>
             <tr>
                <td colspan="4" align="center">
                   <input type="hidden" name="tabho_pk" value="<dtml-var tabho_pk>">
                   <dtml-var bouton_modifier>
-               </td>        
+               </td>
             </tr>
          </dtml-in>
       </table>
    <input type="hidden" name="operation" value="">
-   </form>  
+   </form>
 </dtml-if>
 
 </body>

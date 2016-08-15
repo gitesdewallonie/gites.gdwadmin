@@ -4,20 +4,17 @@
 <title> Gites wallons : création hébergement </TITLE>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" >
 <dtml-call "RESPONSE.setHeader('Content-Type', 'text/html;charset=UTF-8')">
-<meta name="generator" content="TextMate">
 <meta name="author" content="Affinitic">
-<meta name="Keywords" CONTENT="">
-<meta name="Description" CONTENT="">
-<link href="gites_wallons_style.css" type=text/css rel=stylesheet>
+<link href="gdwadmin.css" type="text/css" rel="stylesheet" />
 <script language=JavaScript src="gites_wallons_script.js"></script>
 </head>
-<body>
+<body class="gdwadmin-content">
 <span class="titre_page">Création d'un hébergement</span><br><br>
 
-<form action="traiter_insertion_heb2" 
+<form action="traiter_insertion_heb2"
       method="post">
-<input type="hidden" 
-            name="fheb_pro_fk" 
+<input type="hidden"
+            name="fheb_pro_fk"
             value="<dtml-var fpro_pk>" />
 <table border="1" cellspacing="0" bordercolor="#EEEFEE">
     <tr>
@@ -54,27 +51,27 @@
    <tr>
       <td>Nom de l'hébergement</td>
       <td>
-         <input type="text" 
-                name="fheb_nom" 
+         <input type="text"
+                name="fheb_nom"
                 value=""
                 size="60" />
       </td>
    </tr>
    <tr>
       <td>Province</td>
-      <td>        
+      <td>
          <select name="fheb_prov_fk">
             <dtml-in zsql_select_all_province>
                <option value="<dtml-var prov_pk>"> <dtml-var prov_nom></option>
-            </dtml-in>                    
+            </dtml-in>
          </select>
       </td>
    </tr>
    <tr>
       <td>Adresse</td>
       <td>
-         <input type="text" 
-                   name="fheb_adresse" 
+         <input type="text"
+                   name="fheb_adresse"
                    value=""
                    size="60" />
       </td>
@@ -85,10 +82,10 @@
          <select name="fheb_com_fk">
             <dtml-in zsql_select_all_commune>
                <option value="<dtml-var com_pk>"> <dtml-var com_cp>&nbsp;&nbsp;<dtml-var com_nom></option>
-            </dtml-in>                       
+            </dtml-in>
          </select>
       </td>
-   </tr> 
+   </tr>
    <tr>
       <td>Région guide</td>
       <td>
@@ -107,7 +104,7 @@
    <tr>
       <td colspan="2" align="left" bgcolor="#006666">
          <span class="titre_encodage">CGT</span>
-      </td>    
+      </td>
    </tr>
    <tr>
       <td>Reconnaissance<br>Classification
@@ -126,10 +123,10 @@
          <select name="fheb_typeheb_fk">
             <dtml-in zsql_select_all_type_heb>
                <option value="<dtml-var type_heb_pk>"> <dtml-var type_heb_code></option>
-            </dtml-in>           
+            </dtml-in>
          </select>
       </td>
-   </tr> 
+   </tr>
    <tr>
       <td>Code CGT</td>
       <td><input type="text" name="fheb_code_cgt" value=""></td>
@@ -137,11 +134,11 @@
    <tr>
       <td rowspan="3">Capacité</td>
       <td>
-         min : <input type="text" name="fheb_cgt_cap_min" value="">  
+         min : <input type="text" name="fheb_cgt_cap_min" value="">
       </td>
    <tr>
       <td>
-         max : <input type="text" name="fheb_cgt_cap_max" value="">  
+         max : <input type="text" name="fheb_cgt_cap_max" value="">
       </td>
    </tr>
    <tr>
@@ -154,13 +151,13 @@
          <input type="hidden"
                 name="fheb_employe_creation"
                 value="<dtml-var "AUTHENTICATED_USER.getUserName()">" />
-         <input type="submit" 
+         <input type="submit"
                 value="Enregister" />
          &nbsp; :: &nbsp;
          <input type="reset"
                 value="Effacer" />
       </td>
-   </tr> 
+   </tr>
 </table>
 
 </form>
