@@ -22,7 +22,6 @@ background-color:rgba(200,200,200,0.4);
 border-radius:12px;
 }
 
-
 body.gdwadmin-content table{
 font-family: verdana, tahoma, helvetica, sans serif;
 font-size: 10;
@@ -43,6 +42,12 @@ body.gdwadmin-content legend {
 background: transparent;
 padding: 0em 0.3em 0em 0.3em;
 color: #c9252b;
+}
+
+
+body.gdwadmin-content .info-discrete{
+color:#ccc;
+font-size:0.8em;
 }
 
 
@@ -114,6 +119,22 @@ color:#fff;
 background:#50d6ad;
 }
 
+
+body.gdwadmin-content div section.donnee-db form div.formControls input.btn-supprimer{
+cursor:pointer;
+border:2px solid #ff3553;
+border-radius:25px;
+padding:8px;
+color:#ff3553;
+font-size:1.2em;
+background:#fff;
+transition: all 0.3s ease-in-out;
+}
+
+body.gdwadmin-content div section.donnee-db form div.formControls input.btn-supprimer:hover{
+color:#fff;
+background:#ff3553;
+}
 
 body.gdwadmin-content .texte-left{
 text-align:left;
@@ -331,8 +352,6 @@ text-decoration: underline overline;
 body.gdwadmin-content .fieldset_resultat{
 border: 1px dashed #555555;
 margin: 1em 1em 1em 0.7em;
-/*padding: 0em 0em 0em 0em;*/
-/*line-height: 1.5em;*/
 width: auto;
 text-align: left;
 }
@@ -352,7 +371,10 @@ background-repeat:no-repeat;
 
 body.gdwadmin-content section.donnee-db{
 width:95%;
-margin:auto;
+margin:1em auto;
+border:1px solid #ccc;
+border-radius:12px;
+padding:0.5em;
 }
 
 body.gdwadmin-content section.donnee-db h2{
@@ -397,7 +419,7 @@ body.gdwadmin-content .btn-modifier-listing{
 width:12px;
 height:12px;
 border:none;
-background-image:url(images/btn_modifier_listing.png);
+background-image:url(btn_modifier_listing.png);
 background-position:left top;
 background-repeat:no-repeat;
 cursor:pointer;
@@ -407,10 +429,4 @@ margin:auto;
 body.gdwadmin-content .btn-modifier-listing:hover{
 background-position:left -12px;
 }
-
-
-
-
-
-
 

@@ -11,7 +11,6 @@
                  gestionCommuneView context/@@communeView;
                  gestionProvinceView context/@@provinceView;
                  commune python:gestionCommuneView.getCommuneByPk(communePk)">
-    xx<soan tal:content="communePk" />xx
     <h1 class="titre_page">Gestion de la table commune</h1>
     <section tal:define="allProvinces python:gestionProvinceView.getAllProvinces();"
              class="donnee-db">
@@ -19,6 +18,13 @@
         <form action="updateCommune"
               method="post"
               class="formulaire">
+            <p class="info-discrete">
+                PK : <span tal:content="communePk" />
+            </p>
+            <p class="info-discrete">
+                Google Id : <span tal:content="commune/com_id" />
+            </p>
+
             <div class="formInput">
                 <label for="com-nom">Nom</label>
                 <input type="text"
@@ -45,6 +51,10 @@
                        size="8"
                        value=""
                        tal:attributes="value commune/com_ins" />
+                &nbsp;&nbsp;&nbsp;
+                <a href="http://www.notrebelgique.be/fr/index.php?nv=37"
+                   target="_blank"
+                   title="Codes INS par ordre alphabétique"><img src="information.png" /><a>
             </div>
             <div class="formInput">
                 <label for="com-prov-fk">Province</label>
@@ -67,6 +77,19 @@
                        tal:attributes="value communePk" />
                 <input type="submit"
                        value="Modifier" />
+            </div>
+        </form>
+        <form action="deleteCommune"
+              method="post"
+              class="formulaire">
+        <div class="formControls">
+                <input type="hidden"
+                       name="com_pk"
+                       value=""
+                       tal:attributes="value communePk" />
+                <input type="submit"
+                       class="btn-supprimer"
+                       value="Supprimer" />
             </div>
         </form>
     </section>

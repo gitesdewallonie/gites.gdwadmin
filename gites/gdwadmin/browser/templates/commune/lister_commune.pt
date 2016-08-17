@@ -9,11 +9,26 @@
         src="gites_wallons_script.js"></script>
 </head>
 <body class="gdwadmin-content">
-<div tal:define="gestionCommuneView context/@@communeView">
+<div tal:define="gestionCommuneView context/@@communeView;
+                 gestionProvinceView context/@@provinceView;
+                 allProvinces python:gestionProvinceView.getAllProvinces()">
     <h1 class="titre_page">Gestion de la table commune</h1>
+    <section>
+        <a href="#communes-francophones">
+            <img src="flch_blanche.png" />
+            Communes francophones</a>
+        <a href="#communes-neerlandophones">
+            <img src="flch_blanche.png" />
+            Communes néerlandophones</a>
+        <a href="#ajouter-une-commune">
+            <img src="flch_blanche.png" />
+            Ajouter une commune</a>
+    </section>
+
     <section tal:define="allCommunes python:gestionCommuneView.getAllCommunesByRegion('F');"
              class="donnee-db">
-        <h2 class="titre_encodage">Liste des communes francophones</h2>
+        <h2 id="communes-francophones"
+            class="titre_encodage">Liste des communes francophones</h2>
         <table class="listing">
             <thead>
                 <tr align="center" valign="top">
@@ -54,7 +69,8 @@
     </section>
     <section tal:define="allCommunes python:gestionCommuneView.getAllCommunesByRegion('N');"
              class="donnee-db">
-        <h2 class="titre_encodage">Liste des communes néerlandophones</h2>
+        <h2 id="communes-neerlandophones"
+            class="titre_encodage">Liste des communes néerlandophones</h2>
         <table class="listing">
             <thead>
                 <tr align="center" valign="top">
@@ -79,6 +95,58 @@
                 </tal:boucle>
             </tbody>
         </table>
+    </section>
+    <section class="donnee-db">
+        <h2 id="ajouter-une-commune"
+            class="titre_encodage">Ajouter une commune</h2>
+        <form action="insertCommune"
+              method="post"
+              class="formulaire">
+            <div class="formInput">
+                <label for="com-nom">Nom</label>
+                <input type="text"
+                       id="com-nom"
+                       name="com_nom"
+                       size="50"
+                       value="" />
+            </div>
+            <div class="formInput">
+                <label for="com-cp">CP</label>
+                <input type="text"
+                       id="com-cp"
+                       name="com_cp"
+                       size="8"
+                       value="" />
+            </div>
+            <div class="formInput">
+                <label for="com-ins">INS</label>
+                <input type="text"
+                       id="com-ins"
+                       name="com_ins"
+                       size="8"
+                       value="" />
+                &nbsp;&nbsp;&nbsp;
+                <a href="http://www.notrebelgique.be/fr/index.php?nv=37"
+                   target="_blank"
+                   title="Codes INS par ordre alphabétique"><img src="information.png" /><a>
+            </div>
+            <div class="formInput">
+                <label for="com-prov-fk">Province</label>
+                <select name="com_prov_fk"
+                        id="com-prov-fk">
+                    <option value="">  </option>
+                    <tal:boucle tal:repeat="province allProvinces">
+                        <option value=""
+                                tal:attributes="value province/prov_pk"
+                                tal:content="province/prov_nom"></option>
+                    </tal:boucle>
+                </select>
+            </div>
+            <div class="formControls">
+                <input type="submit"
+                       value="Ajouter" />
+            </div>
+        </form>
     </section>
 </div>
 

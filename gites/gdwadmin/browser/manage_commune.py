@@ -96,3 +96,21 @@ class CommuneView(BrowserView):
         cible = "%s/portal_skins/gestion_gites/lister-les-communes" % self.context.portal_url()
         self.request.response.redirect(cible)
         return ''
+
+    def deleteCommune(self):
+        """
+        Delete a commune
+        """
+        fields = self.context.REQUEST
+        communePk = getattr(fields, 'com_pk', None)
+        wrapper = getSAWrapper('gites_wallons')
+        session = wrapper.session
+        query = session.query(Commune)
+        query = query.filter(Commune.com_pk == communePk)
+        commune = query.one()
+        session.delete(commune)
+        session.flush()
+
+        cible = "%s/portal_skins/gestion_gites/lister-les-communes" % self.context.portal_url()
+        self.request.response.redirect(cible)
+        return ''

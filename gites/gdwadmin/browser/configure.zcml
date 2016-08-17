@@ -66,6 +66,16 @@
         allowed_interface=".interfaces.ICommuneView"
         />
 
+    <browser:page
+        name="deleteCommune"
+        for="*"
+        class=".manage_commune.CommuneView"
+        attribute="deleteCommune"
+        permission="gdw.ViewAdmin"
+        allowed_interface=".interfaces.ICommuneView"
+        />
+
+
 <!-- LOCALITES -->
     <browser:page
         for="*"
