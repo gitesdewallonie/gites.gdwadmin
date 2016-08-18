@@ -12,16 +12,6 @@
         name="gdwadmin core"
         />
 
-    <browser:resource
-        name="jquery-latest.js"
-        file="js/jquery-latest.js"
-        />
-
-    <browser:resource
-        name="jquery.tablesorter.js"
-        file="js/jquery.tablesorter.js"
-        />
-
 
 <!-- UTILS -->
     <browser:page
