@@ -32,6 +32,8 @@ class CommuneView(BrowserView):
             provincePk = [0]
         if langue == "F":
             provincePk = [1, 2, 3, 4, 5, 6]
+        if langue == 'E':
+            provincePk = [7]
         wrapper = getSAWrapper('gites_wallons')
         session = wrapper.session
         query = session.query(Commune)
