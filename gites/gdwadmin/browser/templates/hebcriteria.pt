@@ -2,6 +2,7 @@
       xml:lang="en" lang="en"
       metal:use-macro="here/main_template/macros/master"
       i18n:domain="cerise">
+<head>
 </head>
 <body class="gdwadmin-content">
 <div metal:fill-slot="main"
