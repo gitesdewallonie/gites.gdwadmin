@@ -1,0 +1,82 @@
+<html>
+<head>
+<title> Gites wallons : s&eacute;lection d'un h&eacute;bergement par le proprio</TITLE>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" >
+<link href="gdwadmin.css" type="text/css" rel="stylesheet" />
+<script src="++resource++jquery-latest.js"></script>
+<script src="++resource++jquery.tablesorter.js"></script>
+<script src="++resource++gdwadmin.js"></script>
+</head>
+<body class="gdwadmin-content">
+<div tal:define="localitePk request/localitePk;
+                 gestionLocaliteView context/@@localiteView;
+                 gestionCommuneView context/@@communeView;
+                 allCommunes python:gestionCommuneView.getAllCommunes()">
+
+    <h1 class="titre_page">Gestion de la table des localités</h1>
+
+    <section tal:define="localite python:gestionLocaliteView.getLocaliteByPk(localitePk)"
+             class="donnee-db">
+        <h2 class="titre_encodage">Modifier une localité</h2>
+        <form action="updateLocalite"
+              method="post"
+              class="formulaire">
+            <div class="formInput">
+                <label for="localite-nom">Nom</label>
+                <input type="text"
+                       id="localite-nom"
+                       name="localite_nom"
+                       size="50"
+                       value=""
+                       tal:attributes="value localite/localite_nom" />
+            </div>
+            <div class="formInput">
+                <label for="localite-cp">CP</label>
+                <input type="text"
+                       id="localite-cp"
+                       name="localite_cp"
+                       size="8"
+                       value=""
+                       tal:attributes="value localite/localite_cp" />
+            </div>
+            <div class="formInput">
+                <label for="localite-ins">INS</label>
+                <input type="text"
+                       id="localite-ins"
+                       name="localite_ins"
+                       size="8"
+                       value=""
+                       tal:attributes="value localite/localite_ins" />
+                &nbsp;&nbsp;&nbsp;
+                <a href="http://www.notrebelgique.be/fr/index.php?nv=37"
+                   target="_blank"
+                   title="Codes INS par ordre alphabétique"><img src="information.png" /><a>
+            </div>
+            <div class="formInput">
+                <label for="localite-commune-fk">Commune</label>
+                <select name="localite_commune_fk"
+                        id="localite-commune-fk">
+                    <option value="">  </option>
+                    <tal:boucle tal:repeat="commune allCommunes">
+                        <option value=""
+                                selected=""
+                                tal:attributes="value commune/com_pk;
+                                                selected python: localite.localite_commune_fk==commune.com_pk and 'selected' or None;"
+                                tal:content="commune/com_nom"></option>
+
+                    </tal:boucle>
+                </select>
+            </div>
+            <div class="formControls">
+                <input type="hidden"
+                       name="localite_pk"
+                       value=""
+                       tal:attributes="value localitePk" />
+                <input type="submit"
+                       value="Modifier" />
+            </div>
+        </form>
+    </section>
+</div>
+</body>
+</html>

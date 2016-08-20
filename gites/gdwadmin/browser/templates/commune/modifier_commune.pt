@@ -11,7 +11,7 @@
                  gestionCommuneView context/@@communeView;
                  gestionProvinceView context/@@provinceView;
                  commune python:gestionCommuneView.getCommuneByPk(communePk)">
-    <h1 class="titre_page">Gestion de la table commune</h1>
+    <h1 class="titre_page">Gestion de la table des communes</h1>
     <section tal:define="allProvinces python:gestionProvinceView.getAllProvinces();"
              class="donnee-db">
         <h2 class="titre_encodage">Modifier une commune</h2>

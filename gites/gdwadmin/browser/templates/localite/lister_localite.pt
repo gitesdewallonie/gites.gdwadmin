@@ -3,80 +3,117 @@
 <title> Gites wallons : s&eacute;lection d'un h&eacute;bergement par le proprio</TITLE>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" >
 <link href="gdwadmin.css" type="text/css" rel="stylesheet" />
-<script language="JavaScript"
-        src="gites_wallons_script.js"></script>
+<script src="++resource++jquery-latest.js"></script>
+<script src="++resource++jquery.tablesorter.js"></script>
+<script src="++resource++gdwadmin.js"></script>
 </head>
 <body class="gdwadmin-content">
-<div tal:define="gestionCommuneView context/@@communeView">
-    <h1 class="titre_page">Gestion de la table commune</h1>
-    <section tal:define="allCommunes python:gestionCommuneView.getAllCommunesByRegion('F');"
-             class="donnee-db">
-        <h2 class="titre_encodage">Liste des communes francophones</h2>
-        <table class="listing">
+<div tal:define="gestionLocaliteView context/@@localiteView;
+                 gestionCommuneView context/@@communeView;
+                 allLocalites python:gestionLocaliteView.getAllLocalites();
+                 allCommunes python:gestionCommuneView.getAllCommunes()">
+    <h1 class="titre_page">Gestion de la table des localités</h1>
+    <nav id="lister-les-localites"
+         class="menu-listing-commune">
+        <a href="#ajouter-une-localite">
+            <img src="flch_blanche.png" />
+            Ajouter une localite</a>
+    </nav>
+
+    <section class="donnee-db">
+        <h2 class="titre_encodage">Liste des localités</h2>
+        <table id="table-listing-localites" class="listing tablesorter">
             <thead>
                 <tr align="center" valign="top">
                     <th></th>
-                    <th>CP</th>
-                    <th>Nom</th>
-                    <th>INS</th>
-                    <th>Province</th>
-                    <th>ID Google</th>
+                    <th>CP Commune</th>
+                    <th>Commune</th>
+                    <th>Localité</th>
+                    <th>CP Localité</th>
                 </tr>
             </thead>
             <tbody>
-                <tal:boucle tal:repeat="commune allCommunes">
+                <tal:boucle tal:repeat="localite allLocalites">
                     <tr>
                         <td class="texte-center">
-                            <form action="modifier-une-commune"
+                            <form action="modifier-une-localite"
                                   method="post">
                                   <input type="hidden"
-                                         name="communePk"
+                                         name="localitePk"
                                          value=""
-                                         tal:attributes="communePk commune/com_pk" />
+                                         tal:attributes="value localite/localite_pk" />
                                   <input type="submit"
                                          value=""
                                          class="btn-modifier-listing" />
                             </form>
                         </td>
-                        <td><span tal:content="commune/com_cp"></span></td>
-                        <td><span tal:content="commune/com_nom"></span></td>
-                        <td><span tal:content="commune/com_ins"></span></td>
-                        <td>
-                            <span tal:content="python: commune.province and commune.province.prov_nom or '--'"></span>
-                        </td>
-                        <td><span tal:content="commune/com_id"></span></td>
+                        <td><span tal:content="localite/commune/com_cp"></span></td>
+                        <td><span tal:content="localite/commune/com_nom"></span></td>
+                        <td><span tal:content="localite/localite_nom"></span></td>
+                        <td><span tal:content="localite/localite_cp"></span></td>
                     </tr>
                 </tal:boucle>
             </tbody>
         </table>
     </section>
-    <section tal:define="allCommunes python:gestionCommuneView.getAllCommunesByRegion('N');"
-             class="donnee-db">
-        <h2 class="titre_encodage">Liste des communes néerlandophones</h2>
-        <table class="listing">
-            <thead>
-                <tr align="center" valign="top">
-                    <th>CP</th>
-                    <th>Nom</th>
-                    <th>INS</th>
-                    <th>Province</th>
-                    <th>ID Google</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tal:boucle tal:repeat="commune allCommunes">
-                    <tr>
-                        <td><span tal:content="commune/com_cp"></span></td>
-                        <td><span tal:content="commune/com_nom"></span></td>
-                        <td><span tal:content="commune/com_ins"></span></td>
-                        <td>
-                            <span tal:content="python: commune.province and commune.province.prov_nom or '--'"></span>
-                        </td>
-                        <td><span tal:content="commune/com_id"></span></td>
-                    </tr>
-                </tal:boucle>
-            </tbody>
-        </table>
+
+    <nav id="ajouter-une-localite"
+         class="menu-listing-commune">
+        <a href="#lister-les-localites">
+            <img src="flch_blanche.png" />
+            Lister les localités</a>
+    </nav>
+
+    <section class="donnee-db">
+        <h2 class="titre_encodage">Ajouter une localité</h2>
+        <form action="insertLocalite"
+              method="post"
+              class="formulaire">
+            <div class="formInput">
+                <label for="localite-nom">Nom</label>
+                <input type="text"
+                       id="localite-nom"
+                       name="localite_nom"
+                       size="50"
+                       value="" />
+            </div>
+            <div class="formInput">
+                <label for="localite-cp">CP</label>
+                <input type="text"
+                       id="localite-cp"
+                       name="localite_cp"
+                       size="8"
+                       value="" />
+            </div>
+            <div class="formInput">
+                <label for="localite-ins">INS</label>
+                <input type="text"
+                       id="localite-ins"
+                       name="localite_ins"
+                       size="8"
+                       value="" />
+                &nbsp;&nbsp;&nbsp;
+                <a href="http://www.notrebelgique.be/fr/index.php?nv=37"
+                   target="_blank"
+                   title="Codes INS par ordre alphabétique"><img src="information.png" /><a>
+            </div>
+            <div class="formInput">
+                <label for="localite-commune-fk">Commune</label>
+                <select name="localite_commune_fk"
+                        id="localite-commune-fk">
+                    <option value="">  </option>
+                    <tal:boucle tal:repeat="commune allCommunes">
+                        <option value=""
+                                tal:attributes="value commune/com_pk"
+                                tal:content="commune/com_nom"></option>
+                    </tal:boucle>
+                </select>
+            </div>
+            <div class="formControls">
+                <input type="submit"
+                       value="Ajouter" />
+            </div>
+        </form>
     </section>
 </div>
 </body>

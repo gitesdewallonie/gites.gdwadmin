@@ -22,22 +22,24 @@ fheb_pro_fk=context.REQUEST.fheb_pro_fk
 fheb_date_creation = DateTime()
 fheb_employe_creation = context.REQUEST.fheb_employe_creation
 
-charge_pk=2
+charge_pk = 2
 
-typeHeb=''
-comIns=''
+typeHeb = ''
+comIns = ''
 
-dataTypeHeb=context.admin_base.type_heb.zsql_select_type_heb_typehebpk(type_heb_pk=context.REQUEST.fheb_typeheb_fk)
+dataTypeHeb = context.admin_base.type_heb.zsql_select_type_heb_typehebpk(type_heb_pk=context.REQUEST.fheb_typeheb_fk)
 for elem in dataTypeHeb:
-   typeHeb=elem.type_heb_code
+    typeHeb = elem.type_heb_code
 
-dataCommune=context.admin_base.commune.zsql_select_commune_compk(fcom_pk=context.REQUEST.fheb_com_fk)
+
+dataCommune = context.admin_base.commune.zsql_select_commune_compk(fcom_pk=context.REQUEST.fheb_com_fk)
 for elem in dataCommune:
-   comIns=elem.com_ins
+    comIns = elem.com_ins
 
 
 generer_code_gdw = context.restrictedTraverse('@@generer_code_gdw')
-gdw=generer_code_gdw(typeHeb,comIns)
+gdw = generer_code_gdw(typeHeb, comIns)
+##gdw = '123alain'
 
 existingHebergements = context.admin_base.hebergement.zsql_heb_select_hebcalendar_by_propk(pro_pk=fheb_pro_fk)
 etatCalendrier = 'non actif'  # default

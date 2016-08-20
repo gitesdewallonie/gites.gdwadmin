@@ -5,15 +5,17 @@
 <meta name="author" content="Affinitic">
 <meta name="author" content="Affinitic">
 <link href="gdwadmin.css" type="text/css" rel="stylesheet" />
-<script language="JavaScript"
-        src="gites_wallons_script.js"></script>
+<script src="++resource++jquery-latest.js"></script>
+<script src="++resource++jquery.tablesorter.js"></script>
+<script src="++resource++gdwadmin.js"></script>
 </head>
 <body class="gdwadmin-content">
 <div tal:define="gestionCommuneView context/@@communeView;
                  gestionProvinceView context/@@provinceView;
                  allProvinces python:gestionProvinceView.getAllProvinces()">
-    <h1 class="titre_page">Gestion de la table commune</h1>
-    <section id="communes-francophones">
+    <h1 class="titre_page">Gestion de la table des communes</h1>
+    <nav id="communes-francophones"
+         class="menu-listing-commune">
         <a href="#communes-neerlandophones">
             <img src="flch_blanche.png" />
             Communes néerlandophones</a>
@@ -23,12 +25,12 @@
         <a href="#ajouter-une-commune">
             <img src="flch_blanche.png" />
             Ajouter une commune</a>
-    </section>
+    </nav>
 
     <section tal:define="allCommunes python:gestionCommuneView.getAllCommunesByRegion('F');"
              class="donnee-db">
         <h2 class="titre_encodage">Liste des communes francophones</h2>
-        <table class="listing">
+        <table id="table-listing-communes-francophones" class="listing tablesorter">
             <thead>
                 <tr align="center" valign="top">
                     <th></th>
@@ -67,7 +69,8 @@
         </table>
     </section>
 
-    <section id="communes-neerlandophones">
+    <nav id="communes-neerlandophones"
+         class="menu-listing-commune">
         <a href="#communes-francophones">
             <img src="flch_blanche.png" />
             Communes francophones</a>
@@ -77,14 +80,15 @@
         <a href="#ajouter-une-commune">
             <img src="flch_blanche.png" />
             Ajouter une commune</a>
-    </section>
+    </nav>
 
     <section tal:define="allCommunes python:gestionCommuneView.getAllCommunesByRegion('N');"
              class="donnee-db">
         <h2 class="titre_encodage">Liste des communes néerlandophones</h2>
-        <table class="listing">
+        <table id="table-listing-communes-neerlandophones" class="listing tablesorter">
             <thead>
                 <tr align="center" valign="top">
+                    <th></th>
                     <th>CP</th>
                     <th>Nom</th>
                     <th>INS</th>
@@ -120,7 +124,8 @@
         </table>
     </section>
 
-    <section id="communes-etrangeres">
+    <nav id="communes-etrangeres"
+         class="menu-listing-commune">
         <a href="#communes-francophones">
             <img src="flch_blanche.png" />
             Communes francophones</a>
@@ -130,14 +135,15 @@
         <a href="#ajouter-une-commune">
             <img src="flch_blanche.png" />
             Ajouter une commune</a>
-    </section>
+    </nav>
 
     <section tal:define="allCommunes python:gestionCommuneView.getAllCommunesByRegion('E');"
              class="donnee-db">
         <h2 class="titre_encodage">Liste des communes étangères</h2>
-        <table class="listing">
+        <table id="table-listing-communes-etrangeres" class="listing tablesorter">
             <thead>
                 <tr align="center" valign="top">
+                    <th></th>
                     <th>CP</th>
                     <th>Nom</th>
                     <th>INS</th>
@@ -174,7 +180,8 @@
     </section>
 
 
-    <section id="ajouter-une-commune">
+    <nav id="ajouter-une-commune"
+         class="menu-listing-commune">
         <a href="#communes-francophones">
             <img src="flch_blanche.png" />
             Communes francophones</a>
@@ -184,7 +191,7 @@
         <a href="#communes-etrangeres">
             <img src="flch_blanche.png" />
             Communes étrangères</a>
-    </section>
+    </nav>
 
     <section class="donnee-db">
         <h2 class="titre_encodage">Ajouter une commune</h2>
