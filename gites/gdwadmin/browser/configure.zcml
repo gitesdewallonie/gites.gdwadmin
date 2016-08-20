@@ -12,6 +12,38 @@
         name="gdwadmin core"
         />
 
+<!-- RESOURCES -->
+    <browser:resourceDirectory
+      name="gdwadminJS"
+      directory="js/"
+      permission="zope2.View"
+      />
+
+    <browser:resourceDirectory
+      name="gdwadminImages"
+      directory="images/"
+      permission="zope2.View"
+      />
+
+    <browser:resource
+        name="gdwadmin.js"
+        file="js/gdwadmin.js"
+        permission="zope2.View"
+        />
+
+    <browser:resource
+        name="jquery-latest.js"
+        file="js/jquery-latest.js"
+        permission="zope2.View"
+        />
+
+    <browser:resource
+        name="jquery.tablesorter.js"
+        file="js/jquery.tablesorter.js"
+        permission="zope2.View"
+        />
+
+
 
 <!-- UTILS -->
     <browser:page
@@ -21,6 +53,8 @@
       attribute="generer_code_gdw"
       class=".utils.UtilsView"
       />
+
+
 
 <!-- COMMUNES -->
     <browser:page
@@ -86,12 +120,30 @@
         permission="gdw.ViewAdmin"
         />
 
-<browser:page
+    <browser:page
         name="lister-les-localites"
         for="*"
         template="templates/localite/lister_localite.pt"
         permission="gdw.ViewAdmin"
         class=".manage_localite.LocaliteView"
+        allowed_interface=".interfaces.ILocaliteView"
+        />
+
+    <browser:page
+        name="modifier-une-localite"
+        for="*"
+        template="templates/localite/modifier_localite.pt"
+        permission="gdw.ViewAdmin"
+        class=".manage_localite.LocaliteView"
+        allowed_interface=".interfaces.ILocaliteView"
+        />
+
+    <browser:page
+        name="updateLocalite"
+        for="*"
+        class=".manage_localite.LocaliteView"
+        attribute="updateLocalite"
+        permission="gdw.ViewAdmin"
         allowed_interface=".interfaces.ILocaliteView"
         />
 
@@ -104,6 +156,17 @@
         allowed_interface=".interfaces.ILocaliteView"
         />
 
+    <browser:page
+        name="deleteLocalite"
+        for="*"
+        class=".manage_localite.LocaliteView"
+        attribute="deleteLocalite"
+        permission="gdw.ViewAdmin"
+        allowed_interface=".interfaces.ILocaliteView"
+        />
+
+
+
 <!-- PROVONCES -->
     <browser:page
         for="*"
@@ -113,7 +176,7 @@
         permission="gdw.ViewAdmin"
         />
 
-<browser:page
+    <browser:page
         name="lister-les-provinces"
         for="*"
         template="templates/province/lister_province.pt"
@@ -190,18 +253,5 @@
 <!-- HEB METADATAS -->
 	<grok:grok package=".hebmetadata" />
 
-
-<!-- RESOURCES -->
-    <browser:resourceDirectory
-      name="gdwadminJS"
-      directory="js/"
-      permission="zope2.View"
-      />
-
-    <browser:resourceDirectory
-      name="gdwadminImages"
-      directory="images/"
-      permission="zope2.View"
-      />
 
 </configure>
