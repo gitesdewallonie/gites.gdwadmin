@@ -398,6 +398,11 @@ font-size:0.8em;
 margin:auto;
 }
 
+body.gdwadmin-content table.listing tr:nth-child(even){
+    background-color: #f6fef4;
+}
+
+
 body.gdwadmin-content table.listing th {
 background:none repeat scroll 0 0 #ff8336;
 border-style:solid;
@@ -428,5 +433,47 @@ margin:auto;
 
 body.gdwadmin-content .btn-modifier-listing:hover{
 background-position:left -12px;
+}
+
+body.gdwadmin-content nav.menu-listing-commune{
+margin-top:3em;
+padding-left:1.5em;
+font-size:0.9em;
+}
+
+
+
+
+
+
+table.tablesorter {
+}
+
+table.tablesorter thead tr th, table.tablesorter tfoot tr th {
+}
+
+table.tablesorter thead tr .header {
+    background-image: url(bg.gif);
+    background-repeat: no-repeat;
+    background-position: center right;
+    cursor: pointer;
+}
+
+table.tablesorter tbody td {
+}
+
+table.tablesorter tbody tr.odd td {
+}
+
+table.tablesorter thead tr .headerSortUp {
+    background-image: url(asc.gif);
+}
+
+table.tablesorter thead tr .headerSortDown {
+    background-image: url(desc.gif);
+}
+
+table.tablesorter thead tr .headerSortDown, table.tablesorter thead tr .headerSortUp {
+background-color: #8dbdd8;
 }
 
