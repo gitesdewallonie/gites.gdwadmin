@@ -4,7 +4,7 @@
 <title> Gites wallons : détail des types d'hébergement</TITLE>
 <meta name="author" content="Affinitic">
 <link href="gdwadmin.css" type="text/css" rel="stylesheet" />
-<script language=JavaScript src="gites_wallons_script.js"></script>
+<script src="++resource++gdwadmin.js"></script>
 </head>
 <body class="gdwadmin-content">
 <fieldset  class="fieldsetprive">

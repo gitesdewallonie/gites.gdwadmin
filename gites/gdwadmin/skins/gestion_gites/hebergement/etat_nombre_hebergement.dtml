@@ -5,7 +5,7 @@
 <title> Gites wallons : création hébergement </TITLE>
 <meta name="author" content="Affinitic">
 <link href="gdwadmin.css" type="text/css" rel="stylesheet" />
-<script language=JavaScript src="gites_wallons_script.js"></script>
+<script src="++resource++gdwadmin.js"></script>
 <dtml-call "RESPONSE.setHeader('Content-Type', 'text/html;charset=UTF-8')">
 </head>
 <body class="gdwadmin-content">

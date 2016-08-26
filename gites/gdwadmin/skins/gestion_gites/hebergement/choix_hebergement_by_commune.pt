@@ -4,7 +4,7 @@
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <meta name="author" content="Affinitic">
 <link href="gdwadmin.css" type="text/css" rel="stylesheet" />
-<script language=JavaScript src="gites_wallons_script.js"></script>
+<script src="++resource++gdwadmin.js"></script>
 </head>
 <body class="gdwadmin-content">
    <span tal:define="Communes python:here.admin_base.commune.zsql_select_commune_by_compk(com_pk=request.com_pk)">

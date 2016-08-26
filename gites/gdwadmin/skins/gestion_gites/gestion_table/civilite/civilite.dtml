@@ -6,7 +6,7 @@
 <dtml-call "RESPONSE.setHeader('Content-Type', 'text/html;charset=UTF-8')">
 <meta name="author" content="Affinitic">
 <link href="gdwadmin.css" type="text/css" rel="stylesheet" />
-<script language=JavaScript src="gites_wallons_script.js"></script>
+<script src="++resource++gdwadmin.js"></script>
 </head>
 <body class="gdwadmin-content">
 <span class="titre_page">Gestion de la table civilite</span><br><br>

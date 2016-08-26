@@ -4,7 +4,7 @@
 <title> Gites wallons : CallCenter </TITLE>
 <meta name="Author" CONTENT="3lug.be">
 <link href="gdwadmin.css" type="text/css" rel="stylesheet" />
-<script language=JavaScript src="gites_wallons_script.js"></script>
+<script src="++resource++gdwadmin.js"></script>
 
 <script>
 function Envoyer(cle, sens){

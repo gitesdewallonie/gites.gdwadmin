@@ -23,6 +23,7 @@ function fermer_fenetre(){
 
 
 function Envoyer(op){
+   alert('coucou');
    if (op=='modifier'){
       document.formulaire.operation.value="modifier";
       document.formulaire.submit();

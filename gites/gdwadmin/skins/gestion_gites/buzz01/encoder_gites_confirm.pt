@@ -3,7 +3,7 @@
 <title> Gites wallons : sÃ©lection d'un hÃ©bergement par le proprio</TITLE>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" >
 <link href="gdwadmin.css" type="text/css" rel="stylesheet" />
-<script language=JavaScript src="gites_wallons_script.js"></script>
+<script src="++resource++gdwadmin.js"></script>
 </head>
 <body class="gdwadmin-content">
 <fieldset class="fieldsetprive"

@@ -5,7 +5,7 @@
 <meta name="generator" content="vim">
 <meta name="author" content="AFFINITIC">
 <link href="gdwadmin.css" type="text/css" rel="stylesheet" />
-<script language=JavaScript src="gites_wallons_script.js"></script>
+<script src="++resource++gdwadmin.js"></script>
 </head>
 
 <body>

@@ -8,7 +8,7 @@
 
 
 <link href="gdwadmin.css" type="text/css" rel="stylesheet" />
-<script language=JavaScript src="gites_wallons_script.js"></script>
+<script src="++resource++gdwadmin.js"></script>
 </head>
 <body class="gdwadmin-content">
 <span class="titre_page">Gestion de la table des types d'informations pratiques</span><br><br>
