@@ -22,7 +22,7 @@ class CommuneView(BrowserView):
         allCommunes = query.all()
         return allCommunes
 
-    def getAllCommunesByRegion(self, langue):
+    def getAllCommunesByRegion(self, langue, tri=None):
         """
         recuperation de toutes les communes selon leur langues
         basé sur la com_prov_pk  (table priovince)
@@ -38,7 +38,10 @@ class CommuneView(BrowserView):
         session = wrapper.session
         query = session.query(Commune)
         query = query.filter(Commune.com_prov_fk.in_(provincePk))
-        query = query.order_by(Commune.com_nom)
+        if tri:
+            query = query.order_by(Commune.com_cp)
+        else:
+            query = query.order_by(Commune.com_nom)
         allCommunes = query.all()
         return allCommunes
 

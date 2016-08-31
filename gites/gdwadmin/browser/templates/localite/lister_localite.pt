@@ -11,7 +11,7 @@
 <div tal:define="gestionLocaliteView context/@@localiteView;
                  gestionCommuneView context/@@communeView;
                  allLocalites python:gestionLocaliteView.getAllLocalites();
-                 allCommunes python:gestionCommuneView.getAllCommunes()">
+                 allCommunes python:gestionCommuneView.getAllCommunesByRegion('F', 'cp')">
     <h1 class="titre_page">Gestion de la table des localités</h1>
     <nav id="lister-les-localites"
          class="menu-listing-commune">
@@ -104,8 +104,11 @@
                     <option value="">  </option>
                     <tal:boucle tal:repeat="commune allCommunes">
                         <option value=""
-                                tal:attributes="value commune/com_pk"
-                                tal:content="commune/com_nom"></option>
+                                tal:attributes="value commune/com_pk">
+                                <span tal:content="commune/com_cp" />
+                                &nbsp;&nbsp;
+                                <span tal:content="commune/com_nom" />
+                        </option>
                     </tal:boucle>
                 </select>
             </div>
