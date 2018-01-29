@@ -227,6 +227,17 @@
                    title="Codes INS par ordre alphabétique"><img src="information.png" /><a>
             </div>
             <div class="formInput">
+                <label for="com-id">ID Google</label>
+                <input type="text"
+                       id="com-id"
+                       name="com_id"
+                       size="8"
+                       value="" />
+                &nbsp;&nbsp;&nbsp;
+                <img src="information.png" />
+                Nom de la commune tout en minuscule, sans esapce, sans accent. <i>Exemple : braine-l-alleud, la-bruyere, ham-sur-heure-nalinnes</i>
+            </div>
+            <div class="formInput">
                 <label for="com-prov-fk">Province</label>
                 <select name="com_prov_fk"
                         id="com-prov-fk">
