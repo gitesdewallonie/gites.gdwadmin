@@ -106,7 +106,6 @@
                         <option value=""
                                 tal:attributes="value commune/com_pk">
                                 <span tal:content="commune/com_cp" />
-                                &nbsp;&nbsp;
                                 <span tal:content="commune/com_nom" />
                         </option>
                     </tal:boucle>
