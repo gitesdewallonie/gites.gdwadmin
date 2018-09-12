@@ -46,7 +46,7 @@
 		   <td>&nbsp;<input type="text" size="65" name="CCL_ADRESSE" value=""></td>
       </tr>
       <tr>
-		   <td align="right"><font  size="2">Code Postale</td>
+		   <td align="right"><font  size="2">Code postal</td>
 		   <td>&nbsp;<input type="text" size="4" name="CCL_CP" value=""></td>
       </tr>
       <tr>

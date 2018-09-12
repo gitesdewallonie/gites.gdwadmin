@@ -50,7 +50,7 @@ function Envoyer(cle, sens){
 						<td>&nbsp;<input type="text" size="65" name="CCL_ADRESSE" value="<dtml-var CCL_ADRESSE>"></td>
 					</tr>
 					<tr>
-						<td align="right"><font  size="2">Code Postale</td>
+						<td align="right"><font  size="2">Code postal</td>
 						<td>&nbsp;<input type="text" size="4" name="CCL_CP" value="<dtml-var CCL_CP>"></td>
 					</tr>
 					<tr>
@@ -166,7 +166,7 @@ function Envoyer(cle, sens){
 						<td>&nbsp;<input type="text" size="65" name="fgwc_adresse_heb" value="<dtml-var gwc_adresse_heb>"></td>
 					</tr>
 					<tr>
-						<td align="right"><font  size="2">Code Postale</td>
+						<td align="right"><font  size="2">Code postal</td>
 						<td>&nbsp;<input type="text" size="4" name="fgwc_cp" value="<dtml-var gwc_cp>"></td>
 					</tr>
 					<tr>
